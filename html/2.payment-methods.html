@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Methods in China - Wander Any Place</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../iconfont/iconfont.js"></script>
+  <link rel="stylesheet" href="../iconfont/iconfont.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="./iconfont.css">
+
+</head>
+<body class="bg-gray-50 text-slate-800 font-sans">
+  <!-- 顶部视觉冲击区 -->
+  <header class="responsive-header flex items-center justify-center">
+    <!-- 背景图占位 -->
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <img src="../img/img-payment.png" alt="Payment methods in China" class="w-full h-full object-cover brightness-75 header-bg" style="width: 100vw; max-width: none; object-fit: cover;">
+      <div class="absolute inset-0 bg-black/30"></div>
+    </div>
+    
+    <!-- 导航 -->
+    <nav class="absolute top-0 left-0 right-0 z-20 px-4 sm:px-8 py-4 sm:py-6 flex justify-between items-center">
+      <div class="logo" id="mobileLogo">
+        <i class="iconfont icon-ditu-dibiao"></i>
+        <span>Wander Any Place</span>
+      </div>
+      <div class="desktop-nav" id="desktopNavLinks">
+        <a href="../../index.html">Home</a>
+        <a href="2.Destination.html">Destinations</a>
+        <a href="2.booking.html">Booking Services</a>
+        <a href="2.aboutus.html">About Us</a>
+      </div>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+    <!-- 移动端导航覆盖层 -->
+    <div class="mobile-nav-overlay" id="mobileNav">
+      <button class="nav-close-btn" onclick="toggleMobileMenu()">&times;</button>
+      <a href="../../index.html" onclick="toggleMobileMenu()">Home</a>
+      <a href="2.Destination.html" onclick="toggleMobileMenu()">Destinations</a>
+      <a href="2.booking.html" onclick="toggleMobileMenu()">Booking Services</a>
+      <a href="2.aboutus.html" onclick="toggleMobileMenu()">About Us</a>
+    </div>
+    
+    <!-- 核心内容 -->
+    <div class="relative z-10 text-center px-4 max-w-4xl animate-fade-in">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+        Payment Methods in China
+      </h1>
+      <p class="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto drop-shadow-md">
+        Essential payment options for a smooth travel experience in China
+      </p>
+    </div>
+  </header></function></seed:tool_call>
+
+  <!-- Payment Methods Section -->
+  <section class="bg-white border-b border-gray-100 py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="mb-10 inline-block border-b-4 border-rose-600 pb-2">
+        <h2 class="text-3xl font-bold text-slate-900">Payment Methods Overview</h2>
+      </div>
+      
+      <!-- Payment Methods Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Cash -->
+        <div class="bg-gray-50 rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+            <svg class="icon text-green-600 w-8 h-8" aria-hidden="true">
+              <use xlink:href="#icon-daizhifu"></use>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">Cash</h3>
+          <p class="text-slate-600 mb-4">Chinese Yuan (CNY) is the official currency. While digital payments are prevalent, cash is still accepted in many places, especially in smaller towns and rural areas.</p>
+          <ul class="list-disc pl-5 space-y-2 text-slate-600 text-sm">
+            <li>Widely accepted in most establishments</li>
+            <li><strong></strong>Exchange locations:</strong> Banks (with valid ID), airports, ports, hotels, and authorized exchange centers</li>
+            <li><strong>Exchange limits:</strong> Maximum ¥5,000 per day per person; maximum $50,000 per year per person</li>
+            <li><strong>ATMs:</strong> Available in most cities, many accept international cards (Visa/Mastercard), but may charge fees</li>
+            <li><strong>Useful tips:</strong> Keep small denominations for taxis and small purchases</li>
+          </ul>
+        </div>
+        
+        <!-- WeChat Pay -->
+        <div class="bg-gray-50 rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+            <svg class="icon text-green-600 w-8 h-8" aria-hidden="true">
+              <use xlink:href="#icon-weixinzhifu"></use>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">WeChat Pay</h3>
+          <p class="text-slate-600 mb-4">One of the most popular mobile payment methods in China. It's integrated into the WeChat app, which is widely used for messaging and social networking.</p>
+          <ul class="list-disc pl-5 space-y-2 text-slate-600 text-sm">
+            <li><strong>What you can do:</strong> Pay at restaurants, supermarkets, convenience stores, markets, and other places that accept WeChat Pay</li>
+            <li><strong>What you can't do:</strong> Send red envelopes, purchase wealth management products, or use for cross-border payments</li>
+            <li><strong>Fees:</strong> Transactions under ¥200 are free; 3% fee for amounts over ¥200</li>
+            <li><strong>Limits:</strong> ¥6,500 per transaction, ¥60,000 per month</li>
+            <li><strong>For detailed setup and usage instructions, please <a href="2.pre-app.html" class="text-rose-600 hover:underline font-bold">click here</a> (WeChat Pay section)</strong> </li>
+          </ul>
+        </div>
+        
+        <!-- Alipay -->
+        <div class="bg-gray-50 rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+            <svg class="icon text-blue-600 w-8 h-8" aria-hidden="true">
+              <use xlink:href="#icon-alipay"></use>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">Alipay</h3>
+          <p class="text-slate-600 mb-4">Another major mobile payment platform in China. It's part of the Alibaba Group and offers a wide range of financial services.</p>
+          <ul class="list-disc pl-5 space-y-2 text-slate-600 text-sm">
+            <li><strong>What you can do:</strong> Scan QR codes for payments at malls, shops, convenience stores, markets, public transportation, and taxis</li>
+            <li><strong>Fees:</strong> Transactions under ¥200 are free; 3% fee for amounts over ¥200</li>
+            <li><strong>Limits:</strong> Maximum ¥5,000 per transaction for international accounts</li>
+            <li><strong>For detailed setup and usage instructions, please <a href="2.pre-app.html" class="text-rose-600 hover:underline font-bold">click here</a> (Alipay section)</strong> </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Additional Information -->
+      <div class="mt-12 bg-gray-50 rounded-xl p-6">
+        <h3 class="text-xl font-bold text-slate-800 mb-4">Useful Tips</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <h4 class="font-semibold text-slate-700 mb-2">For Tourists</h4>
+            <ul class="list-disc pl-5 space-y-1 text-slate-600 text-sm">
+              <li>Consider setting up both WeChat Pay and Alipay for convenience</li>
+              <li>Bring some cash as a backup, especially in remote areas</li>
+              <li>Look for the "Foreign Tourist" option in payment apps</li>
+              <li>Keep your payment QR codes secure</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-slate-700 mb-2">Currency Exchange</h4>
+            <ul class="list-disc pl-5 space-y-1 text-slate-600 text-sm">
+              <li>Exchange currency at airports or banks for better rates</li>
+              <li>ATMs with UnionPay logo accept international cards</li>
+              <li>Notify your bank before traveling to China</li>
+              <li>Check exchange rates before your trip</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+    <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <svg aria-hidden="true" data-icon="ri:map-pin-2-fill" class="iconify text-rose-500 iconify--ri mr-2" width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.364 17.364L12 23.728l-6.364-6.364a9 9 0 1 1 12.728 0M12 13a2 2 0 1 0 0-4a2 2 0 0 0 0 4" fill="currentColor"></path></svg>
+            Wander Any Place
+          </h3>
+          <p class="text-gray-400 mb-4">
+            Your ultimate guide to exploring China. Discover the best destinations, plan your trip, and make unforgettable memories.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="../index.html" class="hover:text-rose-400 transition-colors">Home</a></li>
+            <li><a href="2.Destination.html" class="hover:text-rose-400 transition-colors">Destinations</a></li>
+            <li><a href="2.booking.html" class="hover:text-rose-400 transition-colors">Booking Services</a></li> 
+            <li><a href="2.aboutus.html" class="hover:text-rose-400 transition-colors">About Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Resources</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="2.pre-visa.html" class="hover:text-rose-400 transition-colors">Visa Information</a></li>
+            <li><a href="2.pre-app.html" class="hover:text-rose-400 transition-colors">Necessary Apps</a></li>
+            <li><a href="2.payment-methods.html" class="hover:text-rose-400 transition-colors">Payment Methods</a></li>
+            <li><a href="2.transportation.html" class="hover:text-rose-400 transition-colors">Transportation</a></li>
+            <li><a href="2.essential packing copy.html" class="hover:text-rose-400 transition-colors">Essential Packing</a></li>
+          </ul>
+        </div>
+
+         <div>
+          <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+          <p class="text-slate-400">Email: wanderanyplace@gmail.com</p>
+        </div>
+      </div>
+  </footer>
+
+
+  <!-- Image Viewer Modal -->
+  <div id="imageViewerModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90">
+    <button id="closeModal" class="absolute top-4 right-4 text-white text-4xl hover:text-rose-400 transition-colors z-50">&times;</button>
+    
+    <button id="prevImage" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-5xl hover:text-rose-400 transition-colors z-50">
+      &#10094;
+    </button>
+    
+    <button id="nextImage" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-5xl hover:text-rose-400 transition-colors z-50">
+      &#10095;
+    </button>
+    
+    <div class="relative max-w-7xl max-h-[90vh] flex items-center justify-center p-4">
+      <img id="modalImage" src="" alt="" class="max-w-full max-h-[90vh] object-contain">
+    </div>
+    
+    <div id="imageCounter" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-lg bg-black/50 px-4 py-2 rounded-lg">
+      <span id="currentIndex">1</span> / <span id="totalImages">1</span>
+    </div>
+  </div>
+
+  <script>
+    // Image Viewer functionality
+    let allImages = [];
+    let currentImageIndex = 0;
+    
+    // Initialize image viewer
+    function initImageViewer() {
+      // Get all images except background image
+      const images = document.querySelectorAll('img:not(.header-bg)');
+      allImages = Array.from(images);
+      
+      // Add click event to each image
+      allImages.forEach((img, index) => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          openImageViewer(index);
+        });
+      });
+      
+      // Close modal on background click
+      document.getElementById('imageViewerModal').addEventListener('click', (e) => {
+        if (e.target.id === 'imageViewerModal') {
+          closeImageViewer();
+        }
+      });
+      
+      // Close modal on button click
+      document.getElementById('closeModal').addEventListener('click', closeImageViewer);
+      
+      // Previous image
+      document.getElementById('prevImage').addEventListener('click', (e) => {
+        e.stopPropagation();
+        showPreviousImage();
+      });
+      
+      // Next image
+      document.getElementById('nextImage').addEventListener('click', (e) => {
+        e.stopPropagation();
+        showNextImage();
+      });
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        const modal = document.getElementById('imageViewerModal');
+        if (!modal.classList.contains('hidden')) {
+          if (e.key === 'Escape') {
+            closeImageViewer();
+          } else if (e.key === 'ArrowLeft') {
+            showPreviousImage();
+          } else if (e.key === 'ArrowRight') {
+            showNextImage();
+          }
+        }
+      });
+    }
+    
+    function openImageViewer(index) {
+      currentImageIndex = index;
+      const modal = document.getElementById('imageViewerModal');
+      const modalImage = document.getElementById('modalImage');
+      const currentIndexEl = document.getElementById('currentIndex');
+      const totalImagesEl = document.getElementById('totalImages');
+      
+      modalImage.src = allImages[index].src;
+      modalImage.alt = allImages[index].alt;
+      currentIndexEl.textContent = index + 1;
+      totalImagesEl.textContent = allImages.length;
+      
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeImageViewer() {
+      const modal = document.getElementById('imageViewerModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = 'auto';
+    }
+    
+    function showPreviousImage() {
+      currentImageIndex--;
+      if (currentImageIndex < 0) {
+        currentImageIndex = allImages.length - 1;
+      }
+      updateModalImage();
+    }
+    
+    function showNextImage() {
+      currentImageIndex++;
+      if (currentImageIndex >= allImages.length) {
+        currentImageIndex = 0;
+      }
+      updateModalImage();
+    }
+    
+    function updateModalImage() {
+      const modalImage = document.getElementById('modalImage');
+      const currentIndexEl = document.getElementById('currentIndex');
+      
+      modalImage.src = allImages[currentImageIndex].src;
+      modalImage.alt = allImages[currentImageIndex].alt;
+      currentIndexEl.textContent = currentImageIndex + 1;
+    }
+    
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', initImageViewer);
+  </script>
+<script>
+function toggleMobileMenu() {
+  const mobileNav = document.getElementById('mobileNav');
+  const menuBtn = document.querySelector('.mobile-menu-btn');
+  const mobileLogo = document.getElementById('mobileLogo');
+  if (mobileNav && menuBtn) {
+    mobileNav.classList.toggle('active');
+    menuBtn.classList.toggle('active');
+    if (mobileLogo) {
+      mobileLogo.classList.toggle('mobile-logo-hidden');
+    }
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1144 @@
+/* Mobile Header Navigation */
+.mobile-header-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1rem;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.logo i {
+  color: #f43f5e;
+  font-size: 1.5rem;
+}
+
+.desktop-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.desktop-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: medium;
+  transition: color 0.3s;
+}
+
+.desktop-nav a:hover {
+  color: #f43f5e;
+}
+
+/* Mobile Navigation Menu */
+.mobile-menu-btn {
+  display: none !important;
+  z-index: 1000;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+}
+
+.mobile-menu-btn span {
+  width: 24px;
+  height: 2px;
+  background: white;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+  
+  .desktop-nav,
+  nav div.desktop-nav,
+  header nav div.desktop-nav,
+  .responsive-header nav div.desktop-nav {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+  }
+  
+  .mobile-menu-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .mobile-menu-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+  
+  .mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+  }
+  
+  .mobile-nav-overlay.active {
+    transform: translateX(0);
+  }
+  
+  .mobile-nav-overlay a {
+    color: white;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  
+  .mobile-nav-overlay a:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
+}
+
+/* Hide logo when mobile menu is active - works on all screen sizes */
+.mobile-logo-hidden {
+  display: none !important;
+}
+
+/* Responsive Image Container */
+.responsive-img-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.responsive-img-container.aspect-video {
+  aspect-ratio: 16/9;
+}
+
+.responsive-img-container.aspect-square {
+  aspect-ratio: 1/1;
+}
+
+.responsive-img-container.aspect-4-3 {
+  aspect-ratio: 4/3;
+}
+
+.responsive-img-container.aspect-3-2 {
+  aspect-ratio: 3/2;
+}
+
+.responsive-img-container.aspect-2-3 {
+  aspect-ratio: 2/3;
+}
+
+.responsive-img-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.responsive-img-container img.object-contain {
+  object-fit: contain;
+}
+
+.responsive-img-container img.object-fill {
+  object-fit: fill;
+}
+
+.responsive-img-container img.object-none {
+  object-fit: none;
+}
+
+.responsive-img-container img.object-scale-down {
+  object-fit: scale-down;
+}
+
+/* Responsive Header Banner */
+.responsive-header {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  max-height: 600px;
+  overflow: hidden;
+}
+
+.responsive-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive Gallery Container */
+.responsive-gallery-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.responsive-gallery-container img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Responsive Map Carousel */
+.responsive-map-carousel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+/* Responsive Header Content Centering */
+header.responsive-header {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+/* Header Content Wrapper - 强制居中 */
+.header-content-wrapper {
+  position: relative !important;
+  z-index: 10 !important;
+  width: 100% !important;
+  max-width: 1280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  box-sizing: border-box !important;
+}
+
+/* Header Title - 强制居中 */
+.header-title {
+  font-size: 2rem !important;
+  font-weight: bold !important;
+  color: white !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 1rem !important;
+  display: block !important;
+  float: none !important;
+}
+
+/* Header Subtitle - 强制居中 */
+.header-subtitle {
+  font-size: 1rem !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 1.5rem !important;
+  display: block !important;
+  float: none !important;
+  max-width: 2xl !important;
+}
+
+/* Medium screens */
+@media (min-width: 768px) {
+  .header-title {
+    font-size: 3.5rem !important;
+  }
+  
+  .header-subtitle {
+    font-size: 1.25rem !important;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+  .header-title {
+    font-size: 4rem !important;
+  }
+  
+  .header-subtitle {
+    font-size: 1.5rem !important;
+  }
+}
+
+header.responsive-header > div.relative.z-10.text-center {
+  position: relative !important;
+  z-index: 10 !important;
+  width: 100% !important;
+  max-width: 1280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  box-sizing: border-box !important;
+}
+
+header.responsive-header h1 {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  float: none !important;
+  display: block !important;
+}
+
+header.responsive-header p {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  float: none !important;
+  display: block !important;
+}
+
+/* Media Queries for Responsive Images */
+@media (max-width: 640px) {
+  .responsive-header {
+    min-height: 280px;
+    max-height: 350px;
+  }
+  
+  .responsive-header h1 {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .responsive-header p {
+    font-size: 0.9rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .responsive-header nav {
+    padding: 0.5rem 1rem !important;
+  }
+  
+  .responsive-header nav .text-2xl {
+    font-size: 1.1rem !important;
+  }
+  
+  .responsive-img-container.aspect-video {
+    aspect-ratio: 16/10;
+  }
+  
+  .gallery-container {
+    height: 250px !important;
+  }
+  
+  .gallery-image {
+    max-height: 250px !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  
+  .carousel-item.active {
+    height: 250px !important;
+  }
+  
+  .map-carousel {
+    height: 250px !important;
+  }
+  
+  /* 主内容轮播图容器 */
+  .relative.rounded-xl.shadow-lg.overflow-hidden.mb-6.h-\[500px\] {
+    height: 280px !important;
+  }
+  
+  /* 主内容轮播图信息栏 */
+  .relative.rounded-xl.shadow-lg.overflow-hidden.mb-6.h-\[500px\] .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .relative.rounded-xl.shadow-lg.overflow-hidden.mb-6.h-\[500px\] .text-base {
+    font-size: 0.75rem !important;
+  }
+  
+  .relative.rounded-xl.shadow-lg.overflow-hidden.mb-6.h-\[500px\] .iconfont {
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+    margin-right: 0.25rem !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .responsive-header {
+    min-height: 300px;
+    max-height: 400px;
+  }
+  
+  .responsive-header h1 {
+    font-size: 2.5rem !important;
+  }
+  
+  .responsive-header p {
+    font-size: 1rem !important;
+  }
+  
+  .gallery-container {
+    height: 350px !important;
+  }
+  
+  .gallery-image {
+    max-height: 350px !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  
+  .carousel-item.active {
+    height: 350px !important;
+  }
+  
+  .map-carousel {
+    height: 350px !important;
+  }
+  
+  /* 主内容轮播图容器 */
+  .relative.rounded-xl.shadow-lg.overflow-hidden.mb-6.h-\[500px\] {
+    height: 350px !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .responsive-header {
+    min-height: 350px;
+    max-height: 500px;
+  }
+  
+  .gallery-container {
+    height: 400px !important;
+  }
+  
+  .gallery-image {
+    max-height: 400px !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  
+  .carousel-item.active {
+    height: 400px !important;
+  }
+  
+  .map-carousel {
+    height: 400px !important;
+  }
+  
+  /* 主内容轮播图容器 */
+  .relative.rounded-xl.shadow-lg.overflow-hidden.mb-6.h-\[500px\] {
+    height: 400px !important;
+  }
+}
+
+/* 通用轮播图图片样式 */
+.carousel-item img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+@media (min-width: 1025px) {
+  .responsive-header {
+    min-height: 400px;
+    max-height: 600px;
+  }
+  
+  .gallery-container {
+    height: 500px !important;
+  }
+  
+  .gallery-image {
+    max-height: 500px !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  
+  .carousel-item.active {
+    height: 500px !important;
+  }
+  
+  .map-carousel {
+    height: 500px !important;
+  }
+}
+
+/* Hide scrollbar */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Animation */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+/* Iconfont */
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Icon */
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+/* Tab */
+.tab-pane {
+  display: none;
+}
+.tab-pane.active {
+  display: block;
+}
+
+/* Gallery Image Styles */
+.gallery-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 500px;
+}
+
+.gallery-image {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.gallery-zoom-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-container:hover .gallery-zoom-overlay {
+  opacity: 1;
+}
+
+.gallery-zoom-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.gallery-zoom-icon svg,
+.gallery-zoom-icon i {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  padding: 1rem;
+  z-index: 10;
+}
+
+.gallery-caption p {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Map Carousel Base Styles */
+.map-carousel {
+  position: relative;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  overflow: hidden;
+  background: white;
+  height: 500px;
+}
+
+/* Carousel Inner */
+.carousel-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-item {
+  display: none;
+}
+
+.carousel-item.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 600px;
+}
+
+/* Carousel Control Buttons */
+.carousel-control-btn {
+  position: absolute;
+  top: 50%;
+  left: 0.5rem;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e11d48;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  z-index: 10;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.carousel-control-btn:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-control-btn i {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.carousel-control-prev {
+  left: 0.5rem;
+}
+
+.carousel-control-next {
+  left: auto;
+  right: 0.5rem;
+}
+
+/* Carousel Height: 250px */
+#zhoukoudian-map-carousel,
+#CCTVTower-map-carousel,
+#birdnest-map-carousel,
+#huanghuacheng-carousel,
+#jiankou-carousel,
+#badaling-remnant-carousel,
+#gubeikou-carousel {
+  height: 250px;
+}
+
+#zhoukoudian-map-carousel .carousel-item.active,
+#CCTVTower-map-carousel .carousel-item.active,
+#birdnest-map-carousel .carousel-item.active,
+#huanghuacheng-carousel .carousel-item.active,
+#jiankou-carousel .carousel-item.active,
+#badaling-remnant-carousel .carousel-item.active,
+#gubeikou-carousel .carousel-item.active {
+  height: 250px;
+}
+
+/* Carousel Height: 265px */
+#watercube-map-carousel {
+  height: 265px;
+}
+
+/* Carousel Height: 300px */
+#yuanmingyuan-map-carousel,
+#garden-expo-map-carousel {
+  height: 300px;
+}
+
+#yuanmingyuan-map-carousel .carousel-item.active,
+#garden-expo-map-carousel .carousel-item.active {
+  height: 300px;
+}
+
+#yuanmingyuan-map-carousel .gallery-container,
+#garden-expo-map-carousel .gallery-container {
+  height: 300px;
+}
+
+#yuanmingyuan-map-carousel .gallery-image,
+#garden-expo-map-carousel .gallery-image {
+  max-height: 300px;
+  object-fit: contain;
+}
+
+/* Carousel Height: 380px */
+#xiannongtan-map-carousel {
+  height: 380px;
+}
+
+/* Carousel Height: 400px */
+#yuetan-map-carousel,
+#mutianyu-map-carousel,
+#juyongguan-map-carousel {
+  height: 400px;
+}
+
+#yuetan-map-carousel .carousel-item.active,
+#mutianyu-map-carousel .carousel-item.active,
+#juyongguan-map-carousel .carousel-item.active {
+  height: 400px;
+}
+
+#mutianyu-map-carousel .carousel-item.active,
+#juyongguan-map-carousel .carousel-item.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Carousel Height: 450px */
+#fragrant-hills-map-carousel,
+#fivepagoda-map-carousel,
+#universal-map-carousel,
+#houhai-map-carousel {
+  height: 450px;
+}
+
+#fragrant-hills-map-carousel .carousel-item.active,
+#fivepagoda-map-carousel .carousel-item.active,
+#universal-map-carousel .carousel-item.active,
+#houhai-map-carousel .carousel-item.active {
+  height: 450px;
+}
+
+#fragrant-hills-map-carousel .containergallery-container,
+#fivepagoda-map-carousel .gallery-container,
+#universal-map-carousel .gallery-container,
+#houhai-map-carousel .gallery-container {
+  height: 450px;
+}
+
+#fragrant-hills-map-carousel .gallery-image,
+#fivepagoda-map-carousel .gallery-image,
+#universal-map-carousel .gallery-image,
+#houhai-map-carousel .gallery-image {
+  max-height: 450px;
+  object-fit: cover;
+}
+
+
+#happyvalley-map-carousel {
+  height: 520px;
+}
+
+#happyvalley-map-carousel .gallery-container {
+  height: 520px;
+}
+
+#happyvalley-map-carousel .carousel-item.active {
+  height: 520px;
+}
+
+#happyvalley-map-carousel .gallery-container .gallery-image {
+  max-height: 520px;
+  object-fit: cover;
+}
+
+
+#qushuilanting-map-carousel{
+  height: 500px;
+}
+
+#qushuilanting-map-carousel  .gallery-container{
+  height: 500px;
+}
+
+
+#qushuilanting-map-carousel .carousel-item.active{
+    height: 500px;  
+}
+
+#qushuilanting-map-carousel .gallery-image{
+    max-height: 500px;
+  object-fit: cover;
+}
+
+
+
+
+#longqingxia-map-carousel {
+  height: 500px;
+}
+
+#longqingxia-map-carousel .carousel-item.active {
+  height: 500px;
+}
+
+#longqingxia-map-carousel .gallery-container {
+  height: 500px;
+}
+
+#longqingxia-map-carousel .gallery-image {
+  max-height: 500px;
+  object-fit: cover;
+}
+
+/* Carousel Height: 500px */
+#blueharbor-map-carousel,
+#forbidden-map-carousel,
+#galaxysoho-map-carousel,
+#landmarks-map-carousel,
+#hongluo-map-carousel,
+#tanzhe-map-carousel,
+#fayuan-map-carousel,
+#shidu-map-carousel,
+#yudu-map-carousel,
+#phoenix-map-carousel,
+#shougang-map-carousel,
+#whitecloud-map-carousel,
+#lama-map-carousel,
+#sanlitun-map-carousel {
+  height: 500px;
+}
+
+#blueharbor-map-carousel .carousel-item.active,
+#forbidden-map-carousel .carousel-item.active,
+#galaxysoho-map-carousel .carousel-item.active,
+#landmarks-map-carousel .carousel-item.active,
+#hongluo-map-carousel .carousel-item.active,
+#tanzhe-map-carousel .carousel-item.active,
+#fayuan-map-carousel .carousel-item.active,
+#shidu-map-carousel .carousel-item.active,
+#yudu-map-carousel .carousel-item.active,
+#phoenix-map-carousel .carousel-item.active,
+#shougang-map-carousel .carousel-item.active,
+#whitecloud-map-carousel .carousel-item.active,
+#lama-map-carousel .carousel-item.active,
+#sanlitun-map-carousel .carousel-item.active {
+  height: 500px;
+}
+
+
+
+#blueharbor-map-carousel .gallery-container,
+#forbidden-map-carousel .gallery-container,
+#galaxysoho-map-carousel .gallery-container,
+#landmarks-map-carousel .gallery-container,
+#hongluo-map-carousel .gallery-container,
+#tanzhe-map-carousel .gallery-container,
+#fayuan-map-carousel .gallery-container,
+#shidu-map-carousel .gallery-container,
+#yudu-map-carousel .gallery-container,
+#phoenix-map-carousel .gallery-container,
+#shougang-map-carousel .gallery-container,
+#whitecloud-map-carousel .gallery-container,
+#lama-map-carousel .gallery-container,
+#sanlitun-map-carousel .gallery-container {
+  height: 500px;
+}
+
+#blueharbor-map-carousel .gallery-image {
+  max-height: 500px;
+  object-fit: contain;
+}
+
+#forbidden-map-carousel .gallery-image,
+#galaxysoho-map-carousel .gallery-image,
+#landmarks-map-carousel .gallery-image,
+#hongluo-map-carousel .gallery-image,
+#tanzhe-map-carousel .gallery-image,
+#fayuan-map-carousel .gallery-image,
+#shidu-map-carousel .gallery-image,
+#yudu-map-carousel .gallery-image,
+#phoenix-map-carousel .gallery-image,
+#shougang-map-carousel .gallery-image,
+#whitecloud-map-carousel .gallery-image{
+  max-height: 500px;
+  object-fit: cover;
+}
+
+
+
+
+#lama-map-carousel .gallery-image {
+  max-height: 500px;
+  object-fit: contain;
+}
+
+/* Carousel Height: 540px */
+#A798art-carousel {
+  height: 540px;
+}
+
+#A798art-carousel .carousel-item.active {
+  height: 540px;
+}
+
+#A798art-carousel .gallery-container {
+  height: 540px;
+}
+
+#A798art-carousel .gallery-image {
+  max-height: 540px;
+  object-fit: cover;
+}
+
+/* Carousel Height: 550px */
+#chaoyang-map-carousel,
+#citywalk-carousel,
+#nCPA-map-carousel,
+#chaoshangchao-carousel,
+#xinrongji-carousel,
+#kingjoy-carousel,
+#lushanglu-carousel,
+#wulixiang-carousel,
+#xidan-map-carousel,
+#guangfumuseum-carousel {
+  height: 550px;
+}
+
+#chaoyang-map-carousel .carousel-item.active,
+#citywalk-carousel .carousel-item.active,
+#nCPA-map-carousel .carousel-item.active,
+#chaoshangchao-carousel .carousel-item.active,
+#xinrongji-carousel .carousel-item.active,
+#kingjoy-carousel .carousel-item.active,
+#lushanglu-carousel .carousel-item.active,
+#wulixiang-carousel .carousel-item.active,
+#guangfumuseum-carousel .carousel-item.active {
+  height: 550px;
+}
+
+#chaoyang-map-carousel .gallery-container,
+#citywalk-carousel .gallery-container,
+#nCPA-map-carousel .gallery-container,
+#chaoshangchao-carousel .gallery-container,
+#xinrongji-carousel .gallery-container,
+#kingjoy-carousel .gallery-container,
+#lushanglu-carousel .gallery-container,
+#wulixiang-carousel .gallery-container,
+#xidan-map-carousel .gallery-container,
+#guangfumuseum-carousel .gallery-container  {
+  height: 550px;
+}
+
+#chaoyang-map-carousel .gallery-image,
+#redbrick-map-carousel .gallery-image {
+  max-height: 550px;
+  object-fit: cover;
+}
+
+#citywalk-carousel .gallery-image,
+#guangfumuseum-carousel .gallery-image,
+#songmuseum-map-carousel .gallery-image {
+  max-height: 550px;
+  object-fit: cover;
+}
+
+#nCPA-map-carousel .gallery-image,
+#chaoshangchao-carousel .gallery-image,
+#xinrongji-carousel .gallery-image,
+#kingjoy-carousel .gallery-image,
+#lushanglu-carousel .gallery-image,
+#wulixiang-carousel .gallery-image,
+#xidan-map-carousel .gallery-image{
+  max-height: 550px;
+  object-fit: contain;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Tailwind CSS Variables */
+*, ::before, ::after {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: ;
+  --tw-contain-size: ;
+  --tw-contain-layout: ;
+  --tw-contain-paint: ;
+  --tw-contain-style: ;
+}
+
+::backdrop {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: ;
+}

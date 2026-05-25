@@ -1,0 +1,127 @@
+﻿A-ID,B-ID,kilometers
+forbidden-city,beihai-park,2
+forbidden-city,confucius-temple,5
+forbidden-city,zhongshan-park,2.2
+forbidden-city,wangfujing,0.7
+forbidden-city,national-museum,3.5
+forbidden-city,ncpa,3.7
+summer-palace,yuanmingyuan,4.5
+temple-of-heaven,xiannongtan,4.7
+temple-of-heaven,national-museum,5.2
+jingshan-park,beihai-park,2
+jingshan-park,confucius-temple,5
+jingshan-park,zhongshan-park,2.2
+jingshan-park,wangfujing,0.7
+jingshan-park,national-museum,3.5
+jingshan-park,ncpa,3.7
+tiananmen-square,beihai-park,2
+tiananmen-square,confucius-temple,5
+tiananmen-square,zhongshan-park,2.2
+tiananmen-square,wangfujing,0.7
+tiananmen-square,national-museum,3.5
+tiananmen-square,ncpa,3.7
+yuanmingyuan,summer-palace,4.5
+beihai-park,forbidden-city,2
+beihai-park,tiananmen-square,2
+beihai-park,jingshan-park,2
+beihai-park,zhongshan-park,1.3
+beihai-park,yuetan-park,3.7
+beihai-park,xidan-commercial,3.1
+beihai-park,national-museum,3.5
+beihai-park,ncpa,3
+beihai-park,galaxy-soho,5
+confucius-temple,forbidden-city,5
+confucius-temple,jingshan-park,5
+confucius-temple,tiananmen-square,5
+confucius-temple,beihai-park,4.4
+confucius-temple,ditan-park,1.8
+confucius-temple,wangfujing,4.4
+confucius-temple,galaxy-soho,5.2
+confucius-temple,lama-temple,2.1
+ditan-park,confucius-temple,1.8
+ditan-park,wangfujing,5.4
+ditan-park,lama-temple,0.7
+ditan-park,galaxy-soho,5.1
+Zhongshan Park,forbidden-city,2.2
+Zhongshan Park,jingshan-park,2.2
+Zhongshan Park,tiananmen-square,2.2
+Zhongshan Park,beihai-park,1.3
+Zhongshan Park,xiannongtan,5
+Zhongshan Park,yuetan-park,5.4
+Zhongshan Park,wangfujing,4
+Zhongshan Park,xidan-commercial,2.9
+Zhongshan Park,national-museum,2.2
+Zhongshan Park,galaxy-soho,5.2
+ritan-park,wangfujing,4.9
+ritan-park,the-place,2.1
+ritan-park,sanlitun-taikoo,4.8
+ritan-park,cctv-headquarters,2.9
+ritan-park,galaxy-soho,1
+xiannongtan,temple-of-heaven,4.7
+xiannongtan,Zhongshan Park,5
+xiannongtan,grand-view-garden,4.7
+xiannongtan,ncpa,4.1
+yuetan-park,beihai-park,3.7
+yuetan-park,Zhongshan Park,5.4
+yuetan-park,xidan-commercial,2.8
+yuetan-park,capital-museum,2.1
+yuetan-park,ncpa,4.5
+yuandadu,olympic-forest-park,2.4
+yuandadu,birds-nest,2.4
+yuandadu,water-cube,2.4
+olympic-forest-park,yuandadu,2.4
+olympic-forest-park,birds-nest,0.1
+olympic-forest-park,water-cube,0.1
+yuyuantan-park,capital-museum,5.5
+yuyuantan-park,cctv-tower,1
+grand-view-garden,xiannongtan,4.7
+chaoyang-park,sanlitun-taikoo,4.6
+chaoyang-park,blue-harbor,1
+wangfujing,forbidden-city,0.7
+wangfujing,jingshan-park,0.7
+wangfujing,tiananmen-square,0.7
+wangfujing,confucius-temple,4.4
+wangfujing,ditan-park,5.4
+wangfujing,Zhongshan Park,4
+wangfujing,ritan-park,4.9
+the-place,ritan-park,2.1
+the-place,sanlitun-taikoo,3.1
+the-place,cctv-headquarters,2
+the-place,galaxy-soho,3.2
+xidan-commercial,beihai-park,3.1
+xidan-commercial,Zhongshan Park,2.9
+xidan-commercial,yuetan-park,2.8
+xidan-commercial,capital-museum,4.3
+xidan-commercial,ncpa,1.9
+sanlitun-taikoo,ritan-park,4.8
+sanlitun-taikoo,chaoyang-park,4.6
+sanlitun-taikoo,the-place,3.1
+sanlitun-taikoo,blue-harbor,3.2
+sanlitun-taikoo,cctv-headquarters,5
+sanlitun-taikoo,galaxy-soho,5.3
+blue-harbor,chaoyang-park,1
+blue-harbor,sanlitun-taikoo,3.2
+national-museum,forbidden-city,3.5
+national-museum,temple-of-heaven,5.2
+national-museum,jingshan-park,3.5
+national-museum,tiananmen-square,3.5
+national-museum,beihai-park,3.5
+national-museum,Zhongshan Park,2.2
+capital-museum,yuetan-park,2.1
+capital-museum,yuyuantan-park,5.5
+capital-museum,xidan-commercial,4.3
+capital-museum,ncpa,5.2
+birds-nest,yuandadu,2.4
+birds-nest,olympic-forest-park,0.1
+birds-nest,water-cube,0.1
+water-cube,yuandadu,2.4
+water-cube,olympic-forest-park,0.1
+water-cube,birds-nest,0.1
+guanfu-museum,798,7.3
+guanfu-museum,song-art-museum,7.6
+guanfu-museum,red-brick-art,7.8
+798,guanfu-museum,7.3
+798,song-art-museum,8
+798,red-brick-art,8
+lama-temple,confucius-temple,2.1
+lama-temple,ditan-park,0.7
