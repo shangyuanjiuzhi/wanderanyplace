@@ -1,11 +1,19 @@
 const OpenAI = require('openai');
 
-// Cache storage with TTL (Time To Live)
-const cache = {};
-const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours
+// Hybrid cache: use Vercel KV if available, fallback to memory cache
+let kv = null;
+let memoryCache = {};
+const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+
+try {
+  kv = require('@vercel/kv').kv;
+  console.log('Vercel KV enabled');
+} catch (e) {
+  console.log('Vercel KV not available, using memory cache');
+}
 
 function generateCacheKey(destination, departureDate, returnDate) {
-  return `${destination}_${departureDate}_${returnDate}`;
+  return `packing:${destination}:${departureDate}:${returnDate}`;
 }
 
 const destinationInfo = {
@@ -96,8 +104,49 @@ function parseAIResponse(responseText) {
   return result;
 }
 
+async function getFromCache(cacheKey) {
+  if (kv) {
+    try {
+      const data = await kv.get(cacheKey);
+      if (data) {
+        console.log(`[${new Date().toISOString()}] KV Cache hit for ${cacheKey}`);
+        return data;
+      }
+    } catch (e) {
+      console.log(`KV cache error: ${e.message}, falling back to memory cache`);
+    }
+  }
+  
+  // Memory cache fallback
+  if (memoryCache[cacheKey] && Date.now() - memoryCache[cacheKey].timestamp < CACHE_TTL) {
+    console.log(`[${new Date().toISOString()}] Memory cache hit for ${cacheKey}`);
+    return memoryCache[cacheKey].data;
+  }
+  
+  return null;
+}
+
+async function setToCache(cacheKey, data) {
+  if (kv) {
+    try {
+      await kv.set(cacheKey, data, { ex: CACHE_TTL / 1000 });
+      console.log(`[${new Date().toISOString()}] Saved to KV cache: ${cacheKey}`);
+      return;
+    } catch (e) {
+      console.log(`KV cache error: ${e.message}, falling back to memory cache`);
+    }
+  }
+  
+  // Memory cache fallback
+  memoryCache[cacheKey] = {
+    timestamp: Date.now(),
+    data: data
+  };
+  console.log(`[${new Date().toISOString()}] Saved to memory cache: ${cacheKey}`);
+}
+
 module.exports = async function handler(req, res) {
-  console.log('API called with method:', req.method);
+  console.log(`[${new Date().toISOString()}] API called`);
 
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -106,7 +155,7 @@ module.exports = async function handler(req, res) {
   try {
     const { destination, departureDate, returnDate } = req.body;
 
-    console.log('Received parameters:', { destination, departureDate, returnDate });
+    console.log(`[${new Date().toISOString()}] Params: ${destination}, ${departureDate}, ${returnDate}`);
 
     if (!destination || !departureDate || !returnDate) {
       return res.status(400).json({ error: 'Missing required parameters' });
@@ -119,14 +168,17 @@ module.exports = async function handler(req, res) {
 
     // Check cache first
     const cacheKey = generateCacheKey(destination, departureDate, returnDate);
-    if (cache[cacheKey] && Date.now() - cache[cacheKey].timestamp < CACHE_TTL) {
-      console.log(`Cache hit for ${cacheKey}`);
+    const cachedData = await getFromCache(cacheKey);
+    
+    if (cachedData) {
       return res.json({
         success: true,
         fromCache: true,
-        ...cache[cacheKey].data
+        ...cachedData
       });
     }
+
+    console.log(`[${new Date().toISOString()}] Cache miss for ${cacheKey}`);
 
     const season = getSeason(departureDate);
     const seasonCN = getSeasonCN(season);
@@ -149,14 +201,12 @@ Requirements:
 4. Weather conditions: The most common weather pattern (e.g., sunny, cloudy, rainy, humid)
 5. Reply in English only, one single sentence`;
 
-    console.log('API Key available:', !!process.env.DEEPSEEK_API_KEY);
-
     const deepseekClient = new OpenAI({
       baseURL: 'https://api.deepseek.com',
       apiKey: process.env.DEEPSEEK_API_KEY
     });
 
-    console.log('Calling DeepSeek API...');
+    console.log(`[${new Date().toISOString()}] Calling DeepSeek API...`);
 
     const completion = await deepseekClient.chat.completions.create({
       model: 'deepseek-chat',
@@ -174,16 +224,13 @@ Requirements:
       max_tokens: 200
     });
 
-    console.log('DeepSeek API response received');
-    console.log('AI Response:', completion.choices[0].message.content);
+    console.log(`[${new Date().toISOString()}] DeepSeek API response received`);
 
     const aiResponse = completion.choices[0].message.content;
     const parsedResponse = parseAIResponse(aiResponse);
-    
-    console.log('Parsed clothing items:', parsedResponse.clothing);
 
     if (!parsedResponse.weather || parsedResponse.weather.length < 10) {
-      console.log('Using standard weather data');
+      console.log(`[${new Date().toISOString()}] Using standard weather data`);
       parsedResponse.weather = standardWeatherDesc;
     }
 
@@ -196,12 +243,7 @@ Requirements:
     };
 
     // Store in cache
-    cache[cacheKey] = {
-      timestamp: Date.now(),
-      data: responseData
-    };
-
-    console.log(`Cache saved for ${cacheKey}`);
+    await setToCache(cacheKey, responseData);
 
     res.json({
       success: true,
@@ -210,7 +252,7 @@ Requirements:
     });
 
   } catch (error) {
-    console.error('DeepSeek API Error:', error.message, error.stack);
+    console.error(`[${new Date().toISOString()}] Error:`, error.message);
     res.status(500).json({ error: 'Failed to get suggestions from AI', details: error.message });
   }
 };
