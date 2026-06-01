@@ -1,5 +1,13 @@
 const OpenAI = require('openai');
 
+// Cache storage with TTL (Time To Live)
+const cache = {};
+const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours
+
+function generateCacheKey(destination, departureDate, returnDate) {
+  return `${destination}_${departureDate}_${returnDate}`;
+}
+
 const destinationInfo = {
   beijing: { name: 'Beijing', nameCN: '北京' },
   shanghai: { name: 'Shanghai', nameCN: '上海' },
@@ -79,11 +87,9 @@ function getSeasonCN(season) {
 function parseAIResponse(responseText) {
   const result = { weather: responseText, clothing: [], essentials: [] };
   
-  // Extract clothing suggestions from response
   const clothingMatch = responseText.match(/Recommended clothing:\s*([^.]+)/i);
   if (clothingMatch) {
     const clothingStr = clothingMatch[1].trim();
-    // Split by commas and clean up
     result.clothing = clothingStr.split(/[,，]/).map(item => item.trim()).filter(item => item.length > 0);
   }
   
@@ -109,6 +115,17 @@ module.exports = async function handler(req, res) {
     const destInfo = destinationInfo[destination];
     if (!destInfo) {
       return res.status(400).json({ error: 'Invalid destination' });
+    }
+
+    // Check cache first
+    const cacheKey = generateCacheKey(destination, departureDate, returnDate);
+    if (cache[cacheKey] && Date.now() - cache[cacheKey].timestamp < CACHE_TTL) {
+      console.log(`Cache hit for ${cacheKey}`);
+      return res.json({
+        success: true,
+        fromCache: true,
+        ...cache[cacheKey].data
+      });
     }
 
     const season = getSeason(departureDate);
@@ -170,13 +187,26 @@ Requirements:
       parsedResponse.weather = standardWeatherDesc;
     }
 
-    res.json({
-      success: true,
+    const responseData = {
       destination: destInfo,
       season: seasonCN,
       departureDate,
       returnDate,
       suggestions: parsedResponse
+    };
+
+    // Store in cache
+    cache[cacheKey] = {
+      timestamp: Date.now(),
+      data: responseData
+    };
+
+    console.log(`Cache saved for ${cacheKey}`);
+
+    res.json({
+      success: true,
+      fromCache: false,
+      ...responseData
     });
 
   } catch (error) {
