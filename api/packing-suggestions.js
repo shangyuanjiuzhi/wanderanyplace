@@ -1,15 +1,16 @@
 const OpenAI = require('openai');
 
-// Hybrid cache: use Vercel KV if available, fallback to memory cache
-let kv = null;
+// Multi-cache strategy: Redis (Vercel), then memory fallback
+let redis = null;
 let memoryCache = {};
-const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+const CACHE_TTL = 24 * 60 * 60; // 24 hours in seconds
 
 try {
-  kv = require('@vercel/kv').kv;
-  console.log('Vercel KV enabled');
+  const { createClient } = require('@vercel/redis');
+  redis = createClient();
+  console.log('Vercel Redis enabled');
 } catch (e) {
-  console.log('Vercel KV not available, using memory cache');
+  console.log('Vercel Redis not available, using memory cache');
 }
 
 function generateCacheKey(destination, departureDate, returnDate) {
@@ -105,20 +106,21 @@ function parseAIResponse(responseText) {
 }
 
 async function getFromCache(cacheKey) {
-  if (kv) {
+  // Try Redis first
+  if (redis) {
     try {
-      const data = await kv.get(cacheKey);
+      const data = await redis.get(cacheKey);
       if (data) {
-        console.log(`[${new Date().toISOString()}] KV Cache hit for ${cacheKey}`);
-        return data;
+        console.log(`[${new Date().toISOString()}] Redis cache hit for ${cacheKey}`);
+        return JSON.parse(data);
       }
     } catch (e) {
-      console.log(`KV cache error: ${e.message}, falling back to memory cache`);
+      console.log(`Redis error: ${e.message}, falling back to memory cache`);
     }
   }
   
   // Memory cache fallback
-  if (memoryCache[cacheKey] && Date.now() - memoryCache[cacheKey].timestamp < CACHE_TTL) {
+  if (memoryCache[cacheKey] && Date.now() - memoryCache[cacheKey].timestamp < CACHE_TTL * 1000) {
     console.log(`[${new Date().toISOString()}] Memory cache hit for ${cacheKey}`);
     return memoryCache[cacheKey].data;
   }
@@ -127,13 +129,14 @@ async function getFromCache(cacheKey) {
 }
 
 async function setToCache(cacheKey, data) {
-  if (kv) {
+  // Try Redis first
+  if (redis) {
     try {
-      await kv.set(cacheKey, data, { ex: CACHE_TTL / 1000 });
-      console.log(`[${new Date().toISOString()}] Saved to KV cache: ${cacheKey}`);
+      await redis.set(cacheKey, JSON.stringify(data), { ex: CACHE_TTL });
+      console.log(`[${new Date().toISOString()}] Saved to Redis: ${cacheKey}`);
       return;
     } catch (e) {
-      console.log(`KV cache error: ${e.message}, falling back to memory cache`);
+      console.log(`Redis error: ${e.message}, falling back to memory cache`);
     }
   }
   
