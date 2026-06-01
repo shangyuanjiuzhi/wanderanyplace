@@ -10,7 +10,13 @@ const CACHE_TTL = 24 * 60 * 60; // 24 hours in seconds
 // Initialize Redis connection
 async function initRedis() {
   try {
-    redis = createClient();
+    const redisUrl = process.env.REDIS_URL;
+    if (!redisUrl) {
+      console.log('❌ REDIS_URL environment variable not configured');
+      console.log('Falling back to memory cache');
+      return;
+    }
+    redis = createClient({ url: redisUrl });
     await redis.connect();
     redisReady = true;
     console.log('✅ Redis connection successful');
