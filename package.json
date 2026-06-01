@@ -4,7 +4,7 @@
   "description": "Travel website for China destinations",
   "private": true,
   "dependencies": {
-    "@vercel/redis": "^1.0.0",
+    "@vercel/kv": "^1.0.0",
     "openai": "^4.52.0",
     "resend": "^3.0.0"
   },
