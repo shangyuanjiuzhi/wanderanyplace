@@ -2,7 +2,7 @@ const OpenAI = require('openai');
 
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
 const DEEPSEEK_API_URL = 'https://api.deepseek.com/chat/completions';
-const TARGET_MODEL = 'deepseek-chat';
+const TARGET_MODEL = 'deepseek-v4-flash'; // 你账单里的目标模型
 
 const destinationInfo = {
   beijing: { name: 'Beijing', nameCN: '北京' },
