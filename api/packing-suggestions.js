@@ -1,25 +1,27 @@
 const OpenAI = require('openai');
+const { createClient } = require('redis');
 
-// Multi-cache strategy: Vercel KV, then memory fallback
-let kv = null;
-let kvReady = false;
+// Multi-cache strategy: Redis, then memory fallback
+let redis = null;
+let redisReady = false;
 let memoryCache = {};
 const CACHE_TTL = 24 * 60 * 60; // 24 hours in seconds
 
-// Initialize Vercel KV connection
-async function initKV() {
+// Initialize Redis connection
+async function initRedis() {
   try {
-    kv = require('@vercel/kv');
-    kvReady = true;
-    console.log('✅ Vercel KV connection successful');
+    redis = createClient();
+    await redis.connect();
+    redisReady = true;
+    console.log('✅ Redis connection successful');
   } catch (e) {
-    console.log(`❌ Vercel KV connection failed: ${e.message}`);
+    console.log(`❌ Redis connection failed: ${e.message}`);
     console.log('Falling back to memory cache');
   }
 }
 
-// Initialize KV on module load
-initKV().catch(console.error);
+// Initialize Redis on module load
+initRedis().catch(console.error);
 
 function generateCacheKey(destination, departureDate, returnDate) {
   return `packing:${destination}:${departureDate}:${returnDate}`;
@@ -114,16 +116,16 @@ function parseAIResponse(responseText) {
 }
 
 async function getFromCache(cacheKey) {
-  // Try Vercel KV first if ready
-  if (kvReady && kv) {
+  // Try Redis first if ready
+  if (redisReady && redis) {
     try {
-      const data = await kv.get(cacheKey);
+      const data = await redis.get(cacheKey);
       if (data) {
-        console.log(`✅ Vercel KV cache hit for ${cacheKey}`);
-        return data;
+        console.log(`✅ Redis cache hit for ${cacheKey}`);
+        return JSON.parse(data);
       }
     } catch (e) {
-      console.log(`❌ Vercel KV get error: ${e.message}`);
+      console.log(`❌ Redis get error: ${e.message}`);
     }
   }
   
@@ -138,14 +140,14 @@ async function getFromCache(cacheKey) {
 }
 
 async function setToCache(cacheKey, data) {
-  // Try Vercel KV first if ready
-  if (kvReady && kv) {
+  // Try Redis first if ready
+  if (redisReady && redis) {
     try {
-      await kv.set(cacheKey, data, { ex: CACHE_TTL });
-      console.log(`✅ Saved to Vercel KV: ${cacheKey}`);
+      await redis.set(cacheKey, JSON.stringify(data), { EX: CACHE_TTL });
+      console.log(`✅ Saved to Redis: ${cacheKey}`);
       return;
     } catch (e) {
-      console.log(`❌ Vercel KV set error: ${e.message}`);
+      console.log(`❌ Redis set error: ${e.message}`);
     }
   }
   
@@ -188,7 +190,7 @@ module.exports = async function handler(req, res) {
       return res.json({
         success: true,
         fromCache: true,
-        cacheType: kvReady ? 'kv' : 'memory',
+        cacheType: redisReady ? 'redis' : 'memory',
         ...cachedData
       });
     }
