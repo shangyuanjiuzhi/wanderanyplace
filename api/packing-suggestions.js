@@ -2,16 +2,26 @@ const OpenAI = require('openai');
 
 // Multi-cache strategy: Redis (Vercel), then memory fallback
 let redis = null;
+let redisReady = false;
 let memoryCache = {};
 const CACHE_TTL = 24 * 60 * 60; // 24 hours in seconds
 
-try {
-  const { createClient } = require('@vercel/redis');
-  redis = createClient();
-  console.log('Vercel Redis enabled');
-} catch (e) {
-  console.log('Vercel Redis not available, using memory cache');
+// Initialize Redis connection
+async function initRedis() {
+  try {
+    const { createClient } = require('@vercel/redis');
+    redis = createClient();
+    await redis.connect();
+    redisReady = true;
+    console.log('✅ Redis connection successful');
+  } catch (e) {
+    console.log(`❌ Redis connection failed: ${e.message}`);
+    console.log('Falling back to memory cache');
+  }
 }
+
+// Initialize Redis on module load
+initRedis().catch(console.error);
 
 function generateCacheKey(destination, departureDate, returnDate) {
   return `packing:${destination}:${departureDate}:${returnDate}`;
@@ -106,37 +116,38 @@ function parseAIResponse(responseText) {
 }
 
 async function getFromCache(cacheKey) {
-  // Try Redis first
-  if (redis) {
+  // Try Redis first if ready
+  if (redisReady && redis) {
     try {
       const data = await redis.get(cacheKey);
       if (data) {
-        console.log(`[${new Date().toISOString()}] Redis cache hit for ${cacheKey}`);
+        console.log(`✅ Redis cache hit for ${cacheKey}`);
         return JSON.parse(data);
       }
     } catch (e) {
-      console.log(`Redis error: ${e.message}, falling back to memory cache`);
+      console.log(`❌ Redis get error: ${e.message}`);
     }
   }
   
   // Memory cache fallback
   if (memoryCache[cacheKey] && Date.now() - memoryCache[cacheKey].timestamp < CACHE_TTL * 1000) {
-    console.log(`[${new Date().toISOString()}] Memory cache hit for ${cacheKey}`);
+    console.log(`✅ Memory cache hit for ${cacheKey}`);
     return memoryCache[cacheKey].data;
   }
   
+  console.log(`❌ Cache miss for ${cacheKey}`);
   return null;
 }
 
 async function setToCache(cacheKey, data) {
-  // Try Redis first
-  if (redis) {
+  // Try Redis first if ready
+  if (redisReady && redis) {
     try {
       await redis.set(cacheKey, JSON.stringify(data), { ex: CACHE_TTL });
-      console.log(`[${new Date().toISOString()}] Saved to Redis: ${cacheKey}`);
+      console.log(`✅ Saved to Redis: ${cacheKey}`);
       return;
     } catch (e) {
-      console.log(`Redis error: ${e.message}, falling back to memory cache`);
+      console.log(`❌ Redis set error: ${e.message}`);
     }
   }
   
@@ -145,10 +156,11 @@ async function setToCache(cacheKey, data) {
     timestamp: Date.now(),
     data: data
   };
-  console.log(`[${new Date().toISOString()}] Saved to memory cache: ${cacheKey}`);
+  console.log(`✅ Saved to memory cache: ${cacheKey}`);
 }
 
 module.exports = async function handler(req, res) {
+  const startTime = Date.now();
   console.log(`[${new Date().toISOString()}] API called`);
 
   if (req.method !== 'POST') {
@@ -174,14 +186,14 @@ module.exports = async function handler(req, res) {
     const cachedData = await getFromCache(cacheKey);
     
     if (cachedData) {
+      console.log(`[${new Date().toISOString()}] Returning cached result`);
       return res.json({
         success: true,
         fromCache: true,
+        cacheType: redisReady ? 'redis' : 'memory',
         ...cachedData
       });
     }
-
-    console.log(`[${new Date().toISOString()}] Cache miss for ${cacheKey}`);
 
     const season = getSeason(departureDate);
     const seasonCN = getSeasonCN(season);
@@ -245,12 +257,16 @@ Requirements:
       suggestions: parsedResponse
     };
 
-    // Store in cache
-    await setToCache(cacheKey, responseData);
+    // Store in cache (non-blocking)
+    setToCache(cacheKey, responseData).catch(console.error);
+
+    const duration = Date.now() - startTime;
+    console.log(`[${new Date().toISOString()}] Request completed in ${duration}ms`);
 
     res.json({
       success: true,
       fromCache: false,
+      cacheType: 'none',
       ...responseData
     });
 
