@@ -1,4 +1,3 @@
-require('dotenv').config({ path: '../.env.development.local' });
 const OpenAI = require('openai');
 const { createClient } = require('redis');
 
@@ -223,9 +222,29 @@ Requirements:
 4. Weather conditions: The most common weather pattern (e.g., sunny, cloudy, rainy, humid)
 5. Reply in English only, one single sentence`;
 
+    const deepseekApiKey = process.env.DEEPSEEK_API_KEY;
+    if (!deepseekApiKey) {
+      console.log('❌ DEEPSEEK_API_KEY environment variable not configured');
+      // Fallback to standard weather data
+      const responseData = {
+        destination: destInfo,
+        season: seasonCN,
+        departureDate,
+        returnDate,
+        suggestions: { weather: standardWeatherDesc, clothing: [], essentials: [] }
+      };
+      setToCache(cacheKey, responseData).catch(console.error);
+      return res.json({
+        success: true,
+        fromCache: false,
+        cacheType: 'none',
+        ...responseData
+      });
+    }
+
     const deepseekClient = new OpenAI({
       baseURL: 'https://api.deepseek.com',
-      apiKey: process.env.DEEPSEEK_API_KEY
+      apiKey: deepseekApiKey
     });
 
     console.log(`[${new Date().toISOString()}] Calling DeepSeek API...`);
@@ -279,6 +298,17 @@ Requirements:
 
   } catch (error) {
     console.error(`[${new Date().toISOString()}] Error:`, error.message);
-    res.status(500).json({ error: 'Failed to get suggestions from AI', details: error.message });
+    console.error(`[${new Date().toISOString()}] Error stack:`, error.stack);
+    console.error(`[${new Date().toISOString()}] Error type:`, error.constructor.name);
+    if (error.response) {
+      console.error(`[${new Date().toISOString()}] API response status:`, error.response.status);
+      console.error(`[${new Date().toISOString()}] API response body:`, JSON.stringify(error.response.data));
+    }
+    res.status(500).json({ 
+      error: 'Failed to get suggestions from AI', 
+      details: error.message,
+      type: error.constructor.name,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+    });
   }
 };
