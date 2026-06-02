@@ -250,7 +250,7 @@ Requirements:
     console.log(`[${new Date().toISOString()}] Calling DeepSeek API...`);
 
     const completion = await deepseekClient.chat.completions.create({
-      model: 'deepseek-chat',
+      model: 'deepseek-v4-flash',
       messages: [
         {
           role: 'system',
