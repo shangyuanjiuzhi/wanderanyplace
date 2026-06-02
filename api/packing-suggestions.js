@@ -1,8 +1,38 @@
+require('dotenv').config({ path: '../.env.development.local' });
 const OpenAI = require('openai');
+const { createClient } = require('redis');
 
-const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
-const DEEPSEEK_API_URL = 'https://api.deepseek.com/chat/completions';
-const TARGET_MODEL = 'deepseek-v4-flash'; // 你账单里的目标模型
+// Multi-cache strategy: Redis, then memory fallback
+let redis = null;
+let redisReady = false;
+let memoryCache = {};
+const CACHE_TTL = 24 * 60 * 60; // 24 hours in seconds
+
+// Initialize Redis connection
+async function initRedis() {
+  try {
+    const redisUrl = process.env.REDIS_URL;
+    if (!redisUrl) {
+      console.log('❌ REDIS_URL environment variable not configured');
+      console.log('Falling back to memory cache');
+      return;
+    }
+    redis = createClient({ url: redisUrl });
+    await redis.connect();
+    redisReady = true;
+    console.log('✅ Redis connection successful');
+  } catch (e) {
+    console.log(`❌ Redis connection failed: ${e.message}`);
+    console.log('Falling back to memory cache');
+  }
+}
+
+// Initialize Redis on module load
+initRedis().catch(console.error);
+
+function generateCacheKey(destination, departureDate, returnDate) {
+  return `packing:${destination}:${departureDate}:${returnDate}`;
+}
 
 const destinationInfo = {
   beijing: { name: 'Beijing', nameCN: '北京' },
@@ -92,38 +122,84 @@ function parseAIResponse(responseText) {
   return result;
 }
 
-module.exports = async function handler(req, res) {
-  const vercelRequestId = Date.now().toString();
-  let deepseekCallCount = 0;
+async function getFromCache(cacheKey) {
+  // Try Redis first if ready
+  if (redisReady && redis) {
+    try {
+      const data = await redis.get(cacheKey);
+      if (data) {
+        console.log(`✅ Redis cache hit for ${cacheKey}`);
+        return JSON.parse(data);
+      }
+    } catch (e) {
+      console.log(`❌ Redis get error: ${e.message}`);
+    }
+  }
+  
+  // Memory cache fallback
+  if (memoryCache[cacheKey] && Date.now() - memoryCache[cacheKey].timestamp < CACHE_TTL * 1000) {
+    console.log(`✅ Memory cache hit for ${cacheKey}`);
+    return memoryCache[cacheKey].data;
+  }
+  
+  console.log(`❌ Cache miss for ${cacheKey}`);
+  return null;
+}
 
-  console.log(`
-========================================
-[Vercel函数执行开始] packing-suggestions.js
-请求唯一ID: ${vercelRequestId}
-执行时间: ${new Date().toISOString()}
-API Key是否存在: ${!!DEEPSEEK_API_KEY}
-========================================
-`);
+async function setToCache(cacheKey, data) {
+  // Try Redis first if ready
+  if (redisReady && redis) {
+    try {
+      await redis.set(cacheKey, JSON.stringify(data), { EX: CACHE_TTL });
+      console.log(`✅ Saved to Redis: ${cacheKey}`);
+      return;
+    } catch (e) {
+      console.log(`❌ Redis set error: ${e.message}`);
+    }
+  }
+  
+  // Memory cache fallback
+  memoryCache[cacheKey] = {
+    timestamp: Date.now(),
+    data: data
+  };
+  console.log(`✅ Saved to memory cache: ${cacheKey}`);
+}
+
+module.exports = async function handler(req, res) {
+  const startTime = Date.now();
+  console.log(`[${new Date().toISOString()}] API called`);
 
   if (req.method !== 'POST') {
-    console.log(`[请求方法错误] ${req.method} - 只允许POST`);
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
     const { destination, departureDate, returnDate } = req.body;
 
-    console.log(`[请求参数] destination: ${destination}, departureDate: ${departureDate}, returnDate: ${returnDate}`);
+    console.log(`[${new Date().toISOString()}] Params: ${destination}, ${departureDate}, ${returnDate}`);
 
     if (!destination || !departureDate || !returnDate) {
-      console.log(`[参数缺失错误] 缺少必要参数`);
       return res.status(400).json({ error: 'Missing required parameters' });
     }
 
     const destInfo = destinationInfo[destination];
     if (!destInfo) {
-      console.log(`[目的地错误] 无效目的地: ${destination}`);
       return res.status(400).json({ error: 'Invalid destination' });
+    }
+
+    // Check cache first
+    const cacheKey = generateCacheKey(destination, departureDate, returnDate);
+    const cachedData = await getFromCache(cacheKey);
+    
+    if (cachedData) {
+      console.log(`[${new Date().toISOString()}] Returning cached result`);
+      return res.json({
+        success: true,
+        fromCache: true,
+        cacheType: redisReady ? 'redis' : 'memory',
+        ...cachedData
+      });
     }
 
     const season = getSeason(departureDate);
@@ -147,108 +223,62 @@ Requirements:
 4. Weather conditions: The most common weather pattern (e.g., sunny, cloudy, rainy, humid)
 5. Reply in English only, one single sentence`;
 
-    const callDeepSeek = async (promptText) => {
-      deepseekCallCount++;
-      
-      console.log(`
-[DeepSeek调用发起] 第 ${deepseekCallCount} 次
-所属Vercel请求ID: ${vercelRequestId}
-发起时间: ${new Date().toISOString()}
-模型: ${TARGET_MODEL}
-输入内容(前100字): ${promptText.substring(0, 100)}...
-`);
+    const deepseekClient = new OpenAI({
+      baseURL: 'https://api.deepseek.com',
+      apiKey: process.env.DEEPSEEK_API_KEY
+    });
 
-      const deepseekClient = new OpenAI({
-        baseURL: 'https://api.deepseek.com',
-        apiKey: DEEPSEEK_API_KEY
-      });
+    console.log(`[${new Date().toISOString()}] Calling DeepSeek API...`);
 
-      const completion = await deepseekClient.chat.completions.create({
-        model: TARGET_MODEL,
-        messages: [
-          {
-            role: 'system',
-            content: 'You are a professional historical weather data analyst. Only output data statistics in the exact format requested. No explanations, no introductions, no multiple lines.'
-          },
-          {
-            role: 'user',
-            content: promptText
-          }
-        ],
-        temperature: 0.3,
-        max_tokens: 200
-      });
+    const completion = await deepseekClient.chat.completions.create({
+      model: 'deepseek-chat',
+      messages: [
+        {
+          role: 'system',
+          content: 'You are a professional historical weather data analyst. Only output data statistics in the exact format requested. No explanations, no introductions, no multiple lines.'
+        },
+        {
+          role: 'user',
+          content: prompt
+        }
+      ],
+      temperature: 0.3,
+      max_tokens: 200
+    });
 
-      const responseData = completion;
-      
-      console.log(`
-[DeepSeek调用完成] 第 ${deepseekCallCount} 次
-所属Vercel请求ID: ${vercelRequestId}
-响应状态: 成功
-输出Token量: ${responseData.usage?.completion_tokens || 0}
-输入Token量: ${responseData.usage?.prompt_tokens || 0}
-总Token量: ${responseData.usage?.total_tokens || 0}
-`);
+    console.log(`[${new Date().toISOString()}] DeepSeek API response received`);
 
-      return responseData;
-    };
-
-    const completion = await callDeepSeek(prompt);
     const aiResponse = completion.choices[0].message.content;
-    
-    console.log(`[AI响应内容]: ${aiResponse}`);
-
     const parsedResponse = parseAIResponse(aiResponse);
-    
-    console.log(`[解析结果] clothing items: ${parsedResponse.clothing.length}个`);
 
     if (!parsedResponse.weather || parsedResponse.weather.length < 10) {
-      console.log(`[使用标准天气数据] AI响应无效，使用备用数据`);
+      console.log(`[${new Date().toISOString()}] Using standard weather data`);
       parsedResponse.weather = standardWeatherDesc;
     }
 
-    console.log(`
-========================================
-[Vercel函数执行结束] packing-suggestions.js
-请求唯一ID: ${vercelRequestId}
-本次执行总计调用DeepSeek次数: ${deepseekCallCount} 次
-执行是否成功: 是
-结束时间: ${new Date().toISOString()}
-========================================
-`);
-
-    res.json({
-      success: true,
+    const responseData = {
       destination: destInfo,
       season: seasonCN,
       departureDate,
       returnDate,
-      suggestions: parsedResponse,
-      debug: {
-        vercelRequestId,
-        deepseekCallCount,
-        tokens: completion.usage
-      }
+      suggestions: parsedResponse
+    };
+
+    // Store in cache (non-blocking)
+    setToCache(cacheKey, responseData).catch(console.error);
+
+    const duration = Date.now() - startTime;
+    console.log(`[${new Date().toISOString()}] Request completed in ${duration}ms`);
+
+    res.json({
+      success: true,
+      fromCache: false,
+      cacheType: 'none',
+      ...responseData
     });
 
   } catch (error) {
-    console.log(`
-========================================
-[Vercel函数执行出错] packing-suggestions.js
-请求唯一ID: ${vercelRequestId}
-本次执行总计调用DeepSeek次数: ${deepseekCallCount} 次
-错误信息: ${error.message}
-错误堆栈: ${error.stack}
-结束时间: ${new Date().toISOString()}
-========================================
-`);
-    res.status(500).json({ 
-      error: 'Failed to get suggestions from AI', 
-      details: error.message,
-      debug: {
-        vercelRequestId,
-        deepseekCallCount
-      }
-    });
+    console.error(`[${new Date().toISOString()}] Error:`, error.message);
+    res.status(500).json({ error: 'Failed to get suggestions from AI', details: error.message });
   }
 };
