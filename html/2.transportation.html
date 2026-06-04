@@ -28,17 +28,21 @@
     </div>
     
     <!-- 导航 -->
-    <nav class="absolute top-0 left-0 right-0 z-20 px-4 sm:px-8 py-4 sm:py-6 flex justify-between items-center">
-      <a href="../index.html" class="logo" id="mobileLogo" style="display: flex; align-items: center; text-decoration: none;">
-        <i class="iconfont icon-ditu-dibiao"></i>
-        <span>Wander Any Place</span>
-      </a>
-      <div class="desktop-nav" id="desktopNavLinks">
-        <a href="../../index.html">Home</a>
-        <a href="2.Destination.html">Destinations</a>
-        <a href="2.booking.html">Booking Services</a>
-        <a href="2.aboutus.html">About Us</a>
+   <nav class="absolute top-0 left-0 right-0 z-20 px-4 sm:px-8 py-4 sm:py-6 flex justify-between items-center">
+      <div class="text-white text-xl sm:text-2xl font-bold flex items-center gap-2" id="mobileLogo">
+        <a href="../../index.html" class="logo" id="mobileLogo" style="display: flex; align-items: center; text-decoration: none;">
+        <i class="iconfont icon-ditu-dibiao" style="color: #F43F5E;"></i>
+        <span style="color: white;">Wander Any Place</span>
+        </a>
       </div>
+      <div class="hidden md:flex space-x-0 text-white font-medium desktop-nav">
+        <a class="hover:text-rose-500 transition-colors" href="../../index.html">Home</a>
+        <a class="hover:text-rose-500 transition-colors" href="../2.Destination.html">Destinations</a>
+        <a class="hover:text-rose-500 transition-colors" href="../2.travel guide.html">Travel Guides</a>
+        <a class="hover:text-rose-500 transition-colors" href="../2.booking.html">Booking Services</a>
+        <a class="hover:text-rose-500 transition-colors" href="../2.aboutus.html">About Us</a>
+      </div>
+      <!-- 移动端菜单按钮 -->
       <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
         <span></span>
         <span></span>
@@ -49,9 +53,10 @@
     <div class="mobile-nav-overlay" id="mobileNav">
       <button class="nav-close-btn" onclick="toggleMobileMenu()">&times;</button>
       <a href="../../index.html" onclick="toggleMobileMenu()">Home</a>
-      <a href="2.Destination.html" onclick="toggleMobileMenu()">Destinations</a>
-      <a href="2.booking.html" onclick="toggleMobileMenu()">Booking Services</a>
-      <a href="2.aboutus.html" onclick="toggleMobileMenu()">About Us</a>
+      <a href="../2.Destination.html" onclick="toggleMobileMenu()">Destinations</a>
+      <a href="../2.travel guide.html" onclick="toggleMobileMenu()">Travel Guides</a>
+      <a href="../2.booking.html" onclick="toggleMobileMenu()">Booking Services</a>
+      <a href="../2.aboutus.html" onclick="toggleMobileMenu()">About Us</a>
     </div>
     
     <!-- 核心内容 -->
@@ -607,7 +612,7 @@
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
           <h3 class="text-xl font-bold mb-4 flex items-center">
-            <svg aria-hidden="true" data-icon="ri:map-pin-2-fill" class="iconify text-rose-500 iconify--ri mr-2" width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.364 17.364L12 23.728l-6.364-6.364a9 9 0 1 1 12.728 0M12 13a2 2 0 1 0 0-4a2 2 0 0 0 0 4" fill="currentColor"></path></svg>
+            <i class="iconfont icon-ditu-dibiao text-rose-500 mr-2"></i>
             Wander Any Place
           </h3>
           <p class="text-gray-400 mb-4">
@@ -620,6 +625,7 @@
           <ul class="space-y-2 text-gray-400">
             <li><a href="../index.html" class="hover:text-rose-400 transition-colors">Home</a></li>
             <li><a href="2.Destination.html" class="hover:text-rose-400 transition-colors">Destinations</a></li>
+            <li><a href="2.travel guide.html" class="hover:text-rose-400 transition-colors">Travel Guides</a></li>
             <li><a href="2.booking.html" class="hover:text-rose-400 transition-colors">Booking Services</a></li> 
             <li><a href="2.aboutus.html" class="hover:text-rose-400 transition-colors">About Us</a></li>
           </ul>
