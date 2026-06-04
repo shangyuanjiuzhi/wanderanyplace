@@ -29,16 +29,17 @@
       <div class="absolute inset-0 bg-black/30"></div>
     </div>
     <!-- 导航栏 -->
-    <nav class="absolute top-0 left-0 right-0 z-20 px-4 sm:px-8 py-4 sm:py-6 flex justify-between items-center">
+   <nav class="absolute top-0 left-0 right-0 z-20 px-4 sm:px-8 py-4 sm:py-6 flex justify-between items-center">
       <div class="text-white text-xl sm:text-2xl font-bold flex items-center gap-2" id="mobileLogo">
         <a href="../../index.html" class="logo" id="mobileLogo" style="display: flex; align-items: center; text-decoration: none;">
         <i class="iconfont icon-ditu-dibiao" style="color: #F43F5E;"></i>
         <span style="color: white;">Wander Any Place</span>
         </a>
       </div>
-      <div class="hidden md:flex space-x-8 text-white font-medium desktop-nav">
+      <div class="hidden md:flex space-x-0 text-white font-medium desktop-nav">
         <a class="hover:text-rose-500 transition-colors" href="../../index.html">Home</a>
         <a class="hover:text-rose-500 transition-colors" href="../2.Destination.html">Destinations</a>
+        <a class="hover:text-rose-500 transition-colors" href="../2.travel guide.html">Travel Guides</a>
         <a class="hover:text-rose-500 transition-colors" href="../2.booking.html">Booking Services</a>
         <a class="hover:text-rose-500 transition-colors" href="../2.aboutus.html">About Us</a>
       </div>
@@ -54,6 +55,7 @@
       <button class="nav-close-btn" onclick="toggleMobileMenu()">&times;</button>
       <a href="../../index.html" onclick="toggleMobileMenu()">Home</a>
       <a href="../2.Destination.html" onclick="toggleMobileMenu()">Destinations</a>
+      <a href="../2.travel guide.html" onclick="toggleMobileMenu()">Travel Guides</a>
       <a href="../2.booking.html" onclick="toggleMobileMenu()">Booking Services</a>
       <a href="../2.aboutus.html" onclick="toggleMobileMenu()">About Us</a>
     </div>
@@ -141,6 +143,8 @@
             <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white/70 hover:bg-white rounded-full w-8 h-8 flex items-center justify-center text-rose-600 shadow-lg z-10" onclick="nextSlide('yuanmingyuan')">
               <i class="iconfont icon-youjiantou2 w-6 h-6"></i>
             </button>
+
+   
             
             <!-- Carousel Indicators -->
             <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-10">
@@ -149,6 +153,8 @@
               <button class="w-3 h-3 rounded-full bg-white/70 hover:bg-white" onclick="goToSlide(2, 'yuanmingyuan')"></button>
             </div>
           </div>
+
+ 
           
           <!-- Information Content -->
           <div class="absolute bottom-6 left-8 right-0 p-4 text-white">
@@ -198,7 +204,7 @@
               <div class="carousel-inner flex items-center">
                 <div class="carousel-item active flex justify-center">
                   <div class="gallery-container relative">
-                    <img src="../../img/3. img-beijing/3.1.6 yuanmingyuan/yuanmingyuan_map spring.jpeg" alt="Yuanmingyuan Map Spring" class="h-full object-contain gallery-image">
+                    <img src="../../img/3. img-beijing/3.1.6 yuanmingyuan/yuanmingyuan_map spring.png" alt="Yuanmingyuan Map Spring" class="h-full object-contain gallery-image">
                     <div class="gallery-caption">
                       <p>Spring Route</p>
                     </div>
@@ -211,7 +217,7 @@
                 </div>
                 <div class="carousel-item hidden flex justify-center">
                   <div class="gallery-container relative">
-                    <img src="../../img/3. img-beijing/3.1.6 yuanmingyuan/yuanmingyuan_map summer.jpeg" alt="Yuanmingyuan Map Summer" class="h-full object-contain gallery-image">
+                    <img src="../../img/3. img-beijing/3.1.6 yuanmingyuan/yuanmingyuan_map summer.png" alt="Yuanmingyuan Map Summer" class="h-full object-contain gallery-image">
                     <div class="gallery-caption">
                       <p>Summer Route</p>
                     </div>
@@ -377,6 +383,7 @@
           <ul class="space-y-2 text-gray-400">
             <li><a href="../../index.html" class="hover:text-rose-400 transition-colors">Home</a></li>
             <li><a href="../2.Destination.html" class="hover:text-rose-400 transition-colors">Destinations</a></li>
+            <li><a href="../2.travel guide.html" class="hover:text-rose-400 transition-colors">Travel Guides</a></li>
             <li><a href="../2.booking.html" class="hover:text-rose-400 transition-colors">Booking Services</a></li>
             <li><a href="../2.aboutus.html" class="hover:text-rose-400 transition-colors">About Us</a></li>
           </ul>
@@ -421,40 +428,97 @@
     </div>
   </div>
 
-  <!-- Map Carousel Script -->
+  <!-- Carousel Script -->
   <script>
-    // First carousel (Yuanmingyuan seasonal maps)
-    let currentSlide = 0;
-    const slides = document.querySelector('.carousel-slides');
-    const slideCount = document.querySelectorAll('.carousel-slide').length;
-    const indicators = document.querySelectorAll('.absolute.bottom-2 button');
-
-    function updateSlide() {
-      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
-      indicators.forEach((indicator, index) => {
-        if (index === currentSlide) {
-          indicator.classList.add('active', 'bg-white');
-          indicator.classList.remove('bg-white/60');
-        } else {
-          indicator.classList.remove('active', 'bg-white');
-          indicator.classList.add('bg-white/60');
-        }
-      });
+    // First carousel (Background images - yuanmingyuan)
+    let bgCurrentSlide = 0;
+    
+    function goToSlide(index, carouselId) {
+      if (carouselId === 'yuanmingyuan') {
+        const carouselInner = document.querySelector('#yuanmingyuan-carousel .carousel-inner');
+        const items = carouselInner.querySelectorAll('.carousel-item');
+        const indicators = document.querySelectorAll('#yuanmingyuan-carousel .absolute.bottom-4 button');
+        
+        bgCurrentSlide = index;
+        
+        items.forEach((item, i) => {
+          if (i === index) {
+            item.classList.remove('hidden');
+            item.classList.add('active');
+          } else {
+            item.classList.add('hidden');
+            item.classList.remove('active');
+          }
+        });
+        
+        indicators.forEach((indicator, i) => {
+          if (i === index) {
+            indicator.classList.add('bg-white');
+          } else {
+            indicator.classList.remove('bg-white');
+          }
+        });
+      }
     }
 
     function nextSlide(carouselId) {
-      currentSlide = (currentSlide + 1) % slideCount;
-      updateSlide();
+      if (carouselId === 'yuanmingyuan') {
+        const items = document.querySelectorAll('#yuanmingyuan-carousel .carousel-item');
+        bgCurrentSlide = (bgCurrentSlide + 1) % items.length;
+        goToSlide(bgCurrentSlide, 'yuanmingyuan');
+      } else if (carouselId === 'yuanmingyuan-map') {
+        const carouselInner = document.querySelector('#yuanmingyuan-map-carousel .carousel-inner');
+        const items = carouselInner.querySelectorAll('.carousel-item');
+        
+        let currentSlide = 0;
+        items.forEach((item, index) => {
+          if (item.classList.contains('active')) {
+            currentSlide = index;
+          }
+        });
+        
+        currentSlide = (currentSlide + 1) % items.length;
+        
+        items.forEach((item, index) => {
+          if (index === currentSlide) {
+            item.classList.remove('hidden');
+            item.classList.add('active');
+          } else {
+            item.classList.add('hidden');
+            item.classList.remove('active');
+          }
+        });
+      }
     }
 
     function prevSlide(carouselId) {
-      currentSlide = (currentSlide - 1 + slideCount) % slideCount;
-      updateSlide();
-    }
-
-    function goToSlide(index, carouselId) {
-      currentSlide = index;
-      updateSlide();
+      if (carouselId === 'yuanmingyuan') {
+        const items = document.querySelectorAll('#yuanmingyuan-carousel .carousel-item');
+        bgCurrentSlide = (bgCurrentSlide - 1 + items.length) % items.length;
+        goToSlide(bgCurrentSlide, 'yuanmingyuan');
+      } else if (carouselId === 'yuanmingyuan-map') {
+        const carouselInner = document.querySelector('#yuanmingyuan-map-carousel .carousel-inner');
+        const items = carouselInner.querySelectorAll('.carousel-item');
+        
+        let currentSlide = 0;
+        items.forEach((item, index) => {
+          if (item.classList.contains('active')) {
+            currentSlide = index;
+          }
+        });
+        
+        currentSlide = (currentSlide - 1 + items.length) % items.length;
+        
+        items.forEach((item, index) => {
+          if (index === currentSlide) {
+            item.classList.remove('hidden');
+            item.classList.add('active');
+          } else {
+            item.classList.add('hidden');
+            item.classList.remove('active');
+          }
+        });
+      }
     }
 
     // Second carousel (simplified)
