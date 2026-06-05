@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "2860335",
+      "name": "twiter",
+      "font_class": "twiter",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "11479767",
+      "name": "facebook",
+      "font_class": "facebook",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
       "icon_id": "31987448",
       "name": "搜索",
       "font_class": "a-huaban1fuben19",

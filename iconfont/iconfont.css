@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 5180394 */
-  src: url('iconfont.woff2?t=1779597316257') format('woff2'),
-       url('iconfont.woff?t=1779597316257') format('woff'),
-       url('iconfont.ttf?t=1779597316257') format('truetype');
+  src: url('iconfont.woff2?t=1780651165740') format('woff2'),
+       url('iconfont.woff?t=1780651165740') format('woff'),
+       url('iconfont.ttf?t=1780651165740') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,14 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-twiter:before {
+  content: "\e61a";
+}
+
+.icon-facebook:before {
+  content: "\e639";
 }
 
 .icon-a-huaban1fuben19:before {
