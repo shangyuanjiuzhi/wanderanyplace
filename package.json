@@ -1,11 +1,14 @@
 {
-  "name": "wander-any-place",
+  "name": "api",
   "version": "1.0.0",
-  "description": "Travel website for China destinations",
   "private": true,
+  "engines": {
+    "node": "18.x"
+  },
   "dependencies": {
-    "redis": "^4.6.0",
+    "@neondatabase/serverless": "^1.1.0",
     "openai": "^4.52.0",
+    "redis": "^4.6.0",
     "resend": "^3.0.0"
   },
   "overrides": {
