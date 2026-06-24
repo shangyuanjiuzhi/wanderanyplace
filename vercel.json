@@ -1,6 +1,8 @@
 {
   "rewrites": [
     { "source": "/api/posts/(.*)", "destination": "/api/route.js" },
+    { "source": "/api/posts", "destination": "/api/route.js" },
+    { "source": "/api/init-db", "destination": "/api/init-db.js" },
     { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/html/(.*)", "destination": "/html/$1" },
     { "source": "/category/(.*)", "destination": "/html/category.html" },
