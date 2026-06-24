@@ -19,11 +19,6 @@
     { "source": "/(.*)", "destination": "/html/$1" }
   ],
   "outputDirectory": ".",
-  "functions": {
-    "api/**/*.js": {
-      "runtime": "@vercel/node@3.0.0"
-    }
-  },
   "headers": [
     {
       "source": "/(.*)",
