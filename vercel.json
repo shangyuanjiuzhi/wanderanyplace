@@ -5,13 +5,6 @@
     { "source": "/api/init-db", "destination": "/api/init-db.js" },
     { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/html/(.*)", "destination": "/html/$1" },
-    { "source": "/category/(.*)", "destination": "/html/category.html" },
-    { "source": "/post-detail/(.*)", "destination": "/html/post-detail.html" },
-    { "source": "/post", "destination": "/html/post.html" },
-    { "source": "/profile", "destination": "/html/profile.html" },
-    { "source": "/login", "destination": "/html/login.html" },
-    { "source": "/register", "destination": "/html/register.html" },
-    { "source": "/admin", "destination": "/html/admin.html" },
     { "source": "/(.*)", "destination": "/html/$1" }
   ],
   "outputDirectory": ".",
