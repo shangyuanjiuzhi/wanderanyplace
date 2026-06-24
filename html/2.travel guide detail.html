@@ -327,26 +327,23 @@
       }
     }
 
-    // Display post
     function displayPost(post) {
-      // Type configuration
-     const typeConfig = {
+      const typeConfig = {
         'Question': { color: '#6366F1', bgColor: '#EEF2FF'},
         'Share': { color: '#22C55E', bgColor: '#ECFDF5' },
         'Help': { color: '#EF4444', bgColor: '#FEF2F2' },
       };
       const config = typeConfig[post.type] || typeConfig['Share'];
 
+      const authorName = post.nick || 'Anonymous';
 
-
-      // Update DOM
       document.getElementById('postType').innerHTML = `${post.type}`;
       document.getElementById('postType').style.backgroundColor = config.bgColor;
       document.getElementById('postType').style.color = config.color;
       
       document.getElementById('postTitle').textContent = post.title;
-      document.getElementById('authorName').textContent = post.nick;
-      document.getElementById('authorAvatar').querySelector('span').textContent = post.nick.charAt(0).toUpperCase();
+      document.getElementById('authorName').textContent = authorName;
+      document.getElementById('authorAvatar').querySelector('span').textContent = authorName.charAt(0).toUpperCase();
       document.getElementById('authorAvatar').style.backgroundColor = config.bgColor;
       document.getElementById('authorAvatar').querySelector('span').style.color = config.color;
       document.getElementById('postDate').textContent = formatDate(post.create_time);
