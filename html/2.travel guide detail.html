@@ -328,16 +328,27 @@
     }
 
     function displayPost(post) {
+      if (!post) {
+        console.error('displayPost: post is undefined');
+        return;
+      }
+
       const typeConfig = {
         'Question': { color: '#6366F1', bgColor: '#EEF2FF'},
         'Share': { color: '#22C55E', bgColor: '#ECFDF5' },
-        'Help': { color: '#EF4444', bgColor: '#FEF2F2' }
+        'Help': { color: '#EF4444', bgColor: '#FEF2F2' },
+        'Others': { color: '#64748B', bgColor: '#F1F5F9' }
       };
-      const config = typeConfig[post.type] || typeConfig['Others'];
+
+      const postType = (post.type || '').toLowerCase();
+      const normalizedType = postType === 'question' ? 'Question' : 
+                            postType === 'share' ? 'Share' : 
+                            postType === 'help' ? 'Help' : 'Others';
+      const config = typeConfig[normalizedType];
 
       const authorName = post.nick || 'Anonymous';
 
-      document.getElementById('postType').innerHTML = `${post.type}`;
+      document.getElementById('postType').innerHTML = normalizedType;
       document.getElementById('postType').style.backgroundColor = config.bgColor;
       document.getElementById('postType').style.color = config.color;
       
