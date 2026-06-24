@@ -528,7 +528,7 @@
       const content = document.getElementById('content').value.trim();
 
       try {
-        const response = await fetch('http://localhost:3001/api/comments', {
+        const response = await fetch('/api/comments', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ articleId: ARTICLE_ID, nick, content })
@@ -553,7 +553,7 @@
     // Load comments from server
     async function loadComments() {
       try {
-        const response = await fetch(`http://localhost:3001/api/comments/${ARTICLE_ID}`);
+        const response = await fetch(`/api/comments/${ARTICLE_ID}`);
         const result = await response.json();
 
         const container = document.getElementById('commentsList');
