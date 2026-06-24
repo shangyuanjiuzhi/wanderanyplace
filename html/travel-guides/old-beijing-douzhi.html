@@ -363,6 +363,129 @@
         </div>
       </article>
 
+      <!-- Comments Section -->
+      <section class="mt-16 pt-16 border-t border-slate-200">
+        <h2 class="text-2xl font-bold mb-6">Comments</h2>
+        
+        <!-- Comment Form -->
+        <form id="commentForm" class="bg-slate-50 p-6 rounded-xl mb-8">
+          <div class="mb-4">
+            <label for="nick" class="block text-sm font-medium text-slate-700 mb-2">Nickname</label>
+            <input type="text" id="nick" name="nick" required minlength="2" maxlength="20"
+              class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent"
+              placeholder="Your nickname (2-20 characters)">
+          </div>
+          <div class="mb-4">
+            <label for="content" class="block text-sm font-medium text-slate-700 mb-2">Comment</label>
+            <textarea id="content" name="content" required minlength="10" maxlength="300" rows="4"
+              class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent resize-none"
+              placeholder="Share your thoughts (10-300 characters)"></textarea>
+            <p class="text-xs text-slate-500 mt-1"><span id="charCount">0</span>/300 characters</p>
+          </div>
+          <button type="submit" class="bg-rose-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-rose-700 transition-colors">
+            Submit Comment
+          </button>
+        </form>
+
+        <!-- Comments List -->
+        <div id="commentsList" class="space-y-4">
+          <p class="text-slate-500 text-center py-8">No comments yet. Be the first to share your thoughts!</p>
+        </div>
+      </section>
+
+      <script>
+        // Article ID for this page
+        const ARTICLE_ID = 'old-beijing-douzhi';
+
+        // Load comments on page load
+        document.addEventListener('DOMContentLoaded', loadComments);
+
+        // Character counter
+        document.getElementById('content').addEventListener('input', function() {
+          document.getElementById('charCount').textContent = this.value.length;
+        });
+
+        // Submit comment
+        document.getElementById('commentForm').addEventListener('submit', async function(e) {
+          e.preventDefault();
+          
+          const nick = document.getElementById('nick').value.trim();
+          const content = document.getElementById('content').value.trim();
+          
+          try {
+            const response = await fetch('http://localhost:3001/api/comments', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ articleId: ARTICLE_ID, nick, content })
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+              alert('Comment submitted successfully!');
+              document.getElementById('commentForm').reset();
+              document.getElementById('charCount').textContent = '0';
+              loadComments();
+            } else {
+              alert(result.message || 'Failed to submit comment');
+            }
+          } catch (error) {
+            console.error('Error:', error);
+            alert('Network error. Please try again.');
+          }
+        });
+
+        // Load comments from server
+        async function loadComments() {
+          try {
+            const response = await fetch(`http://localhost:3001/api/comments/${ARTICLE_ID}`);
+            const result = await response.json();
+            
+            const container = document.getElementById('commentsList');
+            
+            if (result.success && result.data.length > 0) {
+              container.innerHTML = result.data.map(comment => `
+                <div class="bg-white border border-slate-200 rounded-xl p-4">
+                  <div class="flex items-center gap-3 mb-2">
+                    <div class="w-10 h-10 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center font-bold">
+                      ${comment.nick.charAt(0).toUpperCase()}
+                    </div>
+                    <div>
+                      <p class="font-medium text-slate-800">${escapeHtml(comment.nick)}</p>
+                      <p class="text-xs text-slate-500">${formatDate(comment.create_time)}</p>
+                    </div>
+                  </div>
+                  <p class="text-slate-700 pl-13">${escapeHtml(comment.content)}</p>
+                </div>
+              `).join('');
+            } else {
+              container.innerHTML = '<p class="text-slate-500 text-center py-8">No comments yet. Be the first to share your thoughts!</p>';
+            }
+          } catch (error) {
+            console.error('Error loading comments:', error);
+          }
+        }
+
+        // Helper: Escape HTML to prevent XSS
+        function escapeHtml(text) {
+          const div = document.createElement('div');
+          div.textContent = text;
+          return div.innerHTML;
+        }
+
+        // Helper: Format date
+        function formatDate(dateStr) {
+          const date = new Date(dateStr);
+          return date.toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'short', 
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          });
+        }
+      </script>
+
       <!-- Related Articles -->
       <section class="mt-16 pt-16 border-t border-slate-200">
         <h2 class="text-2xl font-bold mb-8">Related Articles</h2>
