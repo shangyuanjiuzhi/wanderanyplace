@@ -3,12 +3,6 @@
     {
       "source": "/(.*)",
       "destination": "https://www.wanderanyplace.com/$1",
-      "has": [
-        {
-          "type": "host",
-          "value": "wanderanyplace.com"
-        }
-      ],
       "permanent": true
     }
   ],
