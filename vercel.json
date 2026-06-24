@@ -4,6 +4,8 @@
     { "source": "/api/posts", "destination": "/api/route.js" },
     { "source": "/api/init-db", "destination": "/api/init-db.js" },
     { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/api/comments/(.*)", "destination": "/api/route.js" },
+    { "source": "/api/comments", "destination": "/api/route.js" },
     { "source": "/html/(.*)", "destination": "/html/$1" },
     { "source": "/(.*)", "destination": "/html/$1" }
   ],
