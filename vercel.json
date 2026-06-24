@@ -6,9 +6,6 @@
     { "source": "/api/comments", "destination": "/api/route.js" },
     { "source": "/api/post-comments/(.*)", "destination": "/api/route.js" },
     { "source": "/api/post-comments", "destination": "/api/route.js" },
-    { "source": "/api/admin/(.*)", "destination": "/api/route.js" },
-    { "source": "/api/admin", "destination": "/api/route.js" },
-    { "source": "/api/init-db", "destination": "/api/init-db.js" },
     { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/html/(.*)", "destination": "/html/$1" },
     { "source": "/(.*)", "destination": "/html/$1" }
