@@ -5,17 +5,6 @@
       "destination": "https://www.wanderanyplace.com/$1",
       "has": [
         {
-          "type": "scheme",
-          "value": "http"
-        }
-      ],
-      "permanent": true
-    },
-    {
-      "source": "/(.*)",
-      "destination": "https://www.wanderanyplace.com/$1",
-      "has": [
-        {
           "type": "host",
           "value": "wanderanyplace.com"
         }
@@ -38,9 +27,6 @@
   "outputDirectory": ".",
   "functions": {
     "api/**/*.js": {
-      "runtime": "@vercel/node@3.0.0"
-    },
-    "api/*.js": {
       "runtime": "@vercel/node@3.0.0"
     }
   },
