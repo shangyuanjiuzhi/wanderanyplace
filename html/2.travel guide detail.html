@@ -240,7 +240,13 @@
     // Get post ID from URL
     function getPostId() {
       const params = new URLSearchParams(window.location.search);
-      return params.get('id');
+      const queryId = params.get('id');
+      if (queryId) return queryId;
+      
+      const pathMatch = window.location.pathname.match(/community-id_(\d+)\.html/);
+      if (pathMatch && pathMatch[1]) return pathMatch[1];
+      
+      return null;
     }
 
     // Go back to list
