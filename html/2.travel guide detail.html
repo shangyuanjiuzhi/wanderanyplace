@@ -429,7 +429,7 @@
     // Load comments
     async function loadComments(postId) {
       try {
-        const response = await fetch(`/api/post_comments/${postId}`);
+        const response = await fetch(`/api/post-comments/${postId}`);
         const result = await response.json();
         const commentsList = document.getElementById('commentsList');
 
