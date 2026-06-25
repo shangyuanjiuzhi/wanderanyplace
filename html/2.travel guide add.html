@@ -431,7 +431,7 @@
         if (result.success) {
           showStatus('Post submitted successfully! Redirecting...', 'success');
           setTimeout(() => {
-            window.location.href = `travel-guides/community-id_${result.data.id}.html`;
+            window.location.href = `2.travel guide detail.html?id=${result.data.id}&title=${encodeURIComponent(data.title)}&nick=${encodeURIComponent(data.nick)}`;
           }, 2000);
         } else {
           showStatus(result.message || 'Failed to submit post', 'error');
