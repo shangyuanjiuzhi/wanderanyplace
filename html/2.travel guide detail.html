@@ -332,22 +332,28 @@
         console.error('displayPost: post is undefined');
         return;
       }
-      
-      function getTypeConfig(type) {
-        const configs = {
-          'Question': { color: '#6366F1', bgColor: '#EEF2FF'},
-          'Share': { color: '#22C55E', bgColor: '#ECFDF5'},
-          'Help': { color: '#EF4444', bgColor: '#FEF2F2' },
-        };
-        return configs[type] || configs['Other'];
-      }
 
-      const authorName = post.nick || 'Anonymous';
+      const typeConfig = {
+        'Question': { color: '#6366F1', bgColor: '#EEF2FF'},
+        'Share': { color: '#22C55E', bgColor: '#ECFDF5' },
+        'Help': { color: '#EF4444', bgColor: '#FEF2F2' },
+        'Others': { color: '#64748B', bgColor: '#F1F5F9' }
+      };
+
+      const postType = (post.type || '').toLowerCase();
+      const normalizedType = postType === 'question' ? 'Question' :
+                            postType === 'share' ? 'Share' :
+                            postType === 'help' ? 'Help' : 'Others';
+      const config = typeConfig[normalizedType];
+
+      const urlNick = new URLSearchParams(window.location.search).get('nick');
+      const apiNick = post.nick && post.nick.trim() !== '' ? post.nick : null;
+      const authorName = apiNick || urlNick || 'Anonymous';
 
       document.getElementById('postType').innerHTML = normalizedType;
       document.getElementById('postType').style.backgroundColor = config.bgColor;
       document.getElementById('postType').style.color = config.color;
-      
+
       document.getElementById('postTitle').textContent = post.title;
       document.getElementById('authorName').textContent = authorName;
       document.getElementById('authorAvatar').querySelector('span').textContent = authorName.charAt(0).toUpperCase();
