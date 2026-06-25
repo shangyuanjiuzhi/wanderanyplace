@@ -380,15 +380,17 @@ function renderPosts(posts) {
           </div>
         `}
         <div class="p-6 flex flex-col flex-1">
-          <h2 class="text-lg font-bold mb-2 group-hover:text-rose-600 transition-colors">
-            <a href="2.travel guide detail.html?id=${post.id}&title=${encodeURIComponent(post.title)}&nick=${encodeURIComponent(post.nick)}">${escapeHtml(post.title)}</a>
-          </h2>
-          <p class="text-slate-600 mb-3 text-sm line-clamp-2">${escapeHtml(post.content)}</p>
+          <div class="flex-1">
+            <h2 class="text-lg font-bold mb-2 group-hover:text-rose-600 transition-colors">
+              <a href="2.travel guide detail.html?id=${post.id}&title=${encodeURIComponent(post.title)}&nick=${encodeURIComponent(post.nick)}">${escapeHtml(post.title)}</a>
+            </h2>
+            <p class="text-slate-600 text-sm line-clamp-2">${escapeHtml(post.content)}</p>
+          </div>
           <div class="flex flex-wrap gap-2 mb-4">
             ${tags.map(tag => `<span class="inline-flex items-center px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-full">${escapeHtml(tag)}</span>`).join('')}
             ${post.area ? `<span class="inline-flex items-center px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-full"><i class="iconfont icon-ditu-dibiao w-3 h-3 mr-1"></i>${escapeHtml(post.area)}</span>` : ''}
           </div>
-          <div class="mt-auto flex items-center justify-between pt-4 border-t border-slate-100">
+          <div class="flex items-center justify-between pt-4 border-t border-slate-100">
             <div class="flex items-center">
               <div class="w-8 h-8 rounded-full bg-rose-100 flex items-center justify-center text-rose-600 font-bold text-sm">
                 ${escapeHtml(post.nick.charAt(0).toUpperCase())}
