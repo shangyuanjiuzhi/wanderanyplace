@@ -231,7 +231,7 @@ function loadPosts(page) {
       loadingEl.classList.add('hidden');
 
       if (result.success && result.data && result.data.length > 0) {
-        totalPages = result.totalPages;
+        totalPages = Math.ceil(result.total / pageSize);
         renderPosts(result.data);
         renderPagination(result);
       } else {
@@ -308,9 +308,9 @@ function renderPagination(result) {
   const nextBtn = document.getElementById('next-btn');
   const pageInfo = document.getElementById('page-info');
 
-  pageInfo.textContent = `Page ${result.page} of ${result.totalPages}`;
+  pageInfo.textContent = `Page ${result.page} of ${totalPages}`;
   prevBtn.disabled = result.page <= 1;
-  nextBtn.disabled = result.page >= result.totalPages;
+  nextBtn.disabled = result.page >= totalPages;
 
   paginationEl.classList.remove('hidden');
 }
