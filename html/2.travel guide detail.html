@@ -11,7 +11,7 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>帖子详情 | Wander Any Place</title>
+  <title>Community Posts Detail | Wander Any Place</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../iconfont/iconfont.css">
@@ -332,19 +332,15 @@
         console.error('displayPost: post is undefined');
         return;
       }
-
-      const typeConfig = {
-        'Question': { color: '#6366F1', bgColor: '#EEF2FF'},
-        'Share': { color: '#22C55E', bgColor: '#ECFDF5' },
-        'Help': { color: '#EF4444', bgColor: '#FEF2F2' },
-        'Others': { color: '#64748B', bgColor: '#F1F5F9' }
-      };
-
-      const postType = (post.type || '').toLowerCase();
-      const normalizedType = postType === 'question' ? 'Question' : 
-                            postType === 'share' ? 'Share' : 
-                            postType === 'help' ? 'Help' : 'Others';
-      const config = typeConfig[normalizedType];
+      
+      function getTypeConfig(type) {
+        const configs = {
+          'Question': { color: '#6366F1', bgColor: '#EEF2FF'},
+          'Share': { color: '#22C55E', bgColor: '#ECFDF5'},
+          'Help': { color: '#EF4444', bgColor: '#FEF2F2' },
+        };
+        return configs[type] || configs['Other'];
+      }
 
       const authorName = post.nick || 'Anonymous';
 
@@ -433,7 +429,7 @@
     // Load comments
     async function loadComments(postId) {
       try {
-        const response = await fetch(`/api/comments/${postId}`);
+        const response = await fetch(`/api/post_comments/${postId}`);
         const result = await response.json();
         const commentsList = document.getElementById('commentsList');
 
@@ -468,10 +464,10 @@
       if (!nick || !content) return;
 
       try {
-        const response = await fetch('/api/comments', {
+        const response = await fetch('/api/post-comments', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ articleId: `post-${postId}`, nick, content })
+          body: JSON.stringify({ postId, nick, content })
         });
 
         const result = await response.json();
