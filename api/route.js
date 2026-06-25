@@ -98,11 +98,7 @@ export default async function handler(req, res) {
 
         const posts = result.rows.map(post => {
           const imgs = JSON.parse(post.imgs || '[]');
-          const processedImgs = imgs.map(img => {
-            if (img && img.length > 10240) return null;
-            return img;
-          }).filter(img => img !== null);
-          return { ...post, imgs: processedImgs };
+          return { ...post, imgs };
         });
 
         return res.json({ success: true, data: posts, total: posts.length });
@@ -208,11 +204,7 @@ export default async function handler(req, res) {
 
         const posts = result.rows.map(post => {
           const imgs = JSON.parse(post.imgs || '[]');
-          const processedImgs = imgs.map(img => {
-            if (img && img.length > 10240) return null;
-            return img;
-          }).filter(img => img !== null);
-          return { ...post, imgs: processedImgs };
+          return { ...post, imgs };
         });
 
         return res.json({
