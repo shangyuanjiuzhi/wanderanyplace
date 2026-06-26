@@ -320,13 +320,9 @@ function renderPagination(result) {
 
 function getTypeConfig(type) {
   const configs = {
-    'Question': { label: 'Question', icon: 'icon-wenti', color: '#3B82F6', bgColor: '#EFF6FF' },
-    'Experience': { label: 'Experience', icon: 'icon-jingyan', color: '#16A34A', bgColor: '#DCFCE7' },
-    'Tips': { label: 'Tips', icon: 'icon-tips', color: '#F59E0B', bgColor: '#FEF3C7' },
-    'Photo': { label: 'Photo', icon: 'icon-tupian', color: '#8B5CF6', bgColor: '#EDE9FE' },
-    'Help': { label: 'Help', icon: 'icon-qiuzhu', color: '#E11D48', bgColor: '#FFF1F2' },
-    'Share': { label: 'Share', icon: 'icon-fenxiang1', color: '#16A34A', bgColor: '#DCFCE7' },
-    'Other': { label: 'Other', icon: 'icon-qita', color: '#E11D48', bgColor: '#FFF1F2' }
+        'Question': { color: '#6366F1', bgColor: '#EEF2FF'},
+        'Share': { color: '#22C55E', bgColor: '#ECFDF5'},
+        'Help': { color: '#EF4444', bgColor: '#FEF2F2' },
   };
   return configs[type] || configs['Other'];
 }
