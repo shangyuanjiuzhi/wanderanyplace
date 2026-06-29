@@ -357,27 +357,6 @@
           document.getElementById('content-length').textContent = `${length}/300`;
         });
       }
-
-      const typeOptions = document.querySelectorAll('.type-option');
-      typeOptions.forEach(option => {
-        option.addEventListener('click', function() {
-          typeOptions.forEach(opt => {
-            opt.classList.remove('border-rose-500', 'bg-rose-50');
-            opt.classList.add('border-slate-300');
-          });
-          this.classList.remove('border-slate-300');
-          this.classList.add('border-rose-500', 'bg-rose-50');
-        });
-      });
-
-      const checkedType = document.querySelector('input[name="type"]:checked');
-      if (checkedType) {
-        const label = document.querySelector(`label[for="${checkedType.id}"]`);
-        if (label) {
-          label.classList.remove('border-slate-300');
-          label.classList.add('border-rose-500', 'bg-rose-50');
-        }
-      }
     });
 
     // Add image input

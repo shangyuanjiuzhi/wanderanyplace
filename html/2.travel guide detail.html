@@ -11,10 +11,10 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Community Posts Detail | Wander Any Place</title>
+  <title>帖子详情 | Wander Any Place</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="/iconfont/iconfont.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../iconfont/iconfont.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -240,13 +240,7 @@
     // Get post ID from URL
     function getPostId() {
       const params = new URLSearchParams(window.location.search);
-      const queryId = params.get('id');
-      if (queryId) return queryId;
-      
-      const pathMatch = window.location.pathname.match(/community-id_(\d+)\.html/);
-      if (pathMatch && pathMatch[1]) return pathMatch[1];
-      
-      return null;
+      return params.get('id');
     }
 
     // Go back to list
@@ -333,36 +327,26 @@
       }
     }
 
+    // Display post
     function displayPost(post) {
-      if (!post) {
-        console.error('displayPost: post is undefined');
-        return;
-      }
-
-      const typeConfig = {
+      // Type configuration
+     const typeConfig = {
         'Question': { color: '#6366F1', bgColor: '#EEF2FF'},
         'Share': { color: '#22C55E', bgColor: '#ECFDF5' },
         'Help': { color: '#EF4444', bgColor: '#FEF2F2' },
-        'Others': { color: '#64748B', bgColor: '#F1F5F9' }
       };
+      const config = typeConfig[post.type] || typeConfig['Share'];
 
-      const postType = (post.type || '').toLowerCase();
-      const normalizedType = postType === 'question' ? 'Question' :
-                            postType === 'share' ? 'Share' :
-                            postType === 'help' ? 'Help' : 'Others';
-      const config = typeConfig[normalizedType];
 
-      const urlNick = new URLSearchParams(window.location.search).get('nick');
-      const apiNick = post.nick && post.nick.trim() !== '' ? post.nick : null;
-      const authorName = apiNick || urlNick || 'Anonymous';
 
-      document.getElementById('postType').innerHTML = normalizedType;
+      // Update DOM
+      document.getElementById('postType').innerHTML = `${post.type}`;
       document.getElementById('postType').style.backgroundColor = config.bgColor;
       document.getElementById('postType').style.color = config.color;
-
+      
       document.getElementById('postTitle').textContent = post.title;
-      document.getElementById('authorName').textContent = authorName;
-      document.getElementById('authorAvatar').querySelector('span').textContent = authorName.charAt(0).toUpperCase();
+      document.getElementById('authorName').textContent = post.nick;
+      document.getElementById('authorAvatar').querySelector('span').textContent = post.nick.charAt(0).toUpperCase();
       document.getElementById('authorAvatar').style.backgroundColor = config.bgColor;
       document.getElementById('authorAvatar').querySelector('span').style.color = config.color;
       document.getElementById('postDate').textContent = formatDate(post.create_time);
@@ -441,7 +425,7 @@
     // Load comments
     async function loadComments(postId) {
       try {
-        const response = await fetch(`/api/post-comments/${postId}`);
+        const response = await fetch(`/api/comments/${postId}`);
         const result = await response.json();
         const commentsList = document.getElementById('commentsList');
 
@@ -476,10 +460,10 @@
       if (!nick || !content) return;
 
       try {
-        const response = await fetch('/api/post-comments', {
+        const response = await fetch('/api/comments', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ postId, nick, content })
+          body: JSON.stringify({ articleId: `post-${postId}`, nick, content })
         });
 
         const result = await response.json();
