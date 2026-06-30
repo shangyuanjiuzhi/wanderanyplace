@@ -12,10 +12,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Temporary Entry Card Guide - Wander Any City</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+ <script src="https://cdn.tailwindcss.com"></script>
   <script src="../iconfont/iconfont.js"></script>
   <link rel="stylesheet" href="../iconfont/iconfont.css">
   <link rel="stylesheet" href="../css/styles.css">
+  <script src="../../js/common.js"></script>
+
 </head>
 <body class="bg-gray-50 text-slate-800 font-sans">
   <!-- 顶部视觉冲击区 -->
@@ -141,120 +143,5 @@
   </footer>
 
 
-  <!-- Image Viewer Modal -->
-  <div id="imageViewerModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90">
-    <button id="closeModal" class="absolute top-4 right-4 text-white text-4xl hover:text-rose-400 transition-colors z-50">&times;</button>
-    <button id="prevImage" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-5xl hover:text-rose-400 transition-colors z-50">
-      &#10094;
-    </button>
-    <button id="nextImage" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-5xl hover:text-rose-400 transition-colors z-50">
-      &#10095;
-    </button>
-    <div class="relative max-w-7xl max-h-[90vh] flex items-center justify-center p-4">
-      <img id="modalImage" src="" alt="" class="max-w-full max-h-[90vh] object-contain">
-    </div>
-    <div id="imageCounter" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-lg bg-black/50 px-4 py-2 rounded-lg">
-      <span id="currentIndex">1</span> / <span id="totalImages">1</span>
-    </div>
-  </div>
-
-  <script>
-    let allImages = [];
-    let currentImageIndex = 0;
-
-    function initImageViewer() {
-      // Get all images except background image
-      const images = document.querySelectorAll('img:not(.header-bg)');
-      allImages = Array.from(images);
-      
-      // Add click event to each image
-      allImages.forEach((img, index) => {
-        img.style.cursor = 'pointer';
-        img.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          openImageViewer(index);
-        });
-      });
-
-      // Add event listeners for modal controls
-      document.getElementById('closeModal').addEventListener('click', closeImageViewer);
-      document.getElementById('prevImage').addEventListener('click', showPrevImage);
-      document.getElementById('nextImage').addEventListener('click', showNextImage);
-
-      // Add keyboard navigation
-      document.addEventListener('keydown', (e) => {
-        if (document.getElementById('imageViewerModal').classList.contains('flex')) {
-          if (e.key === 'Escape') {
-            closeImageViewer();
-          } else if (e.key === 'ArrowLeft') {
-            showPrevImage();
-          } else if (e.key === 'ArrowRight') {
-            showNextImage();
-          }
-        }
-      });
-
-      // Close modal when clicking outside image
-      document.getElementById('imageViewerModal').addEventListener('click', (e) => {
-        if (e.target.id === 'imageViewerModal') {
-          closeImageViewer();
-        }
-      });
-    }
-
-    function openImageViewer(index) {
-      currentImageIndex = index;
-      const modal = document.getElementById('imageViewerModal');
-      const modalImage = document.getElementById('modalImage');
-      const currentIndexEl = document.getElementById('currentIndex');
-      const totalImagesEl = document.getElementById('totalImages');
-
-      modalImage.src = allImages[index].src;
-      modalImage.alt = allImages[index].alt;
-      currentIndexEl.textContent = index + 1;
-      totalImagesEl.textContent = allImages.length;
-
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeImageViewer() {
-      const modal = document.getElementById('imageViewerModal');
-      modal.classList.remove('flex');
-      modal.classList.add('hidden');
-      document.body.style.overflow = '';
-    }
-
-    function showPrevImage() {
-      currentImageIndex = (currentImageIndex - 1 + allImages.length) % allImages.length;
-      openImageViewer(currentImageIndex);
-    }
-
-    function showNextImage() {
-      currentImageIndex = (currentImageIndex + 1) % allImages.length;
-      openImageViewer(currentImageIndex);
-    }
-
-    // Initialize image viewer when DOM is loaded
-    document.addEventListener('DOMContentLoaded', initImageViewer);
-  </script>
-<script>
-function toggleMobileMenu() {
-  const mobileNav = document.getElementById('mobileNav');
-  const menuBtn = document.querySelector('.mobile-menu-btn');
-  const mobileLogo = document.getElementById('mobileLogo');
-  if (mobileNav && menuBtn) {
-    mobileNav.classList.toggle('active');
-    menuBtn.classList.toggle('active');
-    if (mobileLogo) {
-      mobileLogo.classList.toggle('mobile-logo-hidden');
-    }
-  }
-}
-
-
-</script>
 </body>
 </html>
