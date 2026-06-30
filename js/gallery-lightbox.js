@@ -3,13 +3,28 @@
 
 let lightboxActive = false;
 
-function openLightbox(imageUrl, imageArray = null) {
+function openLightbox(imageUrl, imageArrayOrCarouselId = null) {
   if (lightboxActive) {
     return;
   }
   lightboxActive = true;
   
-  const images = imageArray && imageArray.length > 0 ? [...imageArray] : [imageUrl];
+  let images;
+  if (imageArrayOrCarouselId && Array.isArray(imageArrayOrCarouselId)) {
+    images = [...imageArrayOrCarouselId];
+  } else if (typeof imageArrayOrCarouselId === 'string') {
+    const carouselId = imageArrayOrCarouselId;
+    const carousel = document.getElementById(carouselId + '-carousel');
+    if (carousel) {
+      const imgElements = Array.from(carousel.querySelectorAll('.gallery-container img'));
+      images = imgElements.map(img => img.src);
+    } else {
+      images = [imageUrl];
+    }
+  } else {
+    images = [imageUrl];
+  }
+  
   let currentIndex = images.indexOf(imageUrl);
   if (currentIndex === -1) currentIndex = 0;
   

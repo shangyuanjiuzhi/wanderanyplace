@@ -19,15 +19,13 @@ function escapeHtml(text) {
 
 function getTypeConfig(type) {
   const configs = {
-    'Question': { color: '#6366F1', bgColor: '#EEF2FF' },
-    'Share': { color: '#22C55E', bgColor: '#ECFDF5' },
-    'Help': { color: '#EF4444', bgColor: '#FEF2F2' },
-    'Experience': { color: '#16A34A', bgColor: '#DCFCE7' },
-    'Tips': { color: '#F59E0B', bgColor: '#FEF3C7' },
-    'Photo': { color: '#8B5CF6', bgColor: '#EDE9FE' },
-    'Other': { color: '#E11D48', bgColor: '#FFF1F2' }
+        'Question': { color: '#6366F1', bgColor: '#EEF2FF'},
+        'Share': { color: '#22C55E', bgColor: '#ECFDF5'},
+        'Help': { color: '#EF4444', bgColor: '#FEF2F2' },
   };
   return configs[type] || configs['Other'];
+
+
 }
 
 async function loadCommunityPosts(options) {

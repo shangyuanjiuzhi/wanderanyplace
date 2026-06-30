@@ -191,25 +191,179 @@ function copyAddress(type = 'badaling') {
   if (type === 'mutianyu') {
     address = "北京市怀柔区慕田峪长城\nMutianyu Great Wall, Huairou District, Beijing, China";
   } else if (type === 'juyongguan') {
-    address = "北京市昌平区居庸关长城\nJuyongguan Great Wall, Changping District, Beijing, China";
+    address = "北京市昌平区居庸关长城\nJuyongguan Great Wall, Changping216 Provincial Road, Juyongguancun, Nankouzhen,Changping District, Beijing, China";
   } else if (type === 'huanghuacheng') {
-    address = "北京市怀柔区黄花城水长城\nHuanghuacheng Water Great Wall, Huairou District, Beijing, China";
+    address = "北京市怀柔区黄花城水长城\nHuanghuacheng Water Great Wall,HuairouXishuiyucun, Jiuduhezhen, Huairou District, Beijing,China";
   } else if (type === 'jiankou') {
-    address = "北京市怀柔区箭扣长城\nJiankou Great Wall, Huairou District, Beijing, China";
+    address = "北京市怀柔区箭扣长城\nJiankou Great Wall, HuairouWest Zhalancun South Side, Jiankou Liang,Huairou District, Beijing,China";
   } else if (type === 'simatai') {
-    address = "北京市密云区司马台长城\nSimatai Great Wall, Miyun District, Beijing, China";
+    address = "北京市密云区司马台长城\nSimatai Great Wall, MiyunNorth to Simataicun, Gubeikouzhen, Miyun District, Beijing,China";
   } else if (type === 'badaling-remnant') {
-    address = "北京市延庆区八达岭残长城\nBadaling Remnant Great Wall, Yanqing District, Beijing, China";
+    address = "北京市延庆区八达岭残长城\nBadaling Remnant Great Wall, Yanqing District, Beijing,China";
   } else if (type === 'gubeikou') {
-    address = "北京市密云区古北口长城\nGubeikou Great Wall, Miyun District, Beijing, China";
+    address = "北京市密云区古北口长城\nGubeikou Great Wall, MiyunGunan 2nd Road Guyu Road,Miyun District, Beijing,China";
   } else if (type === 'badaling-forest') {
-    address = "北京市延庆区八达岭国家森林公园\nBadaling National Forest Park, Yanqing District, Beijing, China";
+    address = "北京市延庆区八达岭国家森林公园\nBadaling National Forest Park, YanqingShifosicun, Badaling,Yanqing District, Beijing,China";
   } else if (type === 'forbidden') {
-    address = "Forbidden City, Dongcheng District, Beijing, China";
-  } else if (type === 'summer') {
-    address = "Summer Palace, Haidian District, Beijing, China";
-  } else {
-    address = "北京市延庆区G6京藏高速58号出口\nBadaling Great Wall, Yanqing District, Beijing, China";
+    address = "故宫\nForbidden City, DongchengNo.4, Jingshan Front Street, Beijing, China";
+  } else if (type === 'summer-palace') {
+    address = "颐和园\nSummer Palace, HaidianNo.19, New Jiangongmen Road, Haidian District, Beijing, China";
+  } else if (type === 'temple-of-heaven') {
+    address = "天坛\nTemple of Heaven, Dongcheng Tiantan Dongli No.A1,Dongcheng District, Beijing, China";
+  } else if (type === 'tiananmen') {
+    address = "天安门广场\nTiananmen Square,Dongcheng Chang'an Avenue North Side, Dongcheng District, Beijing, China";
+  } else if (type === 'yuanmingyuan') {
+    address = "圆明园\nYuanmingyuan,HaidianNo.28, Qinghua West Road, Haidian District, Beijing, China";
+  } else if (type === 'jingshan-park') {
+    address = "景山公园\nJingshan Park, XichengNo.44, Jingshan West Street,Dongcheng District, Beijing, China";
+  } else if (type === 'mingtombs') {
+    address = "明十三陵\nMing Tombs, ChangpingShisanlingzhen Changchi Road, Changping District, Beijing, China";
+  } else if (type === 'beihai-park') {
+    address = "北海公园\nBeihai Park, Xicheng1, Wenjin Street No.1, Xicheng District, Beijing, China";
+  } else if (type === 'confuciustemple') {
+    address = "孔庙和国子监\nConfucius Temple and Guozijian, DongchengNo.15, Guozijian Street, Cong No.13 Xianshi Gate Jinru,Dongcheng District, Beijing, China";
+  } else if (type === 'ditan-park') {
+    address = "地坛公园\nDitan Park, Dongcheng Andingmen Outer Street,Dongcheng District, Beijing, China";
+  } else if (type === 'zhongshan-park') {
+    address = "中山公园\nZhongshan Park, DongchengNo.4, Zhonghua Road (West Side of Tian'anmen),Dongcheng District, Beijing, China";
+  } else if (type === 'ritan-park') {
+    address = "日坛公园\nRitan Park, ChaoyangChaowai Residential District Chaoyangmen Outer No.6, Ritan North Road,Chaoyang District, Beijing, China";
+  } else if (type === 'xiannongtan') {
+    address = "先农坛\nXiannongtan, XichengNo.21, Dongjing Road Beijing Ancient Architecture Museum,Xicheng District, Beijing, China";
+  } else if (type === 'yuetan-park') {
+    address = "月坛公园\nYuetan Park, XichengNo.A6, Yuetan North Street,Xicheng District, Beijing, China";
+  } else if (type === 'lugou-bridge') {
+    address = "卢沟桥\nLugou Bridge,Fengtai Opposite to Xicheng Gate Road, Wanpingcheng, Fengtai District, Beijing, China";
+  } else if (type === 'yuandadu-park') {
+    address = "元大都城垣遗址公园\nYuan Dadu City Wall Relics Park, Chaoyang Yuhui South Road South Intersection and Beitucheng East Road Intersection Dapaifang South Side,Haidian District, Beijing, China";
+  } else if (type === 'zhoukoudian-park') {
+    address = "周口店北京人遗址\nZhoukoudian Peking Man Site,China Fangshan World Geological Park, No.1, Zhoukoudian Street,Fangshan District, Beijing, China";
+  } else if (type === 'fragrant-hills-park') {
+    address = "香山公园\nFragrant Hills Park, HaidianNo.40, Maimai Street, Xiangshan,Haidian District, Beijing, China";
+  } else if (type === 'olympic-park') {
+    address = "奥林匹克森林公园\nBeijing Olympic Forest Park,Chaoyang No.15, Beichen East Road (Forest Park South Gate Subway Station C Southeast Koupang), Chaoyang District, Beijing, China";
+  } else if (type === 'yuyuantan-park') {
+    address = "玉渊潭公园\nYuyuantan Park, HaidianNo.10, W. 3rd Ring Road Middle,Haidian District, Beijing, China";
+  } else if (type === 'national-botanical-garden') {
+    address = "国家植物园\nNational Botanical Garden,HaidianWofosi Road, Xiangshan Beijing Botanical Garden, Haidian District, Beijing, China";
+  } else if (type === 'beijing-grand-view-garden') {
+    address = "大观园\nBeijing Grand View Garden, XichengNo.12, Nancaiyuan Street,Xuanwu District, Beijing, China";
+  } else if (type === 'chaoyang-park') {
+    address = "朝阳公园\nChaoyang Park,Chaoyang No.1, Chaoyang Park South Road, Chaoyang District, Beijing, China";
+  } else if (type === 'badachu-park') {
+    address = "八大处公园\nBadachu Park, Shijingshan No.3, Badachu Road,Shijingshan District, Beijing, China";
+  } else if (type === 'beijing-garden-expo-park') {
+    address = "园博园\nBeijing Garden Expo Park, Fengtai No.15, Shejichang Road,Fengtai District, Beijing, China";
+  } else if (type === 'wangfujing') {
+    address = "王府井步行街\nWangfujing Pedestrian Street,DongchengWangfujing Street No.256 (Jinyu Hutong Subway Station East Entrance & Exit B Pedestrian 80 Meters), Dongcheng District, Beijing, China";
+  } else if (type === 'theplace') {
+    address = "世贸天阶\nThe Place,Chaoyang No.A9, Guanghua Road, Chaoyang District, Beijing, China";
+  } else if (type === 'xidan') {
+    address = "西单商业街\nXidan Commercial Street, Xicheng District, Beijing, China";
+  } else if (type === 'sanlitun-taikoo-li') {
+    address = "三里屯太古里\nSanlitun Taikoo Li,ChaoyangSanlitun Road No.11, 19 (Workers' Stadium Subway Station Entrance & Exit D Pedestrian 240 Meters), Chaoyang District, Beijing, China";
+  } else if (type === 'blueharbor') {
+    address = "蓝色港湾\nSOLANA,ChaoyangNo.6, Chaoyang Park Road, Chaoyang District, Beijing, China";
+  } else if (type === 'nationalmuseum') {
+    address = "中国国家博物馆\nNational Museum of China, East Side of Tiananmen Square, Dongcheng District, Beijing, China";
+  } else if (type === 'capitalmuseum') {
+    address = "首都博物馆\nCapital Museum,Xicheng No.16, Fuxingmen Outer Street, Xicheng District, Beijing, China";
+  } else if (type === 'guangfumuseum') {
+    address = "观复博物馆\nGuanfu Museum,ChaoyangDashan Zizhang Wanfenjin South Road No.18, Chaoyang District, Beijing, China";
+  } else if (type === 'birdnest-park') {
+    address = "鸟巢\nBird's Nest (National Stadium), Chaoyang National Stadium South Road and Beichen Road Intersection North 260 Meters,Olympic Green, Chaoyang District, Beijing, China";
+  } else if (type === 'watercube') {
+    address = "水立方\nWater Cube (National Aquatics Center),ChaoyangNo.11, Tianchen East Road, Olympic Green, Chaoyang District, Beijing, China";
+  } else if (type === '798') {
+    address = "798艺术区\n798 Art District, ChaoyangNo.4, Jiuxianqiao Road, Chaoyang District, Beijing, China";
+  } else if (type === 'central-business-district') {
+    address = "中央商务区\nCentral Business District, Chaoyang District, Beijing, China";
+  } else if (type === 'nCPA') {
+    address = "国家大剧院\nNational Centre for the Performing Arts, Xicheng2, West Chang'an Avenue No.2, West Chang'an Avenue No.2 (Tian'anmen West Subway Station Entrance & Exit Beside), Xicheng District, Beijing, China";
+  } else if (type === 'galaxysoho') {
+    address = "银河SOHO\nGalaxy SOHO, Dongcheng Nanzhugan Hutong No.2, Chaoyang District, Beijing, China";
+  } else if (type === 'redbrick') {
+    address = "红砖美术馆\nRed Brick Art Museum, Chaoyang Cuigezhuangxiang Hegezhuangcun Shunbai Road Maquanying West Road Road Kouxi 100 Milu North,Chaoyang District, Beijing, China";
+  } else if (type === 'CCTVTower') {
+    address = "中央广播电视塔\nCCTV Tower,HaidianNo.11, W. 3rd Ring Road Middle (Yuyuantan Park Opposite), Haidian District, Beijing, China";
+  } else if (type === 'SongArtMuseum') {
+    address = "松美术馆\nSong Art Museum, ShunyiTianzhuzhen Loutai Cunnan Gelasi Road,Chaoyang District, Beijing, China";
+  } else if (type === 'ShougangPark') {
+    address = "首钢园\nShougang Park, Shijingshan Road No.68,Shijingshan District, Beijing, China";
+  } else if (type === 'LamaTemple') {
+    address = "雍和宫\nLama Temple,Dongcheng 28, Yonghegong Street, Dongcheng District, Beijing, China";
+  } else if (type === 'HongluoTemple') {
+    address = "红螺寺\nHongluo Temple,Huairou No.2, Hongluo East Road, Huairou District, Beijing, China";
+  } else if (type === 'TanzheTemple') {
+    address = "潭柘寺\nTanzhe Temple, Mentougou Tanzhesizhen Tanzhe Shanxia,Mentougou District, Beijing, China";
+  } else if (type === 'WhiteCloudTemple') {
+    address = "白云观\nWhite Cloud Temple,Fuchengmen Inner Street No.171 Xicheng District, Beijing, China";
+  } else if (type === 'FayuanTemple') {
+    address = "法源寺\nFayuan Temple,Xicheng Fayuansi Front Street No.7, Xicheng District, Beijing, China";
+  } else if (type === 'FivePagodaTemple') {
+    address = "五塔寺\nFive Pagoda Temple, Haidian Wutasi Road North 50 Meters ,Haidian District, Beijing, China";
+
+} else if (type === 'FangshanShiduScenicArea') {
+    address = "房山十渡风景旅游区\nFangshan Shidu Scenic Area, Fangshan No.9, Jiudu Street,Fangshan District, Beijing, China";
+
+} else if (type === 'YuduMountainScenicArea') {
+    address = "玉渡山风景旅游区\nYudu Mountain Scenic Area,YanqingZhangshanyingzhen Yuhai Road North No.1, Yanqing District, Beijing, China";
+} else if (type === 'Longqingxia') {
+    address = "龙庆峡\nLongqingxia, YanqingNorth to Guchengcun, Jiuxianzhen,Yanqing District, Beijing, China";
+} else if (type === 'PhoenixRidgeScenicArea') {
+    address = "凤凰岭\nPhoenix Ridge Scenic Area, Haidian Sujiatuozhen No.19, Fenghuangling Road,Haidian District, Beijing, China";
+} else if (type === 'BeijingHappyValley') {
+    address = "北京欢乐谷\nBeijing Happy Valley,Chaoyang Xiaowuji North Road, E. 4th Ring Road, Chaoyang District, Beijing, China";
+} else if (type === 'UniversalBeijingResort') {
+    address = "北京环球影城\nUniversal Beijing Resort,Tongzhou Liyuanzhen Huanqiu Avenue, Tongzhou District, Beijing, China";
+} else if (type === 'HouhaiBarStreet') {
+    address = "后海酒吧一条街\nHouhai Bar Street,Xicheng Houhai Beiyan No.50 (Jingulou West Street), Xicheng District, Beijing, China";
+} else if (type === 'SanlitunNightclubs') {
+    address = "三里屯夜店\nSanlitun,Chaoyang District, Beijing, China";
+
+} else if (type === 'QushuilantingBathhouse') {
+    address = "曲水兰亭\nQushuilanting Bathhouse, ChaoyangNo.1070, Tonghui Riverside, Huihe South Street, Gaobeidianxiang ,Dongcheng District, Beijing, China";
+
+  } else if (type === 'bund') {
+    address = "上海市黄浦区外滩\nThe Bund, Huangpu District, Shanghai, China";
+  } else if (type === 'lujiazui') {
+    address = "上海市浦东新区陆家嘴金融贸易区\nLujiazui Financial District, Pudong New Area, Shanghai, China";
+  } else if (type === 'orientalpearl') {
+    address = "上海市浦东新区世纪大道1号\n1 Century Avenue, Pudong New Area, Shanghai, China";
+  } else if (type === 'waibaidu') {
+    address = "上海市黄浦区苏州路\nSu Zhou Road, Huangpu District, Shanghai, China";
+  } else if (type === 'waitanyuan') {
+    address = "上海市黄浦区外滩源\nWaitanyuan, Huangpu District, Shanghai, China";
+  } else if (type === 'wukang') {
+    address = "上海市徐汇区淮海中路188号\n188 Huaihai Middle Road, Xuhui District, Shanghai";
+  } else if (type === 'rockbund') {
+    address = "上海市黄浦区虎丘路1号\nNo. 1 Huqiu Road, Huangpu District, Shanghai";
+  } else if (type === 'sinan') {
+    address = "上海市徐汇区思南路\nSinan Road, Xuhui District, Shanghai, China";
+  } else if (type === 'laochangfang') {
+    address = "上海市虹口区山阴路108号\n108 Shanyin Road, Hongkou District, Shanghai";
+  } else if (type === 'xujiahui') {
+    address = "上海市徐汇区蒲西路150号\n150 Puxi Road, Xuhui District, Shanghai";
+  } else if (type === 'disney') {
+    address = "上海市浦东新区申迪路\nShendi Road, Pudong New Area, Shanghai";
+  } else if (type === 'dishui') {
+    address = "上海市浦东新区临港新片区滴水湖\nDishui Lake, Lingang New Area, Pudong District, Shanghai";
+  } else if (type === 'Cuandixia') {
+    address = "Cuandixia Village, Mentougou District, Beijing";
+  } else if (type === 'Lingshui') {
+    address = "Lingshui Village, Mentougou District, Beijing";
+  } else if (type === 'Gubei Water Town') {
+    address = "Gubei Water Town, Miyun District, Beijing";
+  } else if (type === 'Liuliqu') {
+    address = "Liuliqu Village, Mentougou District, Beijing";
+  } else if (type === 'Lingshui') {
+    address = "Lingshui Village, Mentougou District, Beijing";
+  } 
+  
+  
+  
+  else {
+    address = "北京市延庆区G6京藏高速58号出口\nBadaling Great Wall, YanqingExit 58, G6 Jingzang Expressway, Beijing, China";
   }
   navigator.clipboard.writeText(address)
     .then(() => {
@@ -220,28 +374,24 @@ function copyAddress(type = 'badaling') {
     });
 }
 
-// Tab functionality for Great Wall page
+// Tab functionality for attraction pages
 function openTab(tabId) {
-  // Hide all tab contents
-  const tabContents = document.querySelectorAll('#badaling-tab, #mutianyu-tab, #juyongguan-tab, #other-tab');
-  tabContents.forEach(content => {
+  const allTabContents = document.querySelectorAll('.tab-content');
+  allTabContents.forEach(content => {
     content.classList.add('hidden');
   });
   
-  // Remove active class from all tab buttons
   const tabButtons = document.querySelectorAll('.tab-btn');
   tabButtons.forEach(button => {
     button.classList.remove('text-rose-600', 'border-b-2', 'border-rose-600');
     button.classList.add('text-slate-500');
   });
   
-  // Show the selected tab content
   const selectedTab = document.getElementById(tabId);
   if (selectedTab) {
     selectedTab.classList.remove('hidden');
   }
   
-  // Add active class to the clicked tab button
   if (event && event.currentTarget) {
     event.currentTarget.classList.remove('text-slate-500');
     event.currentTarget.classList.add('text-rose-600', 'border-b-2', 'border-rose-600');
@@ -419,7 +569,19 @@ document.addEventListener('DOMContentLoaded', function() {
     'yuanmingyuan-carousel',
     'yuanmingyuan-map-carousel',
     'jingshan-carousel',
-    'jingshan-map-carousel'
+    'jingshan-map-carousel',
+    'bund-carousel',
+    'lujiazui-carousel',
+    'orientalpearl-carousel',
+    'waibaidu-carousel',
+    'waitanyuan-carousel',
+    'wukang-carousel',
+    'rockbund-carousel',
+    'sinan-carousel',
+    'laochangfang-carousel',
+    'xujiahui-carousel',
+    'disney-carousel',
+    'dishui-carousel'
   ];
   
   carousels.forEach(carouselId => {
