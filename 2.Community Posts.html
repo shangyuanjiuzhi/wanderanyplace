@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L42GKWJLGB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-L42GKWJLGB");
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Posts - Wander Any Place | Travel Community & User Posts</title>
+  <meta name="description" content="Explore our community posts and travel experiences shared by fellow travelers. Join the conversation and share your own stories.">
+  <meta name="keywords" content="China travel community, travel posts, user experiences, travel blog, Wander Any Place">
+  <meta name="author" content="Wander Any Place">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../iconfont/iconfont.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sans': ['Noto Sans SC', 'sans-serif'],
+          },
+          colors: {
+            'rose': {
+              50: '#FFF1F2',
+              100: '#FFE4E6',
+              200: '#FECDD3',
+              300: '#FDA4AF',
+              400: '#FB7185',
+              500: '#F43F5E',
+              600: '#E11D48',
+              700: '#BE123C',
+              800: '#9F1239',
+              900: '#881337',
+            },
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto { content-visibility: auto; }
+      .bg-gradient-rose { background: linear-gradient(135deg, #F43F5E 0%, #BE123C 100%); }
+      .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    }
+  </style>
+</head>
+<body class="bg-white font-sans text-slate-800">
+  <!-- 顶部导航 -->
+   <header class="mobile-header-nav" style="background: black; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+    <div class="nav-container">
+      <a href="../index.html" class="logo" id="mobileLogo" style="display: flex; align-items: center; text-decoration: none;">
+        <i class="iconfont icon-ditu-dibiao" style="color: #F43F5E;"></i>
+        <span style="color: white;">Wander Any Place</span>
+      </a>
+      <div class="desktop-nav" id="desktopNavLinks" style="color: white;">
+        <a href="../index.html" style="color: white;">Home</a>
+        <a href="2.Destination.html" style="color: white;">Destinations</a>
+        <a href="2.travel guide.html" style="color: white;">Travel Guides</a>
+        <a href="2.booking.html" style="color: white;">Booking Services</a>
+        <a href="2.aboutus.html" style="color: white;">About Us</a>
+      </div>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <span style="background-color: white;"></span>
+        <span style="background-color: white;"></span>
+        <span style="background-color: white;"></span>
+      </button>
+    </div>
+  </header>
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <button class="nav-close-btn" onclick="toggleMobileMenu()">&times;</button>
+    <a href="../index.html" onclick="toggleMobileMenu()">Home</a>
+    <a href="2.Destination.html" onclick="toggleMobileMenu()">Destinations</a>
+    <a href="2.travel guide.html" onclick="toggleMobileMenu()">Travel Guides</a>
+    <a href="2.booking.html" onclick="toggleMobileMenu()">Booking Services</a>
+    <a href="2.aboutus.html" onclick="toggleMobileMenu()">About Us</a>
+  </div>
+
+  <section class="bg-rose-600 text-white min-h-[300px] flex items-center justify-center" style="margin-top: 70px;">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Community Posts</h1>
+      <p class="text-xl max-w-3xl mx-auto">Travel experiences and stories shared by our community of explorers</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-2xl font-bold mb-6 text-slate-800">All Community Posts</h2>
+      
+      <div class="flex justify-end mb-6">
+        <a href="2.travel guide add.html" class="inline-flex items-center bg-rose-600 text-white px-6 py-3 rounded-lg hover:bg-rose-700 transition-colors font-medium">
+          Create New Post
+        </a>
+      </div>
+      
+      <!-- Loading State -->
+      <div id="posts-loading" class="text-center py-12">
+        <p class="mt-4 text-slate-500">Loading posts...</p>
+      </div>
+
+      <!-- Empty State -->
+      <div id="posts-empty" class="hidden text-center py-12">
+        <p class="mt-4 text-slate-500">No posts available yet.</p>
+      </div>
+
+      <!-- Posts Grid -->
+      <div id="posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 hidden">
+        <!-- Posts will be loaded here -->
+      </div>
+
+      <!-- Pagination -->
+      <div id="pagination" class="mt-12 flex justify-center items-center gap-2 hidden">
+        <button onclick="loadPosts(currentPage - 1)" id="prev-btn" class="px-4 py-2 border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+          <i class="iconfont icon-zuojiantou3"></i>
+        </button>
+        <span id="page-info" class="px-4 py-2 text-slate-600"></span>
+        <button onclick="loadPosts(currentPage + 1)" id="next-btn" class="px-4 py-2 border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+          <i class="iconfont icon-youjiantou2"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <i class="iconfont icon-ditu-dibiao text-rose-500 mr-2"></i>
+            Wander Any Place
+          </h3>
+          <p class="text-gray-400 mb-4">
+            Your ultimate guide to exploring China. Discover the best destinations, plan your trip, and make unforgettable memories.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="../index.html" class="hover:text-rose-400 transition-colors">Home</a></li>
+            <li><a href="2.Destination.html" class="hover:text-rose-400 transition-colors">Destinations</a></li>
+            <li><a href="2.travel guide.html" class="hover:text-rose-400 transition-colors">Travel Guides</a></li>
+            <li><a href="2.booking.html" class="hover:text-rose-400 transition-colors">Booking Services</a></li> 
+            <li><a href="2.aboutus.html" class="hover:text-rose-400 transition-colors">About Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Resources</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="2.pre-visa.html" class="hover:text-rose-400 transition-colors">Visa Information</a></li>
+            <li><a href="2.pre-app.html" class="hover:text-rose-400 transition-colors">Necessary Apps</a></li>
+            <li><a href="2.payment-methods.html" class="hover:text-rose-400 transition-colors">Payment Methods</a></li>
+            <li><a href="2.transportation.html" class="hover:text-rose-400 transition-colors">Transportation</a></li>
+            <li><a href="2.essential packing copy.html" class="hover:text-rose-400 transition-colors">Essential Packing</a></li>
+          </ul>
+        </div>
+
+         <div>
+          <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+          <p class="text-slate-400">Email: wanderanyplace@gmail.com</p>
+        </div>
+      </div>
+  </footer>
+
+  <script>
+let currentPage = 1;
+const pageSize = 12;
+let totalPages = 0;
+
+function toggleMobileMenu() {
+  const mobileNav = document.getElementById('mobileNav');
+  const menuBtn = document.querySelector('.mobile-menu-btn');
+  const mobileLogo = document.getElementById('mobileLogo');
+  if (mobileNav && menuBtn) {
+    mobileNav.classList.toggle('active');
+    menuBtn.classList.toggle('active');
+    if (mobileLogo) {
+      mobileLogo.classList.toggle('mobile-logo-hidden');
+    }
+  }
+}
+
+function escapeHtml(text) {
+  if (!text) return '';
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+function formatDate(dateStr) {
+  if (!dateStr) return '';
+  const date = new Date(dateStr);
+  return date.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric'
+  });
+}
+
+function loadPosts(page) {
+  if (page < 1) return;
+  if (page > totalPages && totalPages > 0) return;
+
+  currentPage = page;
+  
+  const loadingEl = document.getElementById('posts-loading');
+  const emptyEl = document.getElementById('posts-empty');
+  const containerEl = document.getElementById('posts-container');
+  const paginationEl = document.getElementById('pagination');
+
+  loadingEl.classList.remove('hidden');
+  emptyEl.classList.add('hidden');
+  containerEl.classList.add('hidden');
+  paginationEl.classList.add('hidden');
+
+  fetch(`/api/posts?page=${page}&pageSize=${pageSize}`)
+    .then(res => res.json())
+    .then(result => {
+      loadingEl.classList.add('hidden');
+
+      if (result.success && result.data && result.data.length > 0) {
+        totalPages = result.totalPages;
+        renderPosts(result.data);
+        renderPagination(result);
+      } else {
+        emptyEl.classList.remove('hidden');
+      }
+    })
+    .catch(err => {
+      loadingEl.classList.add('hidden');
+      emptyEl.classList.remove('hidden');
+      console.error('Error loading posts:', err);
+    });
+}
+
+function renderPosts(posts) {
+  const container = document.getElementById('posts-container');
+  container.innerHTML = posts.map(post => {
+    const hasImages = post.imgs && post.imgs.length > 0;
+    const typeConfig = getTypeConfig(post.type);
+    const tags = post.tag ? post.tag.split(',').map(t => t.trim()).filter(t => t) : [];
+
+    return `
+      <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group flex flex-col h-full">
+        ${hasImages ? `
+          <div class="relative h-48 overflow-hidden">
+            <img src="${escapeHtml(post.imgs[0])}" alt="${escapeHtml(post.title)}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute top-3 left-3">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white/90" style="color: ${typeConfig.color};">
+                ${escapeHtml(typeConfig.label)}
+              </span>
+            </div>
+          </div>
+        ` : `
+          <div class="relative h-48 flex items-center justify-center" style="background-color: ${typeConfig.bgColor};">
+            <div class="absolute top-3 left-3">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white/90" style="color: ${typeConfig.color};">
+                ${escapeHtml(typeConfig.label)}
+              </span>
+            </div>
+            <p class="text-lg font-bold text-center px-6 line-clamp-3 leading-relaxed" style="color: ${typeConfig.color};">${escapeHtml(post.title)}</p>
+          </div>
+        `}
+        <div class="p-6 flex flex-col flex-1">
+          <h2 class="text-lg font-bold mb-2 group-hover:text-rose-600 transition-colors">
+            <a href="2.travel guide detail.html?id=${post.id}&title=${encodeURIComponent(post.title)}&nick=${encodeURIComponent(post.nick)}">${escapeHtml(post.title)}</a>
+          </h2>
+          <p class="text-slate-600 mb-3 text-sm line-clamp-2">${escapeHtml(post.content)}</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            ${tags.map(tag => `<span class="inline-flex items-center px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-full">${escapeHtml(tag)}</span>`).join('')}
+            ${post.area ? `<span class="inline-flex items-center px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-full"><i class="iconfont icon-ditu-dibiao w-3 h-3 mr-1"></i>${escapeHtml(post.area)}</span>` : ''}
+          </div>
+          <div class="mt-auto flex items-center justify-between pt-4 border-t border-slate-100">
+            <div class="flex items-center">
+              <div class="w-8 h-8 rounded-full bg-rose-100 flex items-center justify-center text-rose-600 font-bold text-sm">
+                ${escapeHtml(post.nick.charAt(0).toUpperCase())}
+              </div>
+              <span class="ml-2 text-sm text-slate-500">${escapeHtml(post.nick)}</span>
+            </div>
+            <a href="2.travel guide detail.html?id=${post.id}&title=${encodeURIComponent(post.title)}&nick=${encodeURIComponent(post.nick)}" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
+              Read More
+              <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join('');
+
+  container.classList.remove('hidden');
+}
+
+function renderPagination(result) {
+  const paginationEl = document.getElementById('pagination');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const pageInfo = document.getElementById('page-info');
+
+  pageInfo.textContent = `Page ${result.page} of ${result.totalPages}`;
+  prevBtn.disabled = result.page <= 1;
+  nextBtn.disabled = result.page >= result.totalPages;
+
+  paginationEl.classList.remove('hidden');
+}
+
+function getTypeConfig(type) {
+  const configs = {
+    'Question': { label: 'Question', icon: 'icon-wenti', color: '#3B82F6', bgColor: '#EFF6FF' },
+    'Experience': { label: 'Experience', icon: 'icon-jingyan', color: '#16A34A', bgColor: '#DCFCE7' },
+    'Tips': { label: 'Tips', icon: 'icon-tips', color: '#F59E0B', bgColor: '#FEF3C7' },
+    'Photo': { label: 'Photo', icon: 'icon-tupian', color: '#8B5CF6', bgColor: '#EDE9FE' },
+    'Help': { label: 'Help', icon: 'icon-qiuzhu', color: '#E11D48', bgColor: '#FFF1F2' },
+    'Share': { label: 'Share', icon: 'icon-fenxiang1', color: '#16A34A', bgColor: '#DCFCE7' },
+    'Other': { label: 'Other', icon: 'icon-qita', color: '#E11D48', bgColor: '#FFF1F2' }
+  };
+  return configs[type] || configs['Other'];
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadPosts(1);
+});
+</script>
+</body>
+</html>

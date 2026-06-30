@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L42GKWJLGB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-L42GKWJLGB");
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create New Post - Wander Any Place</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../iconfont/iconfont.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sans': ['Noto Sans SC', 'sans-serif'],
+          },
+          colors: {
+            'rose': {
+              50: '#FFF1F2',
+              100: '#FFE4E6',
+              200: '#FECDD3',
+              300: '#FDA4AF',
+              400: '#FB7185',
+              500: '#F43F5E',
+              600: '#E11D48',
+              700: '#BE123C',
+              800: '#9F1239',
+              900: '#881337',
+            },
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto { content-visibility: auto; }
+      .bg-gradient-rose { background: linear-gradient(135deg, #F43F5E 0%, #BE123C 100%); }
+      .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    }
+  </style>
+</head>
+<body class="bg-white font-sans text-slate-800">
+  <!-- 顶部导航 -->
+  <header class="mobile-header-nav" style="background: black; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+    <div class="nav-container">
+      <a href="../index.html" class="logo" id="mobileLogo" style="display: flex; align-items: center; text-decoration: none;">
+        <i class="iconfont icon-ditu-dibiao" style="color: #F43F5E;"></i>
+        <span style="color: white;">Wander Any Place</span>
+      </a>
+      <div class="desktop-nav" id="desktopNavLinks" style="color: white;">
+        <a href="../index.html" style="color: white;">Home</a>
+        <a href="2.Destination.html" style="color: white;">Destinations</a>
+        <a href="2.travel guide.html" style="color: white;">Travel Guides</a>
+        <a href="2.booking.html" style="color: white;">Booking Services</a>
+        <a href="2.aboutus.html" style="color: white;">About Us</a>
+      </div>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <span style="background-color: white;"></span>
+        <span style="background-color: white;"></span>
+        <span style="background-color: white;"></span>
+      </button>
+    </div>
+  </header>
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <button class="nav-close-btn" onclick="toggleMobileMenu()">&times;</button>
+    <a href="../index.html" onclick="toggleMobileMenu()">Home</a>
+    <a href="2.Destination.html" onclick="toggleMobileMenu()">Destinations</a>
+    <a href="2.travel guide.html" onclick="toggleMobileMenu()">Travel Guides</a>
+    <a href="2.booking.html" onclick="toggleMobileMenu()">Booking Services</a>
+    <a href="2.aboutus.html" onclick="toggleMobileMenu()">About Us</a>
+  </div>
+
+  <section class="bg-rose-600 text-white min-h-[300px] flex items-center justify-center" style="margin-top: 70px;">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Create New Post</h1>
+      <p class="text-xl max-w-3xl mx-auto">Share your travel experiences, ask questions, or seek help from the community</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-2xl mx-auto px-6">
+      <form id="post-form" class="bg-slate-50 p-8 rounded-xl shadow-md">
+        <!-- Nickname -->
+        <div class="mb-6">
+          <label for="nick" class="block text-sm font-medium text-slate-700 mb-1">Nickname <span class="text-rose-500">*</span></label>
+          <input type="text" id="nick" name="nick" required minlength="2" maxlength="20" 
+                 class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-rose-500"
+                 placeholder="Enter your nickname (2-20 characters)">
+        </div>
+
+        <!-- Post Type -->
+        <div class="mb-6">
+          <label class="block text-sm font-medium text-slate-700 mb-1">Post Type <span class="text-rose-500">*</span></label>
+          <div class="grid grid-cols-3 gap-3" id="type-selector">
+            <label for="type-question" class="type-option flex items-center justify-center p-3 border-2 border-slate-300 rounded-lg cursor-pointer hover:border-rose-500 hover:bg-rose-50 transition-colors" data-type="Question">
+              <input type="radio" id="type-question" name="type" value="Question" required class="sr-only">
+              <div class="flex flex-col items-center">
+                <span class="text-sm mt-1 text-slate-600">Question</span>
+              </div>
+            </label>
+            <label for="type-share" class="type-option flex items-center justify-center p-3 border-2 border-slate-300 rounded-lg cursor-pointer hover:border-rose-500 hover:bg-rose-50 transition-colors" data-type="Share">
+              <input type="radio" id="type-share" name="type" value="Share" class="sr-only">
+              <div class="flex flex-col items-center">
+                <span class="text-sm mt-1 text-slate-600">Share</span>
+              </div>
+            </label>
+            <label for="type-help" class="type-option flex items-center justify-center p-3 border-2 border-slate-300 rounded-lg cursor-pointer hover:border-rose-500 hover:bg-rose-50 transition-colors" data-type="Help">
+              <input type="radio" id="type-help" name="type" value="Help" class="sr-only">
+              <div class="flex flex-col items-center">
+                <span class="text-sm mt-1 text-slate-600">Help</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Password (for edit/delete) -->
+        <div class="mb-6">
+          <label for="password" class="block text-sm font-medium text-slate-700 mb-1">Password (Optional, 4 digits)</label>
+          <input type="password" id="password" name="password" maxlength="4" 
+                 class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-rose-500"
+                 placeholder="Set a 4-digit password to edit/delete your post">
+          <p class="text-xs text-slate-500 mt-1">Set a password if you want to be able to edit or delete this post later</p>
+        </div>
+
+        <!-- Title -->
+        <div class="mb-6">
+          <label for="title" class="block text-sm font-medium text-slate-700 mb-1">Title <span class="text-rose-500">*</span></label>
+          <input type="text" id="title" name="title" required minlength="5" maxlength="100"
+                 class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-rose-500"
+                 placeholder="Enter post title (5-100 characters)">
+        </div>
+
+        <!-- Content -->
+        <div class="mb-6">
+          <label for="content" class="block text-sm font-medium text-slate-700 mb-1">Content <span class="text-rose-500">*</span></label>
+          <textarea id="content" name="content" rows="4" required minlength="10" maxlength="300"
+                    class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-rose-500 resize-none"
+                    placeholder="Share your thoughts (10-300 characters)"></textarea>
+          <div class="text-right text-sm text-slate-500 mt-1" id="content-length">0/300</div>
+        </div>
+
+        <!-- Images -->
+        <div class="mb-6">
+          <label class="block text-sm font-medium text-slate-700 mb-1">Images (Optional, max 9)</label>
+          <div class="grid grid-cols-3 gap-3">
+            <div id="image-container" class="grid grid-cols-3 gap-3">
+              <div class="aspect-square bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 flex items-center justify-center cursor-pointer hover:border-rose-500 hover:bg-rose-50 transition-colors"
+                   onclick="addImageInput()">
+              </div>
+            </div>
+          </div>
+          <input type="file" id="image-upload" accept="image/*" multiple class="hidden" onchange="handleImageUpload(this)">
+        </div>
+
+        <!-- Area/Destination -->
+        <div class="mb-6">
+          <label for="area" class="block text-sm font-medium text-slate-700 mb-1">Destination (Optional)</label>
+          <input type="text" id="area" name="area" maxlength="50"
+                 class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-rose-500"
+                 placeholder="Where is this about? (e.g., Beijing, Shanghai)">
+        </div>
+
+        <!-- Tags -->
+        <div class="mb-6">
+          <label for="tag" class="block text-sm font-medium text-slate-700 mb-1">Tags (Optional)</label>
+          <input type="text" id="tag" name="tag" maxlength="100"
+                 class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-rose-500"
+                 placeholder="Add tags separated by commas (e.g., travel, food, tips)">
+        </div>
+
+        <!-- Submit Button -->
+        <div class="pt-4">
+          <button type="submit" id="submit-btn" class="w-full bg-rose-600 text-white font-bold py-3 rounded-lg hover:bg-rose-700 transition-colors flex items-center justify-center">
+            Submit Post
+          </button>
+        </div>
+      </form>
+
+      <!-- Status Message -->
+      <div id="status-message" class="hidden mt-6 p-4 rounded-lg text-center"></div>
+    </div>
+  </section>
+
+   <!-- Footer -->
+    <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <i class="iconfont icon-ditu-dibiao text-rose-500 mr-2"></i>
+            Wander Any Place
+          </h3>
+          <p class="text-gray-400 mb-4">
+            Your ultimate guide to exploring China. Discover the best destinations, plan your trip, and make unforgettable memories.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="../index.html" class="hover:text-rose-400 transition-colors">Home</a></li>
+            <li><a href="2.Destination.html" class="hover:text-rose-400 transition-colors">Destinations</a></li>
+            <li><a href="2.travel guide.html" class="hover:text-rose-400 transition-colors">Travel Guides</a></li>
+            <li><a href="2.booking.html" class="hover:text-rose-400 transition-colors">Booking Services</a></li> 
+            <li><a href="2.aboutus.html" class="hover:text-rose-400 transition-colors">About Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Resources</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="2.pre-visa.html" class="hover:text-rose-400 transition-colors">Visa Information</a></li>
+            <li><a href="2.pre-app.html" class="hover:text-rose-400 transition-colors">Necessary Apps</a></li>
+            <li><a href="2.payment-methods.html" class="hover:text-rose-400 transition-colors">Payment Methods</a></li>
+            <li><a href="2.transportation.html" class="hover:text-rose-400 transition-colors">Transportation</a></li>
+            <li><a href="2.essential packing copy.html" class="hover:text-rose-400 transition-colors">Essential Packing</a></li>
+          </ul>
+        </div>
+
+         <div>
+          <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+          <p class="text-slate-400">Email: wanderanyplace@gmail.com</p>
+        </div>
+      </div>
+  </footer>
+
+  <script>
+    const API_BASE = '';
+    const uploadedImages = [];
+
+    // Content length counter
+    document.getElementById('content').addEventListener('input', function() {
+      const length = this.value.length;
+      document.getElementById('content-length').textContent = `${length}/300`;
+    });
+
+    // Add image input
+    function addImageInput() {
+      if (uploadedImages.length >= 9) {
+        alert('Maximum 9 images allowed');
+        return;
+      }
+      document.getElementById('image-upload').click();
+    }
+
+    // Compress image
+    async function compressImage(file) {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = function() {
+          // Calculate target dimensions (max 1200px on largest side)
+          let width = img.width;
+          let height = img.height;
+          const maxDimension = 1200;
+          
+          if (width > maxDimension || height > maxDimension) {
+            if (width > height) {
+              height = (height * maxDimension) / width;
+              width = maxDimension;
+            } else {
+              width = (width * maxDimension) / height;
+              height = maxDimension;
+            }
+          }
+          
+          // Create canvas and draw image
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+          
+          // Determine quality (lower for larger files)
+          let quality = 0.8;
+          if (file.size > 2 * 1024 * 1024) { // > 2MB
+            quality = 0.6;
+          } else if (file.size > 1 * 1024 * 1024) { // > 1MB
+            quality = 0.7;
+          }
+          
+          // Convert to base64
+          const mimeType = file.type === 'image/png' ? 'image/png' : 'image/jpeg';
+          const compressedDataUrl = canvas.toDataURL(mimeType, quality);
+          
+          // Compare sizes and choose smaller one
+          const originalSize = file.size;
+          const compressedSize = Math.round((compressedDataUrl.length * 3) / 4); // Base64 size estimation
+          
+          if (compressedSize < originalSize * 0.9) {
+            console.log(`Image compressed: ${(originalSize / 1024).toFixed(1)}KB -> ${(compressedSize / 1024).toFixed(1)}KB`);
+            resolve(compressedDataUrl);
+          } else {
+            // If compressed is not smaller, use original
+            const reader = new FileReader();
+            reader.onload = function(e) {
+              console.log(`Using original image: ${(originalSize / 1024).toFixed(1)}KB (compressed was larger)`);
+              resolve(e.target.result);
+            };
+            reader.readAsDataURL(file);
+          }
+        };
+        img.onerror = function() {
+          // Fallback to original if image loading fails
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            resolve(e.target.result);
+          };
+          reader.readAsDataURL(file);
+        };
+        img.src = URL.createObjectURL(file);
+      });
+    }
+
+    // Handle image upload
+    async function handleImageUpload(input) {
+      const files = input.files;
+      for (let i = 0; i < files.length && uploadedImages.length < 9; i++) {
+        const file = files[i];
+        const compressedDataUrl = await compressImage(file);
+        uploadedImages.push(compressedDataUrl);
+        renderImages();
+      }
+      input.value = ''; // Reset input
+    }
+
+    // Render images
+    function renderImages() {
+      const container = document.getElementById('image-container');
+      container.innerHTML = uploadedImages.map((img, index) => `
+        <div class="aspect-square relative rounded-lg overflow-hidden group">
+          <img src="${img}" alt="Uploaded image" class="w-full h-full object-cover">
+          <button onclick="removeImage(${index})" 
+                  class="absolute top-1 right-1 w-6 h-6 bg-black bg-opacity-50 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+            <i class="iconfont icon-cha text-white text-sm"></i>
+          </button>
+        </div>
+      `).join('');
+      
+      // Add add button if there's space
+      if (uploadedImages.length < 9) {
+        container.innerHTML += `
+          <div class="aspect-square bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 flex items-center justify-center cursor-pointer hover:border-rose-500 hover:bg-rose-50 transition-colors"
+               onclick="addImageInput()">
+          </div>
+        `;
+      }
+    }
+
+    // Remove image
+    function removeImage(index) {
+      uploadedImages.splice(index, 1);
+      renderImages();
+    }
+
+    // Post type selection
+    document.querySelectorAll('.type-option').forEach(function(label) {
+      label.addEventListener('click', function(e) {
+        // Unselect all
+        document.querySelectorAll('.type-option').forEach(function(opt) {
+          opt.classList.remove('border-rose-500', 'bg-rose-50');
+          opt.classList.add('border-slate-300');
+        });
+        // Select this one
+        this.classList.remove('border-slate-300');
+        this.classList.add('border-rose-500', 'bg-rose-50');
+        // Check the radio
+        var radio = this.querySelector('input[type="radio"]');
+        if (radio) {
+          radio.checked = true;
+        }
+      });
+
+      // Also sync visual state when radio changes directly (e.g. via keyboard)
+      var radio = label.querySelector('input[type="radio"]');
+      if (radio) {
+        radio.addEventListener('change', function() {
+          if (this.checked) {
+            document.querySelectorAll('.type-option').forEach(function(opt) {
+              opt.classList.remove('border-rose-500', 'bg-rose-50');
+              opt.classList.add('border-slate-300');
+            });
+            label.classList.remove('border-slate-300');
+            label.classList.add('border-rose-500', 'bg-rose-50');
+          }
+        });
+      }
+    });
+
+    // Submit form
+    document.getElementById('post-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Submitting...';
+
+      const formData = new FormData(this);
+      const data = {
+        nick: formData.get('nick'),
+        type: formData.get('type'),
+        title: formData.get('title'),
+        content: formData.get('content'),
+        imgs: uploadedImages,
+        area: formData.get('area'),
+        tag: formData.get('tag'),
+        password: formData.get('password')
+      };
+
+      try {
+        const response = await fetch(`${API_BASE}/api/posts`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          showStatus('Post submitted successfully! Redirecting...', 'success');
+          setTimeout(() => {
+            window.location.href = `travel-guides/community-id_${result.data.id}.html`;
+          }, 2000);
+        } else {
+          showStatus(result.message || 'Failed to submit post', 'error');
+        }
+      } catch (error) {
+        showStatus('Network error. Please try again.', 'error');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Submit Post';
+      }
+    });
+
+    // Show status message
+    function showStatus(message, type) {
+      const statusDiv = document.getElementById('status-message');
+      statusDiv.textContent = message;
+      statusDiv.classList.remove('hidden', 'bg-green-100', 'text-green-700', 'bg-red-100', 'text-red-700');
+      
+      if (type === 'success') {
+        statusDiv.classList.add('bg-green-100', 'text-green-700');
+      } else {
+        statusDiv.classList.add('bg-red-100', 'text-red-700');
+      }
+    }
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const mobileNav = document.getElementById('mobileNav');
+      const menuBtn = document.querySelector('.mobile-menu-btn');
+      const mobileLogo = document.getElementById('mobileLogo');
+      if (mobileNav && menuBtn) {
+        mobileNav.classList.toggle('active');
+        menuBtn.classList.toggle('active');
+        if (mobileLogo) {
+          mobileLogo.classList.toggle('mobile-logo-hidden');
+        }
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L42GKWJLGB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-L42GKWJLGB");
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Guides - Wander Any Place | Expert Travel Tips & Guides for China</title>
+  <meta name="description" content="Discover expert travel guides and tips for exploring China. From hidden gems to iconic landmarks, find everything you need for your Chinese adventure.">
+  <meta name="keywords" content="China travel guide, travel tips, China destinations, travel blog, Wander Any Place">
+  <meta name="author" content="Wander Any Place">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../iconfont/iconfont.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sans': ['Noto Sans SC', 'sans-serif'],
+          },
+          colors: {
+            'rose': {
+              50: '#FFF1F2',
+              100: '#FFE4E6',
+              200: '#FECDD3',
+              300: '#FDA4AF',
+              400: '#FB7185',
+              500: '#F43F5E',
+              600: '#E11D48',
+              700: '#BE123C',
+              800: '#9F1239',
+              900: '#881337',
+            },
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto { content-visibility: auto; }
+      .bg-gradient-rose { background: linear-gradient(135deg, #F43F5E 0%, #BE123C 100%); }
+      .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    }
+  </style>
+</head>
+<body class="bg-white font-sans text-slate-800">
+  <!-- 顶部导航 -->
+   <header class="mobile-header-nav" style="background: black; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+    <div class="nav-container">
+      <a href="../index.html" class="logo" id="mobileLogo" style="display: flex; align-items: center; text-decoration: none;">
+        <i class="iconfont icon-ditu-dibiao" style="color: #F43F5E;"></i>
+        <span style="color: white;">Wander Any Place</span>
+      </a>
+      <div class="desktop-nav" id="desktopNavLinks" style="color: white;">
+        <a href="../index.html" style="color: white;">Home</a>
+        <a href="2.Destination.html" style="color: white;">Destinations</a>
+        <a href="2.travel guide.html" style="color: white;">Travel Guides</a>
+        <a href="2.booking.html" style="color: white;">Booking Services</a>
+        <a href="2.aboutus.html" style="color: white;">About Us</a>
+      </div>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <span style="background-color: white;"></span>
+        <span style="background-color: white;"></span>
+        <span style="background-color: white;"></span>
+      </button>
+    </div>
+  </header>
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <button class="nav-close-btn" onclick="toggleMobileMenu()">&times;</button>
+    <a href="../index.html" onclick="toggleMobileMenu()">Home</a>
+    <a href="2.Destination.html" onclick="toggleMobileMenu()">Destinations</a>
+    <a href="2.travel guide.html" onclick="toggleMobileMenu()">Travel Guides</a>
+    <a href="2.booking.html" onclick="toggleMobileMenu()">Booking Services</a>
+    <a href="2.aboutus.html" onclick="toggleMobileMenu()">About Us</a>
+  </div>
+
+  <!-- Password Verification Modal -->
+  <div id="password-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-xl p-6 max-w-md w-full mx-4 shadow-xl">
+      <h3 id="password-modal-title" class="text-xl font-bold mb-2">Enter Password</h3>
+      <p id="password-modal-desc" class="text-slate-600 mb-4">Please enter your 4-digit password.</p>
+      <input type="password" id="password-input" maxlength="4" 
+             class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-rose-500 mb-4"
+             placeholder="Enter 4-digit password">
+      <p id="password-error" class="text-red-500 text-sm mb-4 hidden"></p>
+      <div class="flex gap-3">
+        <button onclick="closePasswordModal()" class="flex-1 px-4 py-2 border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors">
+          Cancel
+        </button>
+        <button onclick="verifyPasswordAction()" class="flex-1 px-4 py-2 bg-rose-600 text-white rounded-lg hover:bg-rose-700 transition-colors">
+          Confirm
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <section class="bg-rose-600 text-white min-h-[300px] flex items-center justify-center" style="margin-top: 70px;">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Travel Guides</h1>
+      <p class="text-xl max-w-3xl mx-auto">Expert tips, hidden gems, and comprehensive guides for your China adventure</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <!-- Admin Articles Section -->
+      <h2 class="text-2xl font-bold mb-6 text-slate-800">Expert Guides</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Blog Post Card 1 -->
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group flex flex-col h-full">
+          <div class="relative h-48 overflow-hidden">
+            <img src="../img/img-travel-guide/china-travel-payment-apps-2026-0.jpeg" alt="Beijing Travel Guide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-6 flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center text-slate-500 text-sm mb-3">
+               <i class="iconfont icon-calendar w-4 h-4 mr-1"></i>
+                <span>June 4, 2026</span>
+                <span class="mx-2">|</span> 
+                <i class="iconfont icon-ditu-dibiao w-4 h-4 mr-2"></i>
+                <span>Wander Any Place</span>
+              </div>
+              <h2 class="text-xl font-bold mb-3 group-hover:text-rose-600 transition-colors">
+                <a href="../html/travel-guides/china-travel-payment-apps-2026.html">China Travel Apps in 2026: How Foreigners Actually Pay in China - No SIM Card Required</a>
+              </h2>
+              <p class="text-slate-600 mb-4 text-sm">A complete guide to Alipay, WeChat Pay, and digital wallets for foreign travelers.</p>
+            </div>
+            <a href="../html/travel-guides/china-travel-payment-apps-2026.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
+              Read More
+              <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i>
+            </a>
+          </div>
+        </article>
+
+
+        <!-- Blog Post Card 2 -->
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group flex flex-col h-full">
+          <div class="relative h-48 overflow-hidden">
+            <img src="../img/img-travel-guide/2.old-beijing-douzhi-0.webp" alt="Beijing Travel Guide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-6 flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center text-slate-500 text-sm mb-3">
+               <i class="iconfont icon-calendar w-4 h-4 mr-1"></i>
+                <span>June 5, 2026</span>
+                <span class="mx-2">|</span> 
+                <i class="iconfont icon-ditu-dibiao w-4 h-4 mr-2"></i>
+                <span>Wander Any Place</span>
+              </div>
+              <h2 class="text-xl font-bold mb-3 group-hover:text-rose-600 transition-colors">
+                <a href="../html/travel-guides/old-beijing-douzhi.html">Old Beijing Douzhi Guide - Try the Same Drink as Tech Billionaires</a>
+              </h2>
+              <p class="text-slate-600 mb-4 text-sm">Can't afford chips, but we can enjoy the drink tech billionaires love</p>
+            </div>
+            <a href="../html/travel-guides/old-beijing-douzhi.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
+              Read More
+              <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i>
+            </a>
+          </div>
+        </article>
+
+
+
+        <!-- Blog Post Card 3 -->
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group flex flex-col h-full">
+          <div class="relative h-48 overflow-hidden">
+            <img src="../img/img-travel-guide/3.want-to-dress-like-a-chinese-emperor0.jpeg" alt="Beijing Hanfu Experience" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-6 flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center text-slate-500 text-sm mb-3">
+                <i class="iconfont icon-calendar w-4 h-4 mr-1"></i>
+                <span>June 10, 2026</span>
+                <span class="mx-2">|</span> 
+                <i class="iconfont icon-ditu-dibiao w-4 h-4 mr-2"></i>
+                <span>Wander Any Place</span>
+              </div>
+              <h2 class="text-xl font-bold mb-3 group-hover:text-rose-600 transition-colors">
+                <a href="../html/travel-guides/beijing-hanfu-queen-experience-en.html">Beijing Hanfu Experience: Dress Like Royalty</a>
+              </h2>
+              <p class="text-slate-600 mb-4 text-sm">Experience the elegance of ancient Chinese culture with a traditional Hanfu costume rental near the Forbidden City.</p>
+            </div>
+            <a href="../html/travel-guides/beijing-hanfu-queen-experience-en.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
+              Read More
+              <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Blog Post Card 4 -->
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group flex flex-col h-full">
+          <div class="relative h-48 overflow-hidden">
+            <img src="../img/img-travel-guide/4.beijing-lama-temple-guide_00.jpeg" alt="Yonghegong Lama Temple Beijing" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-6 flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center text-slate-500 text-sm mb-3">
+                <i class="iconfont icon-calendar w-4 h-4 mr-1"></i>
+                <span>June 11, 2026</span>
+                <span class="mx-2">|</span> 
+                <i class="iconfont icon-ditu-dibiao w-4 h-4 mr-2"></i>
+                <span>Wander Any Place</span>
+              </div>
+              <h2 class="text-xl font-bold mb-3 group-hover:text-rose-600 transition-colors">
+                <a href="../html/travel-guides/beijing-lama-temple-guide.html">Lama Temple Beijing: Complete Etiquette Guide</a>
+              </h2>
+              <p class="text-slate-600 mb-4 text-sm">Essential guide for foreign visitors to Yonghegong Lama Temple - dress code, incense rituals, prayer etiquette, and cultural tips for a respectful visit.</p>
+            </div>
+            <a href="../html/travel-guides/beijing-lama-temple-guide.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
+              Read More
+              <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="mt-12 text-center">
+        <a href="2.expert guide.html" class="px-8 py-3 border border-primary text-primary rounded-full font-medium hover:bg-rose-600 hover:text-white transition-colors">
+          View All Expert Guides
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Posts Section -->
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-2xl font-bold mb-6 text-slate-800">Community Posts</h2>
+      
+      <!-- Loading State -->
+      <div id="posts-loading" class="text-center py-12">
+        <p class="mt-4 text-slate-500">Loading posts...</p>
+      </div>
+
+      <!-- Empty State -->
+      <div id="posts-empty" class="hidden text-center py-12">
+        <p class="mt-4 text-slate-500">No community posts yet. Be the first to share!</p>
+      </div>
+
+      <!-- Posts Grid -->
+      <div id="posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 hidden">
+        <!-- Posts will be loaded here -->
+      </div>
+
+      <div class="mt-12 text-center">
+        <a href="2.Community Posts.html" class="px-8 py-3 border border-primary text-primary rounded-full font-medium hover:bg-rose-600 hover:text-white transition-colors">
+          View All Community Posts
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <i class="iconfont icon-ditu-dibiao text-rose-500 mr-2"></i>
+            Wander Any Place
+          </h3>
+          <p class="text-gray-400 mb-4">
+            Your ultimate guide to exploring China. Discover the best destinations, plan your trip, and make unforgettable memories.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="../index.html" class="hover:text-rose-400 transition-colors">Home</a></li>
+            <li><a href="2.Destination.html" class="hover:text-rose-400 transition-colors">Destinations</a></li>
+            <li><a href="2.travel guide.html" class="hover:text-rose-400 transition-colors">Travel Guides</a></li>
+            <li><a href="2.booking.html" class="hover:text-rose-400 transition-colors">Booking Services</a></li> 
+            <li><a href="2.aboutus.html" class="hover:text-rose-400 transition-colors">About Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Resources</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="2.pre-visa.html" class="hover:text-rose-400 transition-colors">Visa Information</a></li>
+            <li><a href="2.pre-app.html" class="hover:text-rose-400 transition-colors">Necessary Apps</a></li>
+            <li><a href="2.payment-methods.html" class="hover:text-rose-400 transition-colors">Payment Methods</a></li>
+            <li><a href="2.transportation.html" class="hover:text-rose-400 transition-colors">Transportation</a></li>
+            <li><a href="2.essential packing copy.html" class="hover:text-rose-400 transition-colors">Essential Packing</a></li>
+          </ul>
+        </div>
+
+         <div>
+          <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+          <p class="text-slate-400">Email: wanderanyplace@gmail.com</p>
+        </div>
+      </div>
+  </footer>
+
+  <script>
+function toggleMobileMenu() {
+  const mobileNav = document.getElementById('mobileNav');
+  const menuBtn = document.querySelector('.mobile-menu-btn');
+  const mobileLogo = document.getElementById('mobileLogo');
+  if (mobileNav && menuBtn) {
+    mobileNav.classList.toggle('active');
+    menuBtn.classList.toggle('active');
+    if (mobileLogo) {
+      mobileLogo.classList.toggle('mobile-logo-hidden');
+    }
+  }
+}
+
+// Load community posts
+const API_BASE = '';
+
+document.addEventListener('DOMContentLoaded', loadPosts);
+
+async function loadPosts() {
+  try {
+    const response = await fetch('/api/posts?page=1&pageSize=6');
+    const result = await response.json();
+
+    if (result.success) {
+      renderPosts(result.data);
+    } else {
+      showEmptyState();
+    }
+  } catch (error) {
+    console.error('Error loading posts:', error);
+    showEmptyState();
+  }
+}
+
+function renderPosts(posts) {
+  const container = document.getElementById('posts-container');
+  const loading = document.getElementById('posts-loading');
+  const empty = document.getElementById('posts-empty');
+
+  loading.classList.add('hidden');
+  
+  if (posts.length === 0) {
+    empty.classList.remove('hidden');
+    return;
+  }
+
+  empty.classList.add('hidden');
+  container.classList.remove('hidden');
+
+  container.innerHTML = posts.map(post => {
+    const hasImages = post.imgs && post.imgs.length > 0;
+    const typeConfig = getTypeConfig(post.type);
+    const tags = post.tag ? post.tag.split(',').map(t => t.trim()).filter(t => t) : [];
+
+    return `
+      <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group flex flex-col h-full">
+        ${hasImages ? `
+          <div class="relative h-48 overflow-hidden">
+            <img src="${escapeHtml(post.imgs[0])}" alt="${escapeHtml(post.title)}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute top-3 left-3">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white/90" style="color: ${typeConfig.color};">
+                ${post.type}
+            </div>
+          </div>
+        ` : `
+          <div class="relative h-48 flex items-center justify-center" style="background-color: ${typeConfig.bgColor};">
+            <div class="absolute top-3 left-3">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white/90" style="color: ${typeConfig.color};">
+                ${post.type}
+              </span>
+            </div>
+            <p class="text-lg font-bold text-center px-6 line-clamp-3 leading-relaxed" style="color: ${typeConfig.color};">${escapeHtml(post.title)}</p>
+          </div>
+        `}
+        <div class="p-6 flex flex-col flex-1">
+          <h2 class="text-lg font-bold mb-2 group-hover:text-rose-600 transition-colors">
+            <a href="2.travel guide detail.html?id=${post.id}&title=${encodeURIComponent(post.title)}&nick=${encodeURIComponent(post.nick)}">${escapeHtml(post.title)}</a>
+          </h2>
+          <p class="text-slate-600 mb-3 text-sm line-clamp-2">${escapeHtml(post.content)}</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            ${tags.map(tag => `<span class="inline-flex items-center px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-full">${escapeHtml(tag)}</span>`).join('')}
+            ${post.area ? `<span class="inline-flex items-center px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-full"><i class="iconfont icon-ditu-dibiao w-3 h-3 mr-1"></i>${escapeHtml(post.area)}</span>` : ''}
+          </div>
+          <div class="mt-auto flex items-center justify-between pt-4 border-t border-slate-100">
+            <div class="flex items-center">
+              <div class="w-8 h-8 rounded-full bg-rose-100 flex items-center justify-center text-rose-600 font-bold text-sm">
+                ${escapeHtml(post.nick.charAt(0).toUpperCase())}
+              </div>
+              <span class="ml-2 text-sm text-slate-500">${escapeHtml(post.nick)}</span>
+            </div>
+            <a href="2.travel guide detail.html?id=${post.id}&title=${encodeURIComponent(post.title)}&nick=${encodeURIComponent(post.nick)}" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
+              Read More
+              <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join('');
+}
+
+function getTypeConfig(type) {
+  const configs = {
+        'Question': { color: '#6366F1', bgColor: '#EEF2FF'},
+        'Share': { color: '#22C55E', bgColor: '#ECFDF5'},
+        'Help': { color: '#EF4444', bgColor: '#FEF2F2' },
+  };
+  return configs[type] || configs['Other'];
+}
+
+function generatePlaceholderImage(title) {
+  // Generate a gradient image based on title hash
+  const hash = title.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  const hue = hash % 360;
+  return `data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect width='100%' height='100%' fill='hsl(${hue}, 70%, 85%)'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-size='14' fill='hsl(${hue}, 70%, 40%)'>${escapeHtml(title.substring(0, 20))}...</text></svg>`;
+}
+
+function formatDate(dateStr) {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric'
+  });
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+function showEmptyState() {
+  document.getElementById('posts-loading').classList.add('hidden');
+  document.getElementById('posts-empty').classList.remove('hidden');
+}
+
+// View post details in new page
+function viewPost(postId) {
+  window.location.href = `travel-guides/community-id_${postId}.html`;
+}
+
+// Edit post - show password modal
+function editPost(postId, title, nick) {
+  window.currentAction = 'edit';
+  window.currentPostId = postId;
+  window.currentPostTitle = decodeURIComponent(title);
+  window.currentPostNick = decodeURIComponent(nick);
+  document.getElementById('password-modal-title').textContent = 'Enter Password to Edit';
+  document.getElementById('password-modal-desc').textContent = 'Please enter your 4-digit password to edit this post.';
+  document.getElementById('password-modal').classList.remove('hidden');
+}
+
+// Delete post - show password modal
+function deletePost(postId, title, nick) {
+  window.currentAction = 'delete';
+  window.currentPostId = postId;
+  window.currentPostTitle = decodeURIComponent(title);
+  window.currentPostNick = decodeURIComponent(nick);
+  document.getElementById('password-modal-title').textContent = 'Enter Password to Delete';
+  document.getElementById('password-modal-desc').textContent = 'Please enter your 4-digit password to delete this post.';
+  document.getElementById('password-modal').classList.remove('hidden');
+}
+
+// Verify password and perform action
+async function verifyPasswordAction() {
+  const password = document.getElementById('password-input').value;
+  
+  if (!/^\d{4}$/.test(password)) {
+    document.getElementById('password-error').textContent = 'Password must be 4 digits';
+    document.getElementById('password-error').classList.remove('hidden');
+    return;
+  }
+
+  try {
+    const response = await fetch(`${API_BASE}/api/posts/${window.currentPostId}/verify`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ 
+        password, 
+        nick: window.currentPostNick,
+        title: window.currentPostTitle 
+      })
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      if (window.currentAction === 'edit') {
+        closePasswordModal();
+        window.location.href = `2.travel guide modify.html?id=${window.currentPostId}`;
+      } else if (window.currentAction === 'delete') {
+        deleteConfirmed(password);
+      }
+    } else {
+      document.getElementById('password-error').textContent = result.message;
+      document.getElementById('password-error').classList.remove('hidden');
+    }
+  } catch (error) {
+    document.getElementById('password-error').textContent = 'Network error';
+    document.getElementById('password-error').classList.remove('hidden');
+  }
+}
+
+// Delete post after verification
+async function deleteConfirmed(password) {
+  try {
+    const response = await fetch(`${API_BASE}/api/posts/${window.currentPostId}/delete`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ 
+        password, 
+        nick: window.currentPostNick,
+        title: window.currentPostTitle 
+      })
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      closePasswordModal();
+      alert('Post deleted successfully');
+      loadPosts();
+    } else {
+      closePasswordModal();
+      alert(result.message || 'Failed to delete post');
+    }
+  } catch (error) {
+    closePasswordModal();
+    alert('Network error');
+  }
+}
+
+// Close password modal
+function closePasswordModal() {
+  document.getElementById('password-modal').classList.add('hidden');
+  document.getElementById('password-input').value = '';
+  document.getElementById('password-error').classList.add('hidden');
+}
+
+// Open post detail modal
+</script>
+</body>
+</html>
