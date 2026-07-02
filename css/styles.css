@@ -711,6 +711,7 @@ header.responsive-header p {
 #huanghuacheng-carousel,
 #jiankou-carousel,
 #badaling-remnant-carousel,
+#simatai-carousel,
 #gubeikou-carousel {
   height: 250px;
 }
@@ -721,6 +722,7 @@ header.responsive-header p {
 #huanghuacheng-carousel .carousel-item.active,
 #jiankou-carousel .carousel-item.active,
 #badaling-remnant-carousel .carousel-item.active,
+#simatai-carousel .carousel-item.active,
 #gubeikou-carousel .carousel-item.active {
   height: 250px;
 }
@@ -1028,15 +1030,118 @@ header.responsive-header p {
   object-fit: contain;
 }
 
+/* Attraction Page Styles */
+.attraction-card {
+  transition: all 0.3s ease;
+}
+.attraction-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+.rank-badge {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+.rank-badge-1 {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+}
+.rank-badge-2 {
+  background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+}
+.rank-badge-3 {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+}
+.rating-star {
+  color: #fbbf24;
+}
+.category-btn {
+  background: white;
+  border: 2px solid #E5E7EB;
+  color: #4B5563;
+  transition: all 0.3s ease;
+}
+.category-btn:hover {
+  background: #FFF5F5;
+  border-color: #FECDD3;
+  transform: translateY(-2px);
+}
+.category-btn.active,
+.category-btn.bg-rose-600 {
+  background: #E11D48;
+  color: white;
+  border-color: #BE123C;
+}
+.page-btn {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #4B5563;
+  transition: all 0.3s ease;
+}
+.page-btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+.page-btn.active {
+  background: rgba(225, 29, 72, 0.9);
+  color: white;
+  border-color: rgba(225, 29, 72, 0.5);
+}
 
+/* Food Image Styles */
+.food-image {
+  height: 240px;
+  object-fit: cover;
+}
 
+/* Michelin Star Styles */
+.michelin-star {
+  color: #FFD700;
+}
 
+/* Section Card Styles */
+.section-card {
+  transition: all 0.3s ease;
+}
+.section-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
 
+/* Image Card Styles */
+.image-card {
+  height: 200px;
+  object-fit: cover;
+}
 
-
-
-
-
+/* Tailwind Utility Classes */
+.content-auto {
+  content-visibility: auto;
+}
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.card-hover {
+  transition: all 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+}
+.image-hover {
+  transition: transform 0.5s ease;
+}
+.image-hover:hover {
+  transform: scale(1.05);
+}
+.bg-blur {
+  backdrop-filter: blur(8px);
+}
 
 /* Tailwind CSS Variables */
 *, ::before, ::after {
