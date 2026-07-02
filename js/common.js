@@ -1,5 +1,19 @@
 // Common JavaScript functions for Beijing travel website
 
+// Mobile Menu Functions
+function toggleMobileMenu() {
+  const mobileNav = document.getElementById('mobileNav');
+  const menuBtn = document.querySelector('.mobile-menu-btn');
+  const mobileLogo = document.getElementById('mobileLogo');
+  if (mobileNav && menuBtn) {
+    mobileNav.classList.toggle('active');
+    menuBtn.classList.toggle('active');
+    if (mobileLogo) {
+      mobileLogo.classList.toggle('mobile-logo-hidden');
+    }
+  }
+}
+
 // Clipboard Functions
 function copyToClipboard(text) {
   navigator.clipboard.writeText(text).then(function() {
@@ -241,31 +255,51 @@ function updateModalImage() {
 document.addEventListener('DOMContentLoaded', initImageViewer);
 
 // Tab Functions
-function openTab(tabId) {
-  // Hide all tab contents
-  const tabContents = document.querySelectorAll('.tab-content');
-  tabContents.forEach(content => {
-    content.classList.add('hidden');
+function initTabs(containerSelector, options = {}) {
+  const {
+    useHiddenClass = true,
+    activeClasses = ['active', 'border-rose-600', 'text-rose-600'],
+    inactiveClasses = ['border-transparent'],
+    ariaAttribute = true
+  } = options;
+
+  const tabs = document.querySelectorAll(`${containerSelector} button`);
+  const tabPanes = document.querySelectorAll('.tab-pane');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      const tabId = this.getAttribute('data-tab');
+
+      tabs.forEach(t => {
+        t.classList.remove(...activeClasses);
+        t.classList.add(...inactiveClasses);
+        if (ariaAttribute) {
+          t.setAttribute('aria-selected', 'false');
+        }
+      });
+
+      this.classList.add(...activeClasses);
+      this.classList.remove(...inactiveClasses);
+      if (ariaAttribute) {
+        this.setAttribute('aria-selected', 'true');
+      }
+
+      tabPanes.forEach(pane => {
+        pane.classList.remove('active');
+        if (useHiddenClass) {
+          pane.classList.add('hidden');
+        }
+      });
+
+      const activePane = document.getElementById(tabId);
+      if (activePane) {
+        activePane.classList.add('active');
+        if (useHiddenClass) {
+          activePane.classList.remove('hidden');
+        }
+      }
+    });
   });
-
-  // Remove active class from all tab buttons
-  const tabButtons = document.querySelectorAll('.tab-btn');
-  tabButtons.forEach(button => {
-    button.classList.remove('text-rose-600', 'border-b-2', 'border-rose-600');
-    button.classList.add('text-slate-500');
-  });
-
-  // Show selected tab content
-  const selectedContent = document.getElementById(tabId);
-  if (selectedContent) {
-    selectedContent.classList.remove('hidden');
-  }
-
-  // Add active class to clicked button
-  if (event && event.target) {
-    event.target.classList.remove('text-slate-500');
-    event.target.classList.add('text-rose-600', 'border-b-2', 'border-rose-600');
-  }
 }
 
 // Gallery Helper Functions
@@ -301,4 +335,80 @@ function initGalleryImage(container, imageSrc, imageAlt, captionText) {
   }
 
   container.insertAdjacentHTML('beforeend', createGalleryZoomOverlay());
+}
+
+// Scroll Utilities
+function initScrollUtils() {
+  const backToTopButton = document.getElementById('back-to-top');
+  if (backToTopButton) {
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.remove('opacity-0', 'invisible');
+        backToTopButton.classList.add('opacity-100', 'visible');
+      } else {
+        backToTopButton.classList.remove('opacity-100', 'visible');
+        backToTopButton.classList.add('opacity-0', 'invisible');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+  
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initScrollUtils);
+
+// Share Utilities
+function shareTo(platform) {
+  const url = encodeURIComponent(window.location.href);
+  const title = encodeURIComponent(document.title);
+  
+  let shareUrl;
+  switch (platform) {
+    case 'facebook':
+      shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&t=${title}`;
+      break;
+    case 'twitter':
+      shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+      break;
+    default:
+      return;
+  }
+  
+  window.open(shareUrl, '_blank', 'width=600,height=400');
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(function() {
+    const copySuccess = document.getElementById('copySuccess');
+    if (copySuccess) {
+      copySuccess.style.opacity = '1';
+      setTimeout(function() {
+        copySuccess.style.opacity = '0';
+      }, 2000);
+    }
+  }).catch(function(err) {
+    console.error('Failed to copy: ', err);
+    alert('Failed to copy link. Please try again.');
+  });
 }

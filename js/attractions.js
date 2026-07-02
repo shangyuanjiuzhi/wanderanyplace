@@ -1,189 +1,8 @@
 // Attractions Page JavaScript
 // Shared functionality for Great Wall, Forbidden City, and Summer Palace pages
 
-// Carousel functionality
-const carouselStates = {};
-
-function showSlide(index, carouselId) {
-  // Try both with and without '-carousel' suffix
-  let carousel = document.getElementById(`${carouselId}`);
-  if (!carousel) {
-    carousel = document.getElementById(`${carouselId}-carousel`);
-  }
-  if (!carousel) return;
-  
-  const slides = carousel.querySelectorAll('.carousel-item');
-  
-  // Hide all slides - remove active class and add hidden class
-  slides.forEach(slide => {
-    slide.classList.remove('active');
-    slide.classList.add('hidden');
-  });
-  
-  // Show the selected slide
-  slides[index].classList.remove('hidden');
-  slides[index].classList.add('active');
-  
-  // Update current slide for this carousel
-  if (!carouselStates[carouselId]) {
-    carouselStates[carouselId] = { current: 0, total: slides.length };
-  }
-  carouselStates[carouselId].current = index;
-  carouselStates[carouselId].total = slides.length;
-}
-
-function nextSlide(carouselId) {
-  let state = carouselStates[carouselId];
-  if (!state) {
-    // Initialize carousel state if it doesn't exist
-    // Try both with and without '-carousel' suffix
-    let carousel = document.getElementById(carouselId);
-    if (!carousel) {
-      carousel = document.getElementById(`${carouselId}-carousel`);
-    }
-    if (!carousel) return;
-    const slides = carousel.querySelectorAll('.carousel-item');
-    state = { current: 0, total: slides.length };
-    carouselStates[carouselId] = state;
-  }
-  
-  let next = state.current + 1;
-  if (next >= state.total) next = 0;
-  showSlide(next, carouselId);
-}
-
-function prevSlide(carouselId) {
-  let state = carouselStates[carouselId];
-  if (!state) {
-    // Initialize carousel state if it doesn't exist
-    // Try both with and without '-carousel' suffix
-    let carousel = document.getElementById(carouselId);
-    if (!carousel) {
-      carousel = document.getElementById(`${carouselId}-carousel`);
-    }
-    if (!carousel) return;
-    const slides = carousel.querySelectorAll('.carousel-item');
-    state = { current: 0, total: slides.length };
-    carouselStates[carouselId] = state;
-  }
-  
-  let prev = state.current - 1;
-  if (prev < 0) prev = state.total - 1;
-  showSlide(prev, carouselId);
-}
-
-function goToSlide(index, carouselId) {
-  showSlide(index, carouselId);
-}
-
-// Image Viewer functionality
-let allImages = [];
-let currentImageIndex = 0;
-
-// Initialize image viewer
-function initImageViewer() {
-  // Get all images except background image
-  const images = document.querySelectorAll('img:not(.header-bg)');
-  allImages = Array.from(images);
-  
-  // Add click event to each image
-  allImages.forEach((img, index) => {
-    img.style.cursor = 'pointer';
-    img.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      openImageViewer(index);
-    });
-  });
-  
-  // Close modal on background click
-  const modal = document.getElementById('imageViewerModal');
-  if (modal) {
-    modal.addEventListener('click', (e) => {
-      if (e.target.id === 'imageViewerModal') {
-        closeImageViewer();
-      }
-    });
-    
-    // Close modal on button click
-    const closeBtn = document.getElementById('closeModal');
-    if (closeBtn) {
-      closeBtn.addEventListener('click', closeImageViewer);
-    }
-    
-    // Previous image
-    const prevBtn = document.getElementById('prevImage');
-    if (prevBtn) {
-      prevBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        showPreviousImage();
-      });
-    }
-    
-    // Next image
-    const nextBtn = document.getElementById('nextImage');
-    if (nextBtn) {
-      nextBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        showNextImage();
-      });
-    }
-  }
-  
-  // Keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    const modal = document.getElementById('imageViewerModal');
-    if (modal && !modal.classList.contains('hidden')) {
-      if (e.key === 'Escape') {
-        closeImageViewer();
-      } else if (e.key === 'ArrowLeft') {
-        showPreviousImage();
-      } else if (e.key === 'ArrowRight') {
-        showNextImage();
-      }
-    }
-  });
-}
-
-function openImageViewer(index) {
-  currentImageIndex = index;
-  const modal = document.getElementById('imageViewerModal');
-  const modalImage = document.getElementById('modalImage');
-  const currentIndexEl = document.getElementById('currentIndex');
-  const totalImagesEl = document.getElementById('totalImages');
-  
-  if (modal && modalImage && currentIndexEl && totalImagesEl) {
-    modalImage.src = allImages[index].src;
-    modalImage.alt = allImages[index].alt;
-    currentIndexEl.textContent = index + 1;
-    totalImagesEl.textContent = allImages.length;
-    
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    document.body.style.overflow = 'hidden';
-  }
-}
-
-function closeImageViewer() {
-  const modal = document.getElementById('imageViewerModal');
-  if (modal) {
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
-    document.body.style.overflow = '';
-  }
-}
-
-function showPreviousImage() {
-  if (allImages.length === 0) return;
-  currentImageIndex = (currentImageIndex - 1 + allImages.length) % allImages.length;
-  openImageViewer(currentImageIndex);
-}
-
-function showNextImage() {
-  if (allImages.length === 0) return;
-  currentImageIndex = (currentImageIndex + 1) % allImages.length;
-  openImageViewer(currentImageIndex);
-}
+// Carousel functionality - uses shared carousel functions from common.js
+// Image Viewer functionality - uses shared image viewer from common.js
 
 // Copy address function
 function copyAddress(type = 'badaling') {
@@ -356,8 +175,6 @@ function copyAddress(type = 'badaling') {
     address = "Gubei Water Town, Miyun District, Beijing";
   } else if (type === 'Liuliqu') {
     address = "Liuliqu Village, Mentougou District, Beijing";
-  } else if (type === 'Lingshui') {
-    address = "Lingshui Village, Mentougou District, Beijing";
   } 
   
   
@@ -496,25 +313,37 @@ function toggleBadalingRemnantTransportation() {
 }
 
 function toggleBadalingRemnantOpeningHours() {
-  const items = document.querySelectorAll('#badaling-remnant-opening-hours-content li');
+  const content = document.getElementById('badaling-remnant-opening-hours-content');
   const toggle = document.getElementById('badaling-remnant-opening-hours-toggle');
-  if (!items.length || !toggle) return;
+  if (!content || !toggle) return;
   
-  const hasHiddenItems = Array.from(items).some(item => item.classList.contains('hidden'));
+  const hiddenParagraphs = content.querySelectorAll('p.hidden');
   
-  items.forEach(item => {
-    if (hasHiddenItems) {
-      // If there are hidden items, show all
-      item.classList.remove('hidden');
-      item.classList.add('block');
-      toggle.textContent = 'Collapse';
+  hiddenParagraphs.forEach(p => {
+    p.classList.toggle('hidden');
+  });
+  
+  if (toggle.textContent === 'More >') {
+    toggle.textContent = 'Less <';
+  } else {
+    toggle.textContent = 'More >';
+  }
+}
+
+function updateIndicators(carouselId, activeIndex) {
+  const indicatorContainer = document.querySelector(`[onclick="goToSlide(0, '${carouselId}')"]`)?.parentElement;
+  if (!indicatorContainer) return;
+  
+  const indicators = indicatorContainer.querySelectorAll('button');
+  indicators.forEach((ind, i) => {
+    if (i === activeIndex) {
+      ind.classList.add('active');
+      ind.classList.remove('bg-white/70');
+      ind.classList.add('bg-rose-500');
     } else {
-      // If all are visible, hide the extra ones (keep first one)
-      if (item !== items[0]) {
-        item.classList.add('hidden');
-        item.classList.remove('block');
-      }
-      toggle.textContent = 'More >';
+      ind.classList.remove('active');
+      ind.classList.remove('bg-rose-500');
+      ind.classList.add('bg-white/70');
     }
   });
 }
@@ -543,51 +372,115 @@ function toggleBadalingForestTransportation() {
   });
 }
 
+// Attraction Filter Functions
+function initAttractionFilter() {
+  const categoryBtns = document.querySelectorAll('.category-btn');
+  const pageBtns = document.querySelectorAll('.page-btn');
+  const attractionCards = document.querySelectorAll('.attraction-card');
+  
+  let currentCategory = 'imperial';
+  let currentPage = '1';
+  
+  function filterAttractions() {
+    attractionCards.forEach(card => {
+      const cardCategory = card.getAttribute('data-category');
+      const cardPage = card.getAttribute('data-page');
+      
+      let isMatch = false;
+      if (currentCategory === 'landmark' || currentCategory === 'temple') {
+        isMatch = cardCategory === currentCategory;
+      } else if (currentCategory === 'imperial') {
+        isMatch = cardCategory.includes(currentCategory);
+      } else {
+        isMatch = cardCategory === currentCategory;
+      }
+      
+      if (isMatch && cardPage === currentPage) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+  
+  categoryBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      categoryBtns.forEach(b => {
+        b.classList.remove('active');
+      });
+      
+      this.classList.add('active');
+      currentCategory = this.getAttribute('data-category');
+      currentPage = '1';
+      
+      pageBtns.forEach(b => {
+        const pageNum = b.getAttribute('data-page');
+        if (pageNum === '1') {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+      
+      filterAttractions();
+    });
+  });
+  
+  pageBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      pageBtns.forEach(b => {
+        b.classList.remove('active');
+      });
+      
+      this.classList.add('active');
+      currentPage = this.getAttribute('data-page');
+      filterAttractions();
+    });
+  });
+  
+  filterAttractions();
+}
+
 // Initialize everything on DOM load
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize image viewer
-  initImageViewer();
+  initAttractionFilter();
   
-  // Initialize carousels (specific to each page)
   const carousels = [
-    'badaling-carousel',
-    'mutianyu-carousel',
-    'mutianyu-map-carousel',
-    'juyongguan-carousel',
-    'huanghuacheng-carousel',
-    'jiankou-carousel',
-    'gubeikou-carousel',
-    'badaling-forest-carousel',
-    'forbidden-carousel',
-    'forbidden-map-carousel',
-    'summer-carousel',
-    'summer-map-carousel',
-    'temple-carousel',
-    'temple-map-carousel',
-    'tiananmen-carousel',
-    'tiananmen-map-carousel',
-    'yuanmingyuan-carousel',
-    'yuanmingyuan-map-carousel',
-    'jingshan-carousel',
-    'jingshan-map-carousel',
-    'bund-carousel',
-    'lujiazui-carousel',
-    'orientalpearl-carousel',
-    'waibaidu-carousel',
-    'waitanyuan-carousel',
-    'wukang-carousel',
-    'rockbund-carousel',
-    'sinan-carousel',
-    'laochangfang-carousel',
-    'xujiahui-carousel',
-    'disney-carousel',
-    'dishui-carousel'
+    'badaling',
+    'mutianyu',
+    'mutianyu-map',
+    'juyongguan',
+    'huanghuacheng',
+    'jiankou',
+    'gubeikou',
+    'badaling-forest',
+    'forbidden',
+    'forbidden-map',
+    'summer',
+    'summer-map',
+    'temple',
+    'temple-map',
+    'tiananmen',
+    'tiananmen-map',
+    'yuanmingyuan',
+    'yuanmingyuan-map',
+    'jingshan',
+    'jingshan-map',
+    'bund',
+    'lujiazui',
+    'orientalpearl',
+    'waibaidu',
+    'waitanyuan',
+    'wukang',
+    'rockbund',
+    'sinan',
+    'laochangfang',
+    'xujiahui',
+    'disney',
+    'dishui'
   ];
   
   carousels.forEach(carouselId => {
-    const carousel = document.getElementById(carouselId);
-    if (carousel) {
-      showSlide(0, carouselId);
-    }
+    goToSlide(0, carouselId);
   });
 });
