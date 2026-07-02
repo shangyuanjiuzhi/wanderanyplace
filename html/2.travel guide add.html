@@ -235,17 +235,10 @@
       </div>
   </footer>
 
+  <script src="../js/community.js"></script>
   <script>
-    const API_BASE = '';
     const uploadedImages = [];
 
-    // Content length counter
-    document.getElementById('content').addEventListener('input', function() {
-      const length = this.value.length;
-      document.getElementById('content-length').textContent = `${length}/300`;
-    });
-
-    // Add image input
     function addImageInput() {
       if (uploadedImages.length >= 9) {
         alert('Maximum 9 images allowed');
@@ -254,75 +247,6 @@
       document.getElementById('image-upload').click();
     }
 
-    // Compress image
-    async function compressImage(file) {
-      return new Promise((resolve) => {
-        const img = new Image();
-        img.onload = function() {
-          // Calculate target dimensions (max 1200px on largest side)
-          let width = img.width;
-          let height = img.height;
-          const maxDimension = 1200;
-          
-          if (width > maxDimension || height > maxDimension) {
-            if (width > height) {
-              height = (height * maxDimension) / width;
-              width = maxDimension;
-            } else {
-              width = (width * maxDimension) / height;
-              height = maxDimension;
-            }
-          }
-          
-          // Create canvas and draw image
-          const canvas = document.createElement('canvas');
-          canvas.width = width;
-          canvas.height = height;
-          const ctx = canvas.getContext('2d');
-          ctx.drawImage(img, 0, 0, width, height);
-          
-          // Determine quality (lower for larger files)
-          let quality = 0.8;
-          if (file.size > 2 * 1024 * 1024) { // > 2MB
-            quality = 0.6;
-          } else if (file.size > 1 * 1024 * 1024) { // > 1MB
-            quality = 0.7;
-          }
-          
-          // Convert to base64
-          const mimeType = file.type === 'image/png' ? 'image/png' : 'image/jpeg';
-          const compressedDataUrl = canvas.toDataURL(mimeType, quality);
-          
-          // Compare sizes and choose smaller one
-          const originalSize = file.size;
-          const compressedSize = Math.round((compressedDataUrl.length * 3) / 4); // Base64 size estimation
-          
-          if (compressedSize < originalSize * 0.9) {
-            console.log(`Image compressed: ${(originalSize / 1024).toFixed(1)}KB -> ${(compressedSize / 1024).toFixed(1)}KB`);
-            resolve(compressedDataUrl);
-          } else {
-            // If compressed is not smaller, use original
-            const reader = new FileReader();
-            reader.onload = function(e) {
-              console.log(`Using original image: ${(originalSize / 1024).toFixed(1)}KB (compressed was larger)`);
-              resolve(e.target.result);
-            };
-            reader.readAsDataURL(file);
-          }
-        };
-        img.onerror = function() {
-          // Fallback to original if image loading fails
-          const reader = new FileReader();
-          reader.onload = function(e) {
-            resolve(e.target.result);
-          };
-          reader.readAsDataURL(file);
-        };
-        img.src = URL.createObjectURL(file);
-      });
-    }
-
-    // Handle image upload
     async function handleImageUpload(input) {
       const files = input.files;
       for (let i = 0; i < files.length && uploadedImages.length < 9; i++) {
@@ -331,10 +255,9 @@
         uploadedImages.push(compressedDataUrl);
         renderImages();
       }
-      input.value = ''; // Reset input
+      input.value = '';
     }
 
-    // Render images
     function renderImages() {
       const container = document.getElementById('image-container');
       container.innerHTML = uploadedImages.map((img, index) => `
@@ -347,7 +270,6 @@
         </div>
       `).join('');
       
-      // Add add button if there's space
       if (uploadedImages.length < 9) {
         container.innerHTML += `
           <div class="aspect-square bg-slate-100 rounded-lg border-2 border-dashed border-slate-300 flex items-center justify-center cursor-pointer hover:border-rose-500 hover:bg-rose-50 transition-colors"
@@ -357,47 +279,11 @@
       }
     }
 
-    // Remove image
     function removeImage(index) {
       uploadedImages.splice(index, 1);
       renderImages();
     }
 
-    // Post type selection
-    document.querySelectorAll('.type-option').forEach(function(label) {
-      label.addEventListener('click', function(e) {
-        // Unselect all
-        document.querySelectorAll('.type-option').forEach(function(opt) {
-          opt.classList.remove('border-rose-500', 'bg-rose-50');
-          opt.classList.add('border-slate-300');
-        });
-        // Select this one
-        this.classList.remove('border-slate-300');
-        this.classList.add('border-rose-500', 'bg-rose-50');
-        // Check the radio
-        var radio = this.querySelector('input[type="radio"]');
-        if (radio) {
-          radio.checked = true;
-        }
-      });
-
-      // Also sync visual state when radio changes directly (e.g. via keyboard)
-      var radio = label.querySelector('input[type="radio"]');
-      if (radio) {
-        radio.addEventListener('change', function() {
-          if (this.checked) {
-            document.querySelectorAll('.type-option').forEach(function(opt) {
-              opt.classList.remove('border-rose-500', 'bg-rose-50');
-              opt.classList.add('border-slate-300');
-            });
-            label.classList.remove('border-slate-300');
-            label.classList.add('border-rose-500', 'bg-rose-50');
-          }
-        });
-      }
-    });
-
-    // Submit form
     document.getElementById('post-form').addEventListener('submit', async function(e) {
       e.preventDefault();
       
@@ -444,32 +330,10 @@
       }
     });
 
-    // Show status message
-    function showStatus(message, type) {
-      const statusDiv = document.getElementById('status-message');
-      statusDiv.textContent = message;
-      statusDiv.classList.remove('hidden', 'bg-green-100', 'text-green-700', 'bg-red-100', 'text-red-700');
-      
-      if (type === 'success') {
-        statusDiv.classList.add('bg-green-100', 'text-green-700');
-      } else {
-        statusDiv.classList.add('bg-red-100', 'text-red-700');
-      }
-    }
-
-    // Mobile menu toggle
-    function toggleMobileMenu() {
-      const mobileNav = document.getElementById('mobileNav');
-      const menuBtn = document.querySelector('.mobile-menu-btn');
-      const mobileLogo = document.getElementById('mobileLogo');
-      if (mobileNav && menuBtn) {
-        mobileNav.classList.toggle('active');
-        menuBtn.classList.toggle('active');
-        if (mobileLogo) {
-          mobileLogo.classList.toggle('mobile-logo-hidden');
-        }
-      }
-    }
+    document.addEventListener('DOMContentLoaded', function() {
+      initContentLengthCounter('content', 'content-length');
+      initPostTypeSelector('type-selector');
+    });
   </script>
 </body>
 </html>

@@ -14,81 +14,13 @@
   <title>City Wander - Beijing Travel Guide</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="../../../iconfont/iconfont.js"></script>
-  <link rel="stylesheet" href="../../../iconfont/iconfont.css">
-  <link rel="stylesheet" href="../../../css/style2.css">
+  <script src="../../iconfont/iconfont.js"></script>
+  <link rel="stylesheet" href="../../iconfont/iconfont.css">
+  <link rel="stylesheet" href="../../css/style2.css">
   <script src="../../js/gallery-lightbox.js"></script>
-  <script src="../../../js/common.js"></script>
-  <script src="../../js/community-posts.js"></script>
-  
-  <script>
-    class Carousel {
-      constructor(id) {
-        this.id = id;
-        this.carousel = document.getElementById(id + '-carousel');
-        if (!this.carousel) return;
-        this.items = Array.from(this.carousel.querySelectorAll('.gallery-container'));
-        this.currentIndex = 0;
-        this.lock = false;
-      }
-      
-      goTo(index) {
-        if (this.lock || !this.carousel) return;
-        this.lock = true;
-        
-        this.currentIndex = ((index % this.items.length) + this.items.length) % this.items.length;
-        
-        requestAnimationFrame(() => {
-          this.carousel.style.transform = `translate3d(-${this.currentIndex * 100}%, 0, 0)`;
-          this.carousel.style.transition = 'transform 0.4s ease-out';
-        });
-        
-        setTimeout(() => {
-          this.lock = false;
-        }, 450);
-      }
-      
-      next() {
-        this.goTo(this.currentIndex + 1);
-      }
-      
-      prev() {
-        this.goTo(this.currentIndex - 1);
-      }
-    }
-    
-    const carousels = {
-      line1: new Carousel('line1'),
-      line2: new Carousel('line2'),
-      line3: new Carousel('line3'),
-      line4: new Carousel('line4'),
-      line5: new Carousel('line5'),
-      line6: new Carousel('line6')
-    };
-    
-    function cityWanderNext(id) {
-      if (carousels[id]) {
-        carousels[id].next();
-      }
-    }
-    
-    function cityWanderPrev(id) {
-      if (carousels[id]) {
-        carousels[id].prev();
-      }
-    }
-    
-    document.addEventListener('DOMContentLoaded', function() {
-      const galleryImages = document.querySelectorAll('.gallery-container img');
-      galleryImages.forEach(function(img) {
-        img.style.cursor = 'pointer';
-        img.addEventListener('click', function() {
-          const carouselId = img.closest('[id$="-carousel"]')?.id?.replace('-carousel', '');
-          openLightbox(img.src, carouselId);
-        });
-      });
-    });
-  </script>
+  <script src="../../js/common.js"></script>
+  <script src="../../js/community.js"></script>
+  <script src="../../js/city-wander.js"></script>
 </head>
 <body class="bg-white font-sans text-slate-800">
   <!-- 顶部导航 -->
@@ -1810,7 +1742,7 @@
 
  
 
-<script src="../../../js/common.js"></script>
+<script src="../../js/common.js"></script>
  <!-- Expert Guides Section -->
   <section class="py-16 bg-slate-50">
     <div class="max-w-7xl mx-auto px-6">

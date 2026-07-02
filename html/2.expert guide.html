@@ -19,6 +19,9 @@
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../iconfont/iconfont.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+  <script src="../js/community.js"></script>
+
+  
   <script>
     tailwind.config = {
       theme: {
@@ -260,19 +263,6 @@
   </footer>
 
   <script>
-function toggleMobileMenu() {
-  const mobileNav = document.getElementById('mobileNav');
-  const menuBtn = document.querySelector('.mobile-menu-btn');
-  const mobileLogo = document.getElementById('mobileLogo');
-  if (mobileNav && menuBtn) {
-    mobileNav.classList.toggle('active');
-    menuBtn.classList.toggle('active');
-    if (mobileLogo) {
-      mobileLogo.classList.toggle('mobile-logo-hidden');
-    }
-  }
-}
-
 // Client-side pagination (ready for future use when more guides are added)
 const guides = document.querySelectorAll('#guides-container > article');
 const pageSize = 12;

@@ -16,8 +16,9 @@
   <script src="../iconfont/iconfont.js"></script>
   <link rel="stylesheet" href="../iconfont/iconfont.css">
   <link rel="stylesheet" href="../css/styles.css">
-  <script src="../../js/community-posts.js"></script>
-  <script src="../../js/common.js"></script>
+  <script src="../js/community.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/gallery-lightbox.js"></script>
 
 
 </head>
@@ -187,11 +188,11 @@
                 <span>Wander Any Place</span>
               </div>
               <h2 class="text-xl font-bold mb-3 group-hover:text-rose-600 transition-colors">
-                <a href="../travel-guides/china-travel-payment-apps-2026.html">China Travel Payment Apps in 2026</a>
+                <a href="../html/travel-guides/china-travel-payment-apps-2026.html">China Travel Payment Apps in 2026</a>
               </h2>
               <p class="text-slate-600 mb-4 text-sm">Complete guide to Alipay, WeChat Pay, and other payment methods for foreign travelers visiting China.</p>
             </div>
-            <a href="../travel-guides/china-travel-payment-apps-2026.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
+            <a href="../html/travel-guides/china-travel-payment-apps-2026.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
               Read More
               <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i>
             </a>
@@ -216,11 +217,11 @@
                 <span>Wander Any Place</span>
               </div>
               <h2 class="text-xl font-bold mb-3 group-hover:text-rose-600 transition-colors">
-                <a href="../travel-guides/beijing-lama-temple-guide.html">Lama Temple Beijing: Complete Etiquette Guide</a>
+                <a href="../html/travel-guides/beijing-lama-temple-guide.html">Lama Temple Beijing: Complete Etiquette Guide</a>
               </h2>
               <p class="text-slate-600 mb-4 text-sm">Essential guide for foreign visitors to Yonghegong Lama Temple - dress code, incense rituals, prayer etiquette, and cultural tips.</p>
             </div>
-            <a href="../travel-guides/beijing-lama-temple-guide.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
+            <a href="../html/travel-guides/beijing-lama-temple-guide.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
               Read More
               <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i>
             </a>
@@ -242,11 +243,11 @@
                 <span>Wander Any Place</span>
               </div>
               <h2 class="text-xl font-bold mb-3 group-hover:text-rose-600 transition-colors">
-                <a href="../travel-guides/old-beijing-douzhi.html">Old Beijing Douzhi</a>
+                <a href="../html/travel-guides/old-beijing-douzhi.html">Old Beijing Douzhi</a>
               </h2>
               <p class="text-slate-600 mb-4 text-sm">Why Jensen Huang's Painful Face Made This Heritage Drink Go Viral</p>
             </div>
-            <a href="../travel-guides/old-beijing-douzhi.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
+            <a href="../html/travel-guides/old-beijing-douzhi.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
               Read More
               <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i>
             </a>
@@ -331,26 +332,6 @@
   </footer>
 
 
-  <!-- Image Viewer Modal -->
-  <div id="imageViewerModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90">
-    <button id="closeModal" class="absolute top-4 right-4 text-white text-4xl hover:text-rose-400 transition-colors z-50">&times;</button>
-    
-    <button id="prevImage" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-5xl hover:text-rose-400 transition-colors z-50">
-      &#10094;
-    </button>
-    
-    <button id="nextImage" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-5xl hover:text-rose-400 transition-colors z-50">
-      &#10095;
-    </button>
-    
-    <div class="relative max-w-7xl max-h-[90vh] flex items-center justify-center p-4">
-      <img id="modalImage" src="" alt="" class="max-w-full max-h-[90vh] object-contain">
-    </div>
-    
-    <div id="imageCounter" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-lg bg-black/50 px-4 py-2 rounded-lg">
-      <span id="currentIndex">1</span> / <span id="totalImages">1</span>
-    </div>
-  </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {

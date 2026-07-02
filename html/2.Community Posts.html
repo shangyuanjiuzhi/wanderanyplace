@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../iconfont/iconfont.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+  <script src="../js/community.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -171,43 +172,11 @@
       </div>
   </footer>
 
+
   <script>
 let currentPage = 1;
 const pageSize = 12;
 let totalPages = 0;
-
-function toggleMobileMenu() {
-  const mobileNav = document.getElementById('mobileNav');
-  const menuBtn = document.querySelector('.mobile-menu-btn');
-  const mobileLogo = document.getElementById('mobileLogo');
-  if (mobileNav && menuBtn) {
-    mobileNav.classList.toggle('active');
-    menuBtn.classList.toggle('active');
-    if (mobileLogo) {
-      mobileLogo.classList.toggle('mobile-logo-hidden');
-    }
-  }
-}
-
-function escapeHtml(text) {
-  if (!text) return '';
-  return text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
-}
-
-function formatDate(dateStr) {
-  if (!dateStr) return '';
-  const date = new Date(dateStr);
-  return date.toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric'
-  });
-}
 
 function loadPosts(page) {
   if (page < 1) return;
@@ -259,7 +228,7 @@ function renderPosts(posts) {
             <img src="${escapeHtml(post.imgs[0])}" alt="${escapeHtml(post.title)}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
             <div class="absolute top-3 left-3">
               <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white/90" style="color: ${typeConfig.color};">
-                ${escapeHtml(typeConfig.label)}
+                ${post.type}
               </span>
             </div>
           </div>
@@ -267,7 +236,7 @@ function renderPosts(posts) {
           <div class="relative h-48 flex items-center justify-center" style="background-color: ${typeConfig.bgColor};">
             <div class="absolute top-3 left-3">
               <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white/90" style="color: ${typeConfig.color};">
-                ${escapeHtml(typeConfig.label)}
+                ${post.type}
               </span>
             </div>
             <p class="text-lg font-bold text-center px-6 line-clamp-3 leading-relaxed" style="color: ${typeConfig.color};">${escapeHtml(post.title)}</p>
@@ -313,19 +282,6 @@ function renderPagination(result) {
   nextBtn.disabled = result.page >= result.totalPages;
 
   paginationEl.classList.remove('hidden');
-}
-
-function getTypeConfig(type) {
-  const configs = {
-    'Question': { label: 'Question', icon: 'icon-wenti', color: '#3B82F6', bgColor: '#EFF6FF' },
-    'Experience': { label: 'Experience', icon: 'icon-jingyan', color: '#16A34A', bgColor: '#DCFCE7' },
-    'Tips': { label: 'Tips', icon: 'icon-tips', color: '#F59E0B', bgColor: '#FEF3C7' },
-    'Photo': { label: 'Photo', icon: 'icon-tupian', color: '#8B5CF6', bgColor: '#EDE9FE' },
-    'Help': { label: 'Help', icon: 'icon-qiuzhu', color: '#E11D48', bgColor: '#FFF1F2' },
-    'Share': { label: 'Share', icon: 'icon-fenxiang1', color: '#16A34A', bgColor: '#DCFCE7' },
-    'Other': { label: 'Other', icon: 'icon-qita', color: '#E11D48', bgColor: '#FFF1F2' }
-  };
-  return configs[type] || configs['Other'];
 }
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -25,6 +25,10 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Lama Temple Beijing Guide: Foreigner's Complete Etiquette Guide">
   <meta name="twitter:description" content="Complete guide for foreign tourists visiting Yonghegong Lama Temple - dress code, incense rituals, prayer etiquette, photography rules.">
+  <script src="../../js/travel-guides.js"></script>
+  <script src="../../js/gallery-lightbox.js"></script>
+
+  <script>initTravelGuide('beijing-lama-temple-guide');</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -387,7 +391,7 @@
           <!-- Map Section -->
           <div class="lg:w-1/2">
             <h3 class="text-xl font-semibold mb-4 text-slate-700">🗺️ Temple Map</h3>
-            <div class="relative w-full h-full rounded-xl overflow-hidden bg-slate-100 cursor-pointer" onclick="openMapLightbox()">
+            <div class="relative w-full h-full rounded-xl overflow-hidden bg-slate-100 cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
               <img src="../../img/3. img-beijing/3.6.1 Lama Temple/Lama Temple map.jpeg" 
                    alt="Yonghegong Lama Temple Map showing all halls and their blessing meanings" 
                    class="w-full h-full object-contain">
@@ -396,7 +400,7 @@
                   Click to enlarge
                 </div>
               </div>
-              <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 text-white px-4 py-2 rounded-lg text-sm">
+              <div class="absolute bottom-4 left-4 right-4 bg-black/60 text-white px-4 py-2 rounded-lg text-sm text-center">
                 Yonghegong Lama Temple Map & Blessing Guide
               </div>
             </div>
@@ -519,6 +523,28 @@
             Explore Beijing
           </a>
         </div>
+        
+        <!-- Related Articles -->
+        <section class="mt-16 pt-16 border-t border-slate-200">
+          <h2 class="text-2xl font-bold mb-8 text-slate-800">Related Articles</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <a href="../../html/3.beijing/3.6.1 beijing-Lama Temple.html" class="flex gap-4 bg-slate-50 rounded-xl p-4 hover:bg-slate-100 transition-colors">
+              <img src="../../img/3. img-beijing/3.6.1 Lama Temple/Lama Temple2.jpeg" alt="Necessary travel apps for China - mobile applications guide for tourists" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+              <div>
+                <h3 class="font-semibold mb-1 text-slate-800">Lama Temple in Beijing
+                </h3>
+                <p class="text-sm text-slate-600">Discover Lama Temple in Beijing.</p>
+              </div>
+            </a>
+            <a href="../2.pre-app.html" class="flex gap-4 bg-slate-50 rounded-xl p-4 hover:bg-slate-100 transition-colors">
+              <img src="../../img/img-app-1.jpg" alt="China payment methods for foreigners - Alipay WeChat Pay guide" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+              <div>
+                <h3 class="font-semibold mb-1 text-slate-800">Necessary Apps for China Travel</h3>
+                <p class="text-sm text-slate-600">Essential apps you need to download before your trip to China.</p>
+              </div>
+            </a>
+          </div>
+        </section>
 
         <!-- Comments Section -->
         <section class="mt-16 pt-16 border-t border-slate-200">
@@ -552,99 +578,6 @@
       </article>
     </div>
   </main>
-
-  <script>
-    // Article ID for this page
-    const ARTICLE_ID = 'beijing-lama-temple-guide';
-
-    // Load comments on page load
-    document.addEventListener('DOMContentLoaded', loadComments);
-
-    // Character counter
-    document.getElementById('content').addEventListener('input', function() {
-      document.getElementById('charCount').textContent = this.value.length;
-    });
-
-    // Submit comment
-    document.getElementById('commentForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-
-      const nick = document.getElementById('nick').value.trim();
-      const content = document.getElementById('content').value.trim();
-
-      try {
-        const response = await fetch('/api/comments', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ articleId: ARTICLE_ID, nick, content })
-        });
-
-        const result = await response.json();
-
-        if (result.success) {
-          alert('Comment submitted successfully!');
-          document.getElementById('commentForm').reset();
-          document.getElementById('charCount').textContent = '0';
-          loadComments();
-        } else {
-          alert(result.message || 'Failed to submit comment');
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        alert('Network error. Please try again.');
-      }
-    });
-
-    // Load comments from server
-    async function loadComments() {
-      try {
-        const response = await fetch(`/api/comments/${ARTICLE_ID}`);
-        const result = await response.json();
-
-        const container = document.getElementById('commentsList');
-
-        if (result.success && result.data.length > 0) {
-          container.innerHTML = result.data.map(comment => `
-            <div class="bg-white border border-slate-200 rounded-xl p-4">
-              <div class="flex items-center gap-3 mb-2">
-                <div class="w-10 h-10 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center font-bold">
-                  ${comment.nick.charAt(0).toUpperCase()}
-                </div>
-                <div>
-                  <p class="font-medium text-slate-800">${escapeHtml(comment.nick)}</p>
-                  <p class="text-xs text-slate-500">${formatDate(comment.create_time)}</p>
-                </div>
-              </div>
-              <p class="text-slate-700 pl-13">${escapeHtml(comment.content)}</p>
-            </div>
-          `).join('');
-        } else {
-          container.innerHTML = '<p class="text-slate-500 text-center py-8">No comments yet. Be the first to share your thoughts!</p>';
-        }
-      } catch (error) {
-        console.error('Error loading comments:', error);
-      }
-    }
-
-    // Helper: Escape HTML to prevent XSS
-    function escapeHtml(text) {
-      const div = document.createElement('div');
-      div.textContent = text;
-      return div.innerHTML;
-    }
-
-    // Helper: Format date
-    function formatDate(dateStr) {
-      const date = new Date(dateStr);
-      return date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-      });
-    }
-  </script>
 
   <!-- Back to Top Button -->
   <button id="backToTop" onclick="scrollToTop()" class="fixed bottom-8 right-8 bg-rose-600 text-white w-12 h-12 rounded-full shadow-lg hover:bg-rose-700 transition-all duration-300 opacity-0 invisible z-50 flex items-center justify-center text-xl">
@@ -703,70 +636,7 @@
          onclick="event.stopPropagation()">
   </div>
 
-  <!-- Scripts -->
-  <script>
-    function toggleMobileMenu() {
-      const mobileNav = document.getElementById('mobileNav');
-      mobileNav.classList.toggle('active');
-    }
-
-    function shareTo(platform) {
-      const url = encodeURIComponent(window.location.href);
-      const title = encodeURIComponent(document.title);
-      
-      if (platform === 'facebook') {
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&title=${title}`, '_blank');
-      } else if (platform === 'twitter') {
-        window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`, '_blank');
-      }
-    }
-
-    // Map Lightbox Functions
-    function openMapLightbox() {
-      document.getElementById('mapLightbox').style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeMapLightbox() {
-      document.getElementById('mapLightbox').style.display = 'none';
-      document.body.style.overflow = '';
-    }
-
-    // Close lightbox on ESC key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeMapLightbox();
-      }
-    });
-
-    function copyLink() {
-      navigator.clipboard.writeText(window.location.href);
-      const successMsg = document.getElementById('copySuccess');
-      successMsg.style.opacity = '1';
-      setTimeout(() => {
-        successMsg.style.opacity = '0';
-      }, 2000);
-    }
-
-    // Back to Top Function
-    function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }
-
-    // Show/hide back to top button on scroll
-    window.addEventListener('scroll', function() {
-      const backToTopBtn = document.getElementById('backToTop');
-      if (window.scrollY > 300) {
-        backToTopBtn.classList.remove('opacity-0', 'invisible');
-        backToTopBtn.classList.add('opacity-100', 'visible');
-      } else {
-        backToTopBtn.classList.remove('opacity-100', 'visible');
-        backToTopBtn.classList.add('opacity-0', 'invisible');
-      }
-    });
-  </script>
+ 
+  
 </body>
 </html>

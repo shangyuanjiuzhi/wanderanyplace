@@ -16,6 +16,9 @@
   <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../../iconfont/iconfont.css">
   <link rel="stylesheet" href="../../css/styles.css">
+  <script src="../../js/gallery-lightbox.js"></script>
+  <script src="../../js/common.js"></script>
+  <script src="../../js/community.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -34,37 +37,6 @@
       }
     }
   </script>
-  <style type="text/tailwindcss">
-    @layer utilities {
-      .content-auto {
-        content-visibility: auto;
-      }
-      .text-shadow {
-        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-      }
-      .text-gradient {
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      .card-hover {
-        transition: all 0.3s ease;
-      }
-      .card-hover:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-      }
-      .image-hover {
-        transition: transform 0.5s ease;
-      }
-      .image-hover:hover {
-        transform: scale(1.05);
-      }
-      .bg-blur {
-        backdrop-filter: blur(8px);
-      }
-    }
-  </style>
 </head>
 <body class="bg-grey-50 text-dark font-sans">
   <!-- Hero Section -->
@@ -627,8 +599,9 @@
   <!-- Community Posts Section -->
   <section class="py-16 bg-slate-50" id="community-posts-section">
     <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-2xl font-bold mb-6 text-slate-800">Beijing Community Posts</h2>
-      
+      <h2 class="text-3xl font-bold mb-6 text-slate-800 text-center">Beijing Community Posts</h2>
+      <p class="text-slate-600 text-center">Share your Beijing experiences with others and get tips from the community.</p>
+      <br>
       <div id="beijing-posts-loading" class="text-center py-12">
         <p class="mt-4 text-slate-500">Loading posts...</p>
       </div>
@@ -639,7 +612,16 @@
 
       <div id="beijing-posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 hidden">
       </div>
+
+      <div id="beijing-village-tour-community-posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 hidden">
+      </div>
+      <div class="mt-12 text-center">
+         <a href="../html/2.travel guide.html" class="px-8 py-3 border border-primary text-primary rounded-full font-medium hover:bg-rose-600 hover:text-white transition-colors">
+          View All Community Posts
+        </a>
+      </div>
     </div>
+
   </section>
 
   <!-- 页脚 -->
@@ -689,177 +671,17 @@
   <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300">
     <i class="iconfont icon-zhiding text-4xl"></i>
   </button>
-
-  <script>
-    // Back to top button
-    const backToTopButton = document.getElementById('back-to-top');
-    
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        backToTopButton.classList.remove('opacity-0', 'invisible');
-        backToTopButton.classList.add('opacity-100', 'visible');
-      } else {
-        backToTopButton.classList.remove('opacity-100', 'visible');
-        backToTopButton.classList.add('opacity-0', 'invisible');
-      }
-    });
-    
-    backToTopButton.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-    
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-  </script>
-
-  <!-- Image Viewer Modal -->
-  <div id="imageViewerModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90">
-    <button id="closeModal" class="absolute top-4 right-4 text-white text-4xl hover:text-rose-400 transition-colors z-50">&times;</button>
-    
-    <button id="prevImage" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-5xl hover:text-rose-400 transition-colors z-50">
-      &#10094;
-    </button>
-    
-    <button id="nextImage" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-5xl hover:text-rose-400 transition-colors z-50">
-      &#10095;
-    </button>
-    
-    <div class="relative max-w-7xl max-h-[90vh] flex items-center justify-center p-4">
-      <img id="modalImage" src="" alt="" class="max-w-full max-h-[90vh] object-contain">
-    </div>
-    
-    <div id="imageCounter" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-lg bg-black/50 px-4 py-2 rounded-lg">
-      <span id="currentIndex">1</span> / <span id="totalImages">1</span>
-    </div>
-  </div>
-
-  <script src="../js/common.js"></script>
+</script>
 <script>
-function toggleMobileMenu() {
-  const mobileNav = document.getElementById('mobileNav');
-  const menuBtn = document.querySelector('.mobile-menu-btn');
-  const mobileLogo = document.getElementById('mobileLogo');
-  if (mobileNav && menuBtn) {
-    mobileNav.classList.toggle('active');
-    menuBtn.classList.toggle('active');
-    if (mobileLogo) {
-      mobileLogo.classList.toggle('mobile-logo-hidden');
-    }
-  }
-}
-
-function escapeHtml(text) {
-  const div = document.createElement('div');
-  div.textContent = text;
-  return div.innerHTML;
-}
-
-function getTypeConfig(type) {
-  const configs = {
-    'Help': { label: 'Help', icon: 'iconfont icon-qiuzhu', color: '#E11D48', bgColor: '#FFF1F2' },
-    'Question': { label: 'Question', icon: 'iconfont icon-wenti', color: '#3B82F6', bgColor: '#EFF6FF' },
-    'Share': { label: 'Share', icon: 'iconfont icon-fenxiang1', color: '#16A34A', bgColor: '#DCFCE7' },
-    'Other': { label: 'Other', icon: 'iconfont icon-qita', color: '#E11D48', bgColor: '#FFF1F2' }
-  };
-  return configs[type] || configs['Other'];
-}
-
-async function loadBeijingPosts() {
-  try {
-    const response = await fetch('/api/posts/by-tag?tag=beijing&pageSize=6');
-    const result = await response.json();
-
-    if (result.success && result.data.length > 0) {
-      renderBeijingPosts(result.data);
-    } else {
-      document.getElementById('community-posts-section').classList.add('hidden');
-    }
-  } catch (error) {
-    console.error('Error loading beijing posts:', error);
-    document.getElementById('community-posts-section').classList.add('hidden');
-  }
-}
-
-function renderBeijingPosts(posts) {
-  const container = document.getElementById('beijing-posts-container');
-  const loading = document.getElementById('beijing-posts-loading');
-  const empty = document.getElementById('beijing-posts-empty');
-
-  loading.classList.add('hidden');
-  empty.classList.add('hidden');
-  container.classList.remove('hidden');
-
-  container.innerHTML = posts.map(post => {
-    const hasImages = post.imgs && post.imgs.length > 0;
-    const typeConfig = getTypeConfig(post.type);
-    const tags = post.tag ? post.tag.split(',').map(t => t.trim()).filter(t => t) : [];
-
-    return `
-      <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group flex flex-col h-full">
-        ${hasImages ? `
-          <div class="relative h-48 overflow-hidden">
-            <img src="${escapeHtml(post.imgs[0])}" alt="${escapeHtml(post.title)}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-            <div class="absolute top-3 left-3">
-              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white/90" style="color: ${typeConfig.color};">
-                ${post.type}
-              </span>
-            </div>
-          </div>
-        ` : `
-          <div class="relative h-48 flex items-center justify-center" style="background-color: ${typeConfig.bgColor};">
-            <div class="absolute top-3 left-3">
-              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white/90" style="color: ${typeConfig.color};">
-                ${post.type}
-              </span>
-            </div>
-            <p class="text-lg font-bold text-center px-6 line-clamp-3 leading-relaxed" style="color: ${typeConfig.color};">${escapeHtml(post.title)}</p>
-          </div>
-        `}
-        <div class="p-6 flex flex-col flex-1">
-          <h2 class="text-lg font-bold mb-2 group-hover:text-rose-600 transition-colors">
-            <a href="../2.travel guide detail.html?id=${post.id}&title=${encodeURIComponent(post.title)}&nick=${encodeURIComponent(post.nick)}">${escapeHtml(post.title)}</a>
-          </h2>
-          <p class="text-slate-600 mb-3 text-sm line-clamp-2">${escapeHtml(post.content)}</p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            ${tags.map(tag => `<span class="inline-flex items-center px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-full">${escapeHtml(tag)}</span>`).join('')}
-            ${post.area ? `<span class="inline-flex items-center px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-full"><i class="iconfont icon-ditu-dibiao w-3 h-3 mr-1"></i>${escapeHtml(post.area)}</span>` : ''}
-          </div>
-          <div class="mt-auto flex items-center justify-between pt-4 border-t border-slate-100">
-            <div class="flex items-center">
-              <div class="w-8 h-8 rounded-full bg-rose-100 flex items-center justify-center text-rose-600 font-bold text-sm">
-                ${escapeHtml(post.nick.charAt(0).toUpperCase())}
-              </div>
-              <span class="ml-2 text-sm text-slate-500">${escapeHtml(post.nick)}</span>
-            </div>
-            <a href="../2.travel guide detail.html?id=${post.id}&title=${encodeURIComponent(post.title)}&nick=${encodeURIComponent(post.nick)}" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
-              Read More
-              <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i>
-            </a>
-          </div>
-        </div>
-      </article>
-    `;
-  }).join('');
-}
-
-document.addEventListener('DOMContentLoaded', loadBeijingPosts);
+document.addEventListener('DOMContentLoaded', () => {
+  loadCommunityPostsByArea({
+    area: 'beijing',
+    containerId: 'beijing-posts-container',
+    loadingId: 'beijing-posts-loading',
+    emptyId: 'beijing-posts-empty',
+    pageSize: 6
+  });
+});
 </script>
 </body>
 </html>

@@ -13,10 +13,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Destinations - Wander Any Place</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script src="../../iconfont/iconfont.js"></script>
   <link rel="stylesheet" href="../../iconfont/iconfont.css">
   <link rel="stylesheet" href="../../css/styles.css">
+  <script src="../js/common.js"></script>
+  
 </head>
 <body class="bg-white font-sans text-slate-800">
   <!-- 顶部导航 -->
@@ -84,10 +85,10 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex border-b border-gray-200">
         <button id="domestic-tab" class="tab-btn border-b-2 border-rose-600 text-rose-600 font-semibold py-4 px-6 mr-6" onclick="switchTab('domestic')">
-          <i class="fa fa-map-marker mr-2"></i>Provinces & Municipalities
+          <i class="iconfont icon-ditu-dibiao mr-2"></i>Provinces & Municipalities
         </button>
         <button id="hkmacao-tab" class="tab-btn border-b-2 border-transparent text-gray-600 font-semibold py-4 px-6" onclick="switchTab('hkmacao')">
-          <i class="fa fa-flag mr-2"></i>HK, Macau & Taiwan
+          <i class="iconfont icon-area mr-2"></i>HK, Macau & Taiwan
         </button>
       </div>
     </div>
@@ -739,42 +740,12 @@
       document.getElementById(tabName + '-tab').classList.add('border-rose-600', 'text-rose-600');
     }
 
-    function scrollToLetter(letter) {
+        function scrollToLetter(letter) {
       const element = document.getElementById('letter-' + letter);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
-
-    const backToTopButton = document.getElementById('back-to-top');
-    
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        backToTopButton.classList.remove('opacity-0', 'invisible');
-        backToTopButton.classList.add('opacity-100', 'visible');
-      } else {
-        backToTopButton.classList.remove('opacity-100', 'visible');
-        backToTopButton.classList.add('opacity-0', 'invisible');
-      }
-    });
-    
-    backToTopButton.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
   </script>
-<script>
-function toggleMobileMenu() {
-  const mobileNav = document.getElementById('mobileNav');
-  const menuBtn = document.querySelector('.mobile-menu-btn');
-  const mobileLogo = document.getElementById('mobileLogo');
-  if (mobileNav && menuBtn) {
-    mobileNav.classList.toggle('active');
-    menuBtn.classList.toggle('active');
-    if (mobileLogo) {
-      mobileLogo.classList.toggle('mobile-logo-hidden');
-    }
-  }
-}
-</script>
 </body>
 </html>

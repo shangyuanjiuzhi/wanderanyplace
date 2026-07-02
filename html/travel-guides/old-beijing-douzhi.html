@@ -25,6 +25,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Old Beijing Douzhi: Jensen Huang's Viral Heritage Drink">
   <meta name="twitter:description" content="Jensen Huang's funny reaction to Beijing Douzhi went viral. Discover the history of this imperial-Qianlong-era fermented mung bean drink, its surprising nutritional value, and where to try the real deal in Beijing.">
+  <script src="../../js/travel-guides.js"></script>
+  <script>initTravelGuide('old-beijing-douzhi');</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -57,6 +59,7 @@
   <link rel="stylesheet" href="../../css/styles.css">
   <link rel="stylesheet" href="../../iconfont/iconfont.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+
   <script>
     tailwind.config = {
       theme: {
@@ -250,9 +253,6 @@
         </p>
            <p class="text-slate-600 leading-relaxed mb-6"><strong>Notice:</strong>  anyone with excess stomach acid or a stomach ulcer should go easy. If you are a first-timer, the classic Beijing way to drink it is alongside a crispy jiaoquan (fried dough ring) and a few slices of spicy pickled mustard tuber — that combination neatly balances the sour, sharp flavor and is the combination Beijingers have enjoyed for generations.</p>
           
-        
-
-       
 
         <h2 id="where-to-try" class="text-3xl font-bold mb-6 text-slate-800">3. Where to Drink Real Douzhi in Beijing — Yin San Douzhi & the "Free If You Can Drink It" Stall</h2>
         <p class="text-slate-600 leading-relaxed mb-6">
@@ -363,6 +363,28 @@
         </div>
       </article>
 
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-16 border-t border-slate-200">
+        <h2 class="text-2xl font-bold mb-8">Related Articles</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <a href="china-travel-payment-apps-2026.html" class="flex gap-4 bg-slate-50 rounded-xl p-4 hover:bg-slate-100 transition-colors cursor-pointer">
+            <img src="../../img/img-travel-guide/china-travel-payment-apps-2026-0.jpeg" alt="China Travel Apps" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+            <div>
+              <h3 class="font-semibold mb-1">China Travel Apps in 2026</h3>
+              <p class="text-sm text-slate-600">How foreigners actually pay in China — Alipay, WeChat, and more.</p>
+            </div>
+          </a>
+          <a href="../2.pre-app.html" class="flex gap-4 bg-slate-50 rounded-xl p-4 hover:bg-slate-100 transition-colors cursor-pointer">
+            <img src="../../img/3. img-beijing/3.10.2 Hutong City Walk/Hutong1.jpeg" alt="Hutong City Walk Guide" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+            <div>
+              <h3 class="font-semibold mb-1">Hutong City Walk Guide</h3>
+              <p class="text-sm text-slate-600">A guide to the unique hutong city city walk in Beijing.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
       <!-- Comments Section -->
       <section class="mt-16 pt-16 border-t border-slate-200">
         <h2 class="text-2xl font-bold mb-6">Comments</h2>
@@ -393,119 +415,9 @@
         </div>
       </section>
 
-      <script>
-        // Article ID for this page
-        const ARTICLE_ID = 'old-beijing-douzhi';
+      
 
-        // Load comments on page load
-        document.addEventListener('DOMContentLoaded', loadComments);
-
-        // Character counter
-        document.getElementById('content').addEventListener('input', function() {
-          document.getElementById('charCount').textContent = this.value.length;
-        });
-
-        // Submit comment
-        document.getElementById('commentForm').addEventListener('submit', async function(e) {
-          e.preventDefault();
-          
-          const nick = document.getElementById('nick').value.trim();
-          const content = document.getElementById('content').value.trim();
-          
-          try {
-            const response = await fetch('/api/comments', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ articleId: ARTICLE_ID, nick, content })
-            });
-            
-            const result = await response.json();
-            
-            if (result.success) {
-              alert('Comment submitted successfully!');
-              document.getElementById('commentForm').reset();
-              document.getElementById('charCount').textContent = '0';
-              loadComments();
-            } else {
-              alert(result.message || 'Failed to submit comment');
-            }
-          } catch (error) {
-            console.error('Error:', error);
-            alert('Network error. Please try again.');
-          }
-        });
-
-        // Load comments from server
-        async function loadComments() {
-          try {
-            const response = await fetch(`/api/comments/${ARTICLE_ID}`);
-            const result = await response.json();
-            
-            const container = document.getElementById('commentsList');
-            
-            if (result.success && result.data.length > 0) {
-              container.innerHTML = result.data.map(comment => `
-                <div class="bg-white border border-slate-200 rounded-xl p-4">
-                  <div class="flex items-center gap-3 mb-2">
-                    <div class="w-10 h-10 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center font-bold">
-                      ${comment.nick.charAt(0).toUpperCase()}
-                    </div>
-                    <div>
-                      <p class="font-medium text-slate-800">${escapeHtml(comment.nick)}</p>
-                      <p class="text-xs text-slate-500">${formatDate(comment.create_time)}</p>
-                    </div>
-                  </div>
-                  <p class="text-slate-700 pl-13">${escapeHtml(comment.content)}</p>
-                </div>
-              `).join('');
-            } else {
-              container.innerHTML = '<p class="text-slate-500 text-center py-8">No comments yet. Be the first to share your thoughts!</p>';
-            }
-          } catch (error) {
-            console.error('Error loading comments:', error);
-          }
-        }
-
-        // Helper: Escape HTML to prevent XSS
-        function escapeHtml(text) {
-          const div = document.createElement('div');
-          div.textContent = text;
-          return div.innerHTML;
-        }
-
-        // Helper: Format date
-        function formatDate(dateStr) {
-          const date = new Date(dateStr);
-          return date.toLocaleDateString('en-US', { 
-            year: 'numeric', 
-            month: 'short', 
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit'
-          });
-        }
-      </script>
-
-      <!-- Related Articles -->
-      <section class="mt-16 pt-16 border-t border-slate-200">
-        <h2 class="text-2xl font-bold mb-8">Related Articles</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <a href="china-travel-payment-apps-2026.html" class="flex gap-4 bg-slate-50 rounded-xl p-4 hover:bg-slate-100 transition-colors cursor-pointer">
-            <img src="../../img/img-travel-guide/china-travel-payment-apps-2026-0.jpeg" alt="China Travel Apps" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
-            <div>
-              <h3 class="font-semibold mb-1">China Travel Apps in 2026</h3>
-              <p class="text-sm text-slate-600">How foreigners actually pay in China — Alipay, WeChat, and more.</p>
-            </div>
-          </a>
-          <a href="../2.pre-app.html" class="flex gap-4 bg-slate-50 rounded-xl p-4 hover:bg-slate-100 transition-colors cursor-pointer">
-            <img src="../../img/3. img-beijing/3.10.2 Hutong City Walk/Hutong1.jpeg" alt="Hutong City Walk Guide" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
-            <div>
-              <h3 class="font-semibold mb-1">Hutong City Walk Guide</h3>
-              <p class="text-sm text-slate-600">A guide to the unique hutong city city walk in Beijing.</p>
-            </div>
-          </a>
-        </div>
-      </section>
+      
     </div>
   </main>
 
@@ -552,62 +464,5 @@
       </div>
   </footer>
 
-  <script>
-function toggleMobileMenu() {
-  const mobileNav = document.getElementById('mobileNav');
-  const menuBtn = document.querySelector('.mobile-menu-btn');
-  const mobileLogo = document.getElementById('mobileLogo');
-  if (mobileNav && menuBtn) {
-    mobileNav.classList.toggle('active');
-    menuBtn.classList.toggle('active');
-    if (mobileLogo) {
-      mobileLogo.classList.toggle('mobile-logo-hidden');
-    }
-  }
-}
-
-// Share Functions
-function shareTo(platform) {
-  const url = 'https://www.wanderanyplace.com/travel-guides/old-beijing-douzhi.html';
-  const title = 'Old Beijing Douzhi: Jensen Huang\'s Viral Heritage Drink';
-  
-  let shareUrl = '';
-  switch(platform) {
-    case 'wechat':
-      alert('Open WeChat and share manually, or copy the link below:\n' + url);
-      return;
-    case 'weibo':
-      shareUrl = `https://service.weibo.com/share/share.php?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`;
-      break;
-    case 'facebook':
-      shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-      break;
-    case 'twitter':
-      shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
-      break;
-  }
-  
-  if (shareUrl) {
-    window.open(shareUrl, '_blank', 'width=600,height=400');
-  }
-}
-
-function copyLink() {
-  const url = 'https://www.wanderanyplace.com/travel-guides/old-beijing-douzhi.html';
-  navigator.clipboard.writeText(url).then(() => {
-    const successMsg = document.getElementById('copySuccess');
-    if (successMsg) {
-      successMsg.style.opacity = '1';
-      setTimeout(() => {
-        successMsg.style.opacity = '0';
-      }, 2000);
-    }
-  }).catch(err => {
-    alert('Failed to copy link. Please copy manually: ' + url);
-  });
-}
-
-
-</script>
 </body>
 </html>

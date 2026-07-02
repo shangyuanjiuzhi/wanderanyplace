@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../iconfont/iconfont.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+  <script src="../js/community.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -305,22 +306,6 @@
   </footer>
 
   <script>
-function toggleMobileMenu() {
-  const mobileNav = document.getElementById('mobileNav');
-  const menuBtn = document.querySelector('.mobile-menu-btn');
-  const mobileLogo = document.getElementById('mobileLogo');
-  if (mobileNav && menuBtn) {
-    mobileNav.classList.toggle('active');
-    menuBtn.classList.toggle('active');
-    if (mobileLogo) {
-      mobileLogo.classList.toggle('mobile-logo-hidden');
-    }
-  }
-}
-
-// Load community posts
-const API_BASE = '';
-
 document.addEventListener('DOMContentLoaded', loadPosts);
 
 async function loadPosts() {
@@ -406,48 +391,15 @@ function renderPosts(posts) {
   }).join('');
 }
 
-function getTypeConfig(type) {
-  const configs = {
-        'Question': { color: '#6366F1', bgColor: '#EEF2FF'},
-        'Share': { color: '#22C55E', bgColor: '#ECFDF5'},
-        'Help': { color: '#EF4444', bgColor: '#FEF2F2' },
-  };
-  return configs[type] || configs['Other'];
-}
-
-function generatePlaceholderImage(title) {
-  // Generate a gradient image based on title hash
-  const hash = title.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-  const hue = hash % 360;
-  return `data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect width='100%' height='100%' fill='hsl(${hue}, 70%, 85%)'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-size='14' fill='hsl(${hue}, 70%, 40%)'>${escapeHtml(title.substring(0, 20))}...</text></svg>`;
-}
-
-function formatDate(dateStr) {
-  const date = new Date(dateStr);
-  return date.toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric'
-  });
-}
-
-function escapeHtml(text) {
-  const div = document.createElement('div');
-  div.textContent = text;
-  return div.innerHTML;
-}
-
 function showEmptyState() {
   document.getElementById('posts-loading').classList.add('hidden');
   document.getElementById('posts-empty').classList.remove('hidden');
 }
 
-// View post details in new page
 function viewPost(postId) {
   window.location.href = `travel-guides/community-id_${postId}.html`;
 }
 
-// Edit post - show password modal
 function editPost(postId, title, nick) {
   window.currentAction = 'edit';
   window.currentPostId = postId;
@@ -458,7 +410,6 @@ function editPost(postId, title, nick) {
   document.getElementById('password-modal').classList.remove('hidden');
 }
 
-// Delete post - show password modal
 function deletePost(postId, title, nick) {
   window.currentAction = 'delete';
   window.currentPostId = postId;
@@ -469,7 +420,6 @@ function deletePost(postId, title, nick) {
   document.getElementById('password-modal').classList.remove('hidden');
 }
 
-// Verify password and perform action
 async function verifyPasswordAction() {
   const password = document.getElementById('password-input').value;
   
@@ -511,7 +461,6 @@ async function verifyPasswordAction() {
   }
 }
 
-// Delete post after verification
 async function deleteConfirmed(password) {
   try {
     const response = await fetch(`${API_BASE}/api/posts/${window.currentPostId}/delete`, {
@@ -542,14 +491,11 @@ async function deleteConfirmed(password) {
   }
 }
 
-// Close password modal
 function closePasswordModal() {
   document.getElementById('password-modal').classList.add('hidden');
   document.getElementById('password-input').value = '';
   document.getElementById('password-error').classList.add('hidden');
 }
-
-// Open post detail modal
 </script>
 </body>
 </html>

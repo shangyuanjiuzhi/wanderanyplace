@@ -110,7 +110,7 @@
           </div>
 
           <!-- Cover Image -->
-          <div id="coverImage" class="relative h-64 md:h-80 bg-gray-100 mx-6 mt-4 rounded-lg overflow-hidden cursor-pointer" onclick="openLightbox('')">
+          <div id="coverImage" class="relative h-64 md:h-80 bg-gray-100 mx-6 mt-4 rounded-lg overflow-hidden cursor-pointer">
             <img id="coverImg" src="" alt="Post Cover" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 hover:opacity-100">
               <i class="iconfont icon-search text-white text-4xl"></i>
@@ -230,25 +230,19 @@
       </div>
   </footer>
 
+  <script src="../js/gallery-lightbox.js"></script>
+  <script src="../js/community.js"></script>
+  <script src="../js/travel-guides.js"></script>
   <script>
-    // Mobile menu toggle
-    function toggleMobileMenu() {
-      const mobileNav = document.getElementById('mobileNav');
-      mobileNav.classList.toggle('active');
-    }
-
-    // Get post ID from URL
     function getPostId() {
       const params = new URLSearchParams(window.location.search);
       return params.get('id');
     }
 
-    // Go back to list
     function goBack() {
       window.location.href = '../html/2.Community Posts.html';
     }
 
-    // Edit post
     function editPost() {
       const postId = getPostId();
       const title = encodeURIComponent(document.getElementById('postTitle').textContent);
@@ -256,17 +250,15 @@
       window.location.href = `../html/2.travel guide modify.html?id=${postId}&title=${title}&nick=${nick}`;
     }
 
-    // Delete post
     function deletePost() {
       const postId = getPostId();
       const title = document.getElementById('postTitle').textContent;
       
       if (confirm(`Are you sure you want to delete "${title}"?`)) {
-        // Ask for password
         const password = prompt('Please enter your 4-digit password to delete this post:');
         
         if (!password) {
-          return; // User cancelled
+          return;
         }
         
         if (!/^\d{4}$/.test(password)) {
@@ -299,7 +291,6 @@
       }
     }
 
-    // Load post detail
     async function loadPostDetail() {
       const postId = getPostId();
       
@@ -327,28 +318,18 @@
       }
     }
 
-    // Display post
     function displayPost(post) {
-      // Type configuration
-     const typeConfig = {
-        'Question': { color: '#6366F1', bgColor: '#EEF2FF'},
-        'Share': { color: '#22C55E', bgColor: '#ECFDF5' },
-        'Help': { color: '#EF4444', bgColor: '#FEF2F2' },
-      };
-      const config = typeConfig[post.type] || typeConfig['Share'];
+      const typeConfig = getTypeConfig(post.type);
 
-
-
-      // Update DOM
       document.getElementById('postType').innerHTML = `${post.type}`;
-      document.getElementById('postType').style.backgroundColor = config.bgColor;
-      document.getElementById('postType').style.color = config.color;
+      document.getElementById('postType').style.backgroundColor = typeConfig.bgColor;
+      document.getElementById('postType').style.color = typeConfig.color;
       
       document.getElementById('postTitle').textContent = post.title;
       document.getElementById('authorName').textContent = post.nick;
       document.getElementById('authorAvatar').querySelector('span').textContent = post.nick.charAt(0).toUpperCase();
-      document.getElementById('authorAvatar').style.backgroundColor = config.bgColor;
-      document.getElementById('authorAvatar').querySelector('span').style.color = config.color;
+      document.getElementById('authorAvatar').style.backgroundColor = typeConfig.bgColor;
+      document.getElementById('authorAvatar').querySelector('span').style.color = typeConfig.color;
       document.getElementById('postDate').textContent = formatDate(post.create_time);
       
       if (post.area) {
@@ -357,7 +338,6 @@
         document.getElementById('postArea').style.display = 'none';
       }
 
-      // Tags
       if (post.tag && post.tag.trim()) {
         const tags = post.tag.split(',').map(t => t.trim()).filter(t => t);
         const tagsContainer = document.getElementById('postTags');
@@ -370,22 +350,19 @@
         document.getElementById('postTags').style.display = 'none';
       }
 
-      // Cover image
       if (post.imgs && post.imgs.length > 0) {
         document.getElementById('coverImg').src = post.imgs[0];
-        setAllImages(post.imgs);
+        document.getElementById('coverImage').onclick = () => openLightbox(post.imgs[0], post.imgs);
       } else {
         document.getElementById('coverImage').style.display = 'none';
-        setAllImages([]);
       }
 
-      // Content images (excluding cover)
       const imageGrid = document.getElementById('imageGrid');
       if (post.imgs && post.imgs.length > 1) {
         post.imgs.slice(1).forEach((img, index) => {
           const imgContainer = document.createElement('div');
           imgContainer.className = 'relative h-48 rounded-lg overflow-hidden cursor-pointer';
-          imgContainer.onclick = () => openLightbox(index + 1);
+          imgContainer.onclick = () => openLightbox(img, post.imgs);
           
           const imgElement = document.createElement('img');
           imgElement.src = img;
@@ -404,53 +381,12 @@
         document.getElementById('contentImages').style.display = 'none';
       }
 
-      // Content
       document.getElementById('postContentText').textContent = post.content;
 
-      // Show content, hide loading
       document.getElementById('loading').style.display = 'none';
       document.getElementById('postContent').style.display = 'block';
     }
 
-    // Format date
-    function formatDate(dateStr) {
-      const date = new Date(dateStr);
-      return date.toLocaleDateString('zh-CN', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
-      });
-    }
-
-    // Load comments
-    async function loadComments(postId) {
-      try {
-        const response = await fetch(`/api/comments/${postId}`);
-        const result = await response.json();
-        const commentsList = document.getElementById('commentsList');
-
-        if (result.success && result.data.length > 0) {
-          commentsList.innerHTML = result.data.map(comment => `
-            <div class="border-b border-gray-100 pb-4 mb-4 last:border-0 last:mb-0">
-              <div class="flex items-center mb-2">
-                <div class="w-8 h-8 bg-rose-100 rounded-full flex items-center justify-center mr-2">
-                  <span class="text-sm font-bold text-rose-600">${comment.nick.charAt(0).toUpperCase()}</span>
-                </div>
-                <span class="font-medium">${comment.nick}</span>
-                <span class="text-xs text-gray-400 ml-2">${formatDate(comment.create_time)}</span>
-              </div>
-              <p class="text-gray-600 pl-10">${comment.content}</p>
-            </div>
-          `).join('');
-        } else {
-          commentsList.innerHTML = '<p class="text-gray-400 text-center py-4">No comments yet. Be the first!</p>';
-        }
-      } catch (error) {
-        console.error('Error loading comments:', error);
-      }
-    }
-
-    // Submit comment
     document.getElementById('commentForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const postId = getPostId();
@@ -480,82 +416,6 @@
       }
     });
 
-    // Lightbox functionality
-    let currentImageIndex = 0;
-    let allImages = [];
-
-    function setAllImages(images) {
-      allImages = images || [];
-    }
-
-    function openLightbox(index) {
-      if (allImages.length === 0) return;
-      
-      currentImageIndex = typeof index === 'number' ? index : 0;
-      const modal = document.getElementById('lightboxModal');
-      const img = document.getElementById('lightboxImg');
-      const counter = document.getElementById('lightboxCounter');
-      
-      img.src = allImages[currentImageIndex];
-      counter.textContent = `${currentImageIndex + 1} / ${allImages.length}`;
-      modal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      const modal = document.getElementById('lightboxModal');
-      modal.classList.add('hidden');
-      document.body.style.overflow = '';
-    }
-
-    function prevImage() {
-      if (currentImageIndex > 0) {
-        currentImageIndex--;
-      } else {
-        currentImageIndex = allImages.length - 1;
-      }
-      updateLightbox();
-    }
-
-    function nextImage() {
-      if (currentImageIndex < allImages.length - 1) {
-        currentImageIndex++;
-      } else {
-        currentImageIndex = 0;
-      }
-      updateLightbox();
-    }
-
-    function updateLightbox() {
-      const img = document.getElementById('lightboxImg');
-      const counter = document.getElementById('lightboxCounter');
-      
-      img.src = allImages[currentImageIndex];
-      counter.textContent = `${currentImageIndex + 1} / ${allImages.length}`;
-    }
-
-    // Close lightbox on backdrop click
-    document.getElementById('lightboxModal').addEventListener('click', (e) => {
-      if (e.target === document.getElementById('lightboxModal')) {
-        closeLightbox();
-      }
-    });
-
-    // Keyboard navigation for lightbox
-    document.addEventListener('keydown', (e) => {
-      const modal = document.getElementById('lightboxModal');
-      if (!modal.classList.contains('hidden')) {
-        if (e.key === 'Escape') {
-          closeLightbox();
-        } else if (e.key === 'ArrowLeft') {
-          prevImage();
-        } else if (e.key === 'ArrowRight') {
-          nextImage();
-        }
-      }
-    });
-
-    // Initialize
     document.addEventListener('DOMContentLoaded', loadPostDetail);
   </script>
 </body>
