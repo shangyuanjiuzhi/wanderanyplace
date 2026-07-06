@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 首页及主页面 -->
+  <sitemap>
+    <loc>https://www.wanderanyplace.com/sitemap/sitemap-main.xml</loc>
+    <lastmod>2026-07-06</lastmod>
+  </sitemap>
+  <!-- 北京旅游页面 -->
   <sitemap>
     <loc>https://www.wanderanyplace.com/sitemap/sitemap-beijing.xml</loc>
     <lastmod>2026-07-06</lastmod>
