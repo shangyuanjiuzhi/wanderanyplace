@@ -4,6 +4,11 @@
   ],
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/html/travel-guides/community-id_(.*).html", "destination": "/api/route.js" },
+    { "source": "/css/(.*)", "destination": "/css/$1" },
+    { "source": "/js/(.*)", "destination": "/js/$1" },
+    { "source": "/iconfont/(.*)", "destination": "/iconfont/$1" },
+    { "source": "/img/(.*)", "destination": "/img/$1" },
     { "source": "/html/(.*)", "destination": "/html/$1" },
     { "source": "/category/(.*)", "destination": "/html/category.html" },
     { "source": "/post-detail/(.*)", "destination": "/html/post-detail.html" },
