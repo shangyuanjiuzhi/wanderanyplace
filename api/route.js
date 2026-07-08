@@ -98,45 +98,10 @@ export default async function handler(req, res) {
 
         const posts = result.rows.map(post => {
           const imgs = JSON.parse(post.imgs || '[]');
-          const processedImgs = imgs.map(img => {
-            if (img && img.length > 10240) return null;
-            return img;
-          }).filter(img => img !== null);
-          return { ...post, imgs: processedImgs };
+          return { ...post, imgs };
         });
 
         return res.json({ success: true, data: posts, total: posts.length });
-      }
-
-      if (method === 'GET' && (!qs.tag || qs.page)) {
-        const page = parseInt(qs.page) || 1;
-        const pageSize = parseInt(qs.pageSize) || 6;
-        const offset = (page - 1) * pageSize;
-
-        const countResult = await query('SELECT COUNT(*) as total FROM posts');
-        const total = parseInt(countResult.rows[0].total);
-
-        const result = await query(
-          'SELECT * FROM posts ORDER BY create_time DESC LIMIT $1 OFFSET $2',
-          [pageSize, offset]
-        );
-
-        const posts = result.rows.map(post => {
-          const imgs = JSON.parse(post.imgs || '[]');
-          const processedImgs = imgs.map(img => {
-            if (img && img.length > 10240) return null;
-            return img;
-          }).filter(img => img !== null);
-          return { ...post, imgs: processedImgs };
-        });
-
-        return res.json({
-          success: true,
-          data: posts,
-          total: total,
-          page: page,
-          pageSize: pageSize
-        });
       }
 
       if (method === 'POST' && path === '') {
@@ -221,6 +186,33 @@ export default async function handler(req, res) {
         return res.json({
           success: true,
           data: { ...row, imgs: JSON.parse(row.imgs || '[]') }
+        });
+      }
+
+      if (method === 'GET' && (!qs.tag || qs.page)) {
+        const page = parseInt(qs.page) || 1;
+        const pageSize = parseInt(qs.pageSize) || 6;
+        const offset = (page - 1) * pageSize;
+
+        const countResult = await query('SELECT COUNT(*) as total FROM posts');
+        const total = parseInt(countResult.rows[0].total);
+
+        const result = await query(
+          'SELECT * FROM posts ORDER BY create_time DESC LIMIT $1 OFFSET $2',
+          [pageSize, offset]
+        );
+
+        const posts = result.rows.map(post => {
+          const imgs = JSON.parse(post.imgs || '[]');
+          return { ...post, imgs };
+        });
+
+        return res.json({
+          success: true,
+          data: posts,
+          total: total,
+          page: page,
+          pageSize: pageSize
         });
       }
 
