@@ -593,6 +593,9 @@ export default async function handler(req, res) {
         return `${year}-${month}-${day} ${hours}:${minutes}`;
       }
 
+      const imagesHtml = images.length > 1 ? images.slice(1).map((img, index) => '<div class="relative h-48 rounded-lg overflow-hidden cursor-pointer" onclick="openLightbox(' + (index + 1) + ')"><img src="' + img + '" alt="Post image" class="w-full h-full object-cover"><div class="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 hover:opacity-100"><i class="iconfont icon-fangdaqi text-white text-3xl"></i></div></div>').join('') : '';
+      const tagsHtml = row.tag ? row.tag.split(',').map(t => t.trim()).filter(t => t).map(tag => '<span class="inline-flex items-center px-2 py-1 bg-rose-100 text-rose-700 text-xs rounded-full">' + escapeHtml(tag) + '</span>').join('') : '';
+
       const postHtml = `
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -678,19 +681,7 @@ export default async function handler(req, res) {
       </nav>
 
       <article class="bg-white rounded-xl shadow-md overflow-hidden mb-8">
-        ${images.length > 0 ? `
-        <div class="relative h-64 md:h-96 overflow-hidden cursor-pointer" onclick="openLightbox(0)">
-          <img src="${images[0]}" alt="Post Cover" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 hover:opacity-100">
-            <i class="iconfont icon-fangdaqi text-white text-4xl"></i>
-          </div>
-          <div class="absolute top-4 left-4">
-            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white/90 text-slate-800 shadow-sm">
-              ${row.type}
-            </span>
-          </div>
-        </div>
-        ` : ''}
+        ${images.length > 0 ? '<div class="relative h-64 md:h-96 overflow-hidden cursor-pointer" onclick="openLightbox(0)"><img src="' + images[0] + '" alt="Post Cover" class="w-full h-full object-cover"><div class="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 hover:opacity-100"><i class="iconfont icon-fangdaqi text-white text-4xl"></i></div><div class="absolute top-4 left-4"><span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white/90 text-slate-800 shadow-sm">' + row.type + '</span></div></div>' : ''}
 
         <div class="px-6 py-6">
           <h1 class="text-2xl md:text-3xl font-bold text-slate-800 mb-4">${escapeHtml(row.title)}</h1>
@@ -705,24 +696,20 @@ export default async function handler(req, res) {
                 <p class="text-sm text-slate-500">${formatDate(row.create_time)}</p>
               </div>
             </div>
-            ${row.area ? `<div class="flex items-center text-sm text-slate-500"><i class="iconfont icon-ditu-dibiao w-4 h-4 mr-1"></i>${escapeHtml(row.area)}</div>` : ''}
+            ${row.area ? '<div class="flex items-center text-sm text-slate-500"><i class="iconfont icon-ditu-dibiao w-4 h-4 mr-1"></i>' + escapeHtml(row.area) + '</div>' : ''}
           </div>
 
-          ${row.tag ? `<div class="flex flex-wrap gap-2 mb-6">${row.tag.split(',').map(t => t.trim()).filter(t => t).map(tag => `<span class="inline-flex items-center px-2 py-1 bg-rose-100 text-rose-700 text-xs rounded-full">${escapeHtml(tag)}</span>`).join('')}</div>` : ''}
+          ${row.tag ? '<div class="flex flex-wrap gap-2 mb-6">' + tagsHtml + '</div>' : ''}
 
           <div class="text-slate-600 leading-relaxed whitespace-pre-wrap mb-6">${escapeHtml(row.content)}</div>
 
-          ${images.length > 1 ? `
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-            ${images.slice(1).map((img, index) => `<div class="relative h-48 rounded-lg overflow-hidden cursor-pointer" onclick="openLightbox(${index + 1})"><img src="${img}" alt="Post image" class="w-full h-full object-cover"><div class="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 hover:opacity-100"><i class="iconfont icon-fangdaqi text-white text-3xl"></i></div></div>`).join('')}
-          </div>
-          ` : ''}
+          ${images.length > 1 ? '<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">' + imagesHtml + '</div>' : ''}
 
           <div class="flex gap-4">
-            <button onclick="editPost(${row.id}, '${encodeURIComponent(row.title)}', '${encodeURIComponent(row.nick)}')" class="flex items-center px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+            <button onclick="editPost(' + row.id + ', \'' + encodeURIComponent(row.title) + '\', \'' + encodeURIComponent(row.nick) + '\')" class="flex items-center px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
              Edit
             </button>
-            <button onclick="deletePost(${row.id}, '${encodeURIComponent(row.title)}', '${encodeURIComponent(row.nick)}')" class="flex items-center px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">
+            <button onclick="deletePost(' + row.id + ', \'' + encodeURIComponent(row.title) + '\', \'' + encodeURIComponent(row.nick) + '\')" class="flex items-center px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">
               Delete
             </button>
           </div>
@@ -820,7 +807,7 @@ export default async function handler(req, res) {
     }
 
     function deletePost(postId, title, nick) {
-      const password = prompt('Please enter your password to delete this post:');
+      var password = prompt('Please enter your password to delete this post:');
       if (!password) return;
 
       fetch('/api/posts/' + postId + '/delete', {
@@ -832,8 +819,8 @@ export default async function handler(req, res) {
           title: title
         })
       })
-      .then(res => res.json())
-      .then(result => {
+      .then(function(res) { return res.json(); })
+      .then(function(result) {
         if (result.success) {
           alert('Post deleted!');
           goBack();
@@ -841,7 +828,7 @@ export default async function handler(req, res) {
           alert('Delete failed: ' + result.message);
         }
       })
-      .catch(err => {
+      .catch(function(err) {
         console.error('Error:', err);
         alert('Delete failed due to network error.');
       });
@@ -852,29 +839,20 @@ export default async function handler(req, res) {
     }
 
     function escapeHtml(text) {
-      const div = document.createElement('div');
+      var div = document.createElement('div');
       div.textContent = text;
       return div.innerHTML;
     }
 
     async function loadComments() {
-      const container = document.getElementById('commentsList');
+      var container = document.getElementById('commentsList');
       try {
-        const response = await fetch('/api/post-comments/' + ${row.id});
-        const result = await response.json();
+        var response = await fetch('/api/post-comments/' + ${row.id});
+        var result = await response.json();
         if (result.success && result.data && result.data.length > 0) {
-          container.innerHTML = result.data.map(c => '
-            <div class="border-b border-slate-100 pb-4 mb-4">
-              <div class="flex items-center mb-2">
-                <div class="w-8 h-8 bg-rose-100 rounded-full flex items-center justify-center mr-2">
-                  <span class="text-sm font-bold text-rose-600">${c.nick.charAt(0).toUpperCase()}</span>
-                </div>
-                <span class="font-medium">${escapeHtml(c.nick)}</span>
-                <span class="text-xs text-slate-400 ml-2">${formatDate(c.create_time)}</span>
-              </div>
-              <p class="text-slate-600 pl-10">${escapeHtml(c.content)}</p>
-            </div>
-          ').join('');
+          container.innerHTML = result.data.map(function(c) {
+            return '<div class="border-b border-slate-100 pb-4 mb-4"><div class="flex items-center mb-2"><div class="w-8 h-8 bg-rose-100 rounded-full flex items-center justify-center mr-2"><span class="text-sm font-bold text-rose-600">' + c.nick.charAt(0).toUpperCase() + '</span></div><span class="font-medium">' + escapeHtml(c.nick) + '</span><span class="text-xs text-slate-400 ml-2">' + formatDate(c.create_time) + '</span></div><p class="text-slate-600 pl-10">' + escapeHtml(c.content) + '</p></div>';
+          }).join('');
         } else {
           container.innerHTML = '<p class="text-slate-400 text-center py-4">No comments yet.</p>';
         }
@@ -884,11 +862,11 @@ export default async function handler(req, res) {
       }
     }
 
-    document.getElementById('commentForm').addEventListener('submit', async (e) => {
+    document.getElementById('commentForm').addEventListener('submit', async function(e) {
       e.preventDefault();
-      const nick = document.getElementById('nick').value.trim();
-      const content = document.getElementById('content').value.trim();
-      const submitBtn = e.target.querySelector('button[type="submit"]');
+      var nick = document.getElementById('nick').value.trim();
+      var content = document.getElementById('content').value.trim();
+      var submitBtn = e.target.querySelector('button[type="submit"]');
 
       if (!nick || !content) {
         alert('Please fill in all fields');
@@ -899,12 +877,12 @@ export default async function handler(req, res) {
       submitBtn.textContent = 'Submitting...';
 
       try {
-        const response = await fetch('/api/post-comments', {
+        var response = await fetch('/api/post-comments', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ postId: ${row.id}, nick, content })
+          body: JSON.stringify({ postId: ${row.id}, nick: nick, content: content })
         });
-        const result = await response.json();
+        var result = await response.json();
 
         if (result.success) {
           document.getElementById('commentForm').reset();
@@ -921,16 +899,17 @@ export default async function handler(req, res) {
       }
     });
 
-    const allImages = ${JSON.stringify(images)};
-    let currentImageIndex = 0;
+    var allImages = '${JSON.stringify(images)}';
+    allImages = JSON.parse(allImages);
+    var currentImageIndex = 0;
 
     function openLightbox(index) {
       if (allImages.length === 0) return;
       
       currentImageIndex = index;
-      const modal = document.getElementById('lightboxModal');
-      const img = document.getElementById('lightboxImg');
-      const counter = document.getElementById('lightboxCounter');
+      var modal = document.getElementById('lightboxModal');
+      var img = document.getElementById('lightboxImg');
+      var counter = document.getElementById('lightboxCounter');
       
       img.src = allImages[currentImageIndex];
       counter.textContent = currentImageIndex + 1 + ' / ' + allImages.length;
@@ -939,7 +918,7 @@ export default async function handler(req, res) {
     }
 
     function closeLightbox() {
-      const modal = document.getElementById('lightboxModal');
+      var modal = document.getElementById('lightboxModal');
       modal.classList.add('hidden');
       document.body.style.overflow = '';
     }
@@ -963,21 +942,21 @@ export default async function handler(req, res) {
     }
 
     function updateLightbox() {
-      const img = document.getElementById('lightboxImg');
-      const counter = document.getElementById('lightboxCounter');
+      var img = document.getElementById('lightboxImg');
+      var counter = document.getElementById('lightboxCounter');
       
       img.src = allImages[currentImageIndex];
       counter.textContent = currentImageIndex + 1 + ' / ' + allImages.length;
     }
 
-    document.getElementById('lightboxModal').addEventListener('click', (e) => {
+    document.getElementById('lightboxModal').addEventListener('click', function(e) {
       if (e.target === document.getElementById('lightboxModal')) {
         closeLightbox();
       }
     });
 
-    document.addEventListener('keydown', (e) => {
-      const modal = document.getElementById('lightboxModal');
+    document.addEventListener('keydown', function(e) {
+      var modal = document.getElementById('lightboxModal');
       if (!modal.classList.contains('hidden')) {
         if (e.key === 'Escape') {
           closeLightbox();
