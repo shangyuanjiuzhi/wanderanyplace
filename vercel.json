@@ -1,17 +1,23 @@
 {
+  "redirects": [
+    { "source": "/(.*)", "destination": "https://www.wanderanyplace.com/$1", "permanent": true, "has": [{ "type": "host", "value": "wanderanyplace.com" }] },
+    { "source": "/(.*)", "destination": "https://www.wanderanyplace.com/$1", "permanent": true, "scheme": "http" }
+  ],
   "rewrites": [
-    { "source": "/api/posts/(.*)", "destination": "/api/route.js" },
-    { "source": "/api/posts", "destination": "/api/route.js" },
-    { "source": "/api/comments/(.*)", "destination": "/api/route.js" },
-    { "source": "/api/comments", "destination": "/api/route.js" },
-    { "source": "/api/post-comments/(.*)", "destination": "/api/route.js" },
-    { "source": "/api/post-comments", "destination": "/api/route.js" },
-    { "source": "/api/admin/(.*)", "destination": "/api/route.js" },
-    { "source": "/api/admin", "destination": "/api/route.js" },
     { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/html/travel-guides/community-id_(.+).html", "destination": "/html/2.travel guide detail.html?id=$1" },
-    { "source": "/travel-guides/community-id_(.+).html", "destination": "/html/2.travel guide detail.html?id=$1" },
+    { "source": "/html/travel-guides/community-id_(.*).html", "destination": "/api/route.js" },
+    { "source": "/css/(.*)", "destination": "/css/$1" },
+    { "source": "/js/(.*)", "destination": "/js/$1" },
+    { "source": "/iconfont/(.*)", "destination": "/iconfont/$1" },
+    { "source": "/img/(.*)", "destination": "/img/$1" },
     { "source": "/html/(.*)", "destination": "/html/$1" },
+    { "source": "/category/(.*)", "destination": "/html/category.html" },
+    { "source": "/post-detail/(.*)", "destination": "/html/post-detail.html" },
+    { "source": "/post", "destination": "/html/post.html" },
+    { "source": "/profile", "destination": "/html/profile.html" },
+    { "source": "/login", "destination": "/html/login.html" },
+    { "source": "/register", "destination": "/html/register.html" },
+    { "source": "/admin", "destination": "/html/admin.html" },
     { "source": "/(.*)", "destination": "/html/$1" }
   ],
   "outputDirectory": ".",
