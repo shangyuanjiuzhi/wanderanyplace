@@ -3,7 +3,12 @@
     { "source": "/(.*)", "destination": "https://www.wanderanyplace.com/$1", "permanent": true, "has": [{ "type": "host", "value": "wanderanyplace.com" }] }
   ],
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/api/send-booking-email", "destination": "/api/send-booking-email.js" },
+    { "source": "/api/send-feedback", "destination": "/api/send-feedback.js" },
+    { "source": "/api/package-lock.json", "destination": "/api/package-lock.json" },
+    { "source": "/api/packing-suggestions", "destination": "/api/packing-suggestions.js" },
+    { "source": "/api/package.json", "destination": "/api/package.json" },
+    { "source": "/api/(.*)", "destination": "/api/route.js" },
     { "source": "/html/travel-guides/community-id_(.*).html", "destination": "/api/route.js" },
     { "source": "/css/(.*)", "destination": "/css/$1" },
     { "source": "/js/(.*)", "destination": "/js/$1" },
