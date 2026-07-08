@@ -12,8 +12,7 @@
     { "source": "/api/admin/(.*)", "destination": "/api/route.js" },
     { "source": "/api/admin", "destination": "/api/route.js" },
     { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/html/travel-guides/community-id_(.+).html", "destination": "/html/2.travel guide detail.html?id=$1" },
-    { "source": "/travel-guides/community-id_(.+).html", "destination": "/html/2.travel guide detail.html?id=$1" },
+    { "source": "/html/travel-guides/community-id_(.+).html", "destination": "/api/route.js" },
     { "source": "/html/(.*)", "destination": "/html/$1" },
     { "source": "/(.*)", "destination": "/html/$1" }
   ],
