@@ -644,6 +644,7 @@ header.responsive-header p {
   justify-content: center;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 .carousel-item {
@@ -1192,4 +1193,69 @@ header.responsive-header p {
   --tw-backdrop-opacity: ;
   --tw-backdrop-saturate: ;
   --tw-backdrop-sepia: ;
+}
+
+/* Shanghai Bund Building Carousels - md:w-1/3 sidebar */
+#peacehotel-carousel,
+#hsbc-carousel,
+#customshouse-carousel,
+#waibaidu-carousel {
+  height: 280px;
+}
+
+#peacehotel-carousel .carousel-item.active,
+#hsbc-carousel .carousel-item.active,
+#customshouse-carousel .carousel-item.active,
+#waibaidu-carousel .carousel-item.active {
+  height: 280px;
+}
+
+#peacehotel-carousel .gallery-container,
+#hsbc-carousel .gallery-container,
+#customshouse-carousel .gallery-container,
+#waibaidu-carousel .gallery-container {
+  height: 280px;
+}
+
+#peacehotel-carousel .gallery-image,
+#hsbc-carousel .gallery-image,
+#customshouse-carousel .gallery-image,
+#waibaidu-carousel .gallery-image {
+  max-height: 280px;
+  object-fit: cover;
+}
+
+/* Huangpu River Ferry Carousel - full width */
+#ferry-carousel {
+  height: 500px;
+}
+
+#ferry-carousel .carousel-item.active {
+  height: 500px;
+}
+
+#ferry-carousel .gallery-container {
+  height: 500px;
+}
+
+#free-buildings-carousel {
+  height: 280px;
+}
+
+#free-buildings-carousel .carousel-item.active {
+  height: 280px;
+}
+
+#free-buildings-carousel .gallery-container {
+  height: 280px;
+}
+
+#free-buildings-carousel .gallery-image {
+  max-height: 280px;
+  object-fit: cover;
+}
+
+#ferry-carousel .gallery-image {
+  max-height: 500px;
+  object-fit: contain;
 }
