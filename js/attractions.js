@@ -148,23 +148,55 @@ function copyAddress(type = 'badaling') {
   } else if (type === 'lujiazui') {
     address = "上海市浦东新区陆家嘴金融贸易区\nLujiazui Financial District, Pudong New Area, Shanghai, China";
   } else if (type === 'orientalpearl') {
-    address = "上海市浦东新区世纪大道1号\n1 Century Avenue, Pudong New Area, Shanghai, China";
+    address = "上海市浦东新区世纪大道1号\nNo.1 Century Avenue, Pudong New Area, Shanghai, China";
   } else if (type === 'waibaidu') {
-    address = "上海市黄浦区苏州路\nSu Zhou Road, Huangpu District, Shanghai, China";
+    address = "上海市虹口区北苏州路111号\nNo.111 North Suzhou Road, Hongkou District, Shanghai, China";
   } else if (type === 'waitanyuan') {
     address = "上海市黄浦区外滩源\nWaitanyuan, Huangpu District, Shanghai, China";
   } else if (type === 'wukang') {
-    address = "上海市徐汇区淮海中路188号\n188 Huaihai Middle Road, Xuhui District, Shanghai";
+    address = "上海市徐汇区淮海中路1850号\nNo.1850 Huaihai Middle Road, Xuhui District, Shanghai";
   } else if (type === 'rockbund') {
-    address = "上海市黄浦区虎丘路1号\nNo. 1 Huqiu Road, Huangpu District, Shanghai";
+    address = "上海市黄浦区虎丘路20号\nNo.20 Huqiu Road, Huangpu District, Shanghai";
   } else if (type === 'sinan') {
-    address = "上海市徐汇区思南路\nSinan Road, Xuhui District, Shanghai, China";
+    address = "上海市黄浦区思南路51、53、55、57、59、61号\n No.51,53,55,57,59,61 Sinan Road, Huangpu District, Shanghai, China";
   } else if (type === 'laochangfang') {
-    address = "上海市虹口区山阴路108号\n108 Shanyin Road, Hongkou District, Shanghai";
+    address = "上海市虹口区沙泾路10号\n No.10 ShaJing Road, Hongkou District, Shanghai, China";
   } else if (type === 'xujiahui') {
-    address = "上海市徐汇区蒲西路150号\n150 Puxi Road, Xuhui District, Shanghai";
+    address = "上海市徐汇区蒲西路150号\n No.150 Puxi Road, Xuhui District, Shanghai";
   } else if (type === 'disney') {
-    address = "上海市浦东新区申迪路\nShendi Road, Pudong New Area, Shanghai";
+    address = "上海市浦东新区川沙新镇黄赵路310号\n No.310 Huangzhao Road, Chuansha,Pudong New Area, Shanghai";
+  } else if (type === 'madametussauds') {
+    address = "上海市黄浦区南京西路2-68号新世界城F10号\n F10 New World City Mall, No.2-68 Nanjing West Road, Huangpu District, Shanghai";
+  } else if (type === 'filmpark') {
+    address = "上海市松江区车墩镇车亭公路211号\n No.211 Cheting Road, Songjiang District, Shanghai";
+  } else if (type === 'tianzifang') {
+    address = "上海市黄浦区泰康路210弄\n Lane 210 Taikang Road, Huangpu District, Shanghai";
+  } else if (type === 'thames') {
+    address = "上海市松江区三新北路900弄\n Lane 900 Sanxin North Road, Songjiang District, Shanghai";
+  } else if (type === 'qibao') {
+    address = "上海市闵行区青年路与横沥路交叉口\n Intersection of Qingnian Road and Hengli Road, Minhang District, Shanghai";
+  } else if (type === 'sweetlove') {
+    address = "上海市虹口区甜爱路\n Tian'ai Road, Hongkou District, Shanghai";
+  } else if (type === 'nanjingroad') {
+    address = "上海市黄浦区南京东路\n East Nanjing Road, Huangpu District, Shanghai";
+  } else if (type === 'westnanjing') {
+    address = "上海市黄浦区南京西路\n West Nanjing Road, Huangpu District, Shanghai";
+  } else if (type === 'huaihai') {
+    address = "上海市黄浦区南京西路和淮海路\n West Nanjing Road & Huaihai Road, Huangpu District, Shanghai";
+  } else if (type === 'museum') {
+    address = "上海市黄浦区人民大道201号\n No.201 Renmin Avenue, Huangpu District, Shanghai";
+  } else if (type === 'chinaart') {
+    address = "上海市浦东新区上南路205号\n No.205 Shangnan Road, Pudong New Area, Shanghai";
+  } else if (type === 'powerstation') {
+    address = "上海市黄浦区苗江路678号\n No.678 Miaojiang Road, Huangpu District, Shanghai";
+  } else if (type === 'guangfulin') {
+    address = "上海市松江区广富林路3260弄\n Lane 3260 Guangfulin Road, Songjiang District, Shanghai";
+  } else if (type === 'yugarden') {
+    address = "上海市黄浦区福佑路168号\n No.168 Fuyou Road, Huangpu District, Shanghai";
+  } else if (type === 'citygod') {
+    address = "上海市黄浦区方浜中路249号\n No.249 Fangbang Middle Road, Huangpu District, Shanghai";
+  } else if (type === 'jingan') {
+    address = "上海市静安区南京西路1686号\n No.1686 West Nanjing Road, Jing'an District, Shanghai";
   } else if (type === 'dishui') {
     address = "上海市浦东新区临港新片区滴水湖\nDishui Lake, Lingang New Area, Pudong District, Shanghai";
   } else if (type === 'Cuandixia') {
@@ -378,7 +410,8 @@ function initAttractionFilter() {
   const pageBtns = document.querySelectorAll('.page-btn');
   const attractionCards = document.querySelectorAll('.attraction-card');
   
-  let currentCategory = 'imperial';
+  const defaultCategory = document.querySelector('[data-default-category]')?.getAttribute('data-default-category') || 'imperial';
+  let currentCategory = defaultCategory;
   let currentPage = '1';
   
   function filterAttractions() {
@@ -395,10 +428,18 @@ function initAttractionFilter() {
         isMatch = cardCategory === currentCategory;
       }
       
-      if (isMatch && cardPage === currentPage) {
-        card.style.display = 'flex';
+      if (pageBtns.length > 0) {
+        if (isMatch && cardPage === currentPage) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
       } else {
-        card.style.display = 'none';
+        if (isMatch) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
       }
     });
   }

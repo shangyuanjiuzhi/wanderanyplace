@@ -26,6 +26,9 @@ function openLightbox(imageUrl, imageArrayOrCarouselId = null) {
   }
   
   let currentIndex = images.indexOf(imageUrl);
+  if (currentIndex === -1) {
+    currentIndex = images.findIndex(img => img.endsWith(imageUrl.split('/').pop()));
+  }
   if (currentIndex === -1) currentIndex = 0;
   
   const lightbox = document.createElement('div');
