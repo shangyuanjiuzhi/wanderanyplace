@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L42GKWJLGB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-L42GKWJLGB");
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Republican-era Photography - Shanghai Travel Guide</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../iconfont/iconfont.js"></script>
+  <link rel="stylesheet" href="../../iconfont/iconfont.css">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <script src="../../js/gallery-lightbox.js"></script>
+  <script src="../../js/common.js"></script>
+  <script src="../../js/community.js"></script>
+</head>
+<body class="bg-white font-sans text-slate-800">
+  <!-- 顶部导航 -->
+   <header class="mobile-header-nav bg-gray-900" style="box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+    <div class="nav-container">
+      <a href="../../index.html" class="logo" id="mobileLogo" style="display: flex; align-items: center; text-decoration: none;">
+        <i class="iconfont icon-ditu-dibiao" style="color: #F43F5E;"></i>
+        <span style="color: white;">Wander Any Place</span>
+      </a>
+      <div class="desktop-nav" id="desktopNavLinks" style="color: white;">
+        <a href="../../index.html" style="color: white;">Home</a>
+        <a href="../2.Destination.html" style="color: white;">Destinations</a>
+        <a href="../2.travel guide.html" style="color: white;">Travel Guides</a>
+        <a href="../2.booking.html" style="color: white;">Booking Services</a>
+        <a href="../2.aboutus.html" style="color: white;">About Us</a>
+      </div>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <span style="background-color: white;"></span>
+        <span style="background-color: white;"></span>
+        <span style="background-color: white;"></span>
+      </button>
+    </div>
+  </header>
+    <!-- 移动端导航覆盖层 -->
+    <div class="mobile-nav-overlay" id="mobileNav">
+      <button class="nav-close-btn" onclick="toggleMobileMenu()">&times;</button>
+      <a href="../../index.html" onclick="toggleMobileMenu()">Home</a>
+      <a href="../2.Destination.html" onclick="toggleMobileMenu()">Destinations</a>
+      <a href="../2.travel guide.html" onclick="toggleMobileMenu()">Travel Guides</a>
+      <a href="../2.booking.html" onclick="toggleMobileMenu()">Booking Services</a>
+      <a href="../2.aboutus.html" onclick="toggleMobileMenu()">About Us</a>
+    </div>
+
+
+  <!-- 页面标题 -->
+  <header class="bg-gradient-to-r from-rose-600 to-rose-500 text-white py-16" style="margin-top: 70px;">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Republican-era Photography in Shanghai</h1>
+      <p class="text-lg text-white/90 max-w-2xl mx-auto">
+        Experience Shanghai's glamorous 1930s era and capture stunning photos at iconic historical landmarks
+      </p>
+    </div>
+  </header>
+  <!-- 民国风拍摄介绍 -->
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+        <div class="p-8">
+          <h2 class="text-3xl font-bold text-slate-800 mb-6">About Republican-era Photography</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <p class="text-slate-600 mb-4">
+                The <span class="text-rose-600 font-bold">Republican era</span> (1912-1949) was a golden age for Shanghai, known as the "Paris of the East." With its Art Deco architecture, elegant qipao dresses, and sophisticated lifestyle, Shanghai became a symbol of modernity and glamour.
+              </p>
+              <p class="text-slate-600 mb-4">
+                Today, Republican-era photography has become a popular trend, allowing visitors to step back in time and experience the elegance of 1930s Shanghai. Many studios offer complete packages including qipao rental, period makeup, and guided photo sessions at historic locations.
+              </p>
+              <p class="text-slate-600">
+                Whether you're interested in capturing the city's colonial heritage or recreating scenes from classic Chinese films, Shanghai offers endless opportunities for stunning Republican-era photography.
+              </p>
+              <div class="mt-6 p-4 bg-gradient-to-r from-rose-500 to-pink-500 rounded-xl shadow-lg">
+                <p class="text-white font-bold text-center text-lg">
+                  🎉 Ready to Capture Beautiful Memories? 🎉
+                </p>
+                <p class="text-white text-center mt-2">
+                  Book your Republican-era photography session now!
+                </p>
+                <div class="text-center mt-3">
+                  <a href="../2.booking.html" class="inline-block bg-white text-rose-600 font-bold px-6 py-2 rounded-lg hover:bg-slate-100 transition-all transform hover:scale-105 shadow-md">
+                    📸 Book Now →
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-xl overflow-hidden shadow-md h-96 flex-shrink-0">
+              <img src="../../img/4.img-shanghai/4.9.2 shanghai-photograph/yuefen.png" alt="Republican-era Photography" class="w-full h-full object-cover">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 适合拍摄的景点 -->
+      <div class="mb-12">
+        <h2 class="text-3xl font-bold text-slate-800 mb-6">Best Locations for Republican-era Photography</h2>
+        <div id="app">
+          <div class="content">
+            <!-- dataInfo：滚动卡片数据  swiperIndex：滚动序列 @change：滚动事件-->
+            <cc-scrool-card :data-info="data" :swiper-index="swiperIndex" @change="swiperChangeClick" @open-lightbox="openLightbox"></cc-scrool-card>
+          </div>
+
+          <!-- Lightbox Modal -->
+          <div v-if="lightboxVisible" class="lightbox-modal" @click="closeLightbox">
+            <div class="lightbox-content" @click.stop>
+              <button class="lightbox-close" @click="closeLightbox">&times;</button>
+              <img :src="lightboxImage" alt="Enlarged view" class="lightbox-image">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 价格和拍摄详情 -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+        <div class="p-8">
+          <h2 class="text-3xl font-bold text-slate-800 mb-6">Pricing & Photoshoot Details</h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Qipao Rental Only -->
+            <div class="border border-gray-200 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-slate-800 mb-4">Qipao Rental Only</h3>
+              <p class="text-slate-600 mb-4">
+                Choose from a variety of elegant qipao styles from different periods. All costumes include basic accessories and makeup services.
+              </p>
+              <p class="text-slate-500 text-sm mb-4">Prices include makeup services and costumes</p>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                  <span class="text-slate-700">Basic</span>
+                  <span class="text-rose-600 font-bold">¥69-129/day</span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                  <span class="text-slate-700">Premium</span>
+                  <span class="text-rose-600 font-bold">¥139-299/day</span>
+                </div>
+                <div class="flex justify-between items-center py-2">
+                  <span class="text-slate-700">Custom</span>
+                  <span class="text-rose-600 font-bold">¥300+/day</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Photography + Qipao Package -->
+            <div class="border border-gray-200 rounded-xl p-6">
+              <h3 class="text-xl font-bold text-slate-800 mb-4">Photography + Qipao Package</h3>
+              <p class="text-slate-600 mb-4">
+                Complete packages include qipao rental, professional makeup & hair styling, and a dedicated photographer.
+              </p>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                  <span class="text-slate-700">Basic Package</span>
+                  <span class="text-rose-600 font-bold">¥399-699</span>
+                </div>
+                <div class="flex justify-between items-center py-2">
+                  <span class="text-slate-700">Premium Package</span>
+                  <span class="text-rose-600 font-bold">¥799-1299</span>
+                </div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-gray-100">
+                <p class="text-sm text-slate-600 mb-1"><strong>Basic Package:</strong> 1 outfit, 1 hour shoot, 20-30 photos, 5-8 retouched</p>
+                <p class="text-sm text-slate-600"><strong>Premium Package:</strong> 2 outfits, 2 hour shoot, 40-60 photos, 12-18 retouched</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Photo Gallery - Horizontal Layout -->
+          <div class="mt-8">
+            <h3 class="text-xl font-bold text-slate-800 mb-4">Perfect For</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div class="relative group">
+                <img src="../../img/4.img-shanghai/4.9.2 shanghai-photograph/kids.png" alt="Kids & Children" class="w-full h-48 object-cover rounded-lg">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg">
+                  <span class="text-white text-sm font-medium">Kids & Children</span>
+                </div>
+              </div>
+              <div class="relative group">
+                <img src="../../img/4.img-shanghai/4.9.2 shanghai-photograph/friends.png" alt="Besties & Groups" class="w-full h-48 object-cover rounded-lg">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg">
+                  <span class="text-white text-sm font-medium">Besties & Groups</span>
+                </div>
+              </div>
+              <div class="relative group">
+                <img src="../../img/4.img-shanghai/4.9.2 shanghai-photograph/couple.png" alt="Couples & Partners" class="w-full h-48 object-cover rounded-lg">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg">
+                  <span class="text-white text-sm font-medium">Couples & Partners</span>
+                </div>
+              </div>
+              <div class="relative group">
+                <img src="../../img/4.img-shanghai/4.9.2 shanghai-photograph/family.png" alt="Families" class="w-full h-48 object-cover rounded-lg">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg">
+                  <span class="text-white text-sm font-medium">Families</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Expert Guides Section -->
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-slate-800 mb-4">Expert Guides</h2>
+        <p class="text-slate-600">Discover our comprehensive travel guides for Shanghai</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group flex flex-col h-full">
+          <div class="relative h-48 overflow-hidden">
+            <img src="../../img/4.img-shanghai/4.8.1 shanghai-benbang/1_Benbang Smoked Fish1.jpg" alt="Shanghai Benbang Cuisine Guide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-6 flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center text-slate-500 text-sm mb-3">
+                <i class="iconfont icon-calendar w-4 h-4 mr-1"></i>
+                <span>July 20, 2026</span>
+                <span class="mx-2">|</span>
+                <i class="iconfont icon-ditu-dibiao w-4 h-4 mr-2"></i>
+                <span>Wander Any Place</span>
+              </div>
+              <h2 class="text-xl font-bold mb-3 group-hover:text-rose-600 transition-colors">
+                <a href="../travel-guides/shanghai-benbang-cuisine-guide-en.html">Beyond Soup Dumplings: Best Local Shanghai Food & Benbang Cuisine Guide</a>
+              </h2>
+              <p class="text-slate-600 mb-4 text-sm">Discover authentic Shanghai Benbang cuisine beyond Nanxiang soup dumplings. Explore classic cold dishes, signature hot plates, seasonal soups, and iconic street snacks.</p>
+            </div>
+            <a href="../travel-guides/shanghai-benbang-cuisine-guide-en.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
+              Read More
+              <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group flex flex-col h-full">
+          <div class="relative h-48 overflow-hidden">
+            <img src="../../img/img-travel-guide/5.shanghai-qipao-timeless-symbol6.jpg" alt="Shanghai Qipao Travel Guide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-6 flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center text-slate-500 text-sm mb-3">
+                <i class="iconfont icon-calendar w-4 h-4 mr-1"></i>
+                <span>July 22, 2026</span>
+                <span class="mx-2">|</span>
+                <i class="iconfont icon-ditu-dibiao w-4 h-4 mr-2"></i>
+                <span>Wander Any Place</span>
+              </div>
+              <h2 class="text-xl font-bold mb-3 group-hover:text-rose-600 transition-colors">
+                <a href="../travel-guides/shanghai-qipao-timeless-symbol.html">Why Qipao Is the Timeless Symbol of Shanghai Women's Elegance</a>
+              </h2>
+              <p class="text-slate-600 mb-4 text-sm">Discover why Qipao (Cheongsam) is the timeless symbol of Shanghai women's elegance. Explore the rich history, cultural significance, and best spots for qipao photoshoots in Shanghai.</p>
+            </div>
+            <a href="../travel-guides/shanghai-qipao-timeless-symbol.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
+              Read More
+              <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group flex flex-col h-full">
+          <div class="relative h-48 overflow-hidden">
+            <img src="../../img/4.img-shanghai/4.8.4 shanghai-funnyshops/5jellycat2.jpg" alt="Shanghai Unique Dining Experiences" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-6 flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center text-slate-500 text-sm mb-3">
+                <i class="iconfont icon-calendar w-4 h-4 mr-1"></i>
+                <span>July 24, 2026</span>
+                <span class="mx-2">|</span>
+                <i class="iconfont icon-ditu-dibiao w-4 h-4 mr-2"></i>
+                <span>Wander Any Place</span>
+              </div>
+              <h2 class="text-xl font-bold mb-3 group-hover:text-rose-600 transition-colors">
+                <a href="../travel-guides/shanghai-unique-dining-experiences.html">Shanghai Unique Dining Experiences: Best Themed & Immersive Restaurants 2026</a>
+              </h2>
+              <p class="text-slate-600 mb-4 text-sm">Discover Shanghai's most creative and immersive themed restaurants - from Hanfu feasts to rabbit cafes, Dunhuang murals to river view dining.</p>
+            </div>
+            <a href="../travel-guides/shanghai-unique-dining-experiences.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
+              Read More
+              <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <div class="mt-12 text-center">
+        <a href="../2.travel guide.html" class="px-8 py-3 bg-rose-600 text-white rounded-full font-medium hover:bg-rose-700 transition-colors shadow-lg hover:shadow-xl">
+          View All Travel Guides
+        </a>
+      </div>
+    </div>
+  </section>
+
+    <!-- Community Posts Section -->
+  <section class="py-16 bg-white" id="community-posts-section">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-6 text-slate-800 text-center">Shanghai Republican-era Photography Community Posts</h2>
+      <p class="text-slate-600 text-center">Share your Shanghai Republican-era Photography experiences with others and get tips from the community.</p>
+      <br>
+      <div id="shanghai-minguo-photography-community-posts-loading" class="text-center py-12">
+        <p class="mt-4 text-slate-500">Loading posts...</p>
+      </div>
+
+      <div id="shanghai-minguo-photography-community-posts-empty" class="hidden text-center py-12">
+        <p class="mt-4 text-slate-500">No community posts yet.</p>
+      </div>
+
+      <div id="shanghai-minguo-photography-community-posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 hidden">
+      </div>
+      <div class="mt-12 text-center">
+        <a href="../html/2.travel guide.html" class="px-8 py-3 border border-primary text-primary rounded-full font-medium hover:bg-rose-600 hover:text-white transition-colors">
+          View All Community Posts
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    // 自定义滚动卡片组件
+    Vue.component('cc-scrool-card', {
+      props: {
+        dataInfo: {
+          type: Object,
+          required: true
+        },
+        swiperIndex: {
+          type: Number,
+          default: 0
+        }
+      },
+      template: `
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div v-for="(img, index) in dataInfo.headImgs" :key="index" class="swiper-slide">
+              <div class="gallery-container relative w-full h-96 rounded-lg overflow-hidden cursor-pointer" @click="openLightbox(img)">
+                <img :src="img" :alt="dataInfo.goodsName" class="w-full h-full object-cover">
+                <div class="gallery-zoom-overlay" @click.stop="openLightbox(img)">
+                  <div class="gallery-zoom-icon" @click.stop="openLightbox(img)">
+                    <i class="iconfont icon-fangdaqi text-2xl"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-2 text-center">
+                <h3 class="font-bold">{{ getLocationName(index) }}</h3>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      `,
+      methods: {
+        getLocationName(index) {
+          const locations = ['Yu Garden', 'The Bund', 'Shanghai Film Park', 'City God Temple', 'Gongguan Mansions'];
+          return locations[index] || '';
+        },
+        openLightbox(img) {
+          this.$emit('open-lightbox', img);
+        }
+      },
+      mounted() {
+        // 这里可以初始化swiper
+        // 为了演示，我们简化处理
+      }
+    });
+
+    // 主应用
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          swiperIndex: 0,
+          lightboxVisible: false,
+          lightboxImage: '',
+          data: {
+            "headImgs": [
+              "../../img/4.img-shanghai/4.9.2 shanghai-photograph/yuyuan.png",
+              "../../img/4.img-shanghai/4.9.2 shanghai-photograph/bund.png",
+              "../../img/4.img-shanghai/4.9.2 shanghai-photograph/film.png",
+              "../../img/4.img-shanghai/4.9.2 shanghai-photograph/chenghuangmiao.png",
+              "../../img/4.img-shanghai/4.9.2 shanghai-photograph/gongguan.png"
+            ],
+            "goodsName": "Republican-era Photography Locations"
+          }
+        }
+      },
+      methods: {
+        swiperChangeClick(e) {
+          this.swiperIndex = e.detail.current;
+          console.log("swiperIndex = " + this.swiperIndex);
+        },
+        openLightbox(img) {
+          this.lightboxImage = img;
+          this.lightboxVisible = true;
+          document.body.style.overflow = 'hidden';
+        },
+        closeLightbox() {
+          this.lightboxVisible = false;
+          this.lightboxImage = '';
+          document.body.style.overflow = 'auto';
+        }
+      }
+    });
+  </script>
+  <style>
+    .content {
+      display: flex;
+      padding-top: 29px;
+    }
+    .swiper-container {
+      width: 100%;
+    }
+    .swiper-wrapper {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding-bottom: 16px;
+    }
+    .swiper-slide {
+      flex: 0 0 280px;
+    }
+    .swiper-pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 16px;
+      gap: 8px;
+    }
+    .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ccc;
+      display: inline-block;
+    }
+    .swiper-pagination-bullet-active {
+      background: #f43f5e;
+    }
+
+    /* Gallery Zoom Styles */
+    .gallery-container:hover .gallery-zoom-overlay {
+      opacity: 1;
+    }
+    .gallery-zoom-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .gallery-zoom-icon {
+      width: 3.5rem;
+      height: 3.5rem;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .gallery-zoom-icon svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: white;
+    }
+
+    /* Lightbox Modal Styles */
+    .lightbox-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+    .lightbox-image {
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 36px;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-close:hover {
+      color: #f43f5e;
+    }
+  </style>
+
+
+<script src="../../js/common.js"></script>
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <i class="iconfont icon-ditu-dibiao text-rose-500 mr-2"></i>
+            Wander Any Place
+          </h3>
+          <p class="text-gray-400 mb-4">
+            Your ultimate guide to exploring China. Discover the best destinations, plan your trip, and make unforgettable memories.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="../../index.html" class="hover:text-rose-400 transition-colors">Home</a></li>
+            <li><a href="../2.Destination.html" class="hover:text-rose-400 transition-colors">Destinations</a></li>
+            <li><a href="../2.travel guide.html" class="hover:text-rose-400 transition-colors">Travel Guides</a></li>
+            <li><a href="../2.booking.html" class="hover:text-rose-400 transition-colors">Booking Services</a></li>
+            <li><a href="../2.aboutus.html" class="hover:text-rose-400 transition-colors">About Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Resources</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="html/2.pre-visa.html" class="hover:text-rose-400 transition-colors">Visa Information</a></li>
+            <li><a href="html/2.pre-app.html" class="hover:text-rose-400 transition-colors">Necessary Apps</a></li>
+            <li><a href="html/2.payment-methods.html" class="hover:text-rose-400 transition-colors">Payment Methods</a></li>
+            <li><a href="html/2.transportation.html" class="hover:text-rose-400 transition-colors">Transportation</a></li>
+            <li><a href="html/2.essential packing copy.html" class="hover:text-rose-400 transition-colors">Essential Packing</a></li>
+          </ul>
+        </div>
+
+         <div>
+          <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+          <p class="text-slate-400">Email: wanderanyplace@gmail.com</p>
+        </div>
+      </div>
+  </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  loadCommunityPosts({
+    tag: 'minguophotography',
+    containerId: 'shanghai-minguo-photography-community-posts-container',
+    loadingId: 'shanghai-minguo-photography-community-posts-loading',
+    emptyId: 'shanghai-minguo-photography-community-posts-empty',
+    pageSize: 3
+  });
+}); 
+</script>
+</body>
+</html>

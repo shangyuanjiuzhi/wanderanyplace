@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L42GKWJLGB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-L42GKWJLGB");
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City Wander - Shanghai Travel Guide</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="../../iconfont/iconfont.js"></script>
+  <link rel="stylesheet" href="../../iconfont/iconfont.css">
+  <link rel="stylesheet" href="../../css/style2.css">
+  <script src="../../js/gallery-lightbox.js"></script>
+  <script src="../../js/common.js"></script>
+  <script src="../../js/community.js"></script>
+  <script src="../../js/city-wander.js"></script>
+</head>
+<body class="bg-white font-sans text-slate-800">
+  <!-- 顶部导航 -->
+   <header class="mobile-header-nav bg-gray-900" style="box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+    <div class="nav-container">
+      <a href="../../index.html" class="logo" id="mobileLogo" style="display: flex; align-items: center; text-decoration: none;">
+        <i class="iconfont icon-ditu-dibiao" style="color: #F43F5E;"></i>
+        <span style="color: white;">Wander Any Place</span>
+      </a>
+      <div class="desktop-nav" id="desktopNavLinks" style="color: white;">
+        <a href="../../index.html" style="color: white;">Home</a>
+        <a href="../2.Destination.html" style="color: white;">Destinations</a>
+        <a href="../2.travel guide.html" style="color: white;">Travel Guides</a>
+        <a href="../2.booking.html" style="color: white;">Booking Services</a>
+        <a href="../2.aboutus.html" style="color: white;">About Us</a>
+      </div>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <span style="background-color: white;"></span>
+        <span style="background-color: white;"></span>
+        <span style="background-color: white;"></span>
+      </button>
+    </div>
+  </header>
+    <!-- 移动端导航覆盖层 -->
+    <div class="mobile-nav-overlay" id="mobileNav">
+      <button class="nav-close-btn" onclick="toggleMobileMenu()">&times;</button>
+      <a href="../../index.html" onclick="toggleMobileMenu()">Home</a>
+      <a href="../2.Destination.html" onclick="toggleMobileMenu()">Destinations</a>
+      <a href="../2.travel guide.html" onclick="toggleMobileMenu()">Travel Guides</a>
+      <a href="../2.booking.html" onclick="toggleMobileMenu()">Booking Services</a>
+      <a href="../2.aboutus.html" onclick="toggleMobileMenu()">About Us</a>
+    </div>
+
+  <!-- 页面标题 -->
+  <header class="bg-gradient-to-r from-rose-600 to-rose-500 text-white py-16" style="margin-top: 70px;">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">City Wander in Shanghai</h1>
+      <p class="text-lg text-white/90 max-w-2xl mx-auto">
+        Explore Shanghai's vibrant streets and discover the city's authentic charm through our curated walking routes
+      </p>
+    </div>
+  </header>
+  <!-- 介绍部分 -->
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+        <div class="p-8">
+          <h2 class="text-3xl font-bold text-slate-800 mb-6">About Shanghai Walking</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="flex flex-col">
+              <p class="text-slate-600 mb-4">
+                Shanghai's <span class="text-rose-600 font-bold">streets</span> are a fascinating blend of East and West, tradition and modernity. From the historic Bund with its colonial architecture to the futuristic skyline of Lujiazui, every corner tells a unique story.
+              </p>
+              <p class="text-slate-600 mb-4">
+                A walk through Shanghai's neighborhoods is like exploring a living museum. You'll encounter hidden alleyways, trendy cafes, art galleries, and local street food stalls that capture the city's dynamic spirit.
+              </p>
+              <p class="text-slate-600 mb-6">
+                Our curated walking routes focus on Shanghai's most iconic and charming neighborhoods. Each route offers a unique perspective on the city's culture, history, and contemporary life.
+              </p>
+              <!-- Booking Advertisement -->
+              <div class="mt-4 p-4 bg-gradient-to-r from-rose-500 to-pink-500 rounded-xl shadow-lg">
+                <p class="text-white font-bold text-center text-lg">
+                  🎉 Ready to Explore Shanghai's City Walk? 🎉
+                </p>
+                <p class="text-white text-center mt-2">
+                  Book your Shanghai walking tour now!
+                </p>
+                <div class="text-center mt-3">
+                  <a href="../2.booking.html" class="inline-block bg-white text-rose-600 font-bold px-6 py-2 rounded-lg hover:bg-slate-100 transition-all transform hover:scale-105 shadow-md">
+                    🚶 Book Now →
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-lg overflow-hidden shadow-md h-fit">
+              <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/shanghai-walk.jpeg" alt="Shanghai City" class="w-full object-cover">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 六条线路 -->
+      <div class="mb-12">
+        <h2 class="text-3xl font-bold text-slate-800 mb-6">Recommended Walking Routes</h2>
+        
+        <!-- Route 1: 南京东路 & 外滩 & 陆家嘴 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-6 route-card">
+          <div>
+            <div class="mb-3">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Line 1</span>
+                <span class="text-slate-500 text-sm">3-4 hours | 5-6 km</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-800">南京东路 & 外滩 & 陆家嘴 <br>East Nanjing Road & Bund & Lujiazui</h3>
+            </div>
+            <!-- Brief Introduction -->
+            <p class="text-slate-600 mb-4 text-sm leading-relaxed">
+              Experience Shanghai's most iconic landmarks: stroll along East Nanjing Road's bustling shopping street, admire the colonial architecture on the Bund, take a ferry across the Huangpu River, and marvel at Lujiazui's futuristic skyline.
+            </p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-stretch">
+              <!-- Left Column: Route Map -->
+              <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6">
+                <div class="mb-4">
+                  <h4 class="font-bold text-blue-800 text-lg">Route Map</h4>
+                  <p class="text-xs text-blue-600">Line 1: 南京东路 -> 外滩 -> 陆家嘴 East Nanjing Road -> Bund -> Lujiazui</p>
+                </div>
+                
+                <!-- Route Steps -->
+                <div class="space-y-4">
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">1</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">East Nanjing Road (南京东路)</h5>
+                      <p class="text-sm text-slate-500">Starting point: People's Square Station. Shanghai's most famous shopping street with department stores and local snacks. See details <a href="4.5.1 shanghai-nanjingroad.html" class="text-blue-600 underline hover:text-blue-800">here</a></p>
+                      <div class="mt-2 flex flex-wrap gap-2">
+                        <span class="flex flex-col items-start gap-1 px-3 py-1.5 bg-orange-100 text-orange-700 text-xs rounded-full font-medium">
+                          <span>🥟 Recommended Food: <br>
+                            1、小笼包 Xiao Long Bao  (Nanxiang Steamed Bun Restaurant) <br>
+                            2、鲜肉月饼Fresh Meat Mooncake (Sheng Dacheng)</span>
+                          <span class="text-orange-600">For more details, see <a href="4.8.2 shanghai-special-snacks.html" class="underline hover:text-orange-900 transition-colors">Shanghai Special Snacks</a></span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">2</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">The Bund (外滩)</h5>
+                      <p class="text-sm text-slate-500">Admire the historic colonial buildings and the best view of Lujiazui skyline. See details <a href="4.1.1 shanghai-bund.html" class="text-blue-600 underline hover:text-blue-800">here</a></p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">3</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">Huangpu River Ferry (黄浦江轮渡)</h5>
+                      <p class="text-sm text-slate-500">Take the ferry from Bund to Lujiazui for a scenic river crossing with great photo opportunities. See details <a href="4.1.1.1 shanghai-huangpu-river-cruise-ferry.html" class="text-blue-600 underline hover:text-blue-800">here</a></p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">4</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">Lujiazui (陆家嘴)</h5>
+                      <p class="text-sm text-slate-500">Explore Shanghai's financial district with iconic skyscrapers. See details <a href="4.1.2 shanghai-lujiazui.html" class="text-blue-600 underline hover:text-blue-800">here</a></p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">5</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">Oriental Pearl Tower (东方明珠)</h5>
+                      <p class="text-sm text-slate-500">Visit Shanghai's iconic landmark. See details <a href="4.1.3 shanghai-orientalpearl.html" class="text-blue-600 underline hover:text-blue-800">here</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Right Column: Gallery -->
+              <div class="h-full flex flex-col">
+                <div class="relative rounded-xl overflow-hidden shadow-md flex-1 min-h-[300px]">
+         
+                              
+                  <div class="map-carousel w-full" id="line1-carousel">
+                    <div class="carousel-inner flex items-center">
+                      <div class="carousel-item active flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/1routemap.jpeg" alt="Bund" class="gallery-image h-48">
+                          <div class="gallery-caption">
+                            <p>南京东路 -> 外滩 -> 陆家嘴</p>
+                            <p>East Nanjing Road -> Bund -> Lujiazui</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.1.1 Bund/Bund1.jpg', 'line1')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                   
+               
+               
+                    </div>
+                  </div>
+        
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Route 2: 愚园路 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-8 route-card">
+          <div class="p-8">
+            <div class="mb-4">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Line 2</span>
+                <span class="text-slate-500 text-sm">3-4 hours | 1.5-2 km</span>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-800">愚园路 Yuyuan Road</h3>
+            </div>
+            <!-- Brief Introduction -->
+            <p class="text-slate-600 mb-6 leading-relaxed">
+              Yuyuan Road is a hidden gem that combines historical charm, trendy shops, and artistic vibe. It's perfect for a leisurely half-day stroll. Here's a non-backtracking Citywalk route and guide. Recommended to walk from east to west, covering about 1.5-2 km, and taking approximately 3-4 hours to explore and enjoy local food.
+            </p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <!-- Left Column: Route Map -->
+              <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6">
+                <div class="mb-4">
+                  <h4 class="font-bold text-green-800 text-lg">Route Map</h4>
+                  <p class="text-xs text-green-600">Line 2: 愚园路 Yuyuan Road - From Jiangsu Road to Zhongshan Park</p>
+                </div>
+                <div class="space-y-4">
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">1</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">Jiangsu Road Subway Station (江苏路地铁站)</h5>
+                      <p class="text-sm text-slate-500">Starting point: Exit 4, Line 2/11</p>
+                      <div class="mt-2 flex flex-wrap gap-2">
+                        <span class="flex flex-col items-start gap-1 px-3 py-1.5 bg-green-100 text-green-700 text-xs rounded-full font-medium">
+                          <span>🛍️ Recommended Shops: <br>
+                            1、Artist La Pie: A French bakery in an old villa, perfect for afternoon tea <br>
+                            2、Money Shops: A Western restaurant in a standalone villa with sunny outdoor seating</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">2</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">Changning Children's Palace (长宁区少年宫)</h5>
+                      <p class="text-sm text-slate-500">Former Wang Mansion, a stunning Gothic castle-style building with red bricks and pointed roofs</p>
+                      <div class="mt-2 flex flex-wrap gap-2">
+                        <span class="flex flex-col items-start gap-1 px-3 py-1.5 bg-green-100 text-green-700 text-xs rounded-full font-medium">
+                          <span>🛍️ Recommended Shops: <br>
+                            1、Yuyuan Public Market: Old factory turned market with authentic Shanghai snacks on 1F</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">3</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">Yongquan Fang (涌泉坊)</h5>
+                      <p class="text-sm text-slate-500">Classic Shanghai new-style lilong with Spanish architecture, known as one of "Shanghai's Most Beautiful Lilongs"</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">4</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">Qishan Village (岐山村)</h5>
+                      <p class="text-sm text-slate-500">Former residence of Qian Xuesen, Shi Zhecun and other celebrities, with well-preserved old Shanghai lilong style</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">5</div>
+                    <div>
+                      <h5 class="font-semibold text-green-700">Zhongshan Park Subway Station (中山公园地铁站)</h5>
+                      <p class="text-sm text-slate-500">End point: Exit 8, Line 2/3/4, or continue walking to Jing'an Temple</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Right Column: Gallery -->
+              <div class="h-full flex flex-col">
+                <div class="relative rounded-xl overflow-hidden shadow-md flex-1 min-h-[300px]">
+                  <button class="carousel-control-btn carousel-control-prev" onclick="prevSlide('line2')">
+                    <i class="iconfont icon-zuojiantou3 w-6 h-6"></i>
+                  </button>
+
+                   <div class="map-carousel w-full" id="line2-carousel">
+                    <div class="carousel-inner flex items-center">
+                      <div class="carousel-item active flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/2yuyuan.jpg" alt="Yuyuan Road Map" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>Yuyuan Road Citywalk Map</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/2yuyuan.jpg', 'line2')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/2yuyuan2.jpg" alt="Changning Children's Palace" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>Changning Children's Palace (长宁区少年宫)</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/2yuyuan2.jpg', 'line2')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/2yuyuan3.jpg" alt="Yongquan Fang" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>Yongquan Fang (涌泉坊)</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/2yuyuan3.jpg', 'line2')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/2yuyuan4.jpg" alt="Qishan Village" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>Qishan Village (岐山村)</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/2yuyuan4.jpg', 'line2')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/2yuyuan5.jpg" alt="Artist La Pie" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>Artist La Pie</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/2yuyuan5.jpg', 'line2')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/2yuyuan6.jpg" alt="Money Shops" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>Money Shops</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/2yuyuan6.jpg', 'line2')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/2yuyuan7.jpg" alt="Yuyuan Public Market" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>Yuyuan Public Market (愚园公共市集)</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/2yuyuan7.jpg', 'line2')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="carousel-control-btn carousel-control-next" onclick="nextSlide('line2')">
+                    <i class="iconfont icon-youjiantou2 w-6 h-6"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Route 3: 二次元路线 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-8 route-card">
+          <div>
+            <div class="mb-3">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">Line 3</span>
+                <span class="text-slate-500 text-sm">2-3 hours | 4-5 km</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-800">二次元路线 Anime & Gaming Route</h3>
+            </div>
+            <!-- Brief Introduction -->
+            <p class="text-slate-600 mb-4 text-sm leading-relaxed">
+              A route connecting nearby anime merchandise stores that can be explored in one go. Recommended: Bailian ZX -> No.1 Department Store C -> Huasheng Pavilion -> Baimi Xiangxie -> Dimei -> Joy City. Can also start from Joy City and take subway to Bailian ZX.
+            </p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-stretch">
+              <!-- Left Column: Route Map -->
+              <div class="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-6">
+                <div class="mb-4">
+                  <h4 class="font-bold text-purple-800 text-lg">Route Map</h4>
+                  <p class="text-xs text-purple-600">Line 3: 二次元路线 Anime & Gaming Route</p>
+                </div>
+                <div class="space-y-4">
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">1</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">Bailian ZX (百联ZX)</h5>
+                      <p class="text-sm text-slate-500">📍Exit 3, East Nanjing Road Station. Wide range of IP merchandise, one of Shanghai's best anime stores</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">2</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">No.1 Department Store C (第一百货C馆)</h5>
+                      <p class="text-sm text-slate-500">8 min walk. Summer brings many vendors on 4F</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">3</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">Huasheng Pavilion & New World City (华盛馆 & 新世界城)</h5>
+                      <p class="text-sm text-slate-500">Only 2-3 min from Dept Store C. New World City nearby</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">4</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">Baimi Xiangxie (百米香榭)</h5>
+                      <p class="text-sm text-slate-500">5 min via underground passage to Exit 14, People's Square (recommended in summer)</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">5</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">Dimei Shopping Center (迪美购物中心)</h5>
+                      <p class="text-sm text-slate-500">10 min via underground passage to Exit 1B. Summer vendors, great AC</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">6</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">Joy City (大悦城)</h5>
+                      <p class="text-sm text-slate-500">1 stop on Line 8, Exit 1 at Qufu Road</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <!-- Right Column: Gallery -->
+              <div class="h-full flex flex-col">
+                <div class="relative rounded-xl overflow-hidden shadow-md flex-1 min-h-[300px]">
+                  <button class="carousel-control-btn carousel-control-prev" onclick="prevSlide('line3')">
+                    <i class="iconfont icon-zuojiantou3 w-6 h-6"></i>
+                  </button>
+                  <div class="map-carousel w-full" id="line3-carousel">
+                    <div class="carousel-inner flex items-center h-full">
+                      <div class="carousel-item active flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/3erciyuan.jpeg" alt="Anime Route Map" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>Anime & Gaming Route Map</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/3erciyuan.jpg', 'line3')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/3erciyuan3.jpg" alt="Bailian ZX" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>Bailian ZX (百联ZX)</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/3erciyuan3.jpg', 'line3')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/3erciyuan4.jpg" alt="No.1 Department Store C" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>No.1 Department Store C (第一百货C馆)</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/3erciyuan4.jpg', 'line3')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/3erciyuan5.jpg" alt="Huasheng Pavilion" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>Huasheng Pavilion & New World City</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/3erciyuan5.jpg', 'line3')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/3erciyuan6.jpg" alt="Baimi Xiangxie" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>Baimi Xiangxie (百米香榭)</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/3erciyuan6.jpg', 'line3')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/3erciyuan7.jpg" alt="Dimei Shopping Center" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>Dimei Shopping Center (迪美购物中心)</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/3erciyuan7.jpg', 'line3')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="carousel-control-btn carousel-control-next" onclick="nextSlide('line3')">
+                    <i class="iconfont icon-youjiantou2 w-6 h-6"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Route 4: 武康路 & 安福路 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-8 route-card">
+          <div class="p-8">
+            <div class="mb-4">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">Line 4</span>
+                <span class="text-slate-500 text-sm">2-3 hours | 3-4 km</span>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-800">武康路 & 安福路 Wukang Road & Anfu Road</h3>
+            </div>
+            <!-- Brief Introduction -->
+            <p class="text-slate-600 mb-6 leading-relaxed">
+              Experience Shanghai's French Concession romance. Wukang Road & Anfu Road Citywalk combines old Shanghai's vintage charm with modern trendiness. This 1.5km route takes 3-4 hours, capturing the essence of Shanghai.
+            </p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <!-- Left Column: Route Map -->
+              <div class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6">
+                <div class="mb-4">
+                  <h4 class="font-bold text-orange-800 text-lg">Route Map</h4>
+                  <p class="text-xs text-orange-600">Line 4: Wukang Road -> Anfu Road</p>
+                </div>
+                <div class="space-y-4">
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">1</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">Wukang Building (武康大楼)</h5>
+                      <p class="text-sm text-slate-500">Start from Exit 7, Jiaotong University Station (Line 10/11). 5-min walk to this iconic landmark shaped like a ship at 5-road intersection. Best photo spots: Old Wheat Cafe crosswalk & Wukang Building Post Office.See details <a href="4.5.1 shanghai-nanjingroad.html" class="text-blue-600 underline hover:text-blue-800">here</a></p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">2</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">Wukang Road (武康路)</h5>
+                      <p class="text-sm text-slate-500">A living architectural museum with French sycamore trees and historic villas. Key spots: Ba Jin Former Residence (113 Wukang Rd), Romeo's Balcony (210 Wukang Rd), Wukang Yard - a restored courtyard with galleries & cafes</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">3</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">Anfu Road (安福路)</h5>
+                      <p class="text-sm text-slate-500">Shanghai's trend hub with fashionistas, street photographers, and hip boutiques.</p>
+                      <div class="mt-2 flex flex-wrap gap-2">
+                        <span class="flex flex-col items-start gap-1 px-3 py-1.5 bg-orange-100 text-orange-700 text-xs rounded-full font-medium">
+                          <span>🛍️ Recommended Shops: <br>
+                            1、Duozhuoyu Secondhand Store: 300 Anfu Rd - Trendy secondhand fashion <br>
+                            2、Sunflour Bakery: 308 Anfu Rd - Popular bakery with delicious pastries <br>
+                            3、RAC Bar: 322 Anfu Rd - Stylish bar & restaurant <br>
+                            4、HARMAY: Industrial-style beauty store</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">4</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">Route Extensions</h5>
+                      <p class="text-sm text-slate-500">Option A: Sinan Road (15-min walk) - quiet vintage vibe with garden villas & Sinan Bookstore. see detail <a href="4.2.5 shanghai-sinan.html" class="text-blue-600 underline hover:text-blue-800">here</a></p>
+                        <p class="text-sm text-slate-500">Option B: Huaihai Middle Road - seamless transition from artsy to commercial, visit TX Huaihai for latest trends</p>
+
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Right Column: Gallery -->
+              <div class="h-full flex flex-col">
+                <div class="relative rounded-xl overflow-hidden shadow-md flex-1 min-h-[300px]">
+                  <button class="carousel-control-btn carousel-control-prev" onclick="prevSlide('line4')">
+                    <i class="iconfont icon-zuojiantou3 w-6 h-6"></i>
+                  </button>
+                  <div class="map-carousel w-full" id="line4-carousel">
+                    <div class="carousel-inner flex items-center">
+                      <div class="carousel-item active flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/4line4.jpg" alt="Wukang & Anfu Route Map" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>Wukang & Anfu Route Map</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/4line4.jpg', 'line4')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/4line41.jpg" alt="Ba Jin Former Residence" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>Ba Jin Former Residence (巴金故居)</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/4line41.jpg', 'line4')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/4line42.jpg" alt="Romeo Balcony" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>Romeo Balcony (罗密欧阳台)</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/4line42.jpg', 'line4')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/4line43.jpg" alt="Ferguson Lane" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>Ferguson Lane (武康庭)</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/4line43.jpg', 'line4')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/4line44.jpg" alt="Ferguson Lane Interior" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>Ferguson Lane Interior (武康庭内部)</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/4line44.jpg', 'line4')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/4line45.jpg" alt="Duozhuoyu" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>Duozhuoyu Secondhand Store (多抓鱼循环商店)</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/4line45.jpg', 'line4')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/4line46.jpg" alt="Sunflour Bakery" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>Sunflour Bakery</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/4line46.jpg', 'line4')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/4line47.jpg" alt="HARMAY" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>HARMAY Beauty Store (话梅)</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/4line47.jpg', 'line4')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="carousel-control-btn carousel-control-next" onclick="nextSlide('line4')">
+                    <i class="iconfont icon-youjiantou2 w-6 h-6"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Route 5: 巨富长 & 乌鲁木齐中路 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-8 route-card">
+          <div class="p-8">
+            <div class="mb-4">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium">Line 5</span>
+                <span class="text-slate-500 text-sm">2-2.5 hours | 3-4 km</span>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-800">巨富长 & 乌鲁木齐中路 Julu Road, Fumin Road, Changde Road & Middle Urumqi Road</h3>
+            </div>
+            <!-- Brief Introduction -->
+            <p class="text-slate-600 mb-6 leading-relaxed">
+              Start from Exit 8, Changshu Road Station. Walk: Changshu Road → Changle Road → Fumin Road → Julu Road → Middle Urumqi Road (approx. 3 hours). This route blends food, fashion, cafes, and culture in Shanghai's trendy "Jufuchang" area.
+            </p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <!-- Left Column: Route Map -->
+              <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6">
+                <div class="mb-4">
+                  <h4 class="font-bold text-red-800 text-lg">Route Map</h4>
+                  <p class="text-xs text-red-600">Line 5: 常熟路->长乐路->富民路->巨鹿路->乌鲁木齐中路 Changshu -> Changle -> Fumin -> Julu -> Middle Urumqi</p>
+                </div>
+                <div class="space-y-4">
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">1</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">Start: Changshu Road Station Exit 8</h5>
+                      <p class="text-sm text-slate-500">Start from Changshu Road Station Exit 8, walk to Changle Road. Recommended spots along the way:</p>
+                      <div class="mt-2 flex flex-wrap gap-2">
+                        <span class="flex flex-col items-start gap-1 px-3 py-1.5 bg-red-100 text-red-700 text-xs rounded-full font-medium">
+                          <span>🍻 Recommended Bars & Cafes: <br>
+                            1、esc.coffee: industrial-style specialty coffee <br>
+                            2、8PINTS 八品脱: craft beer bar</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">2</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">Changle Road</h5>
+                      <p class="text-sm text-slate-500">Walk to Fumin Road. Recommended spots along the way:</p>
+                      <div class="mt-2 flex flex-wrap gap-2">
+                        <span class="flex flex-col items-start gap-1 px-3 py-1.5 bg-red-100 text-red-700 text-xs rounded-full font-medium">
+                         <span>🍽️ Recommended Food: <br>
+                            1、Maodou Ayi: authentic Shanghai cuisine (braised pork, eel)</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">3</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">Fumin Road</h5>
+                      <p class="text-sm text-slate-500">Walk 1 km to Julu Road. Recommended spots along the way:</p>
+                      <div class="mt-2 flex flex-wrap gap-2">
+                        <span class="flex flex-col items-start gap-1 px-3 py-1.5 bg-red-100 text-red-700 text-xs rounded-full font-medium">
+                          <span>🍽️ Recommended Food: <br>
+                            1、Xunfu Shitang: Thai fusion</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">4</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">Julu Road</h5>
+                      <p class="text-sm text-slate-500">From Julu Road, head towards Changshu Road and Changle Road to reach Middle Urumqi Road. Recommended visits:</p>
+                      <div class="mt-2 flex flex-wrap gap-2">
+                        <span class="flex flex-col items-start gap-1 px-3 py-1.5 bg-red-100 text-red-700 text-xs rounded-full font-medium">
+                          <span>🏛️ Recommended Site: <br>
+                            1、Visit Cai Yuanpei Former Residence</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">5</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">Middle Urumqi Road</h5>
+                      <p class="text-sm text-slate-500">From Middle Urumqi Road, walk to Wuyuan Road. Recommended spots along the way:</p>
+                      <div class="mt-2 flex flex-wrap gap-2">
+                        <span class="flex flex-col items-start gap-1 px-3 py-1.5 bg-red-100 text-red-700 text-xs rounded-full font-medium">
+                          <span>☕ Recommended Coffee: <br>
+                            1、Jufu: Basque cheesecake & coffee</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Right Column: Gallery -->
+              <div class="h-full flex flex-col">
+                <div class="relative rounded-xl overflow-hidden shadow-md flex-1 min-h-[300px]">
+                  <button class="carousel-control-btn carousel-control-prev" onclick="prevSlide('line5')">
+                    <i class="iconfont icon-zuojiantou3 w-6 h-6"></i>
+                  </button>
+                  <div class="map-carousel w-full" id="line5-carousel">
+                    <div class="carousel-inner flex items-center">
+                      <div class="carousel-item active flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/5line.jpg" alt="Route Map" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>巨富长 & 乌鲁木齐中路 Route Map</p>
+                            <p>Julu, Fumin, Changle & Middle Urumqi Road</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/5line.jpg', 'line5')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/5line2.jpg" alt="esc.coffee" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>esc.coffee</p>
+                            <p>Industrial-style specialty coffee</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/5line2.jpg', 'line5')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/5line3.jpg" alt="8PINTS" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>八品脱 8PINTS</p>
+                            <p>Craft beer bar</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/5line3.jpg', 'line5')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/5line4.jpg" alt="Cai Yuanpei Former Residence" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>蔡元培故居</p>
+                            <p>Cai Yuanpei Former Residence</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/5line4.jpg', 'line5')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/5line5.jpg" alt="Maodou Ayi" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>毛豆阿姨</p>
+                            <p>Authentic Shanghai cuisine</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/5line5.jpg', 'line5')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/5line6.jpg" alt="Jufu" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>聚福 Jufu</p>
+                            <p>Basque cheesecake & coffee</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/5line6.jpg', 'line5')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/5line8.jpg" alt="Xunfu Shitang" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>旬福食堂 Xunfu Shitang</p>
+                            <p>Thai fusion cuisine</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/5line8.jpg', 'line5')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="carousel-control-btn carousel-control-next" onclick="nextSlide('line5')">
+                    <i class="iconfont icon-youjiantou2 w-6 h-6"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Route 6: 淮海中路 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-8 route-card">
+          <div class="p-8">
+            <div class="mb-4">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">Line 6</span>
+                <span class="text-slate-500 text-sm">2-3 hours | 2-3 km</span>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-800">淮海中路 Huaihai Middle Road</h3>
+            </div>
+            <!-- Brief Introduction -->
+            <p class="text-slate-600 mb-6 leading-relaxed">
+              This route covers Huaihai Middle Road's trendiest landmarks and viral shops. Starting from South Shaanxi Road Station, walk eastward for shopping, dining, and photos. Total time: 3-4 hours.
+            </p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <!-- Left Column: Route Map -->
+              <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6">
+                <div class="mb-4">
+                  <h4 class="font-bold text-indigo-800 text-lg">Route Map</h4>
+                  <p class="text-xs text-indigo-600">Line 6: Huaihai Middle Road - Eastward from South Shaanxi Road</p>
+                </div>
+                <div class="space-y-4">
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">1</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">iapm Mall (环贸iapm)</h5>
+                      <p class="text-sm text-slate-500">Start from Exit 7, South Shaanxi Road Station (Line 1/10). High-end mall with modern architecture and rooftop garden</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">2</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">HAUS NOWHERE</h5>
+                      <p class="text-sm text-slate-500">4-floor concept space like an art exhibition. 2F giant face installation is iconic. Gentle Monster flagship with Jennie's collection</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">3</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">niko and...</h5>
+                      <p class="text-sm text-slate-500">World's largest flagship (3 floors). 1F: Japanese goods & cafe. 2F: fashion & homeware</p>
+                    </div>
+                  </div>
+               
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">4</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">MINISO (PINK Store)</h5>
+                      <p class="text-sm text-slate-500">Pink-themed 2-story store with giant Lotso bear. Sanrio & Disney collaborations. Perfect for photos</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">5</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">TX Huaihai & FARMER BOB</h5>
+                      <p class="text-sm text-slate-500">TX Huaihai: youth culture hub with streetwear and art exhibitions. FARMER BOB: blind box heaven for toy collectors</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">6</div>
+                    <div>
+                      <h5 class="font-semibold text-slate-800">HAI550 & MASONPRINCE</h5>
+                      <p class="text-sm text-slate-500">HAI550: century-old theater turned sustainable lifestyle hub. MASONPRINCE: retro sportswear with iconic "fire house" facade</p>
+                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Right Column: Gallery -->
+              <div class="h-full flex flex-col">
+                <div class="relative rounded-xl overflow-hidden shadow-md flex-1 min-h-[300px]">
+                  <button class="carousel-control-btn carousel-control-prev" onclick="prevSlide('line6')">
+                    <i class="iconfont icon-zuojiantou3 w-6 h-6"></i>
+                  </button>
+                  <div class="map-carousel w-full" id="line6-carousel">
+                    <div class="carousel-inner flex items-center">
+                      <div class="carousel-item active flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/6line.jpg" alt="HAUS NOWHERE" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>HAUS NOWHERE</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/6line.jpg', 'line6')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/6line2.jpg" alt="HAUS NOWHERE Interior" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>HAUS NOWHERE Interior</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/6line2.jpg', 'line6')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/6line3.jpg" alt="niko and..." class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>niko and...</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/6line3.jpg', 'line6')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/6line5.jpg" alt="MINISO PINK Store" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>MINISO (PINK Store)</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/6line5.jpg', 'line6')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/6line6.jpg" alt="TX Huaihai" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>FARMER BOB</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/6line6.jpg', 'line6')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/6line62.jpg" alt="FARMER BOB" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>TX Huaihai</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/6line62.jpg', 'line6')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item hidden flex justify-center">
+                        <div class="gallery-container relative">
+                          <img src="../../img/4.img-shanghai/4.9.1 shanghai-citywander/6line7.jpg" alt="HAI550" class="gallery-image">
+                          <div class="gallery-caption">
+                            <p>HAI550</p>
+                          </div>
+                          <div class="gallery-zoom-overlay">
+                            <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.9.1 shanghai-citywander/6line7.jpg', 'line6')">
+                              <i class="iconfont icon-fangdaqi text-2xl"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="carousel-control-btn carousel-control-next" onclick="nextSlide('line6')">
+                    <i class="iconfont icon-youjiantou2 w-6 h-6"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 游览提示 -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+        <div class="p-8">
+          <h2 class="text-3xl font-bold text-slate-800 mb-6">Tips for Shanghai Walking</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="text-center p-6 bg-blue-50 rounded-xl">
+              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="iconfont icon-shijian text-blue-600 text-xl"></i>
+              </div>
+              <h3 class="font-bold text-slate-800 mb-2">Best Time</h3>
+              <p class="text-slate-600 text-sm">Early morning or late afternoon to avoid crowds and enjoy the best lighting for photos.</p>
+            </div>
+            <div class="text-center p-6 bg-green-50 rounded-xl">
+              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="iconfont icon-zoulu text-green-600 text-xl"></i>
+              </div>
+              <h3 class="font-bold text-slate-800 mb-2">Getting Around</h3>
+              <p class="text-slate-600 text-sm">Most neighborhoods are accessible by subway. Consider using shared bikes to cover longer distances.</p>
+            </div>
+            <div class="text-center p-6 bg-purple-50 rounded-xl">
+              <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="iconfont icon-jinzhi text-purple-600 text-xl"></i>
+              </div>
+              <h3 class="font-bold text-slate-800 mb-2">Etiquette</h3>
+              <p class="text-slate-600 text-sm">Respect local residents' privacy. Ask permission before taking photos of people or private spaces.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+
+<script src="../../js/common.js"></script>
+ <!-- Expert Guides Section -->
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-slate-800 mb-4">Expert Guides</h2>
+        <p class="text-slate-600">Discover our comprehensive travel guides for Shanghai</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group flex flex-col h-full">
+          <div class="relative h-48 overflow-hidden">
+            <img src="../../img/4.img-shanghai/4.8.1 shanghai-benbang/1_Benbang Smoked Fish1.jpg" alt="Shanghai Benbang Cuisine Guide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-6 flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center text-slate-500 text-sm mb-3">
+                <i class="iconfont icon-calendar w-4 h-4 mr-1"></i>
+                <span>July 20, 2026</span>
+                <span class="mx-2">|</span>
+                <i class="iconfont icon-ditu-dibiao w-4 h-4 mr-2"></i>
+                <span>Wander Any Place</span>
+              </div>
+              <h2 class="text-xl font-bold mb-3 group-hover:text-rose-600 transition-colors">
+                <a href="../travel-guides/shanghai-benbang-cuisine-guide-en.html">Beyond Soup Dumplings: Best Local Shanghai Food & Benbang Cuisine Guide</a>
+              </h2>
+              <p class="text-slate-600 mb-4 text-sm">Discover authentic Shanghai Benbang cuisine beyond Nanxiang soup dumplings. Explore classic cold dishes, signature hot plates, seasonal soups, and iconic street snacks.</p>
+            </div>
+            <a href="../travel-guides/shanghai-benbang-cuisine-guide-en.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
+              Read More
+              <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group flex flex-col h-full">
+          <div class="relative h-48 overflow-hidden">
+            <img src="../../img/img-travel-guide/5.shanghai-qipao-timeless-symbol6.jpg" alt="Shanghai Qipao Travel Guide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-6 flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center text-slate-500 text-sm mb-3">
+                <i class="iconfont icon-calendar w-4 h-4 mr-1"></i>
+                <span>July 22, 2026</span>
+                <span class="mx-2">|</span>
+                <i class="iconfont icon-ditu-dibiao w-4 h-4 mr-2"></i>
+                <span>Wander Any Place</span>
+              </div>
+              <h2 class="text-xl font-bold mb-3 group-hover:text-rose-600 transition-colors">
+                <a href="../travel-guides/shanghai-qipao-timeless-symbol.html">Why Qipao Is the Timeless Symbol of Shanghai Women's Elegance</a>
+              </h2>
+              <p class="text-slate-600 mb-4 text-sm">Discover why Qipao (Cheongsam) is the timeless symbol of Shanghai women's elegance. Explore the rich history, cultural significance, and best spots for qipao photoshoots in Shanghai.</p>
+            </div>
+            <a href="../travel-guides/shanghai-qipao-timeless-symbol.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
+              Read More
+              <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group flex flex-col h-full">
+          <div class="relative h-48 overflow-hidden">
+            <img src="../../img/4.img-shanghai/4.8.4 shanghai-funnyshops/5jellycat2.jpg" alt="Shanghai Unique Dining Experiences" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-6 flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center text-slate-500 text-sm mb-3">
+                <i class="iconfont icon-calendar w-4 h-4 mr-1"></i>
+                <span>July 24, 2026</span>
+                <span class="mx-2">|</span>
+                <i class="iconfont icon-ditu-dibiao w-4 h-4 mr-2"></i>
+                <span>Wander Any Place</span>
+              </div>
+              <h2 class="text-xl font-bold mb-3 group-hover:text-rose-600 transition-colors">
+                <a href="../travel-guides/shanghai-unique-dining-experiences.html">Shanghai Unique Dining Experiences: Best Themed & Immersive Restaurants 2026</a>
+              </h2>
+              <p class="text-slate-600 mb-4 text-sm">Discover Shanghai's most creative and immersive themed restaurants - from Hanfu feasts to rabbit cafes, Dunhuang murals to river view dining.</p>
+            </div>
+            <a href="../travel-guides/shanghai-unique-dining-experiences.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
+              Read More
+              <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <div class="mt-12 text-center">
+       <a href="../2.travel guide.html" class="px-8 py-3 border border-primary text-primary rounded-full font-medium hover:bg-rose-600 hover:text-white transition-colors">
+          View All Travel Guides
+        </a>
+      </div>
+    </div>
+  </section>
+    <!-- Community Posts Section -->
+  <section class="py-16 bg-white" id="community-posts-section">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-6 text-slate-800 text-center">Shanghai City Wander Community Posts</h2>
+      <p class="text-slate-600 text-center">Share your Shanghai City Wander experiences with others and get tips from the community.</p>
+      <br>
+      <div id="shanghai-city-wander-community-posts-loading" class="text-center py-12">
+        <p class="mt-4 text-slate-500">Loading posts...</p>
+      </div>
+
+      <div id="shanghai-city-wander-community-posts-empty" class="hidden text-center py-12">
+        <p class="mt-4 text-slate-500">No community posts yet.</p>
+      </div>
+
+      <div id="shanghai-city-wander-community-posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 hidden">
+      </div>
+      <div class="mt-12 text-center">
+        <a href="../html/2.travel guide.html" class="px-8 py-3 border border-primary text-primary rounded-full font-medium hover:bg-rose-600 hover:text-white transition-colors">
+          View All Community Posts
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <i class="iconfont icon-ditu-dibiao text-rose-500 mr-2"></i>
+            Wander Any Place
+          </h3>
+          <p class="text-gray-400 mb-4">
+            Your ultimate guide to exploring China. Discover the best destinations, plan your trip, and make unforgettable memories.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="../../index.html" class="hover:text-rose-400 transition-colors">Home</a></li>
+            <li><a href="../2.Destination.html" class="hover:text-rose-400 transition-colors">Destinations</a></li>
+            <li><a href="../2.travel guide.html" class="hover:text-rose-400 transition-colors">Travel Guides</a></li>
+            <li><a href="../2.booking.html" class="hover:text-rose-400 transition-colors">Booking Services</a></li>
+            <li><a href="../2.aboutus.html" class="hover:text-rose-400 transition-colors">About Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Resources</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="html/2.pre-visa.html" class="hover:text-rose-400 transition-colors">Visa Information</a></li>
+            <li><a href="html/2.pre-app.html" class="hover:text-rose-400 transition-colors">Necessary Apps</a></li>
+            <li><a href="html/2.payment-methods.html" class="hover:text-rose-400 transition-colors">Payment Methods</a></li>
+            <li><a href="html/2.transportation.html" class="hover:text-rose-400 transition-colors">Transportation</a></li>
+            <li><a href="html/2.essential packing copy.html" class="hover:text-rose-400 transition-colors">Essential Packing</a></li>
+          </ul>
+        </div>
+
+         <div>
+          <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+          <p class="text-slate-400">Email: wanderanyplace@gmail.com</p>
+        </div>
+      </div>
+  </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  loadCommunityPosts({
+    tag: 'shanghai citywander',
+    containerId: 'shanghai-city-wander-community-posts-container',
+    loadingId: 'shanghai-city-wander-community-posts-loading',
+    emptyId: 'shanghai-city-wander-community-posts-empty',
+    pageSize: 3
+  });
+}); 
+</script>
+</body>
+</html>

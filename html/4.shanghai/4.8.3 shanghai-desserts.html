@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L42GKWJLGB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-L42GKWJLGB");
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shanghai Desserts - Shanghai Travel Guide</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../iconfont/iconfont.js"></script>
+  <link rel="stylesheet" href="../../iconfont/iconfont.css">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <script src="../../js/gallery-lightbox.js"></script>
+  <script src="../../js/common.js"></script>
+  <script src="../../js/community.js"></script>
+
+</head>
+<body class="bg-white font-sans text-slate-800">
+  <!-- 顶部导航 -->
+  <header class="mobile-header-nav bg-gray-900" style="box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+    <div class="nav-container">
+      <a href="../../index.html" class="logo" id="mobileLogo" style="display: flex; align-items: center; text-decoration: none;">
+        <i class="iconfont icon-ditu-dibiao" style="color: #F43F5E;"></i>
+        <span style="color: white;">Wander Any Place</span>
+      </a>
+      <div class="desktop-nav" id="desktopNavLinks" style="color: white;">
+        <a href="../../index.html" style="color: white;">Home</a>
+        <a href="../2.Destination.html" style="color: white;">Destinations</a>
+        <a href="../2.travel guide.html" style="color: white;">Travel Guides</a>
+        <a href="../2.booking.html" style="color: white;">Booking Services</a>
+        <a href="../2.aboutus.html" style="color: white;">About Us</a>
+      </div>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <span style="background-color: white;"></span>
+        <span style="background-color: white;"></span>
+        <span style="background-color: white;"></span>
+      </button>
+    </div>
+  </header>
+    <!-- 移动端导航覆盖层 -->
+    <div class="mobile-nav-overlay" id="mobileNav">
+      <button class="nav-close-btn" onclick="toggleMobileMenu()">&times;</button>
+      <a href="../../index.html" onclick="toggleMobileMenu()">Home</a>
+      <a href="../2.Destination.html" onclick="toggleMobileMenu()">Destinations</a>
+      <a href="../2.travel guide.html" onclick="toggleMobileMenu()">Travel Guides</a>
+      <a href="../2.booking.html" onclick="toggleMobileMenu()">Booking Services</a>
+      <a href="../2.aboutus.html" onclick="toggleMobileMenu()">About Us</a>
+    </div>
+
+  <!-- 页面标题 -->
+  <header class="bg-gradient-to-r from-rose-600 to-rose-500 text-white py-16" style="margin-top: 70px;">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Shanghai Desserts</h1>
+      <p class="text-lg text-white/90 max-w-2xl mx-auto">
+        Explore Shanghai's sweet treasures - from traditional rice cakes to Western-influenced pastries
+      </p>
+    </div>
+  </header>
+
+  <!-- 甜品列表 -->
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-slate-800 mb-3">Traditional Rice Cakes</h2>
+        <p class="text-slate-600">Soft, chewy, and delightfully sweet - Shanghai's traditional rice cakes are a must-try for dessert lovers</p>
+      </div>
+
+      <!-- 青团 -->
+      <div class="food-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/3">
+            <div class="map-carousel w-full h-full" id="qingtuan-carousel">
+              <div class="carousel-inner flex items-center h-full">
+                <div class="carousel-item active flex justify-center h-full">
+                  <div class="gallery-container relative w-full h-full">
+                    <img src="../../img/4.img-shanghai/4.8.3 shanghai-desserts/1Qingtuan.jpg" alt="Qingtuan" class="h-full object-contain gallery-image">
+                    <div class="gallery-zoom-overlay">
+                      <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.8.3 shanghai-desserts/1Qingtuan.jpg', ['../../img/4.img-shanghai/4.8.3 shanghai-desserts/1Qingtuan.jpg'])">
+                        <i class="iconfont icon-fangdaqi text-2xl"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+     
+            </div>
+          </div>
+          <div class="p-6 md:w-2/3">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">青团 (Qingtuan / Green Rice Cake)</h2>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">Description</h3>
+              <p class="text-slate-600 mb-4">
+                A <span class="text-rose-600 font-bold">spring seasonal specialty</span> made from glutinous rice mixed with <span class="text-rose-600 font-bold">wormwood juice</span>, giving it a distinctive green color and herbal aroma. Traditionally filled with <span class="text-rose-600 font-bold">red bean paste</span>, modern versions also feature popular fillings like <span class="text-rose-600 font-bold">salted egg yolk and pork floss</span>.
+              </p>
+            </div>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">When to Eat</h3>
+              <p class="text-slate-600 mb-4">
+                Qingtuan is traditionally eaten during <span class="text-rose-600 font-bold">Qingming Festival</span> (around early April). According to ancient customs, people would offer qingtuan to ancestors as offerings before sweeping their tombs. The green color symbolizes new life and spring, while the wormwood used in the dough is believed to ward off evil spirits. Today, it has become a beloved spring treat enjoyed by all.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-700 mb-2">Recommended Shops</h3>
+              <div class="space-y-3">
+                <div class="flex items-start">
+                  <div>
+                    <p class="font-medium text-slate-800">1.沈大成 Shendacheng</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div>
+                    <p class="font-medium text-slate-800">2.王家沙 Wangjiasha</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 条头糕 -->
+      <div class="food-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/3">
+            <div class="map-carousel w-full h-full" id="tiaotougao-carousel">
+              <div class="carousel-inner flex items-center h-full">
+                <div class="carousel-item active flex justify-center h-full">
+                  <div class="gallery-container relative w-full h-full">
+                    <img src="../../img/4.img-shanghai/4.8.3 shanghai-desserts/2Tiaotougao.jpg" alt="Tiaotougao" class="h-full object-contain gallery-image">
+                    <div class="gallery-zoom-overlay">
+                      <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.8.3 shanghai-desserts/2Tiaotougao.jpg', ['../../img/4.img-shanghai/4.8.3 shanghai-desserts/2Tiaotougao.jpg'])">
+                        <i class="iconfont icon-fangdaqi text-2xl"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+    
+            </div>
+          </div>
+          <div class="p-6 md:w-2/3">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">条头糕 (Tiaotougao / Long Rice Cake)</h2>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">Description</h3>
+              <p class="text-slate-600 mb-4">
+                A long, cylindrical <span class="text-rose-600 font-bold">glutinous rice cake</span> filled with smooth <span class="text-rose-600 font-bold">red bean paste</span>. The outer layer is soft and chewy, while the filling is sweet but not cloying. It's a classic Shanghai street snack that's both satisfying and comforting.
+              </p>
+            </div>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">When to Eat</h3>
+              <p class="text-slate-600 mb-4">
+                Tiaotougao is a <span class="text-rose-600 font-bold">year-round snack</span> that can be enjoyed at any time. It's particularly popular as a <span class="text-rose-600 font-bold">breakfast or afternoon tea</span> treat. The long shape is said to symbolize "longevity" and "continuity," making it a favorite gift during festivals and special occasions.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-700 mb-2">Recommended Shops</h3>
+              <div class="space-y-3">
+                <div class="flex items-start">
+                  <div>
+                    <p class="font-medium text-slate-800">1.沈大成 Shendacheng</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div>
+                    <p class="font-medium text-slate-800">2.杏花楼 Xinghualou</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 双酿团 -->
+      <div class="food-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/3">
+            <div class="map-carousel w-full h-full" id="shuangniang-carousel">
+              <div class="carousel-inner flex items-center h-full">
+                <div class="carousel-item active flex justify-center h-full">
+                  <div class="gallery-container relative w-full h-full">
+                    <img src="../../img/4.img-shanghai/4.8.3 shanghai-desserts/3Shuangniang Tuan.jpg" alt="Shuangniang Tuan" class="h-full object-contain gallery-image">
+                    <div class="gallery-zoom-overlay">
+                      <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.8.3 shanghai-desserts/3Shuangniang Tuan.jpg', ['../../img/4.img-shanghai/4.8.3 shanghai-desserts/3Shuangniang Tuan.jpg'])">
+                        <i class="iconfont icon-fangdaqi text-2xl"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+           
+            </div>
+          </div>
+          <div class="p-6 md:w-2/3">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">双酿团 (Shuangniang Tuan / Double Filling Rice Ball)</h2>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">Description</h3>
+              <p class="text-slate-600 mb-4">
+                A delightful rice cake with <span class="text-rose-600 font-bold">two layers of filling</span>. The glutinous rice skin wraps around <span class="text-rose-600 font-bold">red bean paste</span> and <span class="text-rose-600 font-bold">black sesame paste</span>, creating a perfect harmony of sweet flavors. The exterior is often rolled in <span class="text-rose-600 font-bold">shredded coconut</span> for an extra layer of texture.
+              </p>
+            </div>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">When to Eat</h3>
+              <p class="text-slate-600 mb-4">
+                Shuangniang Tuan is enjoyed <span class="text-rose-600 font-bold">all year round</span>, but it's especially popular during <span class="text-rose-600 font-bold">Mid-Autumn Festival</span>. The "double filling" concept carries a beautiful meaning - the red bean paste represents warmth and sweetness, while the black sesame symbolizes good health and prosperity. It's a perfect snack for sharing with family and friends.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-700 mb-2">Recommended Shops</h3>
+              <div class="space-y-3">
+                <div class="flex items-start">
+                  <div>
+                    <p class="font-medium text-slate-800">1.沈大成 Shendacheng</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div>
+                    <p class="font-medium text-slate-800">2.王家沙 Wangjiasha</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 定胜糕 -->
+      <div class="food-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/3">
+            <div class="map-carousel w-full h-full" id="dingsheng-carousel">
+              <div class="carousel-inner flex items-center h-full">
+                <div class="carousel-item active flex justify-center h-full">
+                  <div class="gallery-container relative w-full h-full">
+                    <img src="../../img/4.img-shanghai/4.8.3 shanghai-desserts/4Dingsheng Cake.jpg" alt="Dingsheng Cake" class="h-full object-contain gallery-image">
+                    <div class="gallery-zoom-overlay">
+                      <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.8.3 shanghai-desserts/4Dingsheng Cake.jpg', ['../../img/4.img-shanghai/4.8.3 shanghai-desserts/4Dingsheng Cake.jpg'])">
+                        <i class="iconfont icon-fangdaqi text-2xl"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+        
+            </div>
+          </div>
+          <div class="p-6 md:w-2/3">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">定胜糕 (Dingsheng Cake)</h2>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">Description</h3>
+              <p class="text-slate-600 mb-4">
+                A traditional steamed rice cake with a <span class="text-rose-600 font-bold">rhombus shape</span>, symbolizing victory and good fortune. Made from fine rice flour and filled with <span class="text-rose-600 font-bold">red bean paste</span> or <span class="text-rose-600 font-bold">rose paste</span>, it has a soft, fluffy texture and subtle sweetness.
+              </p>
+            </div>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">When to Eat</h3>
+              <p class="text-slate-600 mb-4">
+                Dingsheng Cake is most commonly eaten during <span class="text-rose-600 font-bold">exam seasons</span> and <span class="text-rose-600 font-bold">weddings</span>. The name "Dingsheng" means "definitely victorious," and the diamond shape represents success. It's a tradition for parents to give this cake to children before important exams, symbolizing wishes for good luck and success. It's also popular during Chinese New Year for its auspicious meaning.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-700 mb-2">Recommended Shops</h3>
+              <div class="space-y-3">
+                <div class="flex items-start">
+                  <div>
+                    <p class="font-medium text-slate-800">1.乔家栅 Qiaojiashan</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div>
+                    <p class="font-medium text-slate-800">2.沈大成 Shendacheng</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 高桥松饼 -->
+      <div class="food-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/3">
+            <div class="map-carousel w-full h-full" id="gaoqiao-carousel">
+              <div class="carousel-inner flex items-center h-full">
+                <div class="carousel-item active flex justify-center h-full">
+                  <div class="gallery-container relative w-full h-full">
+                    <img src="../../img/4.img-shanghai/4.8.3 shanghai-desserts/5GaoqiaoPineCake.jpg" alt="Gaoqiao Pine Cake" class="h-full object-contain gallery-image">
+                    <div class="gallery-zoom-overlay">
+                      <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.8.3 shanghai-desserts/5GaoqiaoPineCake.jpg', ['../../img/4.img-shanghai/4.8.3 shanghai-desserts/5GaoqiaoPineCake.jpg'])">
+                        <i class="iconfont icon-fangdaqi text-2xl"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+
+            </div>
+          </div>
+          <div class="p-6 md:w-2/3">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">高桥松饼 (Gaoqiao Pine Cake)</h2>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">Description</h3>
+              <p class="text-slate-600 mb-4">
+                A famous pastry from Shanghai's Gaoqiao Town, known for its <span class="text-rose-600 font-bold">hundreds of thin layers</span> of flaky pastry. The buttery crust is filled with either <span class="text-rose-600 font-bold">red bean paste</span> or <span class="text-rose-600 font-bold">jujube paste</span>, creating a melt-in-your-mouth experience.
+              </p>
+            </div>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">When to Eat</h3>
+              <p class="text-slate-600 mb-4">
+                Gaoqiao Pine Cake is a <span class="text-rose-600 font-bold">year-round delicacy</span> that makes a perfect <span class="text-rose-600 font-bold">afternoon tea</span> treat. Originating from Gaoqiao Town in Pudong, this pastry has a history of over 100 years. It's especially popular during the Spring Festival as a gift, symbolizing good fortune and prosperity with its layered structure representing "many levels of success."
+              </p>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-700 mb-2">Recommended Shops</h3>
+              <div class="space-y-3">
+                <div class="flex items-start">
+                  <div>
+                    <p class="font-medium text-slate-800">1.高桥食品一厂 Gaoqiao Food Factory</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div>
+                    <p class="font-medium text-slate-800">2.老大昌 Laodachang</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 梨膏糖 -->
+      <div class="food-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/3">
+            <div class="map-carousel w-full h-full" id="ligao-carousel">
+              <div class="carousel-inner flex items-center h-full">
+                <div class="carousel-item active flex justify-center h-full">
+                  <div class="gallery-container relative w-full h-full">
+                    <img src="../../img/4.img-shanghai/4.8.3 shanghai-desserts/6LiGaoTang .jpg" alt="Li Gao Tang" class="h-full object-contain gallery-image">
+                    <div class="gallery-zoom-overlay">
+                      <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.8.3 shanghai-desserts/6LiGaoTang .jpg', ['../../img/4.img-shanghai/4.8.3 shanghai-desserts/6LiGaoTang .jpg'])">
+                        <i class="iconfont icon-fangdaqi text-2xl"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+       
+            </div>
+          </div>
+          <div class="p-6 md:w-2/3">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">梨膏糖 (Li Gao Tang / Pear Paste Candy)</h2>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">Description</h3>
+              <p class="text-slate-600 mb-4">
+                A traditional <span class="text-rose-600 font-bold">intangible cultural heritage</span> product of Shanghai. Made by boiling pear juice with <span class="text-rose-600 font-bold">fritillaria</span> and other herbs, it has a sweet and soothing taste. The candy is believed to help soothe sore throats and is a popular souvenir.
+              </p>
+            </div>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">When to Eat</h3>
+              <p class="text-slate-600 mb-4">
+                Li Gao Tang is particularly popular during <span class="text-rose-600 font-bold">autumn and winter</span> when the weather is dry. The pear juice and herbal ingredients help soothe sore throats and moisturize the throat. Historically, it was used as a medicinal candy to treat coughs. Today, it's enjoyed year-round as a sweet, soothing treat and makes an excellent souvenir from Shanghai.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-700 mb-2">Recommended Shops</h3>
+              <div class="space-y-3">
+                <div class="flex items-start">
+                  <div>
+                    <p class="font-medium text-slate-800">1.上海老城隍庙 Shanghai Old City God Temple</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div>
+                    <p class="font-medium text-slate-800">2.豫园商城 Yu Garden Mall</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+  </section>
+
+  <section class="py-12 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-slate-800 mb-3">Shanghai-style Western Pastries</h2>
+        <p class="text-slate-600">A unique blend of French techniques and Chinese flavors - Shanghai's iconic Western-influenced pastries</p>
+      </div>
+
+      <!-- 蝴蝶酥 -->
+      <div class="food-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/3">
+            <div class="map-carousel w-full h-full" id="hudie-carousel">
+              <div class="carousel-inner flex items-center h-full">
+                <div class="carousel-item active flex justify-center h-full">
+                  <div class="gallery-container relative w-full h-full">
+                    <img src="../../img/4.img-shanghai/4.8.3 shanghai-desserts/7Butterfly Pastry.jpg" alt="Butterfly Pastry" class="h-full object-contain gallery-image">
+                    <div class="gallery-zoom-overlay">
+                      <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.8.3 shanghai-desserts/7Butterfly Pastry.jpg', ['../../img/4.img-shanghai/4.8.3 shanghai-desserts/7Butterfly Pastry.jpg'])">
+                        <i class="iconfont icon-fangdaqi text-2xl"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+  
+            </div>
+          </div>
+          <div class="p-6 md:w-2/3">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">蝴蝶酥 (Butterfly Pastry)</h2>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">Description</h3>
+              <p class="text-slate-600 mb-4">
+                The iconic <span class="text-rose-600 font-bold">French-style puff pastry</span> that has become a symbol of Shanghai's pastry culture. Made famous by <span class="text-rose-600 font-bold">Park Hotel's Pastry Shop</span>, these delicate pastries feature hundreds of flaky layers with a rich buttery flavor. When baked, they curl into a butterfly shape, hence the name.
+              </p>
+            </div>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">When to Eat</h3>
+              <p class="text-slate-600 mb-4">
+                Butterfly Pastry is a <span class="text-rose-600 font-bold">year-round favorite</span> that pairs perfectly with <span class="text-rose-600 font-bold">Chinese tea</span> or coffee. Made famous by Park Hotel's Pastry Shop in the 1930s, it has become the most iconic Shanghai-style Western pastry. The butterfly shape symbolizes transformation and beauty. It's also a popular souvenir to bring back home.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-700 mb-2">Recommended Shops</h3>
+              <div class="space-y-3">
+                <div class="flex items-start">
+                  <div>
+                    <p class="font-medium text-slate-800">1.国际饭店西饼屋 Park Hotel Pastry Shop</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div>
+                    <p class="font-medium text-slate-800">2.哈尔滨食品厂 Harbin Food Factory</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 鲜奶小方 -->
+      <div class="food-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/3">
+            <div class="map-carousel w-full h-full" id="xiannai-carousel">
+              <div class="carousel-inner flex items-center h-full">
+                <div class="carousel-item active flex justify-center h-full">
+                  <div class="gallery-container relative w-full h-full">
+                    <img src="../../img/4.img-shanghai/4.8.3 shanghai-desserts/8FreshMilkCake.jpg" alt="Fresh Milk Cake" class="h-full object-contain gallery-image">
+                    <div class="gallery-zoom-overlay">
+                      <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.8.3 shanghai-desserts/8FreshMilkCake.jpg', ['../../img/4.img-shanghai/4.8.3 shanghai-desserts/8FreshMilkCake.jpg'])">
+                        <i class="iconfont icon-fangdaqi text-2xl"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+
+            </div>
+          </div>
+          <div class="p-6 md:w-2/3">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">鲜奶小方 (Fresh Milk Cake)</h2>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">Description</h3>
+              <p class="text-slate-600 mb-4">
+                A beloved Shanghai dessert made famous by <span class="text-rose-600 font-bold">Ruby Bakery</span>. It features a soft <span class="text-rose-600 font-bold">sponge cake</span> base covered with <span class="text-rose-600 font-bold">fresh animal cream</span>. The cream is light and not overly sweet, making it a refreshing treat.
+              </p>
+            </div>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">When to Eat</h3>
+              <p class="text-slate-600 mb-4">
+                Fresh Milk Cake is best enjoyed <span class="text-rose-600 font-bold">on the same day</span> it's made, as the fresh cream is most delicious when chilled. It's a popular <span class="text-rose-600 font-bold">afternoon tea</span> treat or dessert after meals. The cake's simple, pure flavor makes it a favorite among both locals and visitors. It's especially refreshing during summer months.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-700 mb-2">Recommended Shops</h3>
+              <div class="space-y-3">
+                <div class="flex items-start">
+                  <div>
+                    <p class="font-medium text-slate-800">1.红宝石 Ruby Bakery</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 白脱栗子蛋糕 -->
+      <div class="food-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/3">
+            <div class="map-carousel w-full h-full" id="baituo-carousel">
+              <div class="carousel-inner flex items-center h-full">
+                <div class="carousel-item active flex justify-center h-full">
+                  <div class="gallery-container relative w-full h-full">
+                    <img src="../../img/4.img-shanghai/4.8.3 shanghai-desserts/9Butter Chestnut Cake.jpg" alt="Butter Chestnut Cake" class="h-full object-contain gallery-image">
+                    <div class="gallery-zoom-overlay">
+                      <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.8.3 shanghai-desserts/9Butter Chestnut Cake.jpg', ['../../img/4.img-shanghai/4.8.3 shanghai-desserts/9Butter Chestnut Cake.jpg'])">
+                        <i class="iconfont icon-fangdaqi text-2xl"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+    
+            </div>
+          </div>
+          <div class="p-6 md:w-2/3">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">白脱栗子蛋糕 (Butter Chestnut Cake)</h2>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">Description</h3>
+              <p class="text-slate-600 mb-4">
+                A classic Shanghai cake featuring a rich layer of <span class="text-rose-600 font-bold">traditional buttercream</span> paired with smooth <span class="text-rose-600 font-bold">chestnut puree</span>. The combination creates a dense, creamy texture with a nutty sweetness. Popularized by <span class="text-rose-600 font-bold">Kaiseling Bakery</span> and <span class="text-rose-600 font-bold">Hengshan Hotel</span>.
+              </p>
+            </div>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">When to Eat</h3>
+              <p class="text-slate-600 mb-4">
+                Butter Chestnut Cake is a seasonal treat enjoyed during <span class="text-rose-600 font-bold">autumn</span> when chestnuts are in season. It's a classic <span class="text-rose-600 font-bold">afternoon tea</span> cake that evokes nostalgia for old Shanghai. The rich buttercream and chestnut combination represents luxury and indulgence, making it perfect for special occasions or simply treating yourself.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-700 mb-2">Recommended Shops</h3>
+              <div class="space-y-3">
+                <div class="flex items-start">
+                  <div>
+                    <p class="font-medium text-slate-800">1.凯司令 Kaiseling Bakery</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div>
+                    <p class="font-medium text-slate-800">2.衡山宾馆 Hengshan Hotel</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 哈斗 -->
+      <div class="food-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/3">
+            <div class="map-carousel w-full h-full" id="hadou-carousel">
+              <div class="carousel-inner flex items-center h-full">
+                <div class="carousel-item active flex justify-center h-full">
+                  <div class="gallery-container relative w-full h-full">
+                    <img src="../../img/4.img-shanghai/4.8.3 shanghai-desserts/10Ha-Dou.jpg" alt="Ha Dou" class="h-full object-contain gallery-image">
+                    <div class="gallery-zoom-overlay">
+                      <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.8.3 shanghai-desserts/10Ha-Dou.jpg', ['../../img/4.img-shanghai/4.8.3 shanghai-desserts/10Ha-Dou.jpg', '../../img/4.img-shanghai/4.8.3 shanghai-desserts/10Ha-Dou2.jpg'])">
+                        <i class="iconfont icon-fangdaqi text-2xl"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item hidden flex justify-center h-full">
+                  <div class="gallery-container relative w-full h-full">
+                    <img src="../../img/4.img-shanghai/4.8.3 shanghai-desserts/10Ha-Dou2.jpg" alt="Ha Dou" class="h-full object-contain gallery-image">
+                    <div class="gallery-zoom-overlay">
+                      <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.8.3 shanghai-desserts/10Ha-Dou2.jpg', ['../../img/4.img-shanghai/4.8.3 shanghai-desserts/10Ha-Dou.jpg', '../../img/4.img-shanghai/4.8.3 shanghai-desserts/10Ha-Dou2.jpg'])">
+                        <i class="iconfont icon-fangdaqi text-2xl"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-control-btn carousel-control-prev" onclick="prevSlide('hadou')">
+                <i class="iconfont icon-zuojiantou3 w-6 h-6"></i>
+              </button>
+              <button class="carousel-control-btn carousel-control-next" onclick="nextSlide('hadou')">
+                <i class="iconfont icon-youjiantou2 w-6 h-6"></i>
+              </button>
+            </div>
+          </div>
+          <div class="p-6 md:w-2/3">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">哈斗 (Ha Dou / Chocolate Puff)</h2>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">Description</h3>
+              <p class="text-slate-600 mb-4">
+                A Shanghai-style <span class="text-rose-600 font-bold">chocolate eclair</span> with a crispy puff pastry shell filled with smooth <span class="text-rose-600 font-bold">buttercream</span>. The exterior is dipped in rich <span class="text-rose-600 font-bold">chocolate</span>, creating a perfect balance of crispy, creamy, and sweet.
+              </p>
+            </div>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">When to Eat</h3>
+              <p class="text-slate-600 mb-4">
+                Ha Dou is best enjoyed <span class="text-rose-600 font-bold">fresh from the bakery</span> when the puff pastry is at its crispest. It's a popular <span class="text-rose-600 font-bold">afternoon tea</span> treat or a sweet pick-me-up anytime. The chocolate coating makes it a favorite during Christmas and New Year celebrations, symbolizing sweetness and joy.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-700 mb-2">Recommended Shops</h3>
+              <div class="space-y-3">
+                <div class="flex items-start">
+                  <div>
+                    <p class="font-medium text-slate-800">1.凯司令 Kaiseling Bakery</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div>
+                    <p class="font-medium text-slate-800">2.哈尔滨食品厂 Harbin Food Factory</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 大白兔奶糖 -->
+      <div class="food-card bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/3">
+            <div class="map-carousel w-full h-full" id="dabaitu-carousel">
+              <div class="carousel-inner flex items-center h-full">
+                <div class="carousel-item active flex justify-center h-full">
+                  <div class="gallery-container relative w-full h-full">
+                    <img src="../../img/4.img-shanghai/4.8.3 shanghai-desserts/11White-Rabbit-Creamy-Candy.jpg" alt="White Rabbit Candy" class="h-full object-contain gallery-image">
+                    <div class="gallery-zoom-overlay">
+                      <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.8.3 shanghai-desserts/11White-Rabbit-Creamy-Candy.jpg', ['../../img/4.img-shanghai/4.8.3 shanghai-desserts/11White-Rabbit-Creamy-Candy.jpg', '../../img/4.img-shanghai/4.8.3 shanghai-desserts/11White-Rabbit-Creamy-Candy2.jpg'])">
+                        <i class="iconfont icon-fangdaqi text-2xl"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item hidden flex justify-center h-full">
+                  <div class="gallery-container relative w-full h-full">
+                    <img src="../../img/4.img-shanghai/4.8.3 shanghai-desserts/11White-Rabbit-Creamy-Candy2.jpg" alt="White Rabbit Candy" class="h-full object-contain gallery-image">
+                    <div class="gallery-zoom-overlay">
+                      <div class="gallery-zoom-icon" onclick="openLightbox('../../img/4.img-shanghai/4.8.3 shanghai-desserts/11White-Rabbit-Creamy-Candy2.jpg', ['../../img/4.img-shanghai/4.8.3 shanghai-desserts/11White-Rabbit-Creamy-Candy.jpg', '../../img/4.img-shanghai/4.8.3 shanghai-desserts/11White-Rabbit-Creamy-Candy2.jpg'])">
+                        <i class="iconfont icon-fangdaqi text-2xl"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-control-btn carousel-control-prev" onclick="prevSlide('dabaitu')">
+                <i class="iconfont icon-zuojiantou3 w-6 h-6"></i>
+              </button>
+              <button class="carousel-control-btn carousel-control-next" onclick="nextSlide('dabaitu')">
+                <i class="iconfont icon-youjiantou2 w-6 h-6"></i>
+              </button>
+            </div>
+          </div>
+          <div class="p-6 md:w-2/3">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">大白兔奶糖 (White Rabbit Creamy Candy)</h2>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">Description</h3>
+              <p class="text-slate-600 mb-4">
+                A <span class="text-rose-600 font-bold">national treasure</span> and iconic Shanghai candy brand. These creamy milk candies have been loved by generations with their rich milk flavor and unique rice paper wrapper. They've become a <span class="text-rose-600 font-bold">symbol of Shanghai</span> and a must-buy souvenir for visitors.
+              </p>
+            </div>
+            <div class="mb-6">
+              <h3 class="font-bold text-slate-700 mb-2">When to Eat</h3>
+              <p class="text-slate-600 mb-4">
+                White Rabbit Candy is enjoyed <span class="text-rose-600 font-bold">all year round</span> and makes a perfect sweet snack anytime. It's especially popular as a <span class="text-rose-600 font-bold">gift</span> during festivals - Chinese New Year, Mid-Autumn Festival, and Children's Day. Since its creation in 1943, it has become a cultural icon and shared memory for generations of Chinese people.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-700 mb-2">Recommended Shops</h3>
+              <div class="space-y-3">
+                <div class="flex items-start">
+                  <div>
+                    <p class="font-medium text-slate-800">1.冠生园 Guanshengyuan</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div>
+                    <p class="font-medium text-slate-800">2.上海第一食品商店 Shanghai No.1 Food Store</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<!-- Expert Guides Section -->
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-slate-800 mb-4">Expert Guides</h2>
+        <p class="text-slate-600">Discover our comprehensive travel guides for Shanghai</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group flex flex-col h-full">
+          <div class="relative h-48 overflow-hidden">
+            <img src="../../img/4.img-shanghai/4.8.1 shanghai-benbang/1_Benbang Smoked Fish1.jpg" alt="Shanghai Benbang Cuisine Guide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-6 flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center text-slate-500 text-sm mb-3">
+                <i class="iconfont icon-calendar w-4 h-4 mr-1"></i>
+                <span>July 20, 2026</span>
+                <span class="mx-2">|</span>
+                <i class="iconfont icon-ditu-dibiao w-4 h-4 mr-2"></i>
+                <span>Wander Any Place</span>
+              </div>
+              <h2 class="text-xl font-bold mb-3 group-hover:text-rose-600 transition-colors">
+                <a href="../travel-guides/shanghai-benbang-cuisine-guide-en.html">Beyond Soup Dumplings: Best Local Shanghai Food & Benbang Cuisine Guide</a>
+              </h2>
+              <p class="text-slate-600 mb-4 text-sm">Discover authentic Shanghai Benbang cuisine beyond Nanxiang soup dumplings. Explore classic cold dishes, signature hot plates, seasonal soups, and iconic street snacks.</p>
+            </div>
+            <a href="../travel-guides/shanghai-benbang-cuisine-guide-en.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
+              Read More
+              <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group flex flex-col h-full">
+          <div class="relative h-48 overflow-hidden">
+            <img src="../../img/img-travel-guide/5.shanghai-qipao-timeless-symbol6.jpg" alt="Shanghai Qipao Travel Guide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-6 flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center text-slate-500 text-sm mb-3">
+                <i class="iconfont icon-calendar w-4 h-4 mr-1"></i>
+                <span>July 22, 2026</span>
+                <span class="mx-2">|</span>
+                <i class="iconfont icon-ditu-dibiao w-4 h-4 mr-2"></i>
+                <span>Wander Any Place</span>
+              </div>
+              <h2 class="text-xl font-bold mb-3 group-hover:text-rose-600 transition-colors">
+                <a href="../travel-guides/shanghai-qipao-timeless-symbol.html">Why Qipao Is the Timeless Symbol of Shanghai Women's Elegance</a>
+              </h2>
+              <p class="text-slate-600 mb-4 text-sm">Discover why Qipao (Cheongsam) is the timeless symbol of Shanghai women's elegance. Explore the rich history, cultural significance, and best spots for qipao photoshoots in Shanghai.</p>
+            </div>
+            <a href="../travel-guides/shanghai-qipao-timeless-symbol.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
+              Read More
+              <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group flex flex-col h-full">
+          <div class="relative h-48 overflow-hidden">
+            <img src="../../img/4.img-shanghai/4.8.4 shanghai-funnyshops/5jellycat2.jpg" alt="Shanghai Unique Dining Experiences" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-6 flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center text-slate-500 text-sm mb-3">
+                <i class="iconfont icon-calendar w-4 h-4 mr-1"></i>
+                <span>July 24, 2026</span>
+                <span class="mx-2">|</span>
+                <i class="iconfont icon-ditu-dibiao w-4 h-4 mr-2"></i>
+                <span>Wander Any Place</span>
+              </div>
+              <h2 class="text-xl font-bold mb-3 group-hover:text-rose-600 transition-colors">
+                <a href="../travel-guides/shanghai-unique-dining-experiences.html">Shanghai Unique Dining Experiences: Best Themed & Immersive Restaurants 2026</a>
+              </h2>
+              <p class="text-slate-600 mb-4 text-sm">Discover Shanghai's most creative and immersive themed restaurants - from Hanfu feasts to rabbit cafes, Dunhuang murals to river view dining.</p>
+            </div>
+            <a href="../travel-guides/shanghai-unique-dining-experiences.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-700 transition-colors">
+              Read More
+              <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <div class="mt-12 text-center">
+        <a href="../2.travel guide.html" class="px-8 py-3 border border-primary text-primary rounded-full font-medium hover:bg-rose-600 hover:text-white transition-colors">
+          View All Travel Guides
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Posts Section -->
+  <section class="py-16 bg-white" id="community-posts-section">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-6 text-slate-800 text-center">Shanghai Desserts Community Posts</h2>
+      <p class="text-slate-600 text-center">Share your Shanghai desserts experiences with others and get tips from the community.</p>
+      <br>
+      <div id="shanghai-desserts-posts-loading" class="text-center py-12">
+        <p class="mt-4 text-slate-500">Loading posts...</p>
+      </div>
+
+      <div id="shanghai-desserts-posts-empty" class="hidden text-center py-12">
+        <p class="mt-4 text-slate-500">No community posts yet.</p>
+      </div>
+
+      <div id="shanghai-desserts-posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 hidden">
+      </div>
+      <div class="mt-12 text-center">
+        <a href="../2.travel guide.html" class="px-8 py-3 border border-primary text-primary rounded-full font-medium hover:bg-rose-600 hover:text-white transition-colors">
+          View All Community Posts
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <i class="iconfont icon-ditu-dibiao text-rose-500 mr-2"></i>
+            Wander Any Place
+          </h3>
+          <p class="text-gray-400 mb-4">
+            Your ultimate guide to exploring China. Discover the best destinations, plan your trip, and make unforgettable memories.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="../../index.html" class="hover:text-rose-400 transition-colors">Home</a></li>
+            <li><a href="../2.Destination.html" class="hover:text-rose-400 transition-colors">Destinations</a></li>
+            <li><a href="../2.travel guide.html" class="hover:text-rose-400 transition-colors">Travel Guides</a></li>
+            <li><a href="../2.booking.html" class="hover:text-rose-400 transition-colors">Booking Services</a></li>
+            <li><a href="../2.aboutus.html" class="hover:text-rose-400 transition-colors">About Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Resources</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="../2.pre-visa.html" class="hover:text-rose-400 transition-colors">Visa Information</a></li>
+            <li><a href="../2.pre-app.html" class="hover:text-rose-400 transition-colors">Necessary Apps</a></li>
+            <li><a href="../2.payment-methods.html" class="hover:text-rose-400 transition-colors">Payment Methods</a></li>  
+            <li><a href="../2.transportation.html" class="hover:text-rose-400 transition-colors">Transportation</a></li>
+            <li><a href="../2.essential packing copy.html" class="hover:text-rose-400 transition-colors">Essential Packing</a></li>
+          </ul>
+        </div>
+
+         <div>
+          <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+          <p class="text-slate-400">Email: wanderanyplace@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  loadCommunityPosts({
+    tag: 'desserts',
+    containerId: 'shanghai-desserts-posts-container',
+    loadingId: 'shanghai-desserts-posts-loading',
+    emptyId: 'shanghai-desserts-posts-empty',
+    pageSize: 3
+  });
+}); 
+</script>
+</body>
+</html>

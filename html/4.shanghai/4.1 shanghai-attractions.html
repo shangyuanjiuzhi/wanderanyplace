@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L42GKWJLGB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-L42GKWJLGB");
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shanghai Attractions - Wander Any Place</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../iconfont/iconfont.js"></script>
+  <link rel="stylesheet" href="../../iconfont/iconfont.css">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <script src="../../js/common.js"></script>
+  <script src="../../js/attractions.js"></script>
+
+  <style>
+    .attraction-card {
+      transition: all 0.3s ease;
+    }
+    .attraction-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    .rank-badge {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    }
+    .rating-star {
+      color: #fbbf24;
+    }
+    .category-btn {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      color: #4B5563;
+      transition: all 0.3s ease;
+    }
+    .category-btn:hover {
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+    }
+    .category-btn.active {
+      background: rgba(225, 29, 72, 0.9);
+      color: white;
+      border-color: rgba(225, 29, 72, 0.5);
+    }
+  </style>
+</head>
+<body class="bg-white font-sans text-slate-800">
+  <!-- 顶部导航 -->
+  <header class="mobile-header-nav" style="background: black; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+    <div class="nav-container">
+      <a href="../../index.html" class="logo" id="mobileLogo" style="display: flex; align-items: center; text-decoration: none;">
+        <i class="iconfont icon-ditu-dibiao" style="color: #F43F5E;"></i>
+        <span style="color: white;">Wander Any Place</span>
+      </a>
+        <div class="desktop-nav" id="desktopNavLinks" style="color: white;">
+        <a href="../../index.html" style="color: white;">Home</a>
+        <a href="../2.Destination.html" style="color: white;">Destinations</a>
+        <a href="../2.travel guide.html" style="color: white;">Travel Guides</a>
+        <a href="../2.booking.html" style="color: white;">Booking Services</a>
+        <a href="../2.aboutus.html" style="color: white;">About Us</a>
+      </div>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <span style="background-color: white;"></span>
+        <span style="background-color: white;"></span>
+        <span style="background-color: white;"></span>
+      </button>
+    </div>
+  </header>
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <button class="nav-close-btn" onclick="toggleMobileMenu()">&times;</button>
+    <a href="../../index.html" onclick="toggleMobileMenu()">Home</a>
+    <a href="../2.Destination.html" onclick="toggleMobileMenu()">Destinations</a>
+    <a href="../2.travel guide.html" onclick="toggleMobileMenu()">Travel Guides</a>
+    <a href="../2.booking.html" onclick="toggleMobileMenu()">Booking Services</a>
+    <a href="../2.aboutus.html" onclick="toggleMobileMenu()">About Us</a>
+  </div>
+
+  <section class="bg-rose-600 text-white min-h-[300px] flex items-center justify-center" style="margin-top: 70px;">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Shanghai Attractions</h1>
+      <p class="text-xl max-w-3xl mx-auto">Discover the most amazing attractions in Shanghai, from iconic landmarks to cultural gems</p>
+    </div>
+  </section>
+
+  <!-- 景点列表 -->
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <!-- 分类按钮 -->
+      <div class="flex flex-wrap gap-2 mb-8" data-default-category="mustvisit">
+        <button class="category-btn px-4 py-2 rounded-full font-medium active" data-category="mustvisit">Must-visit</button>
+        <button class="category-btn px-4 py-2 rounded-full font-medium" data-category="architecture">Old Shanghai Architecture</button>
+        <button class="category-btn px-4 py-2 rounded-full font-medium" data-category="entertainment">Entertainment</button>
+        <button class="category-btn px-4 py-2 rounded-full font-medium" data-category="culture">Cultural & Artistic</button>
+        <button class="category-btn px-4 py-2 rounded-full font-medium" data-category="shopping">Shopping</button>
+        <button class="category-btn px-4 py-2 rounded-full font-medium" data-category="museum">Museums & Art</button>
+        <button class="category-btn px-4 py-2 rounded-full font-medium" data-category="tradition">Old Shanghai Traditions</button>
+      </div>
+      
+      <!-- 必游景点1: 外滩& 万国建筑群 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="mustvisit">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.1.1 Bund & International Buildings/Bund & International Buildings1.webp" alt="Bund & International Buildings" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">1</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Bund & International Buildings</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★★</span><span class="ml-2 text-sm text-slate-500">4.9</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">Shanghai's most iconic waterfront, lined with 52 historic buildings from the colonial era representing various architectural styles including Gothic, Baroque, and Renaissance. Offers stunning views of the Pudong skyline across the Huangpu River.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>2-3 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Huangpu District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Free</span>
+          </div>
+          <a href="4.1.1 shanghai-bund.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 必游景点2: 陆家嘴三件套 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="mustvisit">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.1.2 Lujiazui Skyline/Lujiazui Skyline.png" alt="Lujiazui" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">2</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Lujiazui Skyline</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★★</span><span class="ml-2 text-sm text-slate-500">4.8</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">Home to Shanghai's three iconic skyscrapers: Shanghai Tower (632m, tallest in China), Shanghai World Financial Center (492m, "bottle opener"), and Jinmao Tower (421m, pagoda-inspired). These "Three Musketeers" form one of the most impressive skylines in the world.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>3-4 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Pudong District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Varies</span>
+          </div>
+          <a href="4.1.2 shanghai-lujiazui.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 必游景点3: 东方明珠广播电视塔 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="mustvisit">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.1.3 Oriental Pearl TV Tower/Oriental Pearl TV Tower1.png" alt="Oriental Pearl TV Tower" class="w-full h-64 md:h-full object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">3</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Oriental Pearl TV Tower</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.7</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">Standing at 468 meters, the Oriental Pearl was once China's tallest building. Its distinctive design with 11 spheres of varying sizes makes it one of Shanghai's most recognizable landmarks. The tower offers multiple observation levels, including a transparent glass floor.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>2-3 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Pudong District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>¥199/person</span>
+          </div>
+          <a href="4.1.3 shanghai-orientalpearl.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 老上海建筑1: 外白渡桥 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="architecture">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.2.1 Waibaidu Bridge/Waibaidu Bridge1.jpg" alt="Waibaidu Bridge" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">1</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Waibaidu Bridge</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.4</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">Shanghai's first steel bridge, built in 1907. This historic truss bridge crossing Suzhou Creek has become an iconic landmark. Beautifully illuminated at night, offering excellent views of both the Bund and the skyline.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>30-60 minutes</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Huangpu District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Free</span>
+          </div>
+          <a href="4.2.1 shanghai-waibaidu.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 老上海建筑2: 外滩源建筑群 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="architecture">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.2.2 Waitanyuan (Bund Origin)/Waitanyuan1.png" alt="Waitanyuan" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">2</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Waitanyuan (Bund Origin)</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.5</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">The birthplace of modern Shanghai, Waitanyuan features some of the city's earliest Western-style buildings including the British Consulate and the Astor House Hotel. It's a well-preserved area that showcases Shanghai's colonial history.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>1-2 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Huangpu District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Free</span>
+          </div>
+          <a href="4.2.2 shanghai-waitanyuan.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 老上海建筑3: 武康大楼 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="architecture">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.2.3 Wukang Building/Wukang Building1.jpg" alt="Wukang Building" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">3</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Wukang Building</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.5</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">Formerly Normandie Apartments, this famous Art Deco building at the intersection of Wukang Road and Huaihai Middle Road features a distinctive curved facade and French-inspired design, making it one of Shanghai's most photographed landmarks.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>30-60 minutes</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Xuhui District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Free</span>
+          </div>
+          <a href="4.2.3 shanghai-wukang.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 老上海建筑4: 外滩美术馆 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="architecture">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.2.4 Rockbund Art Museum/Rockbund Art Museum1.png" alt="Rockbund Art Museum" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">4</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Rockbund Art Museum</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.4</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">Housed in a historic building that was once the Royal Asiatic Society, the Rockbund Art Museum showcases contemporary art exhibitions. Its elegant colonial architecture blends perfectly with modern art installations.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>1-2 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Huangpu District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Free</span>
+          </div>
+          <a href="4.2.4 shanghai-rockbund.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 老上海建筑5: 思南公馆 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="architecture">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.2.5 Sinan Mansions/Sinan Mansions1.png" alt="Sinan Mansions" class="w-full h-64 md:h-full object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">5</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Sinan Mansions</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.6</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">A collection of elegant colonial-era villas and gardens. Many famous historical figures once lived here. Today, it's a cultural and commercial center with upscale boutiques, restaurants, and art galleries.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>2-3 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Xuhui District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Free</span>
+          </div>
+          <a href="4.2.5 shanghai-sinan.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 老上海建筑6: 1933老场坊 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="architecture">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.2.6 1933 Laochangfang/1933 Laochangfang1.jpeg" alt="1933 Laochangfang" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">6</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">1933 Laochangfang</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.5</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">Built in 1933 as a slaughterhouse, this historic industrial building has been transformed into a trendy cultural hub. Its unique architectural style with exposed brick walls and steel beams attracts artists and photographers.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>2-3 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Hongkou District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Free</span>
+          </div>
+          <a href="4.2.6 shanghai-1933.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 老上海建筑7: 徐家汇天主堂 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="architecture">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.2.7 Xujiahui Cathedral/Xujiahui Cathedral1.jpeg" alt="Xujiahui Cathedral" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">7</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Xujiahui Cathedral</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.6</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">Also known as the Cathedral of St. Ignatius, this stunning neo-Gothic church features red brick facade, twin spires reaching 57 meters, and beautiful stained glass windows. One of the finest examples of Gothic architecture in East Asia.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>1-2 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Xuhui District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Free</span>
+          </div>
+          <a href="4.2.7 shanghai-xujiahui.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 休闲娱乐1: 上海迪士尼度假区 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="entertainment">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.3.1 Shanghai Disneyland/Shanghai Disneyland1.jpg" alt="Shanghai Disneyland" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">1</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Shanghai Disneyland</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★★</span><span class="ml-2 text-sm text-slate-500">4.8</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">The first Disney resort in Mainland China, featuring Enchanted Storybook Castle - the tallest Disney castle in the world. Offers magical experiences for families with thrilling rides, character meet-and-greets, and spectacular fireworks shows.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>1 day</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Pudong District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>¥419-719/person</span>
+          </div>
+          <a href="4.3.1 shanghai-disney.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 休闲娱乐2: 上海杜莎夫人蜡像馆 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="entertainment">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.3.2 Madame Tussauds Shanghai/Madame Tussauds Shanghai1.png" alt="Madame Tussauds" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">2</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Madame Tussauds Shanghai</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.5</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">Get up close with lifelike wax figures of celebrities, world leaders, and sports stars. Features interactive exhibits and photo opportunities. Located in the heart of Shanghai near Nanjing Road.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>1-2 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Huangpu District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>¥210/person</span>
+          </div>
+          <a href="4.3.2 shanghai-madame-tussauds.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 休闲娱乐3: 上海影视乐园 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="entertainment">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.3.3 Shanghai Film Park/Shanghai Film Park1.png" alt="Shanghai Film Park" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">3</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Shanghai Film Park</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.3</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">A movie studio and theme park recreating old Shanghai's streets and buildings from the 1930s-1940s. Many famous Chinese films and TV dramas are filmed here. Visitors can watch live performances and experience film-making.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>2-3 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Songjiang District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>¥80/person</span>
+          </div>
+          <a href="4.3.3 shanghai-filmpark.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 文艺聚集区1: 田子坊 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="culture">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.4.1 Tianzifang/Tianzifang1.jpeg" alt="Tianzifang" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">1</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Tianzifang</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.6</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">A trendy arts and crafts district in the former French Concession. Its narrow lanes are filled with art galleries, boutique shops, cafes, and traditional shikumen houses. A perfect place for exploring and finding unique souvenirs.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>2-3 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Xuhui District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Free</span>
+          </div>
+          <a href="4.4.1 shanghai-tianzifang.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 文艺聚集区2: 泰晤士小镇 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="culture">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.4.2 Thames Town/Thames Town1.webp" alt="Thames Town" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">2</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Thames Town</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.4</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">A charming British-style town with cobblestone streets, Tudor-style houses, and a beautiful church. Feels like stepping into a real English village. Popular for wedding photography and leisurely strolls.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>2-3 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Songjiang District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Free</span>
+          </div>
+          <a href="4.4.2 shanghai-thames.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 文艺聚集区3: 七宝老街 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="culture">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.4.3 Qibao Old Street/Qibao Old Street1.png" alt="Qibao Old Street" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">3</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Qibao Old Street</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.6</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">A well-preserved ancient town with over 1,000 years of history. Features traditional Chinese architecture, winding canals, and a wide variety of local snacks and handicrafts. Comes alive at night with beautiful lanterns.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>2-3 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Minhang District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Free</span>
+          </div>
+          <a href="4.4.3 shanghai-qibao.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 文艺聚集区4: 甜爱路 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="culture">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.4.4 Sweet Love Road/Sweet Love Road1.png" alt="Sweet Love Road" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">4</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Sweet Love Road</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.5</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">Shanghai's most romantic street, lined with love poems on its walls and featuring a mailbox that sends love letters with a special postmark. Couples from all over come here to express their love.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>1-2 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Hongkou District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Free</span>
+          </div>
+          <a href="4.4.4 shanghai-sweetlove.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+
+      <!-- 文艺聚集区5: 滴水湖 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="culture">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.4.5 Dishui Lake/Dishui Lake1.png" alt="Dishui Lake" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">5</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Dishui Lake</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.2</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">Shanghai's largest artificial lake, located in Lingang New City. This beautiful lake features a central island and is surrounded by parks, walking paths, and scenic viewpoints. It's a perfect place for cycling, picnicking, and enjoying nature.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>Half Day</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Pudong New Area</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Free</span>
+          </div>
+          <a href="4.4.5 shanghai-dishui.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 购物1: 南京路步行街 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="shopping">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.5.1 Nanjing Road/Nanjing Road1.png" alt="Nanjing Road" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">1</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Nanjing Road</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.5</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">One of the world's busiest shopping streets, stretching from the Bund to Jing'an Temple. Features major department stores, international brands, and local specialty shops. Perfect for experiencing Shanghai's vibrant commercial atmosphere.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>2-3 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Huangpu District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Free</span>
+          </div>
+          <a href="4.5.1 shanghai-nanjingroad.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 购物2: 南京西路 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="shopping">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.5.2 West Nanjing Road/West Nanjing Road1.jpeg" alt="West Nanjing Road" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">2</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">West Nanjing Road</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.6</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">Shanghai's premier luxury shopping district, home to high-end malls like Plaza 66, CITIC Plaza, and Hong Kong Plaza. Features international luxury brands and upscale dining options.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>2-3 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Jing'an District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Free</span>
+          </div>
+          <a href="4.5.2 shanghai-westnanjing.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 购物3: 淮海路、新天地 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="shopping">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.5.3 Huaihai Road & Xintiandi/Huaihai Road & Xintiandi1.jpeg" alt="Huaihai Road & Xintiandi" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">3</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Huaihai Road & Xintiandi</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.7</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">Huaihai Road is known as Shanghai's "avenue of fashion," while Xintiandi blends traditional shikumen architecture with modern shopping and entertainment. A trendy area with boutiques, cafes, and nightlife.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>2-3 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Huangpu/Xuhui District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Free</span>
+          </div>
+          <a href="4.5.3 shanghai-huaihai.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 购物4: 陆家嘴商圈 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="shopping">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.5.4 Lujiazui Shopping District/Lujiazui Shopping District1.png" alt="Lujiazui Shopping District" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">4</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Lujiazui Shopping District</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.6</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">Home to luxury malls including IFC Mall, Super Brand Mall, and Shanghai Tower Shopping Mall. Offers international luxury brands with stunning views of the Huangpu River and the Bund.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>2-3 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Pudong District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Free</span>
+          </div>
+          <a href="4.5.4 shanghai-lujiazuishopping.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 博物馆 & 艺术1: 上海博物馆 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="museum">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.6.1 Shanghai Museum/Shanghai Museum1.png" alt="Shanghai Museum" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">1</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Shanghai Museum</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★★</span><span class="ml-2 text-sm text-slate-500">4.8</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">One of China's most important museums, located in People's Square. Its impressive collection includes ancient bronzes, ceramics, calligraphy, paintings, and jade artifacts spanning thousands of years of Chinese history.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>2-3 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Huangpu District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Free</span>
+          </div>
+          <a href="4.6.1 shanghai-museum.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 博物馆 & 艺术2: 中华艺术宫 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="museum">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.6.2 China Art Palace/China Art Palace1.png" alt="China Art Palace" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">2</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">China Art Palace</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.6</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">Housed in the former China Pavilion from Expo 2010, this massive art museum showcases Chinese contemporary art. Its distinctive red architecture and vast exhibition space make it a must-visit for art lovers.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>2-3 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Pudong District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Free</span>
+          </div>
+          <a href="4.6.2 shanghai-chinaart.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 博物馆 & 艺术3: 上海当代艺术博物馆 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="museum">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.6.3 Power Station of Art/Power Station of Art1.jpg" alt="Power Station of Art" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">3</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Power Station of Art</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.5</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">Shanghai's first public contemporary art museum, housed in a former power station. The massive industrial space is perfect for large-scale installations. It also hosts the Shanghai Biennale every two years.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>2-3 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Huangpu District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Free</span>
+          </div>
+          <a href="4.6.3 shanghai-powerstation.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 博物馆 & 艺术4: 广富林文化遗址 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="museum">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.6.4 Guangfulin Cultural Heritage/Guangfulin Cultural Heritage1.png" alt="Guangfulin Cultural Heritage" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">4</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Guangfulin Cultural Heritage</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.5</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">A major archaeological site with 5,000 years of history. Features underwater museum buildings that appear to float on the lake, showcasing Shanghai's earliest human settlements and cultural development.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>3-4 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Songjiang District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>¥70/person</span>
+          </div>
+          <a href="4.6.4 shanghai-guangfulin.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 老上海的老传统1: 豫园 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="tradition">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.7.1 Yu Garden/Yu Garden1.png" alt="Yu Garden" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">1</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Yu Garden</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.7</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">A classical Chinese garden built during the Ming Dynasty. Features exquisite rockeries, tranquil ponds, pavilions, and traditional architecture. During Chinese New Year, it hosts a spectacular lantern exhibition.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>1-2 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Huangpu District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>¥40/person</span>
+          </div>
+          <a href="4.7.1 shanghai-yugarden.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 老上海的老传统2: 老城隍庙 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="tradition">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.7.2 City God Temple/City God Temple1.png" alt="City God Temple" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">2</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">City God Temple</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.5</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">A bustling temple complex dedicated to Shanghai's City God. The surrounding area features traditional architecture, local snack shops, and souvenir stalls. A great place to experience traditional Chinese culture.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>1-2 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Huangpu District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>Free</span>
+          </div>
+          <a href="4.7.2 shanghai-citygod.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+      <!-- 老上海的老传统3: 静安寺 -->
+      <div class="attraction-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8 flex flex-col md:flex-row" data-category="tradition">
+        <div class="relative md:w-1/3">
+          <img src="../../img/4.img-shanghai/4.7.3 Jing An Temple/Jing An Temple.png" alt="Jing An Temple" class="w-full h-64 md:h-64 object-cover">
+          <div class="absolute top-4 left-4 rank-badge text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center shadow-lg">3</div>
+        </div>
+        <div class="p-6 md:w-2/3">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-bold text-slate-800">Jing An Temple</h2>
+            <div class="flex items-center"><span class="rating-star">★★★★☆</span><span class="ml-2 text-sm text-slate-500">4.5</span></div>
+          </div>
+          <p class="text-slate-600 mb-4">One of Shanghai's most famous Buddhist temples, located in the heart of Jing'an District. Features a stunning golden pagoda and beautiful traditional architecture, contrasting with the surrounding modern skyscrapers.</p>
+          <div class="flex items-center gap-4 text-sm text-slate-500 mb-4">
+            <span class="flex items-center"><i class="iconfont icon-shijian text-rose-600 mr-1"></i>1-2 hours</span>
+            <span class="flex items-center"><i class="iconfont icon-area text-rose-600 mr-1"></i>Jing'an District</span>
+            <span class="flex items-center"><i class="iconfont icon-chepiao text-rose-600 mr-1"></i>¥50/person</span>
+          </div>
+          <a href="4.7.3 shanghai-jingan.html" class="inline-flex items-center text-rose-600 font-medium hover:text-rose-800 transition-colors">Learn More <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-1"></i></a>
+        </div>
+      </div>
+
+     
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <i class="iconfont icon-ditu-dibiao text-rose-500 mr-2"></i>
+            Wander Any Place
+          </h3>
+          <p class="text-gray-400 mb-4">
+            Your ultimate guide to exploring China. Discover the best destinations, plan your trip, and make unforgettable memories.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="../../index.html" class="hover:text-rose-400 transition-colors">Home</a></li>
+            <li><a href="../2.Destination.html" class="hover:text-rose-400 transition-colors">Destinations</a></li>
+            <li><a href="../2.travel guide.html" class="hover:text-rose-400 transition-colors">Travel Guides</a></li>
+            <li><a href="../2.booking.html" class="hover:text-rose-400 transition-colors">Booking Services</a></li>
+            <li><a href="../2.aboutus.html" class="hover:text-rose-400 transition-colors">About Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Resources</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="html/2.pre-visa.html" class="hover:text-rose-400 transition-colors">Visa Information</a></li>
+            <li><a href="html/2.pre-app.html" class="hover:text-rose-400 transition-colors">Necessary Apps</a></li>
+            <li><a href="html/2.payment-methods.html" class="hover:text-rose-400 transition-colors">Payment Methods</a></li>
+            <li><a href="html/2.transportation.html" class="hover:text-rose-400 transition-colors">Transportation</a></li>
+            <li><a href="html/2.essential packing copy.html" class="hover:text-rose-400 transition-colors">Essential Packing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+          <p class="text-slate-400">Email: wanderanyplace@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
