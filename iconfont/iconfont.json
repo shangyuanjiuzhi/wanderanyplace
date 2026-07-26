@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "3366071",
+      "name": "上海东方明珠",
+      "font_class": "shanghai",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "33261693",
+      "name": "company",
+      "font_class": "gongsixinxi",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
       "icon_id": "2860335",
       "name": "twiter",
       "font_class": "twiter",
