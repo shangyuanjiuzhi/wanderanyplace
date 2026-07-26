@@ -10,6 +10,11 @@
     <loc>https://www.wanderanyplace.com/sitemap/sitemap-beijing.xml</loc>
     <lastmod>2026-07-06</lastmod>
   </sitemap>
+  <!-- 上海旅游页面 -->
+  <sitemap>
+    <loc>https://www.wanderanyplace.com/sitemap/sitemap-shanghai.xml</loc>
+    <lastmod>2026-07-26</lastmod>
+  </sitemap>
   <sitemap>
     <loc>https://www.wanderanyplace.com/sitemap/sitemap-ai-tour.xml</loc>
     <lastmod>2026-07-06</lastmod>
