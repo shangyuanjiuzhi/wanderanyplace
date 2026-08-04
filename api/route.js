@@ -189,10 +189,34 @@ export default async function handler(req, res) {
         });
       }
 
-      if (method === 'GET' && (!qs.tag || qs.page)) {
+      if (method === 'GET' && (!qs.tag || qs.page || qs.area)) {
         const page = parseInt(qs.page) || 1;
         const pageSize = parseInt(qs.pageSize) || 6;
         const offset = (page - 1) * pageSize;
+        const area = qs.area;
+
+        if (area) {
+          const countResult = await query('SELECT COUNT(*) as total FROM posts WHERE area = $1', [area]);
+          const total = parseInt(countResult.rows[0].total);
+
+          const result = await query(
+            'SELECT * FROM posts WHERE area = $1 ORDER BY create_time DESC LIMIT $2 OFFSET $3',
+            [area, pageSize, offset]
+          );
+
+          const posts = result.rows.map(post => {
+            const imgs = JSON.parse(post.imgs || '[]');
+            return { ...post, imgs };
+          });
+
+          return res.json({
+            success: true,
+            data: posts,
+            total: total,
+            page: page,
+            pageSize: pageSize
+          });
+        }
 
         const countResult = await query('SELECT COUNT(*) as total FROM posts');
         const total = parseInt(countResult.rows[0].total);
