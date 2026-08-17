@@ -3,28 +3,28 @@
   <!-- 首页及主页面 -->
   <sitemap>
     <loc>https://www.wanderanyplace.com/sitemap/sitemap-main.xml</loc>
-    <lastmod>2026-07-06</lastmod>
+    <lastmod>2026-08-17</lastmod>
   </sitemap>
   <!-- 北京旅游页面 -->
   <sitemap>
     <loc>https://www.wanderanyplace.com/sitemap/sitemap-beijing.xml</loc>
-    <lastmod>2026-07-06</lastmod>
+    <lastmod>2026-08-04</lastmod>
   </sitemap>
   <!-- 上海旅游页面 -->
   <sitemap>
     <loc>https://www.wanderanyplace.com/sitemap/sitemap-shanghai.xml</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-08-11</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.wanderanyplace.com/sitemap/sitemap-ai-tour.xml</loc>
-    <lastmod>2026-07-06</lastmod>
+    <lastmod>2026-08-17</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.wanderanyplace.com/sitemap/sitemap-app.xml</loc>
-    <lastmod>2026-07-06</lastmod>
+    <lastmod>2026-08-17</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.wanderanyplace.com/sitemap/sitemap-tourguide.xml</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-04</lastmod>
   </sitemap>
 </sitemapindex>
