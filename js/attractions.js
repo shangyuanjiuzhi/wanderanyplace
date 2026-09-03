@@ -207,6 +207,42 @@ function copyAddress(type = 'badaling') {
     address = "Gubei Water Town, Miyun District, Beijing";
   } else if (type === 'Liuliqu') {
     address = "Liuliqu Village, Mentougou District, Beijing";
+  } else if (type === 'xian-terracotta') {
+    address = "西安市临潼区秦陵北路\nQinling North Road, Lintong District, Xi'an, Shaanxi Province";
+  } else if (type === 'xian-citywall') {
+    address = "陕西省西安市碑林区南大街2号\nNo.2 South Street, Beilin District, Xi'an, Shaanxi Province";
+  } else if (type === 'xian-changhenge') {
+    address = "陕西省西安市碑林区南大街2号\nNo.2 South Street, Beilin District, Xi'an, Shaanxi Province";
+  } else if (type === 'xian-huaqingpalace') {
+    address = "陕西省西安市临潼区华清路38号\nNo.38 Huaqing Road, Lintong District, Xi'an, Shaanxi Province";
+  } else if (type === 'xian-datangbuyecheng') {
+    address = "陕西省西安市雁塔区慈恩路46号\nNo.46 Ci'en Road, Yanta District, Xi'an, Shaanxi Province";
+  } else if (type === 'xian-menghuitang') {
+    address = "西安市曲江新区芙蓉西路99号\nNo.99 Furong West Road, Qujiang New District, Xi'an";
+  } else if (type === 'xian-tangparadise') {
+    address = "西安市曲江新区芙蓉西路99号\nNo.99 Furong West Road, Qujiang New District, Xi'an";
+  } else if (type === 'xian-qianguqing') {
+    address = "陕西省西安市灞桥区世博大道世博园得宝门内\nDebut Gate, Expo Park, Expo Avenue, Baqiao District, Xi'an, Shaanxi Province";
+  } else if (type === 'xian-daqin') {
+    address = "陕西省西安市西安天台路与沣东大道十字东北角\nNortheast Corner, Intersection of Tiantai Road & Fengdong Avenue, Xi'an, Shaanxi Province";
+  } else if (type === 'xian-xiaoyanta') {
+    address = "陕西省西安市碑林区友谊西路72号西安博物院内\nXi'an Museum, No.72 Youyi West Road, Beilin District, Xi'an, Shaanxi Province";
+  } else if (type === 'xian-shaanximuseum') {
+    address = "陕西省西安市碑林区友谊西路72号西安博物院内\nXi'an Museum, No.72 Youyi West Road, Beilin District, Xi'an, Shaanxi Province";
+  } else if (type === 'xian-belltower') {
+    address = "西安市中心四条大街交汇处\nIntersection of the Four Main Streets, City Center, Xi'an";
+  } else if (type === 'xian-huiminjie') {
+    address = "陕西省西安市莲湖区北院门街道\nBeiyuanmen Subdistrict, Lianhu District, Xi'an, Shaanxi Province";
+  } else if (type === 'xian-gaojiayuan') {
+    address = "陕西省西安市莲湖区北院门街道\nBeiyuanmen Subdistrict, Lianhu District, Xi'an, Shaanxi Province";
+  } else if (type === 'xian-changan') {
+    address = "陕西省西安市雁塔区雁南一路9号曼蒂广场\nMandy Plaza, No.9 Yannan 1st Road, Yanta District, Xi'an, Shaanxi Province";
+  } else if (type === 'xian-museum') {
+    address = "西安市碑林区友谊西路72号\nNo.72 Youyi West Road, Beilin District, Xi'an";
+  } else if (type === 'xian-beilin') {
+    address = "陕西省西安市碑林区三学街15号\nNo.15 Sanxue Street, Beilin District, Xi'an, Shaanxi Province";
+  } else if (type === 'xian-zhongnan') {
+    address = "陕西省西安市正南方秦岭中段\nMiddle Section of Qinling Mountains, Due South of Xi'an, Shaanxi Province";
   } 
   
   
