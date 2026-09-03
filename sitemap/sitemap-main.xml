@@ -6,7 +6,7 @@
   <!-- Home Page -->
   <url>
     <loc>https://www.wanderanyplace.com/</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -14,63 +14,63 @@
   <!-- Main Pages -->
   <url>
     <loc>https://www.wanderanyplace.com/html/2.aboutus.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.wanderanyplace.com/html/2.booking.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.wanderanyplace.com/html/2.Destination.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.wanderanyplace.com/html/2.travel%20guide.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.wanderanyplace.com/html/2.Community%20Posts.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.wanderanyplace.com/html/2.expert%20guide.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.wanderanyplace.com/html/2.travel%20guide%20detail.html</loc>
-    <lastmod>2026-07-07</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.wanderanyplace.com/html/2.travel%20guide%20add.html</loc>
-    <lastmod>2026-07-07</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://www.wanderanyplace.com/html/2.travel%20guide%20modify.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
