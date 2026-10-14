@@ -16,6 +16,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="/iconfont/iconfont.js"></script>
   <link rel="stylesheet" href="/iconfont/iconfont.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="/css/styles.css">
   <script src="/js/common.js"></script>
 </head>
@@ -94,14 +95,44 @@
 
     <!-- About Shaanxi -->
     <section class="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-slate-100 mb-16">
-      <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-4">About Shaanxi Province</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-slate-600 leading-relaxed">
-        <p>
-          Shaanxi Province, located in the heart of China, stretches across the Loess Plateau, Qinling Mountains, and Han River Valley. Its strategic position made it the natural capital region for 14 Chinese dynasties — including the Zhou, Qin, Han, and Tang.
-        </p>
-        <p>
-          Beyond Xi'an, Shaanxi offers incredible diversity: the dramatic deserts and Great Wall of Yulin, the sacred Mount Hua in Weinan, the panda habitats of Hanzhong, and the revolutionary history of Yan'an. But the journey begins in Xi'an.
-        </p>
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-1 h-8 bg-rose-600 rounded-full"></div>
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-800">About Shaanxi Province</h2>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
+        <div class="lg:col-span-3 space-y-4 text-slate-600 leading-relaxed">
+          <p>
+            Shaanxi Province, located in the heart of China, stretches across the Loess Plateau, Qinling Mountains, and Han River Valley. Its strategic position made it the natural capital region for 14 Chinese dynasties — including the Zhou, Qin, Han, and Tang.
+          </p>
+          <p>
+            Beyond Xi'an, Shaanxi offers incredible diversity: the dramatic deserts and Great Wall of Yulin, the sacred Mount Hua in Weinan, the panda habitats of Hanzhong, and the revolutionary history of Yan'an. But the journey begins in Xi'an.
+          </p>
+          <div class="flex flex-wrap gap-3 pt-2">
+            <span class="inline-flex items-center gap-1.5 bg-rose-50 text-rose-700 text-xs font-medium px-3 py-1.5 rounded-full">
+              <i class="fa-solid fa-mountain"></i> Qinling Mountains
+            </span>
+            <span class="inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 text-xs font-medium px-3 py-1.5 rounded-full">
+              <i class="fa-solid fa-landmark"></i> 14 Dynasties
+            </span>
+            <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-xs font-medium px-3 py-1.5 rounded-full">
+              <i class="fa-solid fa-water"></i> Yellow River
+            </span>
+            <span class="inline-flex items-center gap-1.5 bg-indigo-50 text-indigo-700 text-xs font-medium px-3 py-1.5 rounded-full">
+              <i class="fa-solid fa-paw"></i> Panda Habitat
+            </span>
+          </div>
+        </div>
+        <div class="lg:col-span-2">
+          <div class="relative rounded-xl overflow-hidden shadow-md border border-slate-200 group">
+            <img src="/img/5.img-shaanxi/shaanxi-map.jpeg" alt="Shaanxi Province Map showing 10 cities and geographic regions" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+              <p class="text-white text-xs font-medium flex items-center gap-2">
+                <i class="fa-solid fa-location-dot text-rose-400"></i>
+                Shaanxi Province Regional Map
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -113,7 +144,7 @@
       </div>
 
       <!-- Xi'an - Active -->
-      <a href="/html/5.xian/5.xian.html" class="block group mb-6">
+      <a href="5.1 xian/5.xian.html" class="block group mb-6">
         <div class="relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 ring-2 ring-rose-500 ring-offset-4 ring-offset-slate-50">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
             <div class="relative h-64 md:h-[360px] overflow-hidden">
@@ -145,237 +176,580 @@
         </div>
       </a>
 
-      <!-- Yulin - Coming Soon -->
-      <div class="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 grayscale opacity-80 mb-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-          <div class="relative h-64 md:h-[360px] overflow-hidden">
-            <img src="/img/5.img-shaanxi/5.2 img-Yulin/yulin.jpeg" alt="Yulin Great Wall Desert" class="w-full h-full object-cover">
-            <div class="absolute top-4 left-4 inline-flex items-center gap-2 bg-slate-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
-              <i class="iconfont icon-location w-3 h-3"></i>
-              COMING SOON
+      <!-- Yulin - Active -->
+      <a href="5.2 yulin/5.2 yulin.html" class="block group mb-6">
+        <div class="relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 ring-2 ring-rose-500 ring-offset-4 ring-offset-slate-50">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+            <div class="relative h-64 md:h-[360px] overflow-hidden">
+              <img src="/img/5.img-shaanxi/5.2 img-Yulin/yulin.jpeg" alt="Yulin Great Wall Desert Frontier 榆林" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-4 left-4 inline-flex items-center gap-2 bg-rose-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                NOW OPEN
+              </div>
             </div>
-          </div>
-          <div class="bg-gradient-to-br from-slate-50 to-white p-8 md:p-10 flex flex-col justify-center">
-            <div class="text-xs font-semibold text-slate-400 tracking-wider mb-2">SHAANXI · 陕西</div>
-            <h3 class="text-3xl md:text-4xl font-bold text-slate-500 mb-1">Yulin</h3>
-            <div class="text-lg text-slate-400 mb-4">榆林市 · Great Wall & Desert Frontier</div>
-            <p class="text-slate-400 mb-5 leading-relaxed">
-              Where the Great Wall meets the Gobi Desert — dramatic loess plateaus, ancient beacon towers, and the Ming Dynasty wall snaking through sand dunes.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Great Wall</span>
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Desert</span>
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Loess Plateau</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Yan'an - Coming Soon -->
-      <div class="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 grayscale opacity-80 mb-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-          <div class="relative h-64 md:h-[360px] overflow-hidden">
-            <img src="/img/5.img-shaanxi/5.3 img-Yanan/Yanan.jpeg" alt="Yan'an Red Revolutionary Base" class="w-full h-full object-cover">
-            <div class="absolute top-4 left-4 inline-flex items-center gap-2 bg-slate-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
-              <i class="iconfont icon-location w-3 h-3"></i>
-              COMING SOON
-            </div>
-          </div>
-          <div class="bg-gradient-to-br from-slate-50 to-white p-8 md:p-10 flex flex-col justify-center">
-            <div class="text-xs font-semibold text-slate-400 tracking-wider mb-2">SHAANXI · 陕西</div>
-            <h3 class="text-3xl md:text-4xl font-bold text-slate-500 mb-1">Yan'an</h3>
-            <div class="text-lg text-slate-400 mb-4">延安市 · Red Revolutionary Base</div>
-            <p class="text-slate-400 mb-5 leading-relaxed">
-              The sacred cradle of Chinese communism — cave dwellings carved into red earth cliffs, where Mao Zedong and the Red Army rebuilt a nation.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Revolutionary History</span>
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Cave Dwellings</span>
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Yellow Earth</span>
+            <div class="bg-gradient-to-br from-rose-50 to-white p-8 md:p-10 flex flex-col justify-center">
+              <div class="text-xs font-semibold text-rose-500 tracking-wider mb-2">SHAANXI · 陕西</div>
+              <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-1 group-hover:text-rose-700 transition-colors">Yulin</h3>
+              <div class="text-lg text-slate-500 mb-4">榆林市 · Great Wall &amp; Desert Frontier</div>
+              <p class="text-slate-600 mb-5 leading-relaxed">
+                Where the Great Wall meets the Mu Us Desert — hike the 96-million-year-old red sandstone waves of Wave Valley, trace Ming-Qing cliff calligraphy at Hongshixia, and climb Zhenbeitai, the greatest watchtower on the Great Wall.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Wave Valley</span>
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Hongshixia Gorge</span>
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Zhenbeitai Great Wall</span>
+              </div>
+              <div class="inline-flex items-center text-rose-600 font-semibold group-hover:text-rose-800 transition-colors">
+                Explore Yulin Guide
+                <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </a>
 
-      <!-- Xianyang - Coming Soon -->
-      <div class="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 grayscale opacity-80 mb-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-          <div class="relative h-64 md:h-[360px] overflow-hidden">
-            <img src="/img/5.img-shaanxi/5.4 img-Xianyang/Xianyang.jpeg" alt="Xianyang Han Dynasty Ruins" class="w-full h-full object-cover">
-            <div class="absolute top-4 left-4 inline-flex items-center gap-2 bg-slate-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
-              <i class="iconfont icon-location w-3 h-3"></i>
-              COMING SOON
+      <!-- Yan'an - Active -->
+      <a href="5.3 yanan/5.3 yanan-attractions.html" class="block group mb-6">
+        <div class="relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 ring-2 ring-rose-500 ring-offset-4 ring-offset-slate-50">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+            <div class="relative h-64 md:h-[360px] overflow-hidden">
+              <img src="/img/5.img-shaanxi/5.3 img-Yanan/5.3.1 Hukou-Waterfall/hukou.jpg" alt="Yan'an Hukou Waterfall Yellow River 延安壶口瀑布" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-4 left-4 inline-flex items-center gap-2 bg-rose-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                NOW OPEN
+              </div>
             </div>
-          </div>
-          <div class="bg-gradient-to-br from-slate-50 to-white p-8 md:p-10 flex flex-col justify-center">
-            <div class="text-xs font-semibold text-slate-400 tracking-wider mb-2">SHAANXI · 陕西</div>
-            <h3 class="text-3xl md:text-4xl font-bold text-slate-500 mb-1">Xianyang</h3>
-            <div class="text-lg text-slate-400 mb-4">咸阳市 · Han Dynasty Ruins</div>
-            <p class="text-slate-400 mb-5 leading-relaxed">
-              The Han Dynasty capital — discover ancient tombs, brick relief carvings, and the vast mausoleums that rivaled the emperors' grandeur.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Han Tombs</span>
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Yuan Family</span>
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Han Culture</span>
+            <div class="bg-gradient-to-br from-rose-50 to-white p-8 md:p-10 flex flex-col justify-center">
+              <div class="text-xs font-semibold text-rose-500 tracking-wider mb-2">SHAANXI · 陕西</div>
+              <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-1 group-hover:text-rose-700 transition-colors">Yan'an</h3>
+              <div class="text-lg text-slate-500 mb-4">延安市 · Yellow River &amp; Loess Plateau</div>
+              <p class="text-slate-600 mb-5 leading-relaxed">
+                Where the Yellow River thunders through Hukou Waterfall, the Yellow Emperor's mausoleum draws pilgrims, and "China's Antelope Canyon" hides beneath the loess plateau — Yan'an is where ancient legends and revolutionary history meet.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Hukou Waterfall</span>
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Yellow Emperor's Mausoleum</span>
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Ganquan Grand Canyon</span>
+              </div>
+              <div class="inline-flex items-center text-rose-600 font-semibold group-hover:text-rose-800 transition-colors">
+                Explore Yan'an Guide
+                <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </a>
 
-      <!-- Tongchuan - Coming Soon -->
-      <div class="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 grayscale opacity-80 mb-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-          <div class="relative h-64 md:h-[360px] overflow-hidden">
-            <img src="/img/5.img-shaanxi/5.5 img-Tongchuan/Tongchuan.jpeg" alt="Tongchuan Northern Wei Caves" class="w-full h-full object-cover">
-            <div class="absolute top-4 left-4 inline-flex items-center gap-2 bg-slate-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
-              <i class="iconfont icon-location w-3 h-3"></i>
-              COMING SOON
+      <!-- Xianyang - Active -->
+      <a href="5.4 xianyang/5.4 xianyang-attractions.html" class="block group mb-6">
+        <div class="relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 ring-2 ring-rose-500 ring-offset-4 ring-offset-slate-50">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+            <div class="relative h-64 md:h-[360px] overflow-hidden">
+              <img src="/img/5.img-shaanxi/5.4 img-Xianyang/5.4.1 Qianling-Mausoleum/Qianling-Mausoleum00.png" alt="Xianyang Qianling Mausoleum 咸阳乾陵" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-4 left-4 inline-flex items-center gap-2 bg-rose-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                NOW OPEN
+              </div>
             </div>
-          </div>
-          <div class="bg-gradient-to-br from-slate-50 to-white p-8 md:p-10 flex flex-col justify-center">
-            <div class="text-xs font-semibold text-slate-400 tracking-wider mb-2">SHAANXI · 陕西</div>
-            <h3 class="text-3xl md:text-4xl font-bold text-slate-500 mb-1">Tongchuan</h3>
-            <div class="text-lg text-slate-400 mb-4">铜川市 · Northern Wei Cave Art</div>
-            <p class="text-slate-400 mb-5 leading-relaxed">
-              Hidden gem of Northern Wei Buddhist cave sculptures — delicate Buddha reliefs carved into sandstone cliffs, far less crowded than the famous sites.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Yaozhou Caves</span>
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Buddhist Art</span>
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Northern Wei</span>
+            <div class="bg-gradient-to-br from-rose-50 to-white p-8 md:p-10 flex flex-col justify-center">
+              <div class="text-xs font-semibold text-rose-500 tracking-wider mb-2">SHAANXI · 陕西</div>
+              <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-1 group-hover:text-rose-700 transition-colors">Xianyang</h3>
+              <div class="text-lg text-slate-500 mb-4">咸阳市 · Qin-Han Imperial Capital</div>
+              <p class="text-slate-600 mb-5 leading-relaxed">
+                The first capital of unified China — explore the untouched tomb of Wu Zetian, China's only female emperor, marvel at 3,000 Han Dynasty terracotta warriors, and stroll the Wei River bridge where ancient ferries once crossed.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Qianling Mausoleum</span>
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Xianyang Museum</span>
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Gudu Corridor Bridge</span>
+              </div>
+              <div class="inline-flex items-center text-rose-600 font-semibold group-hover:text-rose-800 transition-colors">
+                Explore Xianyang Guide
+                <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </a>
 
-      <!-- Baoji - Coming Soon -->
-      <div class="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 grayscale opacity-80 mb-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-          <div class="relative h-64 md:h-[360px] overflow-hidden">
-            <img src="/img/5.img-shaanxi/5.6 img-Baoji/Baoji.jpeg" alt="Baoji Prehistoric Bronze Age" class="w-full h-full object-cover">
-            <div class="absolute top-4 left-4 inline-flex items-center gap-2 bg-slate-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
-              <i class="iconfont icon-location w-3 h-3"></i>
-              COMING SOON
+      <!-- Tongchuan - Active -->
+      <a href="5.5 tongchuan/5.5 tongchuan.html" class="block group mb-6">
+        <div class="relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 ring-2 ring-rose-500 ring-offset-4 ring-offset-slate-50">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+            <div class="relative h-64 md:h-[360px] overflow-hidden">
+              <img src="/img/5.img-shaanxi/5.5 img-Tongchuan/Tongchuan.jpeg" alt="Tongchuan Chenlu Ancient Town kiln village 铜川陈炉古镇" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-4 left-4 inline-flex items-center gap-2 bg-rose-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                NOW OPEN
+              </div>
             </div>
-          </div>
-          <div class="bg-gradient-to-br from-slate-50 to-white p-8 md:p-10 flex flex-col justify-center">
-            <div class="text-xs font-semibold text-slate-400 tracking-wider mb-2">SHAANXI · 陕西</div>
-            <h3 class="text-3xl md:text-4xl font-bold text-slate-500 mb-1">Baoji</h3>
-            <div class="text-lg text-slate-400 mb-4">宝鸡市 · Bronze Age & Prehistory</div>
-            <p class="text-slate-400 mb-5 leading-relaxed">
-              The cradle of Chinese bronze civilization — discover the Taiping Island bronze vessels and Famen Temple, home to the Buddhist finger relic.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Famen Temple</span>
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Bronze Vessels</span>
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Zhou Dynasty</span>
+            <div class="bg-gradient-to-br from-rose-50 to-white p-8 md:p-10 flex flex-col justify-center">
+              <div class="text-xs font-semibold text-rose-500 tracking-wider mb-2">SHAANXI · 陕西</div>
+              <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-1 group-hover:text-rose-700 transition-colors">Tongchuan</h3>
+              <div class="text-lg text-slate-500 mb-4">铜川市 · Yaozhou Kiln &amp; Tang Summer Palace</div>
+              <p class="text-slate-600 mb-5 leading-relaxed">
+                The last living flame of the 1,400-year Yaozhou Kiln at Chenlu Ancient Town — where pottery is still thrown the Song Dynasty way — and the forested Tang summer palace of Yuhua where the monk Xuanzang spent his final years translating Buddhist sutras.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Chenlu Ancient Town</span>
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Tang Yuhua Palace</span>
+              </div>
+              <div class="inline-flex items-center text-rose-600 font-semibold group-hover:text-rose-800 transition-colors">
+                Explore Tongchuan Guide
+                <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </a>
 
-      <!-- Weinan - Coming Soon -->
-      <div class="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 grayscale opacity-80 mb-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-          <div class="relative h-64 md:h-[360px] overflow-hidden">
-            <img src="/img/5.img-shaanxi/5.7 img-Weinan/Weinan.jpeg" alt="Weinan Mount Hua Yellow River" class="w-full h-full object-cover">
-            <div class="absolute top-4 left-4 inline-flex items-center gap-2 bg-slate-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
-              <i class="iconfont icon-location w-3 h-3"></i>
-              COMING SOON
+      <!-- Baoji - Active -->
+      <a href="5.6 baoji/5.6 baoji.html" class="block group mb-6">
+        <div class="relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 ring-2 ring-rose-500 ring-offset-4 ring-offset-slate-50">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+            <div class="relative h-64 md:h-[360px] overflow-hidden">
+              <img src="/img/5.img-shaanxi/5.6 img-Baoji/Baoji.jpeg" alt="Baoji Famen Temple bronze museum 宝鸡法门寺青铜器" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-4 left-4 inline-flex items-center gap-2 bg-rose-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                NOW OPEN
+              </div>
             </div>
-          </div>
-          <div class="bg-gradient-to-br from-slate-50 to-white p-8 md:p-10 flex flex-col justify-center">
-            <div class="text-xs font-semibold text-slate-400 tracking-wider mb-2">SHAANXI · 陕西</div>
-            <h3 class="text-3xl md:text-4xl font-bold text-slate-500 mb-1">Weinan</h3>
-            <div class="text-lg text-slate-400 mb-4">渭南市 · Mount Hua & Yellow River</div>
-            <p class="text-slate-400 mb-5 leading-relaxed">
-              Home to sacred Mount Hua — one of China's Five Great Mountains — and the dramatic Yellow River bend at Fenglingdu where three provinces meet.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Mount Hua</span>
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Yellow River</span>
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Hancheng Old Town</span>
+            <div class="bg-gradient-to-br from-rose-50 to-white p-8 md:p-10 flex flex-col justify-center">
+              <div class="text-xs font-semibold text-rose-500 tracking-wider mb-2">SHAANXI · 陕西</div>
+              <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-1 group-hover:text-rose-700 transition-colors">Baoji</h3>
+              <div class="text-lg text-slate-500 mb-4">宝鸡市 · Bronze Cradle &amp; Buddha-Relic Temple</div>
+              <p class="text-slate-600 mb-5 leading-relaxed">
+                The cradle of the Zhou and Qin civilizations — see the He Zun bearing the oldest written word "China," the Buddha's finger relic and 2,499 Tang treasures at Famen Temple, and waterfall gorges below the Qinling's highest peak.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Famen Temple</span>
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Bronze Ware Museum</span>
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Honghe Valley</span>
+              </div>
+              <div class="inline-flex items-center text-rose-600 font-semibold group-hover:text-rose-800 transition-colors">
+                Explore Baoji Guide
+                <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </a>
 
-      <!-- Shangluo - Coming Soon -->
-      <div class="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 grayscale opacity-80 mb-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-          <div class="relative h-64 md:h-[360px] overflow-hidden">
-            <img src="/img/5.img-shaanxi/5.8 img-Shangluo/Shangluo.jpeg" alt="Shangluo Qinling Mountains" class="w-full h-full object-cover">
-            <div class="absolute top-4 left-4 inline-flex items-center gap-2 bg-slate-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
-              <i class="iconfont icon-location w-3 h-3"></i>
-              COMING SOON
+      <!-- Weinan - Active -->
+      <a href="5.7 weinan/5.7 weinan.html" class="block group mb-6">
+        <div class="relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 ring-2 ring-rose-500 ring-offset-4 ring-offset-slate-50">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+            <div class="relative h-64 md:h-[360px] overflow-hidden">
+              <img src="/img/5.img-shaanxi/5.7 img-Weinan/Weinan.jpeg" alt="Weinan Mount Hua Yellow River 渭南华山" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-4 left-4 inline-flex items-center gap-2 bg-rose-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                NOW OPEN
+              </div>
             </div>
-          </div>
-          <div class="bg-gradient-to-br from-slate-50 to-white p-8 md:p-10 flex flex-col justify-center">
-            <div class="text-xs font-semibold text-slate-400 tracking-wider mb-2">SHAANXI · 陕西</div>
-            <h3 class="text-3xl md:text-4xl font-bold text-slate-500 mb-1">Shangluo</h3>
-            <div class="text-lg text-slate-400 mb-4">商洛市 · Qinling Mountains Gateway</div>
-            <p class="text-slate-400 mb-5 leading-relaxed">
-              Where the Qinling Mountains meet the south — lush green valleys, karst caves, and the ancient Shangluo Pass connecting north and south China.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Jinshui Gorge</span>
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Caves</span>
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Hiking</span>
+            <div class="bg-gradient-to-br from-rose-50 to-white p-8 md:p-10 flex flex-col justify-center">
+              <div class="text-xs font-semibold text-rose-500 tracking-wider mb-2">SHAANXI · 陕西</div>
+              <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-1 group-hover:text-rose-700 transition-colors">Weinan</h3>
+              <div class="text-lg text-slate-500 mb-4">渭南市 · Mount Hua & Yellow River</div>
+              <p class="text-slate-600 mb-5 leading-relaxed">
+                Home to sacred Mount Hua — one of China's Five Great Mountains — and the dramatic Yellow River bend at Fenglingdu where three provinces meet.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Mount Hua</span>
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Yellow River</span>
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Hancheng Old Town</span>
+              </div>
+              <div class="inline-flex items-center text-rose-600 font-semibold group-hover:text-rose-800 transition-colors">
+                Explore Weinan Guide
+                <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </a>
 
-      <!-- Ankang - Coming Soon -->
-      <div class="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 grayscale opacity-80 mb-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-          <div class="relative h-64 md:h-[360px] overflow-hidden">
-            <img src="/img/5.img-shaanxi/5.9 img-Ankang/Ankang.jpeg" alt="Ankang Han River Valley" class="w-full h-full object-cover">
-            <div class="absolute top-4 left-4 inline-flex items-center gap-2 bg-slate-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
-              <i class="iconfont icon-location w-3 h-3"></i>
-              COMING SOON
+      <!-- Shangluo - Active -->
+      <a href="5.8 shangluo/5.8 shangluo.html" class="block group mb-6">
+        <div class="relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 ring-2 ring-rose-500 ring-offset-4 ring-offset-slate-50">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+            <div class="relative h-64 md:h-[360px] overflow-hidden">
+              <img src="/img/5.img-shaanxi/5.8 img-Shangluo/Shangluo.jpeg" alt="Shangluo Qinling Mountains 商洛秦岭" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-4 left-4 inline-flex items-center gap-2 bg-rose-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                NOW OPEN
+              </div>
             </div>
-          </div>
-          <div class="bg-gradient-to-br from-slate-50 to-white p-8 md:p-10 flex flex-col justify-center">
-            <div class="text-xs font-semibold text-slate-400 tracking-wider mb-2">SHAANXI · 陕西</div>
-            <h3 class="text-3xl md:text-4xl font-bold text-slate-500 mb-1">Ankang</h3>
-            <div class="text-lg text-slate-400 mb-4">安康市 · Han River Valley</div>
-            <p class="text-slate-400 mb-5 leading-relaxed">
-              Southern Shaanxi's hidden riverside — the Han River meanders through gentle hills, ancient water towns, and the peaceful Zhongba Grand Canyon.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Han River</span>
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Water Towns</span>
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Canyons</span>
+            <div class="bg-gradient-to-br from-rose-50 to-white p-8 md:p-10 flex flex-col justify-center">
+              <div class="text-xs font-semibold text-rose-500 tracking-wider mb-2">SHAANXI · 陕西</div>
+              <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-1 group-hover:text-rose-700 transition-colors">Shangluo</h3>
+              <div class="text-lg text-slate-500 mb-4">商洛市 · Qinling Mountains Gateway</div>
+              <p class="text-slate-600 mb-5 leading-relaxed">
+                Where the Qinling Mountains meet the south — lush green valleys, karst caves, and the ancient Shangluo Pass connecting north and south China.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Golden Silk Canyon</span>
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Niubeiliang Forest</span>
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Dihua Ancient Town</span>
+              </div>
+              <div class="inline-flex items-center text-rose-600 font-semibold group-hover:text-rose-800 transition-colors">
+                Explore Shangluo Guide
+                <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </a>
 
-      <!-- Hanzhong - Coming Soon -->
-      <div class="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 grayscale opacity-80">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-          <div class="relative h-64 md:h-[360px] overflow-hidden">
-            <img src="/img/5.img-shaanxi/5.10 img-Hanzhong/Hanzhong.jpeg" alt="Hanzhong Panda Habitat" class="w-full h-full object-cover">
-            <div class="absolute top-4 left-4 inline-flex items-center gap-2 bg-slate-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
-              <i class="iconfont icon-location w-3 h-3"></i>
-              COMING SOON
+      <!-- Ankang - Active -->
+      <a href="5.9 ankang/5.9 ankang.html" class="block group mb-6">
+        <div class="relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 ring-2 ring-rose-500 ring-offset-4 ring-offset-slate-50">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+            <div class="relative h-64 md:h-[360px] overflow-hidden">
+              <img src="/img/5.img-shaanxi/5.9 img-Ankang/Ankang.jpeg" alt="Ankang Han River Valley 安康汉江" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-4 left-4 inline-flex items-center gap-2 bg-rose-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                NOW OPEN
+              </div>
+            </div>
+            <div class="bg-gradient-to-br from-rose-50 to-white p-8 md:p-10 flex flex-col justify-center">
+              <div class="text-xs font-semibold text-rose-500 tracking-wider mb-2">SHAANXI · 陕西</div>
+              <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-1 group-hover:text-rose-700 transition-colors">Ankang</h3>
+              <div class="text-lg text-slate-500 mb-4">安康市 · Han River Valley</div>
+              <p class="text-slate-600 mb-5 leading-relaxed">
+                Southern Shaanxi's hidden riverside — the Han River meanders through gentle hills, ancient water towns, and the peaceful Zhongba Grand Canyon.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Fengyan Ancient Town</span>
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Yinghu Lake</span>
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Han River</span>
+              </div>
+              <div class="inline-flex items-center text-rose-600 font-semibold group-hover:text-rose-800 transition-colors">
+                Explore Ankang Guide
+                <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
+              </div>
             </div>
           </div>
-          <div class="bg-gradient-to-br from-slate-50 to-white p-8 md:p-10 flex flex-col justify-center">
-            <div class="text-xs font-semibold text-slate-400 tracking-wider mb-2">SHAANXI · 陕西</div>
-            <h3 class="text-3xl md:text-4xl font-bold text-slate-500 mb-1">Hanzhong</h3>
-            <div class="text-lg text-slate-400 mb-4">汉中市 · Pandas & Shu-Han History</div>
-            <p class="text-slate-400 mb-5 leading-relaxed">
-              Where Zhuge Liang plotted his northern campaigns — bamboo forests shelter wild pandas, and the old plank roads cling to Qinling's vertiginous cliffs.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Panda Reserve</span>
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Zhuge Liang</span>
-              <span class="bg-white border border-slate-200 text-slate-400 px-3 py-1 rounded-full text-xs">Plank Roads</span>
+        </div>
+      </a>
+
+      <!-- Hanzhong - Active -->
+      <a href="5.10 hanzhong/5.10 hanzhong.html" class="block group">
+        <div class="relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 ring-2 ring-rose-500 ring-offset-4 ring-offset-slate-50">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+            <div class="relative h-64 md:h-[360px] overflow-hidden">
+              <img src="/img/5.img-shaanxi/5.10 img-Hanzhong/Hanzhong.jpeg" alt="Hanzhong Panda Habitat 汉中熊猫" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-4 left-4 inline-flex items-center gap-2 bg-rose-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                NOW OPEN
+              </div>
+            </div>
+            <div class="bg-gradient-to-br from-rose-50 to-white p-8 md:p-10 flex flex-col justify-center">
+              <div class="text-xs font-semibold text-rose-500 tracking-wider mb-2">SHAANXI · 陕西</div>
+              <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-1 group-hover:text-rose-700 transition-colors">Hanzhong</h3>
+              <div class="text-lg text-slate-500 mb-4">汉中市 · Pandas & Shu-Han History</div>
+              <p class="text-slate-600 mb-5 leading-relaxed">
+                Where Zhuge Liang plotted his northern campaigns — bamboo forests shelter wild pandas, and the old plank roads cling to Qinling's vertiginous cliffs.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Longtou Mountain</span>
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Liping Scenic Area</span>
+                <span class="bg-white border border-rose-200 text-rose-700 px-3 py-1 rounded-full text-xs font-medium">Xinghan Heritage Park</span>
+              </div>
+              <div class="inline-flex items-center text-rose-600 font-semibold group-hover:text-rose-800 transition-colors">
+                Explore Hanzhong Guide
+                <i class="iconfont icon-arrow-right-s-line w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
+              </div>
             </div>
           </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- Itinerary Section -->
+    <section id="itinerary" class="py-20 bg-white rounded-2xl shadow-sm border border-slate-100 mb-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-1 h-8 bg-rose-600 rounded-full"></div>
+          <h2 class="text-2xl md:text-3xl font-bold text-slate-800">Shaanxi Province Itineraries</h2>
+        </div>
+        <p class="text-slate-600 max-w-2xl mb-10 leading-relaxed">
+          Plan your perfect Shaanxi journey — from a 3-day Xi'an essence to a 7-day grand tour across the Loess Plateau, Qinling Mountains, and Han River Valley.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- 3-Day Itinerary -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg border border-slate-100">
+            <div class="bg-gradient-to-r from-rose-600 to-rose-500 text-white p-6">
+              <h3 class="text-2xl font-bold mb-2">3-Day Shaanxi Essence</h3>
+              <p class="text-white/80">
+                Xi'an imperial core &amp; sacred Mount Hua
+              </p>
+            </div>
+            <div class="p-6">
+              <div class="mb-6">
+                <h4 class="font-bold text-lg mb-3 flex items-center">
+                  <span class="bg-rose-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">1</span>
+                  Day 1: Xi'an Imperial Capital
+                </h4>
+                <ul class="ml-11 space-y-2 text-slate-600">
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-rose-600 mr-2 mt-1"></i>
+                    <span>Terracotta Army — Pit 1, 2, 3 &amp; Bronze Chariots</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-rose-600 mr-2 mt-1"></i>
+                    <span>Ming Dynasty City Wall — cycle the 14 km rampart</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-rose-600 mr-2 mt-1"></i>
+                    <span>Muslim Quarter — night food street &amp; Great Mosque</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="mb-6">
+                <h4 class="font-bold text-lg mb-3 flex items-center">
+                  <span class="bg-rose-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">2</span>
+                  Day 2: Tang Dynasty Heritage
+                </h4>
+                <ul class="ml-11 space-y-2 text-slate-600">
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-rose-600 mr-2 mt-1"></i>
+                    <span>Big Wild Goose Pagoda &amp; Da Ci'en Temple</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-rose-600 mr-2 mt-1"></i>
+                    <span>Daming Palace ruins &amp; Tang Museum</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-rose-600 mr-2 mt-1"></i>
+                    <span>Shaanxi History Museum (book ahead)</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg mb-3 flex items-center">
+                  <span class="bg-rose-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">3</span>
+                  Day 3: Mount Hua Day Trip
+                </h4>
+                <ul class="ml-11 space-y-2 text-slate-600">
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-rose-600 mr-2 mt-1"></i>
+                    <span>High-speed train Xi'an → Mount Hua (30 min)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-rose-600 mr-2 mt-1"></i>
+                    <span>Cable car up North Peak — ridgeline hike</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-rose-600 mr-2 mt-1"></i>
+                    <span>Return to Xi'an for Tang Dynasty Show &amp; dumpling banquet</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5-Day Itinerary -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg border border-slate-100">
+            <div class="bg-gradient-to-r from-amber-600 to-amber-500 text-white p-6">
+              <h3 class="text-2xl font-bold mb-2">5-Day Northern Loop</h3>
+              <p class="text-white/80">
+                Xi'an, Xianyang &amp; the Yellow River bend
+              </p>
+            </div>
+            <div class="p-6">
+              <div class="mb-4">
+                <h4 class="font-bold text-lg mb-3 flex items-center">
+                  <span class="bg-amber-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">1</span>
+                  Day 1: Xi'an — Terracotta Army
+                </h4>
+                <ul class="ml-11 space-y-2 text-slate-600">
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-amber-600 mr-2 mt-1"></i>
+                    <span>Full morning at Terracotta Warriors Museum</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-amber-600 mr-2 mt-1"></i>
+                    <span>Huaqing Hot Springs &amp; Lishan backdrop</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="mb-4">
+                <h4 class="font-bold text-lg mb-3 flex items-center">
+                  <span class="bg-amber-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">2</span>
+                  Day 2: Xi'an Old City
+                </h4>
+                <ul class="ml-11 space-y-2 text-slate-600">
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-amber-600 mr-2 mt-1"></i>
+                    <span>City Wall cycling &amp; Bell/Drum Towers</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-amber-600 mr-2 mt-1"></i>
+                    <span>Muslim Quarter street food crawl</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="mb-4">
+                <h4 class="font-bold text-lg mb-3 flex items-center">
+                  <span class="bg-amber-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">3</span>
+                  Day 3: Xianyang Imperial Tombs
+                </h4>
+                <ul class="ml-11 space-y-2 text-slate-600">
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-amber-600 mr-2 mt-1"></i>
+                    <span>Qianling Mausoleum — Wu Zetian's untouched tomb</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-amber-600 mr-2 mt-1"></i>
+                    <span>Han Yangling — 3,000 mini terracotta warriors</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="mb-4">
+                <h4 class="font-bold text-lg mb-3 flex items-center">
+                  <span class="bg-amber-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">4</span>
+                  Day 4: Yan'an — Hukou Waterfall
+                </h4>
+                <ul class="ml-11 space-y-2 text-slate-600">
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-amber-600 mr-2 mt-1"></i>
+                    <span>Hukou Waterfall — Yellow River narrows to 30 m</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-amber-600 mr-2 mt-1"></i>
+                    <span>Overnight in Yichuan County</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg mb-3 flex items-center">
+                  <span class="bg-amber-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">5</span>
+                  Day 5: Mount Hua
+                </h4>
+                <ul class="ml-11 space-y-2 text-slate-600">
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-amber-600 mr-2 mt-1"></i>
+                    <span>Cable car up — cliffside plank walk at South Peak</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-amber-600 mr-2 mt-1"></i>
+                    <span>Return to Xi'an, fly out</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7-Day Itinerary -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg border border-slate-100">
+            <div class="bg-gradient-to-r from-indigo-600 to-indigo-500 text-white p-6">
+              <h3 class="text-2xl font-bold mb-2">7-Day Grand Shaanxi Tour</h3>
+              <p class="text-white/80">
+                North Loess Plateau to south Qinling &amp; Han River
+              </p>
+            </div>
+            <div class="p-6">
+              <div class="mb-4">
+                <h4 class="font-bold text-lg mb-3 flex items-center">
+                  <span class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">1</span>
+                  Day 1-2: Xi'an Imperial Core
+                </h4>
+                <ul class="ml-11 space-y-2 text-slate-600">
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-indigo-600 mr-2 mt-1"></i>
+                    <span>Terracotta Army, City Wall, Muslim Quarter</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-indigo-600 mr-2 mt-1"></i>
+                    <span>Daming Palace, Big Wild Goose Pagoda</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="mb-4">
+                <h4 class="font-bold text-lg mb-3 flex items-center">
+                  <span class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">2</span>
+                  Day 3: Xianyang — Qin &amp; Tang Tombs
+                </h4>
+                <ul class="ml-11 space-y-2 text-slate-600">
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-indigo-600 mr-2 mt-1"></i>
+                    <span>Qianling Mausoleum &amp; Han Yangling</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-indigo-600 mr-2 mt-1"></i>
+                    <span>Xianyang Museum — Qin bronze collection</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="mb-4">
+                <h4 class="font-bold text-lg mb-3 flex items-center">
+                  <span class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">3</span>
+                  Day 4: Yan'an — Yellow River &amp; Loess
+                </h4>
+                <ul class="ml-11 space-y-2 text-slate-600">
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-indigo-600 mr-2 mt-1"></i>
+                    <span>Hukou Waterfall &amp; Yellow Emperor's Mausoleum</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-indigo-600 mr-2 mt-1"></i>
+                    <span>Ganquan Grand Canyon — "China's Antelope Canyon"</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="mb-4">
+                <h4 class="font-bold text-lg mb-3 flex items-center">
+                  <span class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">4</span>
+                  Day 5: Mount Hua Sacred Peak
+                </h4>
+                <ul class="ml-11 space-y-2 text-slate-600">
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-indigo-600 mr-2 mt-1"></i>
+                    <span>Five-Peak ridgeline tour &amp; cliffside plank</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="mb-4">
+                <h4 class="font-bold text-lg mb-3 flex items-center">
+                  <span class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">5</span>
+                  Day 6: Hanzhong — Qinling Cloud Sea
+                </h4>
+                <ul class="ml-11 space-y-2 text-slate-600">
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-indigo-600 mr-2 mt-1"></i>
+                    <span>Longtou Mountain cable car &amp; cloud sea</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-indigo-600 mr-2 mt-1"></i>
+                    <span>Xinghan Heritage Park — Han dynasty culture</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg mb-3 flex items-center">
+                  <span class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">6</span>
+                  Day 7: Baoji — Famen Temple Relic
+                </h4>
+                <ul class="ml-11 space-y-2 text-slate-600">
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-indigo-600 mr-2 mt-1"></i>
+                    <span>Famen Temple — Buddha's finger bone relic</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-indigo-600 mr-2 mt-1"></i>
+                    <span>Bronze Ware Museum — "China" inscription on He Zun</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 p-5 bg-rose-50 border-l-4 border-rose-500 rounded-r-lg">
+          <p class="text-slate-700 text-sm leading-relaxed">
+            <i class="fa-solid fa-lightbulb text-rose-600 mr-2"></i>
+            <strong>Travel Tips:</strong> Spring (Apr–May) and autumn (Sep–Oct) are ideal — mild weather and clear skies. High-speed rail connects Xi'an to Mount Hua (30 min), Yan'an (2h), and Hanzhong (1.5h). Book Shaanxi History Museum and Terracotta Army tickets 3+ days in advance. Mount Hua plank walk requires gloves and harness rental on-site.
+          </p>
         </div>
       </div>
     </section>
