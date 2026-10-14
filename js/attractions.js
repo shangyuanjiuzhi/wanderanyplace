@@ -445,6 +445,12 @@ function initAttractionFilter() {
   const categoryBtns = document.querySelectorAll('.category-btn');
   const pageBtns = document.querySelectorAll('.page-btn');
   const attractionCards = document.querySelectorAll('.attraction-card');
+
+  // 如果没有筛选按钮和分页按钮，不执行筛选，显示所有卡片
+  if (categoryBtns.length === 0 && pageBtns.length === 0) {
+    return;
+  }
+
   
   const defaultCategory = document.querySelector('[data-default-category]')?.getAttribute('data-default-category') || 'imperial';
   let currentCategory = defaultCategory;
@@ -452,8 +458,8 @@ function initAttractionFilter() {
   
   function filterAttractions() {
     attractionCards.forEach(card => {
-      const cardCategory = card.getAttribute('data-category');
-      const cardPage = card.getAttribute('data-page');
+      const cardCategory = card.getAttribute('data-category') || '';
+      const cardPage = card.getAttribute('data-page') || '1';
       
       let isMatch = false;
       if (currentCategory === 'landmark' || currentCategory === 'temple') {

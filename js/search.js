@@ -297,7 +297,22 @@ const attractionsDict = {
 
   // 西安自然景观 (5.6.x)
   "Zhongnan Mountain": "html/5.shaanxi/5.1 xian/5.6.1 xian-zhongnan.html",
-  "终南山": "html/5.shaanxi/5.1 xian/5.6.1 xian-zhongnan.html"
+  "终南山": "html/5.shaanxi/5.1 xian/5.6.1 xian-zhongnan.html",
+
+  // 榆林景点 (5.2.x)
+  "Wave Valley": "html/5.shaanxi/5.2 yulin/5.2.1 yulin-wavevalley.html",
+  "波浪谷": "html/5.shaanxi/5.2 yulin/5.2.1 yulin-wavevalley.html",
+  "Hongshixia Gorge": "html/5.shaanxi/5.2 yulin/5.2.3 yulin-hongshixia.html",
+  "红石峡": "html/5.shaanxi/5.2 yulin/5.2.3 yulin-hongshixia.html",
+  "Zhenbeitai Great Wall": "html/5.shaanxi/5.2 yulin/5.2.4 yulin-zhenbeitai.html",
+  "镇北台": "html/5.shaanxi/5.2 yulin/5.2.4 yulin-zhenbeitai.html",
+  "Yulin Ancient City": "html/5.shaanxi/5.2 yulin/5.2.5 yulin-ancientcity.html",
+  "榆林古城": "html/5.shaanxi/5.2 yulin/5.2.5 yulin-ancientcity.html",
+  "Jiang Family Manor": "html/5.shaanxi/5.2 yulin/5.2.6 yulin-jiangmanor.html",
+  "姜氏庄园": "html/5.shaanxi/5.2 yulin/5.2.6 yulin-jiangmanor.html",
+  "Li Zicheng's Temporary Palace": "html/5.shaanxi/5.2 yulin/5.2.7 yulin-lizicheng.html",
+  "Li Zicheng Palace": "html/5.shaanxi/5.2 yulin/5.2.7 yulin-lizicheng.html",
+  "李自成行宫": "html/5.shaanxi/5.2 yulin/5.2.7 yulin-lizicheng.html"
 };
 
 // 计算编辑距离 (Levenshtein距离)
