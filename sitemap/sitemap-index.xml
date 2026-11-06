@@ -20,6 +20,11 @@
     <loc>https://www.wanderanyplace.com/sitemap/sitemap-shaanxi.xml</loc>
     <lastmod>2026-10-29</lastmod>
   </sitemap>
+  <!-- 四川旅游页面 -->
+  <sitemap>
+    <loc>https://www.wanderanyplace.com/sitemap/sitemap-sichuan.xml</loc>
+    <lastmod>2026-11-06</lastmod>
+  </sitemap>
   <sitemap>
     <loc>https://www.wanderanyplace.com/sitemap/sitemap-ai-tour.xml</loc>
     <lastmod>2026-10-29</lastmod>
