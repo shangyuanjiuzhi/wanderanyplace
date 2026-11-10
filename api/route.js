@@ -340,7 +340,12 @@ export default async function handler(req, res) {
     }
 
     if (url.startsWith('/api/comments')) {
-      const path = url.replace('/api/comments', '');
+      const path = url.replace('/api/comments', '').split('?')[0];
+      res.setHeader('X-Robots-Tag', 'noindex');
+
+      if (method === 'GET' && path === '') {
+        return res.json({ success: true, data: [], total: 0 });
+      }
 
       if (method === 'GET' && path.startsWith('/')) {
         const articleId = path.split('/')[1];
