@@ -175,4 +175,61 @@
     <priority>0.9</priority>
   </url>
 
+
+  <!-- Leshan Travel Guides -->
+  <url>
+    <loc>https://www.wanderanyplace.com/html/travel-guides/leshan-giant-buddha-history.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.wanderanyplace.com/html/travel-guides/leshan-mount-emei-history.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.wanderanyplace.com/html/travel-guides/leshan-why-so-many-buddhas.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.wanderanyplace.com/html/travel-guides/leshan-mount-monkey.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.wanderanyplace.com/html/travel-guides/leshan-food-soul-of-sichuan.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Deyang Travel Guides -->
+  <url>
+    <loc>https://www.wanderanyplace.com/html/travel-guides/deyang-sanxingdui-latin-america-parallels.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Nanchong Travel Guides -->
+  <url>
+    <loc>https://www.wanderanyplace.com/html/travel-guides/nanchong-langzhong-grand-buddha-peace-sign.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Yaan Travel Guides -->
+  <url>
+    <loc>https://www.wanderanyplace.com/html/travel-guides/yaan-hiking-guide.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
 </urlset>
